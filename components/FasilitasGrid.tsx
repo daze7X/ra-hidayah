@@ -48,7 +48,7 @@ export default function FasilitasGrid({ items }: { items: FasilitasItem[] }) {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                <div className={\`absolute bottom-4 left-4 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-md \${colorClass}\`}>
+                <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-md \${colorClass}`}>
                   <span className="material-symbols-outlined text-[24px]">{item.icon || 'verified'}</span>
                 </div>
                 {/* Zoom Hint Icon */}
