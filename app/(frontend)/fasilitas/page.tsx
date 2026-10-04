@@ -10,13 +10,13 @@ export const metadata = {
 };
 
 async function getFasilitasData() {
-  const query = \`*[_type == "fasilitas"] | order(order asc) {
+  const query = `*[_type == "fasilitas"] | order(order asc) {
     _id,
     title,
     description,
     icon,
     image
-  }\`;
+  }`;
   
   const fasilitas = await client.fetch(query);
   

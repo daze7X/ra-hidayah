@@ -8,13 +8,13 @@ import { notFound } from "next/navigation";
 export const revalidate = 0; // Disable caching for preview
 
 async function getPost(slug: string) {
-  const query = \`*[_type == "post" && slug.current == $slug][0] {
+  const query = `*[_type == "post" && slug.current == $slug][0] {
     title,
     publishedAt,
     mainImage,
     body,
     "authorName": author->name
-  }\`;
+  }`;
   
   return await client.fetch(query, { slug });
 }
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) return { title: "Not Found" };
   
   return {
-    title: \`\${post.title} - PAUD Hidayah\`,
+    title: `\${post.title} - PAUD Hidayah`,
   };
 }
 
