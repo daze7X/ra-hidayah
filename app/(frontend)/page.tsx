@@ -683,7 +683,7 @@ export default async function Home() {
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
 <span>Konsultasi Admisi WhatsApp</span>
 </a>
-<a className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#FCD116]/15 backdrop-blur-md text-on-primary font-label-lg text-label-lg font-semibold hover:bg-[#FCD116]/25 transition-all" href="#">
+<a className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#FCD116]/15 backdrop-blur-md text-on-primary font-label-lg text-label-lg font-semibold hover:bg-[#FCD116]/25 transition-all" href={`https://wa.me/${phone}?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20PAUD%20Hidayah.%20Boleh%20minta%20dikirimkan%20file%20Brosur%20dan%20Rincian%20Biaya%20terbaru%3F`} target="_blank">
 <span className="material-symbols-outlined text-[20px]">download</span>
 <span>Unduh Brosur &amp; Biaya</span>
 </a>
