@@ -35,7 +35,6 @@ export default async function GalleryPage() {
     <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 pb-20">
       <div className="max-w-[1200px] mx-auto px-6">
         
-        
         {/* Modern Gradient Hero */}
         <div className="w-full rounded-3xl bg-gradient-to-br from-[#188B48] to-[#126b37] px-6 py-16 md:py-20 text-center mb-16 shadow-lg border border-[#188B48] relative overflow-hidden">
           {/* Decorative shapes */}
@@ -56,4 +55,10 @@ export default async function GalleryPage() {
           </div>
         </div>
 
-          {/* Gallery Grid Component (Client Side for Lightbox) */}undefined
+        {/* Gallery Grid Client Component */}
+        <GalleryGrid items={items} />
+
+      </div>
+    </main>
+  );
+}
