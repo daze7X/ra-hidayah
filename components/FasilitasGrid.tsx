@@ -35,7 +35,7 @@ export default function FasilitasGrid({ items }: { items: FasilitasItem[] }) {
           return (
             <div 
               key={item._id} 
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group cursor-pointer"
+              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col group cursor-pointer hover:-translate-y-2"
               onClick={() => setSelectedFasilitas(item)}
             >
               {/* Image Section */}
@@ -44,7 +44,7 @@ export default function FasilitasGrid({ items }: { items: FasilitasItem[] }) {
                   src={item.imageUrl} 
                   alt={item.title} 
                   fill 
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>

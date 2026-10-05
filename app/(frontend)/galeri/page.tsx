@@ -32,7 +32,11 @@ export default async function GalleryPage() {
   const items = await getGalleryData();
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 pb-20">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 pb-20 relative overflow-hidden">
+        {/* Floating Decorative Blobs */}
+        <div className="absolute top-40 right-0 w-96 h-96 bg-[#FCD116]/15 rounded-full blur-[100px] translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute bottom-40 left-0 w-80 h-80 bg-[#188B48]/10 rounded-full blur-[80px] -translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute top-3/4 right-1/4 w-40 h-40 bg-[#FCD116]/10 rounded-full blur-[60px] pointer-events-none"></div>
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Modern Gradient Hero */}

@@ -77,6 +77,12 @@ export default async function Home() {
     </div>
   </div>
 </section>
+{/* Wave Divider */}
+<div className="w-full overflow-hidden -mt-1 bg-[#188B48]">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+    <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
+  </svg>
+</div>
 {/* SECTION 2: SAMBUTAN & 3 PILAR DASAR */}
 <section className="w-full py-12 md:py-20 bg-[#188B48] text-white">
 <div className="max-w-[1200px] mx-auto px-6">
@@ -160,6 +166,12 @@ export default async function Home() {
 </div>
 </div>
 </section>
+{/* Wave Divider */}
+<div className="w-full overflow-hidden -mt-1 bg-[#FCD116]">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+    <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
+  </svg>
+</div>
 {/* SECTION 3: PROGRAM PEMBELAJARAN UNGGULAN */}
 <section className="w-full py-12 md:py-20 bg-[#FCD116]" id="program-unggulan">
 <div className="max-w-[1200px] mx-auto px-6">
@@ -301,6 +313,12 @@ export default async function Home() {
 </div>
 </div>
 </section>
+{/* Wave Divider */}
+<div className="w-full overflow-hidden -mt-1 bg-[#188B48]">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+    <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
+  </svg>
+</div>
 {/* SECTION 4: METODE & PENDEKATAN BELAJAR */}
 <section className="w-full py-20 bg-[#188B48] text-white">
   <div className="max-w-[1200px] mx-auto px-6">
@@ -383,6 +401,12 @@ export default async function Home() {
     </div>
   </div>
 </section>
+{/* Wave Divider */}
+<div className="w-full overflow-hidden -mt-1 bg-white">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+    <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
+  </svg>
+</div>
 {/* SECTION 5: BERITA & AGENDA KEGIATAN */}
 <section className="w-full py-12 md:py-20 bg-white">
 <div className="max-w-[1200px] mx-auto px-6">
@@ -488,6 +512,12 @@ export default async function Home() {
 </div>
 </div>
 </section>
+{/* Wave Divider */}
+<div className="w-full overflow-hidden -mt-1 bg-[#FCD116]">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+    <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="white"/>
+  </svg>
+</div>
 {/* SECTION 6: CUPLIKAN GALERI CERIA (PHOTO MOSAIC) */}
 <section className="w-full py-12 md:py-20 bg-[#FCD116]">
 <div className="max-w-[1200px] mx-auto px-6">
@@ -534,6 +564,12 @@ export default async function Home() {
 </div>
 </div>
 </section>
+{/* Wave Divider */}
+<div className="w-full overflow-hidden -mt-1 bg-[#188B48]">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+    <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
+  </svg>
+</div>
 {/* SECTION 7: TESTIMONI WALI MURID */}
 <section className="w-full py-12 md:py-20 bg-[#188B48] text-white">
 <div className="max-w-[1200px] mx-auto px-6">
@@ -618,6 +654,12 @@ export default async function Home() {
 </div>
 </div>
 </section>
+{/* Wave Divider */}
+<div className="w-full overflow-hidden -mt-1 bg-[#FCD116]">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+    <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
+  </svg>
+</div>
 {/* SECTION 8: BANNER PENUTUP CTA PPDB & KONSULTASI */}
 <section className="w-full py-12 md:py-20 bg-[#FCD116]" id="daftar-ppdb">
 <div className="max-w-[1200px] mx-auto px-6">

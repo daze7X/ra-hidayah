@@ -31,23 +31,28 @@ export default async function StrukturOrganisasi() {
   const OrgCard = ({ org }: { org: any }) => {
     if (!org) return null;
     return (
-      <div className="bg-white rounded-[24px] p-4 sm:p-6 shadow-[0_4px_20px_rgba(0,64,40,0.04)] border border-[#188B48]/10 flex flex-col items-center w-full max-w-[240px] relative z-10 transition-transform hover:-translate-y-1 duration-300">
-        <div className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full bg-[#EAF3EF] mb-3 overflow-hidden border-2 border-white shadow-sm flex items-center justify-center shrink-0">
+      <div className="group bg-white rounded-[24px] p-4 sm:p-6 shadow-md hover:shadow-2xl border border-[#188B48]/10 hover:border-[#188B48]/40 flex flex-col items-center w-full max-w-[240px] relative z-10 transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+        {/* Gradient accent top bar */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#188B48] to-[#FCD116] transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+        {/* Subtle glow on hover */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#188B48]/0 to-[#188B48]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[24px]"></div>
+        
+        <div className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full bg-[#EAF3EF] mb-3 overflow-hidden border-2 border-white shadow-md group-hover:border-[#188B48]/30 group-hover:shadow-lg transition-all duration-300 flex items-center justify-center shrink-0 relative z-10">
           {org.image ? (
             <img 
               src={urlFor(org.image).width(144).height(144).format('webp').url()} 
               alt={org.name} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
             />
           ) : (
-            <span className="material-symbols-outlined text-[#188B48]/30 text-[32px]">person</span>
+            <span className="material-symbols-outlined text-[#188B48]/40 group-hover:text-[#188B48]/70 text-[32px] transition-colors duration-300">person</span>
           )}
         </div>
-        <h4 className="font-bold text-[14px] text-[#188B48] text-center leading-tight mb-1">
+        <h4 className="font-bold text-[14px] text-[#188B48] text-center leading-tight mb-2 relative z-10">
           {org.name}
         </h4>
-        <p className="text-[12px] text-[#1b1c1a] font-medium text-center">
+        <p className="text-[11px] text-[#188B48]/80 font-semibold text-center bg-[#188B48]/8 px-2 py-0.5 rounded-full relative z-10">
           {org.position}
         </p>
       </div>

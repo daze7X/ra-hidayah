@@ -34,7 +34,11 @@ export default async function BeritaPage() {
   };
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 pb-20">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 pb-20 relative overflow-hidden">
+        {/* Floating Decorative Blobs */}
+        <div className="absolute top-40 right-0 w-96 h-96 bg-[#FCD116]/15 rounded-full blur-[100px] translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute bottom-40 left-0 w-80 h-80 bg-[#188B48]/10 rounded-full blur-[80px] -translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute top-3/4 right-1/4 w-40 h-40 bg-[#FCD116]/10 rounded-full blur-[60px] pointer-events-none"></div>
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Modern Gradient Hero */}
@@ -61,7 +65,7 @@ export default async function BeritaPage() {
         {posts && posts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post: any) => (
-              <Link href={`/berita/${post.slug?.current}`} key={post._id} className="group flex flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+              <Link href={`/berita/${post.slug?.current}`} key={post._id} className="group flex flex-col bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 hover:border-[#188B48]/30">
                 {/* Image */}
                 <div className="relative w-full h-56 bg-gray-100 overflow-hidden">
                   {post.mainImage ? (
@@ -69,7 +73,7 @@ export default async function BeritaPage() {
                       src={urlFor(post.mainImage).url()}
                       alt={post.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (
