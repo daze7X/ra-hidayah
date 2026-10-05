@@ -68,6 +68,28 @@ export default async function FasilitasPage() {
         <div className="absolute top-40 right-0 w-96 h-96 bg-[#FCD116]/15 rounded-full blur-[100px] translate-x-1/3 pointer-events-none"></div>
         <div className="absolute bottom-40 left-0 w-80 h-80 bg-[#188B48]/10 rounded-full blur-[80px] -translate-x-1/3 pointer-events-none"></div>
         <div className="absolute top-3/4 right-1/4 w-40 h-40 bg-[#FCD116]/10 rounded-full blur-[60px] pointer-events-none"></div>
+      
+      {/* Full Bleed Solid Green Hero */}
+      <div className="w-full bg-[#188B48] pt-32 pb-20 md:pt-40 md:pb-24 text-center relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white border-white/30 font-bold text-sm mb-6 border">
+            <span className="material-symbols-outlined text-[18px]">museum</span>
+            <span>FASILITAS SEKOLAH</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
+            Sarana & Prasarana Ceria
+          </h1>
+          <p className="text-white max-w-2xl mx-auto text-lg leading-relaxed">
+            Kami menyediakan lingkungan belajar yang aman, nyaman, dan mendukung eksplorasi tanpa batas bagi anak usia dini.
+          </p>
+        </div>
+      </div>
+      {/* Wave Divider */}
+      <div className="w-full overflow-hidden -mt-1 bg-[#FDFCF8] relative z-20 mb-12">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48" />
+        </svg>
+      </div>
       <div className="max-w-[1200px] mx-auto px-6">
         
         
