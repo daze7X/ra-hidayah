@@ -183,9 +183,7 @@ export default async function Home() {
 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 {/* Program 1: TK A */}
 <div className="bg-[#FCD116]est rounded-[32px] overflow-hidden shadow-md ring-2 ring-primary/20 flex flex-col relative">
-<div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 bg-primary text-on-primary font-label-sm text-label-sm px-4 py-1 rounded-b-xl font-bold">
-            Paling Diminati
-          </div>
+
 <div className="relative h-48 overflow-hidden bg-primary-fixed/30">
 <img className="w-full h-full object-cover" data-alt="Anak-anak TK usia 4-5 tahun perempuan berkerudung putih dan anak laki-laki berkopiah ceria sedang menata huruf hijaiyah bergambar dengan senyum gembira di meja kayu kelas TK PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqFeTlBzosePPvDd-3-WrOFgMFnhmQyypTpbIDCQaCncycbhFbRinkT4d99cSIPmQjeilchImiNlOpaNETSWhdqLX8nFCOle_UPeWhTJet1YchlZDAi8SPqNdvoyrTPMz1-Wb1Trs9KMYqoO4tWvlfFLRpoYaMHWNC9FJT7fSHon7zLv41ixq_YwVmtF2gXwUa7dOL8HaZJEtqu4vcny0g1MJ1QoRkIn2A7JbdmwsJRiwJLew5EABX"/>
 <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
