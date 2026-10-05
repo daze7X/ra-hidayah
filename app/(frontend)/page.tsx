@@ -18,7 +18,7 @@ export default async function Home() {
     <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/95 via-[var(--color-primary)]/80 to-[var(--color-primary)]/30"></div>
   </div>
 
-  <div className="max-w-[1200px] w-full mx-auto px-6 relative z-10 pt-20 pb-16">
+  <div className="max-w-[1200px] w-full mx-auto px-6 relative z-10 pt-32 pb-12 md:pt-40 md:pb-20">
     <div className="max-w-2xl text-white">
       <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--color-secondary)] shadow-sm mb-6">
         <span className="flex h-2.5 w-2.5 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
@@ -26,7 +26,7 @@ export default async function Home() {
           Penerimaan Siswa Baru TA 2025/2026 Telah Dibuka
         </span>
       </div>
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl leading-[1.15] md:leading-tight font-bold leading-[1.15] mb-6">
         Membentuk Generasi <span className="text-[var(--color-secondary)] drop-shadow-md">Qur'ani</span> yang Cerdas &amp; Mandiri
       </h1>
       <p className="font-body-lg text-lg text-white/90 mb-8 max-w-xl">
@@ -79,7 +79,7 @@ export default async function Home() {
 </section>
 {/* Wave Divider */}
 <div className="w-full overflow-hidden -mt-1 bg-[#188B48]">
-  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
   </svg>
 </div>
@@ -120,9 +120,9 @@ export default async function Home() {
 </div>
 </div>
 {/* 3 Pilar Karakter Anak */}
-<div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-4 snap-x snap-mandatory hide-scrollbar">
+<div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-4 snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
 {/* Pilar 1 */}
-<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
+<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group w-[85vw] sm:w-[300px] snap-center shrink-0">
 <div className="w-14 h-14 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>mosque</span>
 </div>
@@ -136,7 +136,7 @@ export default async function Home() {
 </div>
 </div>
 {/* Pilar 2 */}
-<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
+<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group w-[85vw] sm:w-[300px] snap-center shrink-0">
 <div className="w-14 h-14 rounded-2xl bg-secondary-fixed text-[#FCD116] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>self_improvement</span>
 </div>
@@ -150,7 +150,7 @@ export default async function Home() {
 </div>
 </div>
 {/* Pilar 3 */}
-<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
+<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group w-[85vw] sm:w-[300px] snap-center shrink-0">
 <div className="w-14 h-14 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>palette</span>
 </div>
@@ -168,7 +168,7 @@ export default async function Home() {
 </section>
 {/* Wave Divider */}
 <div className="w-full overflow-hidden -mt-1 bg-[#FCD116]">
-  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
   </svg>
 </div>
@@ -272,13 +272,13 @@ export default async function Home() {
 <h3 className="font-headline-md text-headline-md text-primary">Ekstrakurikuler Minat &amp; Bakat Ceria</h3>
 <p className="font-body-sm text-body-sm text-gray-700 mt-1">Mengasah kecerdasan kinestetik, seni dan teknologi islami sejak dini.</p>
 </div>
-<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div className="flex overflow-x-auto md:grid md:grid-cols-4 gap-4 pb-4 snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
 <div className="flex items-center gap-3 p-4 rounded-2xl bg-[#FCD116] hover:bg-secondary-fixed/20 transition-colors">
 <div className="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
 <span className="material-symbols-outlined text-[22px]">target</span>
 </div>
-<div>
-<p className="font-label-md text-label-md font-bold text-on-surface">Memanah Cilik</p>
+<div className="min-w-[150px] snap-center shrink-0">
+  <p className="font-label-md text-label-md font-bold text-on-surface">Memanah Cilik</p>
 <p className="font-body-sm text-[12px] text-gray-700">Fokus &amp; Sunnah Nabi</p>
 </div>
 </div>
@@ -286,8 +286,8 @@ export default async function Home() {
 <div className="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
 <span className="material-symbols-outlined text-[22px]">record_voice_over</span>
 </div>
-<div>
-<p className="font-label-md text-label-md font-bold text-on-surface">Tahsin &amp; Da'i Cilik</p>
+<div className="min-w-[150px] snap-center shrink-0">
+  <p className="font-label-md text-label-md font-bold text-on-surface">Tahsin &amp; Da'i Cilik</p>
 <p className="font-body-sm text-[12px] text-gray-700">Keberanian Tampil</p>
 </div>
 </div>
@@ -295,8 +295,8 @@ export default async function Home() {
 <div className="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
 <span className="material-symbols-outlined text-[22px]">brush</span>
 </div>
-<div>
-<p className="font-label-md text-label-md font-bold text-on-surface">Kaligrafi &amp; Lukis</p>
+<div className="min-w-[150px] snap-center shrink-0">
+  <p className="font-label-md text-label-md font-bold text-on-surface">Kaligrafi &amp; Lukis</p>
 <p className="font-body-sm text-[12px] text-gray-700">Seni Visual Ceria</p>
 </div>
 </div>
@@ -304,8 +304,8 @@ export default async function Home() {
 <div className="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
 <span className="material-symbols-outlined text-[22px]">smart_toy</span>
 </div>
-<div>
-<p className="font-label-md text-label-md font-bold text-on-surface">Robotic Kids</p>
+<div className="min-w-[150px] snap-center shrink-0">
+  <p className="font-label-md text-label-md font-bold text-on-surface">Robotic Kids</p>
 <p className="font-body-sm text-[12px] text-gray-700">Logika Koding Pemula</p>
 </div>
 </div>
@@ -315,7 +315,7 @@ export default async function Home() {
 </section>
 {/* Wave Divider */}
 <div className="w-full overflow-hidden -mt-1 bg-[#188B48]">
-  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
   </svg>
 </div>
@@ -330,10 +330,10 @@ export default async function Home() {
       </p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-8 snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
       
       {/* Pillar 1 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">family_restroom</span>
         </div>
@@ -344,7 +344,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 2 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">favorite</span>
         </div>
@@ -355,7 +355,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 3 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">extension</span>
         </div>
@@ -366,7 +366,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 4 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">psychology</span>
         </div>
@@ -377,7 +377,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 5 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">sports_esports</span>
         </div>
@@ -388,7 +388,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 6 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">menu_book</span>
         </div>
@@ -403,7 +403,7 @@ export default async function Home() {
 </section>
 {/* Wave Divider */}
 <div className="w-full overflow-hidden -mt-1 bg-white">
-  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
   </svg>
 </div>
@@ -421,7 +421,7 @@ export default async function Home() {
 </a>
 </div>
 {/* 3 News Cards */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-8 pb-8 snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
 {/* Article 1 */}
 <article className="bg-white-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
 <div className="h-48 overflow-hidden relative">
@@ -514,7 +514,7 @@ export default async function Home() {
 </section>
 {/* Wave Divider */}
 <div className="w-full overflow-hidden -mt-1 bg-[#FCD116]">
-  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="white"/>
   </svg>
 </div>
@@ -566,7 +566,7 @@ export default async function Home() {
 </section>
 {/* Wave Divider */}
 <div className="w-full overflow-hidden -mt-1 bg-[#188B48]">
-  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
   </svg>
 </div>
@@ -656,7 +656,7 @@ export default async function Home() {
 </section>
 {/* Wave Divider */}
 <div className="w-full overflow-hidden -mt-1 bg-[#FCD116]">
-  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 md:h-16 block">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
   </svg>
 </div>

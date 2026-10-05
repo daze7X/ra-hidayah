@@ -47,15 +47,16 @@ export default function MobileMenu() {
         >
           {/* Drawer Panel */}
           <div 
-            className="absolute top-0 right-0 w-[80%] max-w-[320px] h-full bg-white shadow-2xl flex flex-col overflow-y-auto transform transition-transform duration-300"
+            className="absolute top-0 right-0 w-[85%] max-w-[320px] h-full bg-white shadow-2xl flex flex-col overflow-y-auto transform transition-transform duration-300 rounded-l-[2rem]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Drawer Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-100">
-              <span className="font-bold text-xl text-[#188B48]">Menu Utama</span>
+            <div className="flex items-center justify-between p-6 bg-gradient-to-br from-[#188B48] to-[#126b37] text-white rounded-tl-[2rem] rounded-bl-[1rem] shadow-sm mb-2 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#FCD116] opacity-10 rounded-full -mr-10 -mt-10 blur-xl"></div>
+              <span className="font-bold text-xl text-white relative z-10 flex items-center gap-2"><span className="material-symbols-outlined">menu_open</span> Menu</span>
               <button 
                 onClick={closeMenu}
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm relative z-10 transition-colors"
               >
                 <span className="material-symbols-outlined">close</span>
               </button>
