@@ -4,7 +4,7 @@ import { client } from "../sanity/lib/client";
 
 async function getSettings() {
   const query = `*[_type == "siteSettings"][0]`;
-  return await client.fetch(query);
+  return await client.fetch(query, {}, { next: { revalidate: 0 } });
 }
 
 export default async function Header() {

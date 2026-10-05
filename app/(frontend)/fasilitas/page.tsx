@@ -18,7 +18,7 @@ async function getFasilitasData() {
     image
   }`;
   
-  const fasilitas = await client.fetch(query);
+  const fasilitas = await client.fetch(query, {}, { next: { revalidate: 0 } });
   
   return fasilitas.map((item: any) => ({
     _id: item._id,

@@ -2,7 +2,7 @@ import { client } from "../sanity/lib/client";
 
 export default async function WhatsAppButton() {
   const query = `*[_type == "siteSettings"][0].phone`;
-  const phoneRaw = await client.fetch(query) || "082260654060";
+  const phoneRaw = await client.fetch(query, {}, { next: { revalidate: 0 } }) || "082260654060";
   
   // Format to international WA format (replace starting 0 with 62)
   let phone = phoneRaw.replace(/\D/g, "");

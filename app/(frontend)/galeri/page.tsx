@@ -17,7 +17,7 @@ async function getGalleryData() {
     image
   }`;
   
-  const galleries = await client.fetch(query);
+  const galleries = await client.fetch(query, {}, { next: { revalidate: 0 } });
   
   // Format the items to resolve the Image URL safely
   return galleries.map((item: any) => ({

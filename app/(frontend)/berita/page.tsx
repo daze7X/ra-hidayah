@@ -20,7 +20,7 @@ async function getPosts() {
     "excerpt": array::join(string::split((pt::text(body)), "")[0..120], "") + "..."
   }`;
   
-  return await client.fetch(query);
+  return await client.fetch(query, {}, { next: { revalidate: 0 } });
 }
 
 export default async function BeritaPage() {
