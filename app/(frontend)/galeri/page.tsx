@@ -39,7 +39,7 @@ export default async function GalleryPage() {
         <div className="absolute top-3/4 right-1/4 w-40 h-40 bg-[#FCD116]/10 rounded-full blur-[60px] pointer-events-none"></div>
       
       {/* Full Bleed Wavy Hero */}
-      <div className="w-full bg-gradient-to-br from-[#188B48] to-[#126b37] pt-32 pb-20 md:pt-40 md:pb-24 text-center relative overflow-hidden">
+      <div className="w-full bg-[#188B48] pt-32 pb-20 md:pt-40 md:pb-24 text-center relative overflow-hidden">
         {/* Decorative shapes */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-black opacity-10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
@@ -52,7 +52,7 @@ export default async function GalleryPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
             Momen Ceria Anak Hidayah
           </h1>
-          <p className="text-white/90 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-white max-w-2xl mx-auto text-lg leading-relaxed">
             Intip keseruan aktivitas belajar, bermain, dan eksplorasi para pangeran dan putri cilik PAUD Hidayah.
           </p>
         </div>
@@ -60,7 +60,7 @@ export default async function GalleryPage() {
       {/* Wave Divider */}
       <div className="w-full overflow-hidden -mt-1 bg-[#FDFCF8] mb-12 relative z-20">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
-          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#126b37"/>
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
         </svg>
       </div>
       <div className="max-w-[1200px] mx-auto px-6">

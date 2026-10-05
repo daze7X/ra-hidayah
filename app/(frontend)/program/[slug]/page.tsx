@@ -123,7 +123,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans pt-16">
       
       {/* ================= HERO SECTION ================= */}
-      <section className="w-full pt-36 md:pt-48 pb-24 md:pb-32 relative bg-gradient-to-br from-[#188B48] to-[#126b37]">
+      <section className="w-full pt-36 md:pt-48 pb-24 md:pb-32 relative bg-[#188B48]">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           
           <div className="flex flex-col items-start gap-4">
@@ -137,7 +137,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
               {data.title}
             </h1>
             
-            <p className="text-[16px] text-white/90 max-w-md leading-relaxed mt-2">
+            <p className="text-[16px] text-white max-w-md leading-relaxed mt-2">
               {data.desc}
             </p>
           </div>
@@ -159,7 +159,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
       {/* Wave Divider */}
       <div className="w-full overflow-hidden -mt-1 bg-[#FDFCF8] relative z-20">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
-          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#126b37" />
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48" />
         </svg>
       </div>
 

@@ -25,7 +25,7 @@ export default async function ProfilTK() {
     <main className="w-full bg-surface min-h-screen">
       
       {/* ================= HERO SECTION (Islamic Playful Editorial) ================= */}
-      <section className="w-full bg-gradient-to-br from-[#188B48] to-[#126b37] pt-36 pb-20 md:pt-48 md:pb-24 relative overflow-hidden">
+      <section className="w-full bg-[#188B48] pt-36 pb-20 md:pt-48 md:pb-24 relative overflow-hidden">
         {/* Subtle Islamic Geometry Glows (Not overwhelming) */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-fixed/30 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary-fixed/30 rounded-full blur-[80px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
@@ -41,7 +41,7 @@ export default async function ProfilTK() {
               Tumbuh Ceria,<br/>
               <span className="text-[#FCD116] drop-shadow-sm">Belajar dengan Makna.</span>
             </h1>
-            <p className="font-body-lg text-lg text-on-surface-variant max-w-lg leading-relaxed mt-2">
+            <p className="font-body-lg text-lg text-white max-w-lg leading-relaxed mt-2">
               Mengenal lebih dekat perjalanan, nilai, dan lingkungan pendidikan PAUD Hidayah dalam membentuk generasi yang ceria, mandiri, cerdas, dan berakhlak Islami.
             </p>
             
@@ -83,7 +83,7 @@ export default async function ProfilTK() {
       {/* Wave Divider */}
       <div className="w-full overflow-hidden -mt-1 bg-[#FDFCF8] relative z-20">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
-          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#126b37" />
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48" />
         </svg>
       </div>
 
@@ -97,7 +97,7 @@ export default async function ProfilTK() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Sejarah Text (Sanity Portable Text) */}
-            <div className="lg:col-span-7 prose prose-lg prose-p:text-on-surface-variant prose-p:leading-relaxed font-body-md text-on-surface-variant">
+            <div className="lg:col-span-7 prose prose-lg prose-p:text-white prose-p:leading-relaxed font-body-md text-white">
               {profile.history ? (
                 <PortableText value={profile.history} />
               ) : (
@@ -118,13 +118,13 @@ export default async function ProfilTK() {
                   <div className="relative pl-10">
                     <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container border-4 border-surface-container-lowest flex items-center justify-center z-10 shadow-sm"></div>
                     <h4 className="font-bold text-white font-label-lg text-xl mb-1">1968</h4>
-                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Berdiri pertama kali oleh para pendiri dengan harapan memberikan pendidikan bermakna.</p>
+                    <p className="text-[15px] text-white leading-relaxed">Berdiri pertama kali oleh para pendiri dengan harapan memberikan pendidikan bermakna.</p>
                   </div>
                   
                   <div className="relative pl-10">
                     <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container border-4 border-surface-container-lowest flex items-center justify-center z-10 shadow-sm"></div>
                     <h4 className="font-bold text-white font-label-lg text-xl mb-1">1970</h4>
-                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Menetap di Desa Tayu Wetan (di atas tanah wakaf) dan resmi beroperasi sebagai Raudlatul Athfal.</p>
+                    <p className="text-[15px] text-white leading-relaxed">Menetap di Desa Tayu Wetan (di atas tanah wakaf) dan resmi beroperasi sebagai Raudlatul Athfal.</p>
                   </div>
                   
                   <div className="relative pl-10">
@@ -132,7 +132,7 @@ export default async function ProfilTK() {
                       <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
                     </div>
                     <h4 className="font-bold text-white font-label-lg text-xl mb-1">Sekarang</h4>
-                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Telah melayani 180+ peserta didik dengan pendekatan Literasi, Numerasi, dan STEAM.</p>
+                    <p className="text-[15px] text-white leading-relaxed">Telah melayani 180+ peserta didik dengan pendekatan Literasi, Numerasi, dan STEAM.</p>
                   </div>
 
                 </div>
@@ -168,7 +168,7 @@ export default async function ProfilTK() {
               </h3>
               <ul className="space-y-5">
                 {profile.mission?.map((m: string, i: number) => (
-                  <li key={i} className="flex items-start gap-4 text-on-surface-variant font-body-md">
+                  <li key={i} className="flex items-start gap-4 text-white font-body-md">
                     <span className="material-symbols-outlined text-[#FCD116] text-[28px] shrink-0">arrow_right_alt</span>
                     <span className="pt-0.5 text-lg leading-relaxed">{m}</span>
                   </li>
