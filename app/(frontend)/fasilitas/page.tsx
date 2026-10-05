@@ -66,37 +66,25 @@ export default async function FasilitasPage() {
     <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 pb-20">
       <div className="max-w-[1200px] mx-auto px-6">
         
-        {/* Page Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#188B48]/10 text-[#188B48] font-bold text-sm mb-4">
-            <span className="material-symbols-outlined text-[18px]">verified</span>
-            <span>FASILITAS SEKOLAH</span>
+        
+        {/* Modern Gradient Hero */}
+        <div className="w-full rounded-3xl bg-gradient-to-br from-[#FCD116] to-[#ffda47] px-6 py-16 md:py-20 text-center mb-16 shadow-lg border border-yellow-300 relative overflow-hidden">
+          {/* Decorative shapes */}
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-black opacity-5 rounded-full blur-2xl"></div>
+          
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#188B48]/10 text-[#188B48] font-bold text-sm mb-6 border border-[#188B48]/20">
+              <span className="material-symbols-outlined text-[18px]">museum</span>
+              <span>FASILITAS SEKOLAH</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-[#188B48] mb-6 drop-shadow-sm">
+              Sarana & Prasarana Ceria
+            </h1>
+            <p className="text-[#188B48]/80 max-w-2xl mx-auto text-lg leading-relaxed">
+              Kami menyediakan lingkungan belajar yang aman, nyaman, dan mendukung eksplorasi tanpa batas bagi anak usia dini.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#188B48] mb-4">
-            Sarana & Prasarana Terbaik
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Kami berkomitmen menyediakan lingkungan belajar yang aman, nyaman, dan menyenangkan untuk mengoptimalkan potensi setiap anak.
-          </p>
-          <div className="w-20 h-1.5 bg-[#FCD116] rounded-full mx-auto mt-6"></div>
         </div>
 
-        {/* Fasilitas Grid Component (Client Side for Interactive Popup) */}
-        <FasilitasGrid items={items} />
-
-        {/* Call to Action */}
-        <div className="mt-16 bg-[#EAF3EF] rounded-3xl p-8 md:p-12 text-center border border-[#188B48]/10 flex flex-col items-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#188B48] mb-4">Ingin Melihat Langsung Fasilitas Kami?</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Kunjungi PAUD Hidayah secara langsung pada jam operasional untuk melakukan tur keliling sekolah dan berkonsultasi dengan para guru kami.
-          </p>
-          <a href="https://wa.me/6282260654060" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#188B48] text-white font-bold hover:bg-[#126b36] hover:scale-105 transition-all shadow-lg">
-            <span className="material-symbols-outlined text-[20px]">calendar_month</span>
-            Jadwalkan Kunjungan
-          </a>
-        </div>
-
-      </div>
-    </main>
-  );
-}
+          {/* Fasilitas Grid Component (Client Side for Interactive Popup) */}undefined

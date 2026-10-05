@@ -35,25 +35,25 @@ export default async function GalleryPage() {
     <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 pb-20">
       <div className="max-w-[1200px] mx-auto px-6">
         
-        {/* Page Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#188B48]/10 text-[#188B48] font-bold text-sm mb-4">
-            <span className="material-symbols-outlined text-[18px]">collections_bookmark</span>
-            <span>GALERI KEGIATAN</span>
+        
+        {/* Modern Gradient Hero */}
+        <div className="w-full rounded-3xl bg-gradient-to-br from-[#188B48] to-[#126b37] px-6 py-16 md:py-20 text-center mb-16 shadow-lg border border-[#188B48] relative overflow-hidden">
+          {/* Decorative shapes */}
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-black opacity-5 rounded-full blur-2xl"></div>
+          
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white font-bold text-sm mb-6 border border-white/30">
+              <span className="material-symbols-outlined text-[18px]">photo_library</span>
+              <span>GALERI FOTO</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
+              Momen Ceria Anak Hidayah
+            </h1>
+            <p className="text-white/90 max-w-2xl mx-auto text-lg leading-relaxed">
+              Intip keseruan aktivitas belajar, bermain, dan eksplorasi para pangeran dan putri cilik PAUD Hidayah.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#188B48] mb-4">
-            Momen Keseruan Kami
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Intip berbagai kegiatan seru, kreatif, dan inspiratif yang dilakukan oleh anak-anak hebat di PAUD Hidayah setiap harinya.
-          </p>
-          <div className="w-20 h-1.5 bg-[#FCD116] rounded-full mx-auto mt-6"></div>
         </div>
 
-        {/* Gallery Grid Client Component */}
-        <GalleryGrid items={items} />
-
-      </div>
-    </main>
-  );
-}
+          {/* Gallery Grid Component (Client Side for Lightbox) */}undefined
