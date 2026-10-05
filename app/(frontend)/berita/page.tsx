@@ -34,32 +34,40 @@ export default async function BeritaPage() {
   };
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 pb-20 relative overflow-hidden">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pb-20 relative overflow-hidden">
         {/* Floating Decorative Blobs */}
         <div className="absolute top-40 right-0 w-96 h-96 bg-[#FCD116]/15 rounded-full blur-[100px] translate-x-1/3 pointer-events-none"></div>
         <div className="absolute bottom-40 left-0 w-80 h-80 bg-[#188B48]/10 rounded-full blur-[80px] -translate-x-1/3 pointer-events-none"></div>
         <div className="absolute top-3/4 right-1/4 w-40 h-40 bg-[#FCD116]/10 rounded-full blur-[60px] pointer-events-none"></div>
+      
+      {/* Full Bleed Wavy Hero */}
+      <div className="w-full bg-gradient-to-br from-[#188B48] to-[#126b37] pt-32 pb-20 md:pt-40 md:pb-24 text-center relative overflow-hidden">
+        {/* Decorative shapes */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-black opacity-10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+        
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white border-white/30 font-bold text-sm mb-6 border">
+            <span className="material-symbols-outlined text-[18px]">newspaper</span>
+            <span>BERITA & PENGUMUMAN</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
+            Kabar Terbaru
+          </h1>
+          <p className="text-white/90 max-w-2xl mx-auto text-lg leading-relaxed">
+            Ikuti perkembangan terbaru, kegiatan mendatang, dan informasi penting lainnya seputar PAUD Hidayah.
+          </p>
+        </div>
+      </div>
+      {/* Wave Divider */}
+      <div className="w-full overflow-hidden -mt-1 bg-[#FDFCF8] mb-12 relative z-20">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#126b37"/>
+        </svg>
+      </div>
       <div className="max-w-[1200px] mx-auto px-6">
         
-        {/* Modern Gradient Hero */}
-        <div className="w-full rounded-3xl bg-gradient-to-br from-[#188B48] to-[#126b37] px-6 py-16 md:py-20 text-center mb-16 shadow-lg border border-[#188B48] relative overflow-hidden">
-          {/* Decorative shapes */}
-          <div className="absolute -top-10 -left-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl"></div>
-          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-black opacity-5 rounded-full blur-2xl"></div>
-          
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white font-bold text-sm mb-6 border border-white/30">
-              <span className="material-symbols-outlined text-[18px]">newspaper</span>
-              <span>BERITA & PENGUMUMAN</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
-              Kabar Terbaru
-            </h1>
-            <p className="text-white/90 max-w-2xl mx-auto text-lg leading-relaxed">
-              Ikuti perkembangan terbaru, kegiatan mendatang, dan informasi penting lainnya seputar PAUD Hidayah.
-            </p>
-          </div>
-        </div>
+        
 
         {/* Posts Grid */}
         {posts && posts.length > 0 ? (
