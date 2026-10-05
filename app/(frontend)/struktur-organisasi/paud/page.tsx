@@ -31,8 +31,8 @@ export default async function StrukturOrganisasi() {
   const OrgCard = ({ org }: { org: any }) => {
     if (!org) return null;
     return (
-      <div className="bg-white rounded-[24px] p-6 shadow-[0_4px_20px_rgba(0,64,40,0.04)] border border-[#188B48]/10 flex flex-col items-center w-[240px] relative z-10 transition-transform hover:-translate-y-1 duration-300">
-        <div className="w-[72px] h-[72px] rounded-full bg-[#EAF3EF] mb-3 overflow-hidden border-2 border-white shadow-sm flex items-center justify-center shrink-0">
+      <div className="bg-white rounded-[24px] p-4 sm:p-6 shadow-[0_4px_20px_rgba(0,64,40,0.04)] border border-[#188B48]/10 flex flex-col items-center w-full max-w-[240px] relative z-10 transition-transform hover:-translate-y-1 duration-300">
+        <div className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full bg-[#EAF3EF] mb-3 overflow-hidden border-2 border-white shadow-sm flex items-center justify-center shrink-0">
           {org.image ? (
             <img 
               src={urlFor(org.image).width(144).height(144).format('webp').url()} 
@@ -96,7 +96,7 @@ export default async function StrukturOrganisasi() {
           {/* Image Content (Blob Shape Mask) */}
           <div className="relative flex justify-center lg:justify-end">
              {/* Yellow accent blob behind */}
-             <div className="absolute top-6 -left-6 w-full max-w-[450px] aspect-[4/3] bg-[#FCD116] rounded-[30%_70%_50%_50%/50%_40%_60%_50%] -z-10"></div>
+             <div className="absolute top-4 sm:p-6 -left-6 w-full max-w-[450px] aspect-[4/3] bg-[#FCD116] rounded-[30%_70%_50%_50%/50%_40%_60%_50%] -z-10"></div>
              
              {/* Main Image Mask */}
              <div className="relative w-full max-w-[480px] aspect-[4/3] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden shadow-2xl border-[6px] border-white">
@@ -215,7 +215,7 @@ export default async function StrukturOrganisasi() {
             </div>
 
             {/* Grid 4 Kolom */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-4 sm:p-6 w-full justify-items-center">
               {dewanAsatidz.map((org: any) => (
                 <OrgCard key={org._id} org={org} />
               ))}

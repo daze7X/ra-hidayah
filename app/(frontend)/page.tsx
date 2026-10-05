@@ -78,7 +78,7 @@ export default async function Home() {
   </div>
 </section>
 {/* SECTION 2: SAMBUTAN & 3 PILAR DASAR */}
-<section className="w-full py-space-xl bg-[#188B48] text-white">
+<section className="w-full py-12 md:py-20 bg-[#188B48] text-white">
 <div className="max-w-[1200px] mx-auto px-6">
 {/* Section Tagline */}
 <div className="text-center max-w-2xl mx-auto mb-12">
@@ -114,9 +114,9 @@ export default async function Home() {
 </div>
 </div>
 {/* 3 Pilar Karakter Anak */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-4 snap-x snap-mandatory hide-scrollbar">
 {/* Pilar 1 */}
-<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group">
+<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
 <div className="w-14 h-14 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>mosque</span>
 </div>
@@ -130,7 +130,7 @@ export default async function Home() {
 </div>
 </div>
 {/* Pilar 2 */}
-<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group">
+<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
 <div className="w-14 h-14 rounded-2xl bg-secondary-fixed text-[#FCD116] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>self_improvement</span>
 </div>
@@ -144,7 +144,7 @@ export default async function Home() {
 </div>
 </div>
 {/* Pilar 3 */}
-<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group">
+<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
 <div className="w-14 h-14 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>palette</span>
 </div>
@@ -161,7 +161,7 @@ export default async function Home() {
 </div>
 </section>
 {/* SECTION 3: PROGRAM PEMBELAJARAN UNGGULAN */}
-<section className="w-full py-space-xl bg-[#FCD116]" id="program-unggulan">
+<section className="w-full py-12 md:py-20 bg-[#FCD116]" id="program-unggulan">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
 <div>
@@ -384,7 +384,7 @@ export default async function Home() {
   </div>
 </section>
 {/* SECTION 5: BERITA & AGENDA KEGIATAN */}
-<section className="w-full py-space-xl bg-white">
+<section className="w-full py-12 md:py-20 bg-white">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-10 gap-4">
 <div>
@@ -489,7 +489,7 @@ export default async function Home() {
 </div>
 </section>
 {/* SECTION 6: CUPLIKAN GALERI CERIA (PHOTO MOSAIC) */}
-<section className="w-full py-space-xl bg-[#FCD116]">
+<section className="w-full py-12 md:py-20 bg-[#FCD116]">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="text-center max-w-2xl mx-auto mb-10">
 <span className="font-label-sm text-label-sm font-bold text-primary uppercase tracking-widest px-3 py-1 rounded-full bg-primary-fixed/40 inline-block mb-3">Dokumentasi Sekolah</span>
@@ -535,7 +535,7 @@ export default async function Home() {
 </div>
 </section>
 {/* SECTION 7: TESTIMONI WALI MURID */}
-<section className="w-full py-space-xl bg-[#188B48] text-white">
+<section className="w-full py-12 md:py-20 bg-[#188B48] text-white">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="text-center max-w-2xl mx-auto mb-12">
 <span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-3">Kata Ayah &amp; Bunda</span>
@@ -619,7 +619,7 @@ export default async function Home() {
 </div>
 </section>
 {/* SECTION 8: BANNER PENUTUP CTA PPDB & KONSULTASI */}
-<section className="w-full py-space-xl bg-[#FCD116]" id="daftar-ppdb">
+<section className="w-full py-12 md:py-20 bg-[#FCD116]" id="daftar-ppdb">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="relative overflow-hidden rounded-[36px] bg-gradient-to-r from-primary via-primary-container to-tertiary p-8 sm:p-14 text-on-primary shadow-xl">
 {/* Subtle Pattern Overlay */}
