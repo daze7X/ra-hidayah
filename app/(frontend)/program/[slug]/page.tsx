@@ -164,7 +164,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
       </div>
 
       {/* ================= TENTANG PROGRAM ================= */}
-      <section className="w-full py-16 border-t border-gray-100">
+      <section className="w-full py-16 ">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <div className="flex items-center gap-2 mb-4">

@@ -88,7 +88,7 @@ export default async function ProfilTK() {
       </div>
 
       {/* ================= SEJARAH & TIMELINE ================= */}
-      <section className="w-full bg-surface py-20 relative border-t border-outline-variant/30">
+      <section className="w-full bg-surface py-20 relative ">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex flex-col items-center text-center mb-16">
             <h2 className="font-headline-lg text-3xl md:text-4xl text-white">Perjalanan PAUD Hidayah</h2>
@@ -143,7 +143,7 @@ export default async function ProfilTK() {
       </section>
 
       {/* ================= VISI & MISI ================= */}
-      <section className="w-full bg-surface-container-low py-24 border-t border-outline-variant/30 relative">
+      <section className="w-full bg-surface-container-low py-24  relative">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             
@@ -181,7 +181,7 @@ export default async function ProfilTK() {
       </section>
 
       {/* ================= NILAI / KARAKTER ================= */}
-      <section className="w-full bg-surface py-20 border-t border-outline-variant/30">
+      <section className="w-full bg-surface py-20 ">
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
