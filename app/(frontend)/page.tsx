@@ -77,12 +77,7 @@ export default async function Home() {
     </div>
   </div>
 </section>
-{/* Wave Divider */}
-<div className="w-full overflow-hidden -mt-1 bg-[#188B48]">
-  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
-    <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
-  </svg>
-</div>
+
 {/* SECTION 2: SAMBUTAN & 3 PILAR DASAR */}
 <section className="w-full py-12 md:py-20 bg-[#188B48] text-white">
 <div className="max-w-[1200px] mx-auto px-6">
