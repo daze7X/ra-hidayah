@@ -305,9 +305,9 @@ export default async function Home() {
 <section className="w-full py-20 bg-[#188B48] text-white">
   <div className="max-w-[1200px] mx-auto px-6">
     <div className="text-center max-w-3xl mx-auto mb-16">
-      <span className="font-bold text-[#188B48] uppercase tracking-widest px-3 py-1 rounded-full bg-[#188B48]/10 inline-block mb-3 text-[12px]">Pendekatan Belajar</span>
-      <h2 className="text-3xl md:text-4xl font-bold text-[#1b1c1a]">Membangun Karakter Melalui Pengalaman</h2>
-      <p className="text-gray-600 mt-4 text-[16px]">
+      <span className="font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-[#FCD116]/20 inline-block mb-3 text-[12px]">Pendekatan Belajar</span>
+      <h2 className="text-3xl md:text-4xl font-bold text-white">Membangun Karakter Melalui Pengalaman</h2>
+      <p className="text-white/90 mt-4 text-[16px]">
         Kami menyusun metode pembelajaran sesuai dengan tahap perkembangan anak agar tidak mudah lelah dan bosan, mengedepankan kreativitas, dan memfasilitasi anak untuk belajar langsung dari alam.
       </p>
     </div>
@@ -315,67 +315,67 @@ export default async function Home() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
       {/* Pillar 1 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-gray-100 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">family_restroom</span>
         </div>
-        <h3 className="text-xl font-bold text-[#1b1c1a] mb-3">Parenting</h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
+        <h3 className="text-xl font-bold text-white mb-3">Parenting</h3>
+        <p className="text-white/90 text-[14px] leading-relaxed">
           Sekolah rutin memberikan sosialisasi parenting kepada orang tua dengan mendatangkan narasumber ahli di bidang psikologi, gizi, dan kesehatan anak.
         </p>
       </div>
 
       {/* Pillar 2 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-gray-100 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">favorite</span>
         </div>
-        <h3 className="text-xl font-bold text-[#1b1c1a] mb-3">Character Building</h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
+        <h3 className="text-xl font-bold text-white mb-3">Character Building</h3>
+        <p className="text-white/90 text-[14px] leading-relaxed">
           Menerapkan pembiasaan positif sesuai nilai Islam. Mulai dari disiplin, mengucapkan salam, berdoa, sholat, hingga membaca Al-Qur'an.
         </p>
       </div>
 
       {/* Pillar 3 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-gray-100 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">extension</span>
         </div>
-        <h3 className="text-xl font-bold text-[#1b1c1a] mb-3">Full Learning</h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
+        <h3 className="text-xl font-bold text-white mb-3">Full Learning</h3>
+        <p className="text-white/90 text-[14px] leading-relaxed">
           Menerapkan kurikulum Merdeka. Menciptakan suasana belajar menyenangkan yang didukung alat permainan edukatif (APE) dan pembelajaran alam.
         </p>
       </div>
 
       {/* Pillar 4 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-gray-100 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">psychology</span>
         </div>
-        <h3 className="text-xl font-bold text-[#1b1c1a] mb-3">Deep Learning</h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
+        <h3 className="text-xl font-bold text-white mb-3">Deep Learning</h3>
+        <p className="text-white/90 text-[14px] leading-relaxed">
           Pendekatan eksploratif, reflektif, dan kontekstual. Anak diajak menghubungkan konsep dengan kehidupan sehari-hari seperti menanam tumbuhan.
         </p>
       </div>
 
       {/* Pillar 5 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-gray-100 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">sports_esports</span>
         </div>
-        <h3 className="text-xl font-bold text-[#1b1c1a] mb-3">Fun Games</h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
+        <h3 className="text-xl font-bold text-white mb-3">Fun Games</h3>
+        <p className="text-white/90 text-[14px] leading-relaxed">
           Menyelingi pembelajaran dengan permainan tradisional edukatif untuk mengasah kekompakan, objektivitas, dan motorik anak agar ceria selalu.
         </p>
       </div>
 
       {/* Pillar 6 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-gray-100 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">menu_book</span>
         </div>
-        <h3 className="text-xl font-bold text-[#1b1c1a] mb-3">TPQ PAUD</h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
+        <h3 className="text-xl font-bold text-white mb-3">TPQ PAUD</h3>
+        <p className="text-white/90 text-[14px] leading-relaxed">
           Metode Qiro'ati secara bertahap. Mengenal huruf hijaiyah dan membaca Al-Qur'an tartil dengan permainan edukatif yang ceria dan asyik.
         </p>
       </div>
