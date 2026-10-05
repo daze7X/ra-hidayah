@@ -116,7 +116,7 @@ export default async function Home() {
 {/* 3 Pilar Karakter Anak */}
 <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-4 snap-x snap-mandatory hide-scrollbar">
 {/* Pilar 1 */}
-<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
+<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
 <div className="w-14 h-14 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>mosque</span>
 </div>
@@ -130,7 +130,7 @@ export default async function Home() {
 </div>
 </div>
 {/* Pilar 2 */}
-<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
+<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
 <div className="w-14 h-14 rounded-2xl bg-secondary-fixed text-[#FCD116] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>self_improvement</span>
 </div>
@@ -144,7 +144,7 @@ export default async function Home() {
 </div>
 </div>
 {/* Pilar 3 */}
-<div className="bg-white/10 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
+<div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-8 shadow-md hover:shadow-md transition-shadow flex flex-col items-start relative overflow-hidden group min-w-[280px] snap-center">
 <div className="w-14 h-14 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>palette</span>
 </div>
@@ -315,7 +315,7 @@ export default async function Home() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
       {/* Pillar 1 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">family_restroom</span>
         </div>
@@ -326,7 +326,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 2 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">favorite</span>
         </div>
@@ -337,7 +337,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 3 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">extension</span>
         </div>
@@ -348,7 +348,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 4 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">psychology</span>
         </div>
@@ -359,7 +359,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 5 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">sports_esports</span>
         </div>
@@ -370,7 +370,7 @@ export default async function Home() {
       </div>
 
       {/* Pillar 6 */}
-      <div className="bg-white/10 rounded-3xl p-6 shadow-sm border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
+      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group">
         <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
           <span className="material-symbols-outlined text-[28px]">menu_book</span>
         </div>
@@ -647,7 +647,7 @@ export default async function Home() {
 </a>
 </div>
 </div>
-<div className="lg:col-span-4 bg-[#FCD116]/10 backdrop-blur-md rounded-3xl p-6 flex flex-col space-y-4">
+<div className="lg:col-span-4 bg-gradient-to-br from-[#1fa555] to-[#14753c] shadow-inner border border-white/20 rounded-3xl p-6 flex flex-col space-y-4">
 <h4 className="font-headline-sm text-headline-sm text-on-primary flex items-center gap-2">
 <span className="material-symbols-outlined text-secondary-fixed">pin_drop</span>
 <span>Kunjungi Kampus Kami</span>
