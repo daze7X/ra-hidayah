@@ -8,7 +8,7 @@ export default function PlaceholderPage() {
           <span className="material-symbols-outlined text-[40px]">construction</span>
         </div>
         <h1 className="text-3xl font-bold text-[#1b1c1a] mb-4">Profil & Sejarah Yayasan</h1>
-        <p className="text-white mb-8">
+        <p className="text-gray-600 mb-8">
           Halaman ini sedang dalam tahap penyusunan materi dan akan segera hadir.
         </p>
         <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 bg-[#188B48] text-white rounded-full font-medium hover:bg-[#188B48]/90 transition-colors">

@@ -123,7 +123,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans pt-16">
       
       {/* ================= HERO SECTION ================= */}
-      <section className="w-full pt-36 md:pt-48 pb-24 md:pb-32 relative bg-[#188B48]">
+      <section className="w-full pt-36 pb-24 md:pt-48 md:pb-32 relative bg-[#188B48]">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           
           <div className="flex flex-col items-start gap-4">
@@ -163,8 +163,9 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
         </svg>
       </div>
 
+
       {/* ================= TENTANG PROGRAM ================= */}
-      <section className="w-full py-16 ">
+      <section className="w-full py-16 border-t border-gray-100">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <div className="flex items-center gap-2 mb-4">

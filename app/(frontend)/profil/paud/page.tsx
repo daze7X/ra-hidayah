@@ -15,7 +15,7 @@ export default async function ProfilTK() {
   if (!profile) {
     return (
       <main className="w-full pt-32 pb-20 bg-surface min-h-screen text-center">
-        <h1 className="text-2xl font-bold text-white">Data Profil belum tersedia.</h1>
+        <h1 className="text-2xl font-bold text-primary">Data Profil belum tersedia.</h1>
         <p>Pastikan Anda sudah menekan tombol Publish pada data Profil di Sanity Studio.</p>
       </main>
     );
@@ -26,7 +26,7 @@ export default async function ProfilTK() {
       
       {/* ================= HERO SECTION (Islamic Playful Editorial) ================= */}
       <section className="w-full bg-[#188B48] pt-36 pb-20 md:pt-48 md:pb-24 relative overflow-hidden">
-        
+        {/* Subtle Islamic Geometry Glows (Not overwhelming) */}
         
         
 
@@ -87,17 +87,18 @@ export default async function ProfilTK() {
         </svg>
       </div>
 
+
       {/* ================= SEJARAH & TIMELINE ================= */}
-      <section className="w-full bg-surface py-20 relative ">
+      <section className="w-full bg-surface py-20 relative border-t border-outline-variant/30">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="font-headline-lg text-3xl md:text-4xl text-white">Perjalanan PAUD Hidayah</h2>
+            <h2 className="font-headline-lg text-3xl md:text-4xl text-primary">Perjalanan PAUD Hidayah</h2>
             <div className="w-16 h-1.5 bg-secondary rounded-full mt-4"></div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Sejarah Text (Sanity Portable Text) */}
-            <div className="lg:col-span-7 prose prose-lg prose-p:text-white prose-p:leading-relaxed font-body-md text-white">
+            <div className="lg:col-span-7 prose prose-lg prose-p:text-on-surface-variant prose-p:leading-relaxed font-body-md text-on-surface-variant">
               {profile.history ? (
                 <PortableText value={profile.history} />
               ) : (
@@ -108,8 +109,8 @@ export default async function ProfilTK() {
             {/* Timeline (Aesthetic Accent) */}
             <div className="lg:col-span-5">
               <div className="bg-surface-container-lowest rounded-[32px] p-8 md:p-10 shadow-sm border border-outline-variant/40 relative overflow-hidden">
-                <h3 className="font-headline-sm text-2xl text-white mb-8 flex items-center gap-3">
-                  <span className="material-symbols-outlined text-[#FCD116] text-[28px]">schedule</span>
+                <h3 className="font-headline-sm text-2xl text-primary mb-8 flex items-center gap-3">
+                  <span className="material-symbols-outlined text-secondary text-[28px]">schedule</span>
                   Tonggak Sejarah
                 </h3>
                 
@@ -117,22 +118,22 @@ export default async function ProfilTK() {
                   
                   <div className="relative pl-10">
                     <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container border-4 border-surface-container-lowest flex items-center justify-center z-10 shadow-sm"></div>
-                    <h4 className="font-bold text-white font-label-lg text-xl mb-1">1968</h4>
-                    <p className="text-[15px] text-white leading-relaxed">Berdiri pertama kali oleh para pendiri dengan harapan memberikan pendidikan bermakna.</p>
+                    <h4 className="font-bold text-primary font-label-lg text-xl mb-1">1968</h4>
+                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Berdiri pertama kali oleh para pendiri dengan harapan memberikan pendidikan bermakna.</p>
                   </div>
                   
                   <div className="relative pl-10">
                     <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container border-4 border-surface-container-lowest flex items-center justify-center z-10 shadow-sm"></div>
-                    <h4 className="font-bold text-white font-label-lg text-xl mb-1">1970</h4>
-                    <p className="text-[15px] text-white leading-relaxed">Menetap di Desa Tayu Wetan (di atas tanah wakaf) dan resmi beroperasi sebagai Raudlatul Athfal.</p>
+                    <h4 className="font-bold text-primary font-label-lg text-xl mb-1">1970</h4>
+                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Menetap di Desa Tayu Wetan (di atas tanah wakaf) dan resmi beroperasi sebagai Raudlatul Athfal.</p>
                   </div>
                   
                   <div className="relative pl-10">
                     <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary border-4 border-surface-container-lowest flex items-center justify-center z-10 shadow-md">
                       <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
                     </div>
-                    <h4 className="font-bold text-white font-label-lg text-xl mb-1">Sekarang</h4>
-                    <p className="text-[15px] text-white leading-relaxed">Telah melayani 180+ peserta didik dengan pendekatan Literasi, Numerasi, dan STEAM.</p>
+                    <h4 className="font-bold text-primary font-label-lg text-xl mb-1">Sekarang</h4>
+                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Telah melayani 180+ peserta didik dengan pendekatan Literasi, Numerasi, dan STEAM.</p>
                   </div>
 
                 </div>
@@ -143,7 +144,7 @@ export default async function ProfilTK() {
       </section>
 
       {/* ================= VISI & MISI ================= */}
-      <section className="w-full bg-surface-container-low py-24  relative">
+      <section className="w-full bg-surface-container-low py-24 border-t border-outline-variant/30 relative">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             
@@ -154,7 +155,7 @@ export default async function ProfilTK() {
                 <span className="material-symbols-outlined" style={{ fontSize: '240px', fontVariationSettings: "'FILL' 1" }}>star</span>
               </div>
               <h3 className="font-headline-lg text-3xl md:text-4xl mb-6 relative z-10 flex items-center gap-3">
-                <span className="text-[#FCD116]">✦</span> Visi
+                <span className="text-secondary">✦</span> Visi
               </h3>
               <p className="font-body-lg text-2xl md:text-[28px] leading-snug italic relative z-10 font-light opacity-90">
                 "{profile.vision}"
@@ -163,13 +164,13 @@ export default async function ProfilTK() {
 
             {/* Misi */}
             <div className="bg-surface-container-lowest rounded-[40px] p-10 md:p-14 shadow-md border border-outline-variant/20 relative">
-              <h3 className="font-headline-lg text-3xl md:text-4xl text-white mb-8 flex items-center gap-3">
-                <span className="text-[#FCD116]">✦</span> Misi
+              <h3 className="font-headline-lg text-3xl md:text-4xl text-primary mb-8 flex items-center gap-3">
+                <span className="text-secondary">✦</span> Misi
               </h3>
               <ul className="space-y-5">
                 {profile.mission?.map((m: string, i: number) => (
-                  <li key={i} className="flex items-start gap-4 text-white font-body-md">
-                    <span className="material-symbols-outlined text-[#FCD116] text-[28px] shrink-0">arrow_right_alt</span>
+                  <li key={i} className="flex items-start gap-4 text-on-surface-variant font-body-md">
+                    <span className="material-symbols-outlined text-secondary text-[28px] shrink-0">arrow_right_alt</span>
                     <span className="pt-0.5 text-lg leading-relaxed">{m}</span>
                   </li>
                 ))}
@@ -181,35 +182,35 @@ export default async function ProfilTK() {
       </section>
 
       {/* ================= NILAI / KARAKTER ================= */}
-      <section className="w-full bg-surface py-20 ">
+      <section className="w-full bg-surface py-20 border-t border-outline-variant/30">
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
-              <div className="w-16 h-16 rounded-2xl bg-secondary-fixed/50 text-[#FCD116] flex items-center justify-center mb-5">
+              <div className="w-16 h-16 rounded-2xl bg-secondary-fixed/50 text-secondary flex items-center justify-center mb-5">
                 <span className="material-symbols-outlined text-[36px]">mood</span>
               </div>
-              <h4 className="font-bold text-white font-label-lg text-lg">Ceria</h4>
+              <h4 className="font-bold text-primary font-label-lg text-lg">Ceria</h4>
             </div>
             
             <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
-              <div className="w-16 h-16 rounded-2xl bg-primary-fixed/50 text-white flex items-center justify-center mb-5">
+              <div className="w-16 h-16 rounded-2xl bg-primary-fixed/50 text-primary flex items-center justify-center mb-5">
                 <span className="material-symbols-outlined text-[36px]">menu_book</span>
               </div>
-              <h4 className="font-bold text-white font-label-lg text-lg">Cerdas</h4>
+              <h4 className="font-bold text-primary font-label-lg text-lg">Cerdas</h4>
             </div>
 
             <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
-              <div className="w-16 h-16 rounded-2xl bg-secondary-fixed/50 text-[#FCD116] flex items-center justify-center mb-5">
+              <div className="w-16 h-16 rounded-2xl bg-secondary-fixed/50 text-secondary flex items-center justify-center mb-5">
                 <span className="material-symbols-outlined text-[36px]">self_improvement</span>
               </div>
-              <h4 className="font-bold text-white font-label-lg text-lg">Mandiri</h4>
+              <h4 className="font-bold text-primary font-label-lg text-lg">Mandiri</h4>
             </div>
 
             <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
-              <div className="w-16 h-16 rounded-2xl bg-primary-fixed/50 text-white flex items-center justify-center mb-5">
+              <div className="w-16 h-16 rounded-2xl bg-primary-fixed/50 text-primary flex items-center justify-center mb-5">
                 <span className="material-symbols-outlined text-[36px]" style={{ fontVariationSettings: "'FILL' 1" }}>mosque</span>
               </div>
-              <h4 className="font-bold text-white font-label-lg text-lg">Islami</h4>
+              <h4 className="font-bold text-primary font-label-lg text-lg">Islami</h4>
             </div>
           </div>
         </div>
