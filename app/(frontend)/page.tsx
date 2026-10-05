@@ -182,7 +182,7 @@ export default async function Home() {
 {/* 3 Program Cards Grid */}
 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 {/* Program 1: TK A */}
-<div className="bg-[#FCD116]est rounded-[32px] overflow-hidden shadow-md ring-2 ring-primary/20 flex flex-col relative">
+<div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-2 ring-primary/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative">
 
 <div className="relative h-48 overflow-hidden bg-primary-fixed/30">
 <img className="w-full h-full object-cover" data-alt="Anak-anak TK usia 4-5 tahun perempuan berkerudung putih dan anak laki-laki berkopiah ceria sedang menata huruf hijaiyah bergambar dengan senyum gembira di meja kayu kelas TK PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqFeTlBzosePPvDd-3-WrOFgMFnhmQyypTpbIDCQaCncycbhFbRinkT4d99cSIPmQjeilchImiNlOpaNETSWhdqLX8nFCOle_UPeWhTJet1YchlZDAi8SPqNdvoyrTPMz1-Wb1Trs9KMYqoO4tWvlfFLRpoYaMHWNC9FJT7fSHon7zLv41ixq_YwVmtF2gXwUa7dOL8HaZJEtqu4vcny0g1MJ1QoRkIn2A7JbdmwsJRiwJLew5EABX"/>
@@ -215,13 +215,11 @@ export default async function Home() {
 </li>
 </ul>
 </div>
-<a className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary font-label-md text-label-md font-semibold hover:brightness-110 transition-all shadow-sm" href="#">
-              Detail Program TK A
-            </a>
+<Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary font-label-md text-label-md font-semibold hover:brightness-110 transition-all shadow-sm block" href="/program/tk-a">Detail Program TK A</Link>
 </div>
 </div>
 {/* Program 3: TK B */}
-<div className="bg-[#FCD116]est rounded-[32px] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+<div className="bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative">
 <div className="relative h-48 overflow-hidden bg-secondary-fixed/30">
 <img className="w-full h-full object-cover" data-alt="Murid-murid TK B usia 5-6 tahun tersenyum bangga memegang karya gambar sains mini dan buku cerita Islam di meja kelas cerah dengan latar hiasan kaligrafi asmaul husna anak-anak." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAydOhfiM8gMV1CzijOuYr06kXlkAoBYLBTYNXnDRSQC58U5k8AyVL5Mh56gcASt_o_8Zyhs8mR_c8mTqdU3uEzg6QIE1MF_ca3tSNSKB_pq1godkoZCEyOvAkXseyn--iM7BVhuMy3ZkvtPZoOnS83R-0E4WdNwgMFI0X8a0IBFvJ2xSRD2sPyVc4wW05fIVFiVRfmffSNWOfCDwyDf7Hf2pnHdZuB7HOBDK7E8W_MKMfs_6_WnxpR"/>
 <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
@@ -260,7 +258,7 @@ export default async function Home() {
 </div>
 </div>
 {/* Ekstrakurikuler Pilihan */}
-<div className="mt-14 pt-10 bg-[#FCD116]est rounded-3xl p-8 shadow-sm">
+<div className="mt-14 pt-10 bg-white rounded-3xl p-8 shadow-sm">
 <div className="text-center max-w-xl mx-auto mb-8">
 <h3 className="font-headline-md text-headline-md text-primary">Ekstrakurikuler Minat &amp; Bakat Ceria</h3>
 <p className="font-body-sm text-body-sm text-gray-700 mt-1">Mengasah kecerdasan kinestetik, seni dan teknologi islami sejak dini.</p>
