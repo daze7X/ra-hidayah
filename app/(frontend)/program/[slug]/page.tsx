@@ -120,24 +120,24 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
   }
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans pt-36">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans pt-16">
       
       {/* ================= HERO SECTION ================= */}
-      <section className="w-full pb-16 relative">
+      <section className="w-full pt-20 pb-24 md:pb-32 relative bg-gradient-to-br from-[#188B48] to-[#126b37]">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           
           <div className="flex flex-col items-start gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 bg-[#EAF3EF] rounded-full border border-[#188B48]/20">
-              <span className="text-[12px] font-bold text-[#188B48] tracking-widest uppercase">
+            <div className="flex items-center gap-2 px-3 py-1 bg-white/20 rounded-full border border-white/30">
+              <span className="text-[12px] font-bold text-white tracking-widest uppercase">
                 {data.badge}
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-[#188B48] leading-[1.15] tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-[1.15] tracking-tight">
               {data.title}
             </h1>
             
-            <p className="text-[16px] text-gray-600 max-w-md leading-relaxed mt-2">
+            <p className="text-[16px] text-white/90 max-w-md leading-relaxed mt-2">
               {data.desc}
             </p>
           </div>
@@ -155,6 +155,13 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
           </div>
         </div>
       </section>
+
+      {/* Wave Divider */}
+      <div className="w-full overflow-hidden -mt-1 bg-[#126b37]">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block relative z-10">
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FDFCF8" />
+        </svg>
+      </div>
 
       {/* ================= TENTANG PROGRAM ================= */}
       <section className="w-full py-16 border-t border-gray-100">
