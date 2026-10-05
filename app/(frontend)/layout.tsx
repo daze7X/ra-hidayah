@@ -4,6 +4,7 @@ import "../globals.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
+import BackToTopButton from "../../components/BackToTopButton";
 
 export const metadata: Metadata = {
   title: "PAUD Hidayah",
@@ -20,6 +21,7 @@ export default function FrontendLayout({
       <Header />
       {children}
       <Footer />
+      <BackToTopButton />
       <WhatsAppButton />
     </>
   );
