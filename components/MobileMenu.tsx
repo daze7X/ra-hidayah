@@ -60,7 +60,7 @@ export default function MobileMenu() {
               <Link 
                 href="/" 
                 onClick={closeMenu}
-                className={\`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700'}\`}
+                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700'}`}
               >
                 Beranda
               </Link>
@@ -72,7 +72,7 @@ export default function MobileMenu() {
                   className="flex items-center justify-between px-4 py-3 text-[16px] font-semibold rounded-xl text-gray-700 hover:bg-gray-50"
                 >
                   <span>Tentang</span>
-                  <span className={\`material-symbols-outlined transition-transform \${openDropdown === 'tentang' ? 'rotate-180 text-[#188B48]' : ''}\`}>
+                  <span className={`material-symbols-outlined transition-transform \${openDropdown === 'tentang' ? 'rotate-180 text-[#188B48]' : ''}`}>
                     expand_more
                   </span>
                 </button>
@@ -99,7 +99,7 @@ export default function MobileMenu() {
                   className="flex items-center justify-between px-4 py-3 text-[16px] font-semibold rounded-xl text-gray-700 hover:bg-gray-50"
                 >
                   <span>Program</span>
-                  <span className={\`material-symbols-outlined transition-transform \${openDropdown === 'program' ? 'rotate-180 text-[#188B48]' : ''}\`}>
+                  <span className={`material-symbols-outlined transition-transform \${openDropdown === 'program' ? 'rotate-180 text-[#188B48]' : ''}`}>
                     expand_more
                   </span>
                 </button>
@@ -116,21 +116,21 @@ export default function MobileMenu() {
               <Link 
                 href="/fasilitas" 
                 onClick={closeMenu}
-                className={\`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/fasilitas' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}\`}
+                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/fasilitas' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
               >
                 Fasilitas
               </Link>
               <Link 
                 href="/berita" 
                 onClick={closeMenu}
-                className={\`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/berita' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}\`}
+                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/berita' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
               >
                 Berita
               </Link>
               <Link 
                 href="/galeri" 
                 onClick={closeMenu}
-                className={\`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/galeri' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}\`}
+                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/galeri' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
               >
                 Galeri
               </Link>
