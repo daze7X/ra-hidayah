@@ -25,7 +25,7 @@ export default async function ProfilTK() {
     <main className="w-full bg-surface min-h-screen">
       
       {/* ================= HERO SECTION (Islamic Playful Editorial) ================= */}
-      <section className="w-full bg-gradient-to-br from-[#188B48] to-[#126b37] pt-32 pb-20 md:pt-40 md:pb-24 relative overflow-hidden">
+      <section className="w-full bg-gradient-to-br from-[#188B48] to-[#126b37] pt-36 pb-20 md:pt-48 md:pb-24 relative overflow-hidden">
         {/* Subtle Islamic Geometry Glows (Not overwhelming) */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-fixed/30 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary-fixed/30 rounded-full blur-[80px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
@@ -81,9 +81,9 @@ export default async function ProfilTK() {
       </section>
 
       {/* Wave Divider */}
-      <div className="w-full overflow-hidden -mt-1 bg-[#126b37]">
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block relative z-10">
-          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FDFCF8" />
+      <div className="w-full overflow-hidden -mt-1 bg-[#FDFCF8] relative z-20">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#126b37" />
         </svg>
       </div>
 
