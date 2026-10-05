@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -8,6 +9,8 @@ export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -34,7 +37,8 @@ export default function MobileMenu() {
       </button>
 
       {/* Mobile Drawer Overlay */}
-      {isOpen && (
+      {isOpen && mounted && createPortal(
+      
         <div 
           className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm"
           onClick={closeMenu}
@@ -42,7 +46,9 @@ export default function MobileMenu() {
           {/* Drawer Panel */}
           <div 
             className="absolute top-0 right-0 w-[80%] max-w-[320px] h-full bg-white shadow-2xl flex flex-col overflow-y-auto transform transition-transform duration-300"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation(
+      , document.body
+    )})}
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
