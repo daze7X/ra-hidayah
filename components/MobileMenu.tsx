@@ -1,16 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { createPortal } from 'react-dom';
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -36,9 +39,8 @@ export default function MobileMenu() {
         </span>
       </button>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Drawer Overlay via Portal */}
       {isOpen && mounted && createPortal(
-      
         <div 
           className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm"
           onClick={closeMenu}
@@ -46,9 +48,7 @@ export default function MobileMenu() {
           {/* Drawer Panel */}
           <div 
             className="absolute top-0 right-0 w-[80%] max-w-[320px] h-full bg-white shadow-2xl flex flex-col overflow-y-auto transform transition-transform duration-300"
-            onClick={(e) => e.stopPropagation(
-      , document.body
-    )})}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
@@ -66,7 +66,7 @@ export default function MobileMenu() {
               <Link 
                 href="/" 
                 onClick={closeMenu}
-                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700'}`}
+                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 ${pathname === '/' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700'}`}
               >
                 Beranda
               </Link>
@@ -78,7 +78,7 @@ export default function MobileMenu() {
                   className="flex items-center justify-between px-4 py-3 text-[16px] font-semibold rounded-xl text-gray-700 hover:bg-gray-50"
                 >
                   <span>Tentang</span>
-                  <span className={`material-symbols-outlined transition-transform \${openDropdown === 'tentang' ? 'rotate-180 text-[#188B48]' : ''}`}>
+                  <span className={`material-symbols-outlined transition-transform ${openDropdown === 'tentang' ? 'rotate-180 text-[#188B48]' : ''}`}>
                     expand_more
                   </span>
                 </button>
@@ -105,7 +105,7 @@ export default function MobileMenu() {
                   className="flex items-center justify-between px-4 py-3 text-[16px] font-semibold rounded-xl text-gray-700 hover:bg-gray-50"
                 >
                   <span>Program</span>
-                  <span className={`material-symbols-outlined transition-transform \${openDropdown === 'program' ? 'rotate-180 text-[#188B48]' : ''}`}>
+                  <span className={`material-symbols-outlined transition-transform ${openDropdown === 'program' ? 'rotate-180 text-[#188B48]' : ''}`}>
                     expand_more
                   </span>
                 </button>
@@ -122,21 +122,21 @@ export default function MobileMenu() {
               <Link 
                 href="/fasilitas" 
                 onClick={closeMenu}
-                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/fasilitas' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
+                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 ${pathname === '/fasilitas' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
               >
                 Fasilitas
               </Link>
               <Link 
                 href="/berita" 
                 onClick={closeMenu}
-                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/berita' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
+                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 ${pathname === '/berita' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
               >
                 Berita
               </Link>
               <Link 
                 href="/galeri" 
                 onClick={closeMenu}
-                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 \${pathname === '/galeri' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
+                className={`px-4 py-3 text-[16px] font-semibold rounded-xl mb-1 ${pathname === '/galeri' ? 'bg-[#188B48]/10 text-[#188B48]' : 'text-gray-700 hover:bg-gray-50'}`}
               >
                 Galeri
               </Link>
@@ -161,7 +161,8 @@ export default function MobileMenu() {
               </Link>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
