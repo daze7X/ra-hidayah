@@ -38,17 +38,45 @@ export const orgStructureType = defineType({
       },
     }),
     defineField({
+      name: 'institution',
+      title: 'Lembaga / Naungan',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Yayasan Hidayah', value: 'yayasan' },
+          { title: 'PAUD Hidayah', value: 'paud' },
+          { title: 'SD Hidayah', value: 'sd' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'paud',
+    }),
+    defineField({
+      name: 'section',
+      title: 'Bidang / Seksi',
+      type: 'string',
+      description: 'Contoh: Dewan Pembina, Dewan Pengawas, Pengurus Harian, Litbang, Pendidikan, Sarpras, Usaha, Sosial',
+    }),
+    defineField({
       name: 'order',
       title: 'Urutan Tampilan',
       type: 'number',
-      description: 'Angka kecil tampil di atas (misal: 1 = Kepala Sekolah)',
+      description: 'Angka kecil tampil di atas (misal: 1 = Pimpinan Utama)',
     }),
   ],
   preview: {
     select: {
       title: 'name',
       subtitle: 'position',
+      institution: 'institution',
       media: 'image',
+    },
+    prepare({ title, subtitle, institution, media }: any) {
+      return {
+        title,
+        subtitle: `${subtitle || ''}${institution ? ` [${institution.toUpperCase()}]` : ''}`,
+        media,
+      }
     },
   },
 })

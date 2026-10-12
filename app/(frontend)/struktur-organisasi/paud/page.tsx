@@ -5,8 +5,8 @@ export const revalidate = 0;
 
 // Fetch data from Sanity
 async function getOrgData() {
-  const orgQuery = `*[_type == "orgStructure"] | order(order asc)`;
-  const orgs = await client.fetch(orgQuery);
+  const orgQuery = `*[_type == "orgStructure" && (institution == "paud" || !defined(institution))] | order(order asc)`;
+  const orgs = await client.fetch(orgQuery, {}, { next: { revalidate: 0 } });
   return orgs;
 }
 

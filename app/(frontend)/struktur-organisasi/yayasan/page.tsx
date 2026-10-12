@@ -1,20 +1,387 @@
+import { client } from "../../../../sanity/lib/client";
+import { urlFor } from "../../../../sanity/lib/image";
 import Link from "next/link";
 
-export default function PlaceholderPage() {
-  return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pt-32 pb-24 flex items-center justify-center font-sans">
-      <div className="text-center max-w-xl px-6">
-        <div className="w-20 h-20 bg-[#FCD116]/20 text-[#188B48] rounded-full flex items-center justify-center mx-auto mb-6">
-          <span className="material-symbols-outlined text-[40px]">construction</span>
+export const revalidate = 0;
+
+export const metadata = {
+  title: "Struktur Pengurus Yayasan Hidayah - PAUD Hidayah",
+  description: "Susunan pengurus dan struktur organisasi Yayasan Hidayah Tayu Wetan.",
+};
+
+// Fallback data langsung dari dokumen resmi SK Pengurus Yayasan Hidayah
+const defaultYayasanMembers = [
+  // Dewan Pembina
+  { name: "Dr. Hj. Umi Hanik, S.Ag. M.Pd.", position: "Ketua Pembina", section: "Dewan Pembina", order: 1 },
+  { name: "Drs. H. Muhammad Adib, M.Pd.", position: "Anggota Pembina", section: "Dewan Pembina", order: 2 },
+  
+  // Dewan Pengawas
+  { name: "Nur Aini Fitriya Ardiani Aniqoh, MBA, CFP", position: "Ketua Pengawas", section: "Dewan Pengawas", order: 3 },
+  { name: "Hj. Heni Muchasonah, S.Ag.", position: "Anggota Pengawas", section: "Dewan Pengawas", order: 4 },
+  
+  // Pengurus Harian
+  { name: "Dra. Hj. Isitifaiyah, M.Pd.", position: "Ketua Umum", section: "Pengurus Harian", order: 5 },
+  { name: "Drs. Ahmad Rondhi", position: "Wakil Ketua", section: "Pengurus Harian", order: 6 },
+  { name: "Adhitya Iswandono", position: "Sekretaris Umum", section: "Pengurus Harian", order: 7 },
+  { name: "Muhamad Irham Mashadi", position: "Wakil Sekretaris", section: "Pengurus Harian", order: 8 },
+  { name: "Hj. Nur Laeli, S.Pd.", position: "Bendahara Umum", section: "Pengurus Harian", order: 9 },
+  { name: "Hj. Fatmunafiatin, S.Pd.", position: "Wakil Bendahara", section: "Pengurus Harian", order: 10 },
+  
+  // SEKBID Litbang
+  { name: "Afika Khoirun Nida, S.Pd.", position: "SEKBID Litbang", section: "Litbang", order: 11 },
+  { name: "Sheila Choirul Istifa, S.Pd., MM.", position: "SEKBID Litbang", section: "Litbang", order: 12 },
+  
+  // SEKBID Pendidikan
+  { name: "Heri Setyawan, M.Pd.", position: "SEKBID Pendidikan", section: "Pendidikan", order: 13 },
+  { name: "Zaenal Arifin, S.Pd.", position: "SEKBID Pendidikan", section: "Pendidikan", order: 14 },
+  
+  // SEKBID Sarpras
+  { name: "Khoirun Niam", position: "SEKBID Pengembangan Sarpras", section: "Pengembangan Sarpras", order: 15 },
+  { name: "Ahmad Humam", position: "SEKBID Pengembangan Sarpras", section: "Pengembangan Sarpras", order: 16 },
+  
+  // SEKBID Usaha
+  { name: "Hj. Mutmainah", position: "SEKBID Bidang Usaha", section: "Bidang Usaha", order: 17 },
+  { name: "Suharni", position: "SEKBID Bidang Usaha", section: "Bidang Usaha", order: 18 },
+  { name: "Rusprehati, S.Pd.", position: "SEKBID Bidang Usaha", section: "Bidang Usaha", order: 19 },
+  
+  // SEKBID Sosial
+  { name: "Tri Mulyani", position: "SEKBID Bidang Sosial", section: "Bidang Sosial", order: 20 },
+  { name: "Hj. Sumarni, S.Pd.", position: "SEKBID Bidang Sosial", section: "Bidang Sosial", order: 21 },
+  { name: "Uswatun Hasanah", position: "SEKBID Bidang Sosial", section: "Bidang Sosial", order: 22 },
+];
+
+async function getYayasanOrgData() {
+  try {
+    const query = `*[_type == "orgStructure" && institution == "yayasan"] | order(order asc)`;
+    const data = await client.fetch(query, {}, { next: { revalidate: 0 } });
+    if (data && data.length > 0) {
+      return data;
+    }
+  } catch (error) {
+    console.error("Error fetching yayasan org data:", error);
+  }
+  return defaultYayasanMembers;
+}
+
+export default async function StrukturYayasanPage() {
+  const members = await getYayasanOrgData();
+
+  // Pengelompokan Tingkat Struktur
+  const pembina = members.filter((m: any) => m.section === "Dewan Pembina" || m.order <= 2);
+  const pengawas = members.filter((m: any) => m.section === "Dewan Pengawas" || (m.order >= 3 && m.order <= 4));
+  const pengurusHarian = members.filter((m: any) => m.section === "Pengurus Harian" || (m.order >= 5 && m.order <= 10));
+  
+  // Sekbid Groups
+  const sekbidLitbang = members.filter((m: any) => m.section === "Litbang" || (m.order >= 11 && m.order <= 12));
+  const sekbidPendidikan = members.filter((m: any) => m.section === "Pendidikan" || (m.order >= 13 && m.order <= 14));
+  const sekbidSarpras = members.filter((m: any) => m.section === "Pengembangan Sarpras" || (m.order >= 15 && m.order <= 16));
+  const sekbidUsaha = members.filter((m: any) => m.section === "Bidang Usaha" || (m.order >= 17 && m.order <= 19));
+  const sekbidSosial = members.filter((m: any) => m.section === "Bidang Sosial" || (m.order >= 20 && m.order <= 22));
+
+  // Komponen Kartu Anggota
+  const MemberCard = ({ member, highlight = false }: { member: any; highlight?: boolean }) => {
+    return (
+      <div className={`group bg-white rounded-[24px] p-5 sm:p-6 shadow-md hover:shadow-2xl border transition-all duration-300 hover:-translate-y-2 flex flex-col items-center w-full max-w-[260px] relative overflow-hidden ${highlight ? 'border-[#188B48]/30 ring-2 ring-[#188B48]/10' : 'border-gray-100'}`}>
+        {/* Accent Bar */}
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#188B48] via-[#FCD116] to-[#188B48] transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+        
+        {/* Glow Hover */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#188B48]/0 to-[#188B48]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[24px]"></div>
+
+        {/* Profile Avatar */}
+        <div className="w-[68px] h-[68px] sm:w-[76px] sm:h-[76px] rounded-full bg-[#EAF3EF] mb-3 overflow-hidden border-2 border-white shadow-md group-hover:border-[#188B48]/30 group-hover:shadow-lg transition-all duration-300 flex items-center justify-center shrink-0 relative z-10">
+          {member.image ? (
+            <img
+              src={urlFor(member.image).width(152).height(152).format('webp').url()}
+              alt={member.name}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          ) : (
+            <span className="material-symbols-outlined text-[#188B48]/50 group-hover:text-[#188B48] text-[34px] transition-colors duration-300">
+              person
+            </span>
+          )}
         </div>
-        <h1 className="text-3xl font-bold text-[#1b1c1a] mb-4">Struktur Kepengurusan Yayasan</h1>
-        <p className="text-gray-600 mb-8">
-          Halaman ini sedang dalam tahap penyusunan materi dan akan segera hadir.
+
+        {/* Name */}
+        <h4 className="font-bold text-[14px] sm:text-[15px] text-[#1b1c1a] text-center leading-tight mb-2 relative z-10 min-h-[38px] flex items-center justify-center">
+          {member.name}
+        </h4>
+
+        {/* Position Badge */}
+        <p className="text-[11px] sm:text-[12px] text-[#188B48] font-bold text-center bg-[#188B48]/10 px-3 py-1 rounded-full relative z-10 border border-[#188B48]/15">
+          {member.position}
         </p>
-        <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 bg-[#188B48] text-white rounded-full font-medium hover:bg-[#188B48]/90 transition-colors">
-          <span className="material-symbols-outlined text-[20px]">arrow_back</span>
-          Kembali ke Beranda
-        </Link>
+      </div>
+    );
+  };
+
+  return (
+    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
+      {/* ================= FULL BLEED SOLID GREEN HERO ================= */}
+      <section className="w-full bg-[#188B48] pt-36 pb-20 md:pt-44 md:pb-24 text-center relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white border-white/30 font-bold text-sm mb-6 border">
+            <span className="material-symbols-outlined text-[18px]">account_balance</span>
+            <span>STRUKTUR KEPENGURUSAN</span>
+          </div>
+
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-sm">
+            Pengurus Yayasan Hidayah
+          </h1>
+
+          <p className="text-white max-w-2xl mx-auto text-base md:text-lg leading-relaxed opacity-95">
+            Mengenal jajaran pembina, pengawas, dan pengurus harian yang mengemban amanah memajukan dakwah dan pendidikan di lingkungan Yayasan Hidayah.
+          </p>
+        </div>
+      </section>
+
+      {/* Wave Divider */}
+      <div className="w-full overflow-hidden -mt-1 bg-[#FDFCF8] relative z-20 mb-12">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48" />
+        </svg>
+      </div>
+
+      <div className="max-w-[1200px] mx-auto px-6 pt-4">
+        
+        {/* ================= 01. DEWAN PEMBINA & PENGAWAS ================= */}
+        <div className="w-full mb-20">
+          <div className="flex items-center gap-4 mb-10 pb-4 border-b border-gray-200">
+            <div className="w-12 h-12 rounded-2xl bg-[#FCD116] text-[#1b1c1a] font-bold text-xl flex items-center justify-center shadow-sm">
+              01
+            </div>
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#188B48]">
+                Dewan Pembina &amp; Dewan Pengawas
+              </h2>
+              <p className="text-gray-600 text-sm">
+                Unsur pengarah dan pengawas kebijakan strategis yayasan.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {/* Dewan Pembina Block */}
+            <div className="bg-[#188B48]/5 rounded-3xl p-6 sm:p-8 border border-[#188B48]/10 flex flex-col items-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#188B48] text-white rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                <span className="material-symbols-outlined text-[16px]">verified</span>
+                Dewan Pembina
+              </div>
+              <div className="flex flex-wrap justify-center gap-6 w-full">
+                {pembina.map((m: any, idx: number) => (
+                  <MemberCard key={m._id || idx} member={m} highlight={true} />
+                ))}
+              </div>
+            </div>
+
+            {/* Dewan Pengawas Block */}
+            <div className="bg-[#FCD116]/10 rounded-3xl p-6 sm:p-8 border border-[#FCD116]/30 flex flex-col items-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FCD116] text-[#1b1c1a] rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                <span className="material-symbols-outlined text-[16px]">policy</span>
+                Dewan Pengawas
+              </div>
+              <div className="flex flex-wrap justify-center gap-6 w-full">
+                {pengawas.map((m: any, idx: number) => (
+                  <MemberCard key={m._id || idx} member={m} highlight={true} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= 02. PENGURUS HARIAN ================= */}
+        <div className="w-full mb-20">
+          <div className="flex items-center gap-4 mb-10 pb-4 border-b border-gray-200">
+            <div className="w-12 h-12 rounded-2xl bg-[#188B48] text-white font-bold text-xl flex items-center justify-center shadow-sm">
+              02
+            </div>
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#188B48]">
+                Pengurus Harian Yayasan
+              </h2>
+              <p className="text-gray-600 text-sm">
+                Pelaksana manajemen, kepemimpinan operasional, dan administrasi yayasan.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center">
+            {pengurusHarian.map((m: any, idx: number) => (
+              <MemberCard key={m._id || idx} member={m} highlight={idx < 2} />
+            ))}
+          </div>
+        </div>
+
+        {/* ================= 03. SEKSI BIDANG (SEKBID) ================= */}
+        <div className="w-full mb-16">
+          <div className="flex items-center gap-4 mb-10 pb-4 border-b border-gray-200">
+            <div className="w-12 h-12 rounded-2xl bg-[#FCD116] text-[#1b1c1a] font-bold text-xl flex items-center justify-center shadow-sm">
+              03
+            </div>
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#188B48]">
+                Seksi Bidang (SEKBID)
+              </h2>
+              <p className="text-gray-600 text-sm">
+                Bidang-bidang fungsional pelaksana program kerja dan pengembangan yayasan.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Sekbid Litbang */}
+            <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col">
+              <div className="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
+                <div className="w-10 h-10 rounded-xl bg-[#188B48]/10 text-[#188B48] flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[22px]">psychology</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#188B48] text-base">A. Litbang</h3>
+                  <p className="text-xs text-gray-500">Penelitian &amp; Pengembangan</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                {sekbidLitbang.map((m: any, idx: number) => (
+                  <div key={m._id || idx} className="flex items-center gap-3 p-3 rounded-2xl bg-[#FDFCF8] border border-gray-100 hover:border-[#188B48]/30 transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-[#188B48]/10 text-[#188B48] font-bold text-xs flex items-center justify-center shrink-0">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-[13px] text-[#1b1c1a] leading-tight">{m.name}</h5>
+                      <span className="text-[11px] text-[#188B48] font-medium">{m.position}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sekbid Pendidikan */}
+            <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col">
+              <div className="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
+                <div className="w-10 h-10 rounded-xl bg-[#FCD116]/20 text-[#1b1c1a] flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[22px]">school</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#188B48] text-base">B. Pendidikan</h3>
+                  <p className="text-xs text-gray-500">Mutu Akademik &amp; Kurikulum</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                {sekbidPendidikan.map((m: any, idx: number) => (
+                  <div key={m._id || idx} className="flex items-center gap-3 p-3 rounded-2xl bg-[#FDFCF8] border border-gray-100 hover:border-[#188B48]/30 transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-[#FCD116]/30 text-[#1b1c1a] font-bold text-xs flex items-center justify-center shrink-0">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-[13px] text-[#1b1c1a] leading-tight">{m.name}</h5>
+                      <span className="text-[11px] text-[#188B48] font-medium">{m.position}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sekbid Sarpras */}
+            <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col">
+              <div className="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
+                <div className="w-10 h-10 rounded-xl bg-[#188B48]/10 text-[#188B48] flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[22px]">construction</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#188B48] text-base">C. Pengembangan Sarpras</h3>
+                  <p className="text-xs text-gray-500">Sarana &amp; Prasarana Lembaga</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                {sekbidSarpras.map((m: any, idx: number) => (
+                  <div key={m._id || idx} className="flex items-center gap-3 p-3 rounded-2xl bg-[#FDFCF8] border border-gray-100 hover:border-[#188B48]/30 transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-[#188B48]/10 text-[#188B48] font-bold text-xs flex items-center justify-center shrink-0">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-[13px] text-[#1b1c1a] leading-tight">{m.name}</h5>
+                      <span className="text-[11px] text-[#188B48] font-medium">{m.position}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sekbid Bidang Usaha */}
+            <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col">
+              <div className="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
+                <div className="w-10 h-10 rounded-xl bg-[#FCD116]/20 text-[#1b1c1a] flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[22px]">storefront</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#188B48] text-base">D. Bidang Usaha</h3>
+                  <p className="text-xs text-gray-500">Kemandirian Finansial &amp; Unit Usaha</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                {sekbidUsaha.map((m: any, idx: number) => (
+                  <div key={m._id || idx} className="flex items-center gap-3 p-3 rounded-2xl bg-[#FDFCF8] border border-gray-100 hover:border-[#188B48]/30 transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-[#FCD116]/30 text-[#1b1c1a] font-bold text-xs flex items-center justify-center shrink-0">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-[13px] text-[#1b1c1a] leading-tight">{m.name}</h5>
+                      <span className="text-[11px] text-[#188B48] font-medium">{m.position}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sekbid Bidang Sosial */}
+            <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col md:col-span-2 lg:col-span-2">
+              <div className="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
+                <div className="w-10 h-10 rounded-xl bg-[#188B48]/10 text-[#188B48] flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[22px]">diversity_1</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#188B48] text-base">E. Bidang Sosial</h3>
+                  <p className="text-xs text-gray-500">Pengabdian Masyarakat &amp; Kesejahteraan</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {sekbidSosial.map((m: any, idx: number) => (
+                  <div key={m._id || idx} className="flex items-center gap-3 p-3 rounded-2xl bg-[#FDFCF8] border border-gray-100 hover:border-[#188B48]/30 transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-[#188B48]/10 text-[#188B48] font-bold text-xs flex items-center justify-center shrink-0">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-[13px] text-[#1b1c1a] leading-tight">{m.name}</h5>
+                      <span className="text-[11px] text-[#188B48] font-medium">{m.position}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Navigation Actions */}
+        <div className="flex flex-wrap items-center justify-center gap-4 pt-10 border-t border-gray-200">
+          <Link
+            href="/struktur-organisasi/paud"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[#188B48] font-bold border border-[#188B48]/30 hover:bg-[#EAF3EF] transition-all shadow-sm"
+          >
+            <span>Lihat Struktur PAUD Hidayah</span>
+            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </Link>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#188B48] text-white font-bold hover:bg-[#188B48]/90 transition-all shadow-md"
+          >
+            <span className="material-symbols-outlined text-[18px]">home</span>
+            <span>Kembali ke Beranda</span>
+          </Link>
+        </div>
+
       </div>
     </main>
   );
