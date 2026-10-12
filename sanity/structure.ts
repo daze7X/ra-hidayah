@@ -3,13 +3,94 @@ import type {StructureResolver} from 'sanity/structure'
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title('Blog')
+    .title('Menu Kelola Website')
     .items([
-      S.documentTypeListItem('post').title('Posts'),
-      S.documentTypeListItem('category').title('Categories'),
-      S.documentTypeListItem('author').title('Authors'),
+      // 1. Berita & Pengumuman
+      S.listItem()
+        .title('Berita & Pengumuman')
+        .child(
+          S.list()
+            .title('Kelola Berita')
+            .items([
+              S.documentTypeListItem('post').title('Daftar Berita / Post'),
+              S.documentTypeListItem('category').title('Kategori Berita'),
+              S.documentTypeListItem('author').title('Penulis / Author'),
+            ])
+        ),
+
+      // 2. Galeri Foto
+      S.documentTypeListItem('gallery').title('Galeri Foto'),
+
+      // 3. Fasilitas
+      S.documentTypeListItem('fasilitas').title('Fasilitas Sekolah'),
+
       S.divider(),
-      ...S.documentTypeListItems().filter(
-        (item) => item.getId() && !['post', 'category', 'author'].includes(item.getId()!),
-      ),
+
+      // 4. Struktur Organisasi - DIPISAH MENJADI FOLDER / SUB-MENU
+      S.listItem()
+        .title('Struktur Organisasi')
+        .child(
+          S.list()
+            .title('Pilih Lembaga / Unit')
+            .items([
+              // Folder Yayasan
+              S.listItem()
+                .title('🏛️ Pengurus Yayasan Hidayah')
+                .child(
+                  S.documentList()
+                    .title('Pengurus Yayasan Hidayah')
+                    .filter('_type == "orgStructure" && institution == "yayasan"')
+                    .defaultOrdering([{field: 'order', direction: 'asc'}])
+                    .initialValueTemplates([
+                      S.initialValueTemplateItem('orgStructure-yayasan')
+                    ])
+                ),
+
+              // Folder PAUD
+              S.listItem()
+                .title('🌱 Pendidik & Staf PAUD Hidayah')
+                .child(
+                  S.documentList()
+                    .title('Pendidik & Staf PAUD Hidayah')
+                    .filter('_type == "orgStructure" && (institution == "paud" || !defined(institution))')
+                    .defaultOrdering([{field: 'order', direction: 'asc'}])
+                    .initialValueTemplates([
+                      S.initialValueTemplateItem('orgStructure-paud')
+                    ])
+                ),
+
+              // Folder SD
+              S.listItem()
+                .title('🎒 Struktur SD Hidayah')
+                .child(
+                  S.documentList()
+                    .title('Struktur SD Hidayah')
+                    .filter('_type == "orgStructure" && institution == "sd"')
+                    .defaultOrdering([{field: 'order', direction: 'asc'}])
+                    .initialValueTemplates([
+                      S.initialValueTemplateItem('orgStructure-sd')
+                    ])
+                ),
+
+              S.divider(),
+
+              // Semua Anggota Gabungan
+              S.listItem()
+                .title('📋 Semua Anggota (Gabungan)')
+                .child(
+                  S.documentList()
+                    .title('Semua Anggota')
+                    .filter('_type == "orgStructure"')
+                    .defaultOrdering([{field: 'order', direction: 'asc'}])
+                ),
+            ])
+        ),
+
+      // 5. Profil Sekolah
+      S.documentTypeListItem('schoolProfile').title('Profil Sekolah (Visi Misi)'),
+
+      S.divider(),
+
+      // 6. Pengaturan Situs
+      S.documentTypeListItem('siteSettings').title('Pengaturan Situs'),
     ])

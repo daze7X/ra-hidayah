@@ -17,8 +17,36 @@ export default defineConfig({
   basePath: '/studio',
   projectId,
   dataset,
-  // Add and edit the content schema in the './sanity/schemaTypes' folder
-  schema,
+  schema: {
+    ...schema,
+    templates: (prev) => [
+      ...prev,
+      {
+        id: 'orgStructure-yayasan',
+        title: 'Pengurus Yayasan',
+        schemaType: 'orgStructure',
+        value: {
+          institution: 'yayasan',
+        },
+      },
+      {
+        id: 'orgStructure-paud',
+        title: 'Anggota PAUD',
+        schemaType: 'orgStructure',
+        value: {
+          institution: 'paud',
+        },
+      },
+      {
+        id: 'orgStructure-sd',
+        title: 'Anggota SD',
+        schemaType: 'orgStructure',
+        value: {
+          institution: 'sd',
+        },
+      },
+    ],
+  },
   plugins: [
     structureTool({structure}),
     // Vision is for querying with GROQ from inside the Studio
