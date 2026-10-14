@@ -15,12 +15,12 @@ export default async function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
-                <span className="material-symbols-outlined text-on-primary-container text-[22px]">local_florist</span>
+              <div className="w-11 h-11 rounded-xl bg-white p-1 shadow-sm border border-[#188B48]/10 flex items-center justify-center shrink-0">
+                <img src="/logo-paud.png" alt="Logo PAUD Hidayah" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h4 className="font-headline-sm text-headline-sm text-primary leading-tight">{settings?.schoolName || "PAUD Hidayah"}</h4>
-                <p className="font-label-sm text-label-sm text-secondary">{settings?.foundationName || " Mandiri"}</p>
+                <p className="font-label-sm text-label-sm text-secondary">{settings?.foundationName || "Yayasan Hidayah"}</p>
               </div>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">Membina tunas bangsa dengan pendidikan berakhlak Qurani, ceria, mandiri, dan berwawasan global dalam lingkungan yang asri serta aman bagi ananda.</p>
