@@ -54,10 +54,20 @@ export const siteSettingsType = defineType({
       description: 'Contoh: Senin - Jumat: 07.30 - 11.30 WIB',
     }),
     defineField({
+      name: 'showAdmissionBanner',
+      title: 'Tampilkan Banner Pengumuman',
+      type: 'boolean',
+      description: 'Aktifkan (ON) untuk menampilkan banner pengumuman di atas hero website, atau matikan (OFF) untuk menyembunyikannya.',
+      initialValue: false,
+      options: {
+        layout: 'switch',
+      },
+    }),
+    defineField({
       name: 'admissionStatus',
-      title: 'Status Penerimaan Siswa Baru',
+      title: 'Status Penerimaan Siswa Baru / Teks Pengumuman',
       type: 'string',
-      description: 'Teks banner di atas, contoh: Penerimaan Siswa Baru TA 2025/2026 Telah Dibuka',
+      description: 'Teks banner pengumuman (contoh: Penerimaan Siswa Baru TA 2025/2026 Telah Dibuka). Banner hanya akan tampil jika sakelar di atas dalam posisi ON dan teks ini diisi.',
     })
   ],
 })

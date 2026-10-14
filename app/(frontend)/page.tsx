@@ -2,8 +2,21 @@ import { client } from "../../sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 
+export const revalidate = 0;
+
 export default async function Home() {
-  const settingsPhone = await client.fetch(`*[_type == "siteSettings"][0].phone`) || "082260654060";
+  const siteSettings = await client.fetch(
+    `*[_type == "siteSettings"][0]{
+      phone,
+      showAdmissionBanner,
+      admissionStatus
+    }`,
+    {},
+    { next: { revalidate: 0 } }
+  );
+  const settingsPhone = siteSettings?.phone || "082260654060";
+  const showBanner = siteSettings?.showAdmissionBanner === true && !!siteSettings?.admissionStatus?.trim();
+  const bannerText = siteSettings?.admissionStatus?.trim() || "";
   let phone = settingsPhone.replace(/\D/g, "");
   if (phone.startsWith("0")) phone = "62" + phone.slice(1);
 
@@ -20,12 +33,14 @@ export default async function Home() {
 
   <div className="max-w-[1200px] w-full mx-auto px-6 relative z-10 pt-32 pb-12 md:pt-40 md:pb-20">
     <div className="max-w-2xl text-white">
-      <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--color-secondary)] shadow-sm mb-6">
+      {showBanner && (
+        <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--color-secondary)] shadow-sm mb-6">
         <span className="flex h-2.5 w-2.5 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
         <span className="font-bold text-[12px] uppercase tracking-wider text-[var(--color-primary)]">
-          Penerimaan Siswa Baru TA 2025/2026 Telah Dibuka
+          {bannerText}
         </span>
-      </div>
+        </div>
+      )}
       <h1 className="text-4xl md:text-5xl lg:text-6xl md:leading-tight font-bold leading-[1.15] mb-6">
         Tumbuh Ceria, Cerdas, Mandiri &amp; <span className="text-[var(--color-secondary)] drop-shadow-md">Berkarakter Islami</span>
       </h1>
