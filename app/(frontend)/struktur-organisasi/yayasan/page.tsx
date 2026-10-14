@@ -1,6 +1,6 @@
 import { client } from "../../../../sanity/lib/client";
-import { urlFor } from "../../../../sanity/lib/image";
 import Link from "next/link";
+import OrgCardWithModal from "../../../../components/OrgCardWithModal";
 
 export const revalidate = 0;
 
@@ -78,43 +78,9 @@ export default async function StrukturYayasanPage() {
   const sekbidUsaha = members.filter((m: any) => m.section === "Bidang Usaha" || (m.order >= 17 && m.order <= 19));
   const sekbidSosial = members.filter((m: any) => m.section === "Bidang Sosial" || (m.order >= 20 && m.order <= 22));
 
-  // Komponen Kartu Anggota
+  // Komponen Kartu Anggota dengan Popup Modal
   const MemberCard = ({ member, highlight = false }: { member: any; highlight?: boolean }) => {
-    return (
-      <div className={`group bg-white rounded-[24px] p-5 sm:p-6 shadow-md hover:shadow-2xl border transition-all duration-300 hover:-translate-y-2 flex flex-col items-center w-full max-w-[260px] relative overflow-hidden ${highlight ? 'border-[#188B48]/30 ring-2 ring-[#188B48]/10' : 'border-gray-100'}`}>
-        {/* Accent Bar */}
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#188B48] via-[#FCD116] to-[#188B48] transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-        
-        {/* Glow Hover */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#188B48]/0 to-[#188B48]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[24px]"></div>
-
-        {/* Profile Avatar */}
-        <div className="w-[68px] h-[68px] sm:w-[76px] sm:h-[76px] rounded-full bg-[#EAF3EF] mb-3 overflow-hidden border-2 border-white shadow-md group-hover:border-[#188B48]/30 group-hover:shadow-lg transition-all duration-300 flex items-center justify-center shrink-0 relative z-10">
-          {member.image ? (
-            <img
-              src={urlFor(member.image).width(152).height(152).format('webp').url()}
-              alt={member.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
-          ) : (
-            <span className="material-symbols-outlined text-[#188B48]/50 group-hover:text-[#188B48] text-[34px] transition-colors duration-300">
-              person
-            </span>
-          )}
-        </div>
-
-        {/* Name */}
-        <h4 className="font-bold text-[14px] sm:text-[15px] text-[#1b1c1a] text-center leading-tight mb-2 relative z-10 min-h-[38px] flex items-center justify-center">
-          {member.name}
-        </h4>
-
-        {/* Position Badge */}
-        <p className="text-[11px] sm:text-[12px] text-[#188B48] font-bold text-center bg-[#188B48]/10 px-3 py-1 rounded-full relative z-10 border border-[#188B48]/15">
-          {member.position}
-        </p>
-      </div>
-    );
+    return <OrgCardWithModal org={member} highlight={highlight} />;
   };
 
   return (
