@@ -15,8 +15,8 @@ export default async function Header() {
       {/* Main Navbar */}
       <div className="h-20 max-w-[1200px] mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3.5 hover:opacity-90 transition-opacity">
-          <div className="w-11 h-11 rounded-full bg-white/80 backdrop-blur-sm border border-white/30 shadow-sm flex items-center justify-center shrink-0">
-            <img alt="Logo PAUD Hidayah" className="h-8 w-auto object-contain" src="/logo-paud.png" />
+          <div className="w-[50px] h-[50px] rounded-full bg-white shadow-md flex items-center justify-center shrink-0 p-2">
+            <img alt="Logo PAUD Hidayah" className="h-[28px] w-auto object-contain" src="/logo-paud.png" />
           </div>
           <div className="flex flex-col">
             <span className="font-headline-sm text-[16px] font-bold text-white leading-none">{settings?.schoolName || "PAUD HIDAYAH"}</span>
