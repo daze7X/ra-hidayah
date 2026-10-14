@@ -15,7 +15,7 @@ export default async function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-white p-1 shadow-sm border border-[#188B48]/10 flex items-center justify-center shrink-0">
+              <div className="w-11 h-11 rounded-full bg-white p-1.5 shadow-sm border border-[#188B48]/10 flex items-center justify-center shrink-0">
                 <img src="/logo-paud.png" alt="Logo PAUD Hidayah" className="w-full h-full object-contain" />
               </div>
               <div>
