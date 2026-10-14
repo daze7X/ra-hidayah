@@ -72,7 +72,7 @@ export default function OrgCardWithModal({
         <div className="w-[68px] h-[68px] sm:w-[76px] sm:h-[76px] rounded-full bg-[#EAF3EF] mb-3 overflow-hidden border-2 border-white shadow-md group-hover:border-[#188B48]/30 group-hover:shadow-lg transition-all duration-300 flex items-center justify-center shrink-0 relative z-10">
           {org.image ? (
             <img 
-              src={urlFor(org.image).width(160).height(160).format('webp').url()} 
+              src={urlFor(org.image).width(160).height(160).fit('crop').format('webp').url()} 
               alt={org.name} 
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               loading="lazy"
@@ -126,7 +126,7 @@ export default function OrgCardWithModal({
             <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-[28px] bg-[#EAF3EF] mb-5 overflow-hidden border-4 border-white shadow-xl flex items-center justify-center shrink-0 relative mt-2 ring-4 ring-[#188B48]/10">
               {org.image ? (
                 <img 
-                  src={urlFor(org.image).width(360).height(360).format('webp').url()} 
+                  src={urlFor(org.image).width(400).height(400).fit('crop').format('webp').url()} 
                   alt={org.name} 
                   className="w-full h-full object-cover"
                 />
