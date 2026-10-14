@@ -16,10 +16,10 @@ export default function HeroSection() {
 <span className="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-primary">Penerimaan Siswa Baru TA 2025/2026 Dibuka</span>
 </div>
 <h1 className="font-headline-lg text-headline-lg lg:font-display-hero lg:text-display-hero text-primary tracking-tight leading-tight">
-            Membentuk Generasi <span className="text-secondary drop-shadow-sm">Qur'ani</span> yang Cerdas, Mandiri &amp; Berakhlak Mulia
+            Tumbuh Ceria, Cerdas, Mandiri &amp; <span className="text-secondary drop-shadow-sm">Berkarakter Islami</span>
           </h1>
 <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-            Taman Kanak-Kanak Islam berbasis fitrah anak dengan metode <span className="font-semibold text-primary">active learning</span> yang ceria, menanamkan kecintaan pada Al-Qur'an, adab mulia, dan kecakapan hidup sejak dini.
+            Pendidikan anak usia dini berbasis bermain aktif yang ceria dan menyenangkan, menumbuhkan kemandirian, kecerdasan, serta pembiasaan nilai-nilai Islami sejak dini.
           </p>
 <div className="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
 <a className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg shadow-md hover:brightness-105 active:scale-95 transition-all" href="#daftar-ppdb">

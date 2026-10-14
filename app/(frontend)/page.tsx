@@ -26,11 +26,11 @@ export default async function Home() {
           Penerimaan Siswa Baru TA 2025/2026 Telah Dibuka
         </span>
       </div>
-      <h1 className="text-4xl md:text-5xl lg:text-6xl leading-[1.15] md:leading-tight font-bold leading-[1.15] mb-6">
-        Membentuk Generasi <span className="text-[var(--color-secondary)] drop-shadow-md">Qur'ani</span> yang Cerdas &amp; Mandiri
+      <h1 className="text-4xl md:text-5xl lg:text-6xl md:leading-tight font-bold leading-[1.15] mb-6">
+        Tumbuh Ceria, Cerdas, Mandiri &amp; <span className="text-[var(--color-secondary)] drop-shadow-md">Berkarakter Islami</span>
       </h1>
       <p className="font-body-lg text-lg text-white/90 mb-8 max-w-xl">
-        Taman Kanak-Kanak Islam berbasis fitrah anak dengan metode active learning yang ceria, menanamkan kecintaan pada Al-Qur'an sejak dini.
+        Pendidikan anak usia dini berbasis bermain aktif yang ceria dan menyenangkan, menumbuhkan kemandirian, kecerdasan, serta pembiasaan nilai-nilai Islami sejak dini.
       </p>
       
       <div className="flex flex-wrap items-center gap-4">
