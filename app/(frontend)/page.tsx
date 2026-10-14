@@ -27,8 +27,8 @@ export default async function Home() {
 <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
   {/* Background Building Image with Dark/Green Overlay */}
   <div className="absolute inset-0 z-0">
-    <img src="/gedung-tk.jpg" className="w-full h-full object-cover object-center" alt="Gedung PAUD Hidayah" />
-    <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/95 via-[var(--color-primary)]/80 to-[var(--color-primary)]/30"></div>
+    <img src="/gedung-tk.jpg" className="w-full h-full object-cover object-center md:object-[center_30%]" alt="Gedung PAUD Hidayah Tayu" />
+    <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/95 via-[var(--color-primary)]/75 to-[var(--color-primary)]/20"></div>
   </div>
 
   <div className="max-w-[1200px] w-full mx-auto px-6 relative z-10 pt-32 pb-12 md:pt-40 md:pb-20">
