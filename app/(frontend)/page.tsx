@@ -10,6 +10,7 @@ export default async function Home() {
       phone,
       address,
       openHours,
+      accreditation,
       showAdmissionBanner,
       admissionStatus
     }`,
@@ -68,7 +69,7 @@ export default async function Home() {
         </div>
         <div>
           <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider">Status</p>
-          <p className="font-bold text-[16px]">Akreditasi A</p>
+          <p className="font-bold text-[16px]">{siteSettings?.accreditation || "Akreditasi A"}</p>
         </div>
       </div>
 
@@ -78,11 +79,11 @@ export default async function Home() {
         </div>
         <div>
           <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider">Waktu Belajar</p>
-          <p className="font-bold text-[16px]">Senin - Jumat, 07.30 - 11.30</p>
+          <p className="font-bold text-[16px]">{siteSettings?.openHours || "Senin - Jumat, 07.30 - 11.30"}</p>
         </div>
       </div>
 
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 text-white shadow-lg transition-transform hover:-translate-y-1">
+      <a href={`https://wa.me/${phone}`} target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-white/20 cursor-pointer">
         <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0">
           <span className="material-symbols-outlined text-[24px]">call</span>
         </div>
@@ -90,7 +91,7 @@ export default async function Home() {
           <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider">Hotline / WA</p>
           <p className="font-bold text-[16px]">{siteSettings?.phone || "082260654060"}</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
