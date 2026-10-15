@@ -21,7 +21,7 @@ export default function PPDBSection() {
               Kuota kelas terbatas hanya 15 siswa per kelompok belajar demi memastikan perhatian personal dan pendampingan kasih sayang maksimal. Konsultasikan kebutuhan tumbuh kembang putra-putri Ayah &amp; Bunda sekarang.
             </p>
 <div className="pt-2 flex flex-wrap items-center gap-4">
-<a className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold shadow-lg hover:brightness-105 active:scale-95 transition-all" href="https://wa.me/6281234567890" target="_blank">
+<a className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold shadow-lg hover:brightness-105 active:scale-95 transition-all" href="https://wa.me/6285187409266" target="_blank">
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
 <span>Konsultasi Admisi WhatsApp</span>
 </a>

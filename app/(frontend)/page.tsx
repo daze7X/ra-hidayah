@@ -18,7 +18,7 @@ export default async function Home() {
     {},
     { next: { revalidate: 0 } }
   );
-  const settingsPhone = siteSettings?.phone || "082260654060";
+  const settingsPhone = siteSettings?.phone || "0851 8740 9266";
   const showBanner = siteSettings?.showAdmissionBanner === true && !!siteSettings?.admissionStatus?.trim();
   const bannerText = siteSettings?.admissionStatus?.trim() || "";
   let phone = settingsPhone.replace(/\D/g, "");
@@ -161,7 +161,7 @@ export default async function Home() {
         </div>
         <div className="min-w-0">
           <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider mb-1">Hotline / WA</p>
-          <p className="font-bold text-[16px] text-white leading-snug">{siteSettings?.phone || "082260654060"}</p>
+          <p className="font-bold text-[16px] text-white leading-snug">{siteSettings?.phone || "0851 8740 9266"}</p>
         </div>
       </a>
     </div>

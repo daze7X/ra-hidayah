@@ -115,7 +115,7 @@ export default function FasilitasGrid({ items }: { items: FasilitasItem[] }) {
               <h3 className="text-3xl font-bold text-gray-900 mb-4">{selectedFasilitas.title}</h3>
               <p className="text-gray-600 leading-relaxed text-lg mb-8">{selectedFasilitas.description}</p>
               
-              <a href="https://wa.me/6282260654060" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#188B48] text-white font-bold hover:bg-[#126b36] transition-colors">
+              <a href="https://wa.me/6285187409266" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#188B48] text-white font-bold hover:bg-[#126b36] transition-colors">
                 <span className="material-symbols-outlined text-[20px]">chat</span>
                 Tanyakan Fasilitas Ini
               </a>

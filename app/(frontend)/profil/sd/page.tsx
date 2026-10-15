@@ -16,7 +16,7 @@ async function getSettings() {
 
 export default async function ProfilSDPage() {
   const settings = await getSettings();
-  const rawPhone = settings?.phone || "082260654060";
+  const rawPhone = settings?.phone || "0851 8740 9266";
   let waPhone = rawPhone.replace(/\D/g, "");
   if (waPhone.startsWith("0")) waPhone = "62" + waPhone.slice(1);
 

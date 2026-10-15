@@ -56,15 +56,15 @@ export default async function Footer() {
             <div className="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant">
               <div className="flex items-start gap-2.5">
                 <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">location_on</span>
-                <span>{settings?.address || "Jl. Masjid Hidayah No. 12, Kompleks Pendidikan Islam Ceria, Jakarta"}</span>
+                <span>{settings?.address || "Ds. Tayu Wetan, RT.06 RW.01 Kec. Tayu, Kab. Pati, Jawa Tengah"}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="material-symbols-outlined text-primary text-[20px] shrink-0">call</span>
-                <span>{settings?.phone || "(021) 8765-4321 / 0812-3456-7890"}</span>
+                <span>{settings?.phone || "0851 8740 9266"}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="material-symbols-outlined text-primary text-[20px] shrink-0">mail</span>
-                <span>{settings?.email || "info@rahidayah.sch.id"}</span>
+                <span>{settings?.email || "paudhidayahtayuwetan@gmail.com"}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="material-symbols-outlined text-secondary text-[20px] shrink-0">school</span>

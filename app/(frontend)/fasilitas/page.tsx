@@ -103,7 +103,7 @@ export default async function FasilitasPage() {
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
             Kunjungi PAUD Hidayah secara langsung pada jam operasional untuk melakukan tur keliling sekolah dan berkonsultasi dengan para guru kami.
           </p>
-          <a href="https://wa.me/6282260654060" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#188B48] text-white font-bold hover:bg-[#126b36] hover:scale-105 transition-all shadow-lg">
+          <a href="https://wa.me/6285187409266" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#188B48] text-white font-bold hover:bg-[#126b36] hover:scale-105 transition-all shadow-lg">
             <span className="material-symbols-outlined text-[20px]">calendar_month</span>
             Jadwalkan Kunjungan
           </a>
