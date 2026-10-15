@@ -126,9 +126,8 @@ async function getGalleryData() {
       imageUrl: item.image ? urlFor(item.image).url() : '/gedung-tk.jpg',
     }));
 
-    // If Sanity items exist, display Sanity items first followed by curated activity items
-    // If no Sanity items exist or only test items, include default curated activities
-    return [...sanityItems, ...defaultActivities];
+    // Return dynamic items from Sanity CMS if present, otherwise fallback to defaultActivities
+    return sanityItems.length > 0 ? sanityItems : defaultActivities;
   } catch (err) {
     console.error("Error fetching gallery from Sanity:", err);
     return defaultActivities;
