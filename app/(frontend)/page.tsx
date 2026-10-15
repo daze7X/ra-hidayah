@@ -185,7 +185,7 @@ export default async function Home() {
 <div className="relative w-36 h-36 rounded-full overflow-hidden shadow-md mb-4 bg-primary-fixed">
             <img className="w-full h-full object-cover" alt="Ibu Kepala Sekolah RA Hidayah Sri Surami Widyastuti, S.Pd" src="/kegiatan/kepala-sekolah-paud.webp"/>
 </div>
-<h4 className="font-headline-sm text-headline-sm text-white">Ustadzah Hj. Maryam, S.Pd.I</h4>
+<h4 className="font-headline-sm text-headline-sm text-white">Sri Surami Widyastuti, S.Pd</h4>
 <p className="font-label-md text-label-md text-[#FCD116] font-medium">Kepala Sekolah PAUD Hidayah</p>
 <span className="font-body-sm text-[12px] text-white/80 mt-1">Pengabdi Pendidikan Anak Usia Dini 15+ Tahun</span>
 </div>
@@ -193,7 +193,7 @@ export default async function Home() {
 <div className="flex items-center gap-2 text-[#FCD116]">
 <span className="material-symbols-outlined text-[32px]">format_quote</span>
 </div>
-<p className="font-body-lg text-body-lg text-white italic leading-relaxed">
+<p className="font-body-lg text-body-lg text-white italic leading-relaxed text-justify">
             "Mendidik anak usia dini bukan sekadar mengisi botol kosong dengan angka dan huruf, melainkan menyalakan lentera tauhid dan rasa ingin tahu di dalam kalbu mereka. Kami menghadirkan suasana sekolah seperti rumah kedua yang sarat kegembiraan, kasih sayang, dan tuntunan keteladanan Rasulullah SAW."
           </p>
 <div className="pt-2 flex items-center gap-4">
