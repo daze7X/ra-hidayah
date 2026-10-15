@@ -193,7 +193,7 @@ export default async function Home() {
 <div className="flex items-center gap-2 text-[#FCD116]">
 <span className="material-symbols-outlined text-[32px]">format_quote</span>
 </div>
-<p className="font-body-lg text-body-lg text-white italic leading-relaxed text-justify">
+<p className="font-body-lg text-body-lg text-white italic leading-relaxed">
             "Mendidik anak usia dini bukan sekadar mengisi botol kosong dengan angka dan huruf, melainkan menyalakan lentera tauhid dan rasa ingin tahu di dalam kalbu mereka. Kami menghadirkan suasana sekolah seperti rumah kedua yang sarat kegembiraan, kasih sayang, dan tuntunan keteladanan Rasulullah SAW."
           </p>
 <div className="pt-2 flex items-center gap-4">
