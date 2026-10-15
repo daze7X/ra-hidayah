@@ -18,6 +18,7 @@ export const defaultSDMembers = [
     section: "Yayasan & Komite",
     institution: "sd",
     order: 1,
+    image: "/sd-org/umi-hanik.jpg",
     motto: "Membimbing dengan ketulusan hati untuk generasi Islami berprestasi.",
   },
   {
@@ -26,6 +27,7 @@ export const defaultSDMembers = [
     section: "Yayasan & Komite",
     institution: "sd",
     order: 2,
+    image: "/sd-org/istifaiyah.jpg",
     motto: "Membangun peradaban mulia melalui pendidikan Islam yang berkarakter.",
   },
   {
@@ -34,6 +36,7 @@ export const defaultSDMembers = [
     section: "Yayasan & Komite",
     institution: "sd",
     order: 3,
+    image: "/sd-org/nur-laeli.jpg",
     motto: "Dengan hati kita melayani, dengan keteladanan kita menginspirasi.",
   },
   {
@@ -157,6 +160,7 @@ export const defaultSDMembers = [
     section: "Guru Pendamping",
     institution: "sd",
     order: 18,
+    image: "/sd-org/uswatun-hasanah.jpg",
   },
   {
     name: "Shoimatul Maghfiroh",
@@ -301,7 +305,7 @@ export const defaultSDMembers = [
   { name: "Siti Millatul Afifah", position: "Guru TPQ", section: "Guru TPQ", institution: "sd", order: 41 },
   { name: "Siti Ziyadatun Ni’mah", position: "Guru TPQ", section: "Guru TPQ", institution: "sd", order: 42 },
   { name: "Wintiana", position: "Guru TPQ", section: "Guru TPQ", institution: "sd", order: 43 },
-  { name: "Uswatun Hasanah", position: "Guru TPQ", section: "Guru TPQ", institution: "sd", order: 44 },
+  { name: "Uswatun Hasanah", position: "Guru TPQ", section: "Guru TPQ", institution: "sd", order: 44, image: "/sd-org/uswatun-hasanah.jpg" },
   { name: "Indriyani Hastuti Ningrum", position: "Guru TPQ", section: "Guru TPQ", institution: "sd", order: 45 },
   { name: "Alvina Farha Novita", position: "Guru TPQ", section: "Guru TPQ", institution: "sd", order: 46 },
 

@@ -41,6 +41,19 @@ export default function OrgCardWithModal({
 
   if (!org) return null;
 
+  const resolveImageUrl = (img: any, size: number) => {
+    if (!img) return null;
+    if (typeof img === 'string') return img;
+    try {
+      return urlFor(img).width(size).height(size).fit('crop').format('webp').url();
+    } catch {
+      return null;
+    }
+  };
+
+  const cardImg = resolveImageUrl(org.image, 160);
+  const modalImg = resolveImageUrl(org.image, 400);
+
   return (
     <>
       {/* ================= CARD ================= */}
@@ -70,9 +83,9 @@ export default function OrgCardWithModal({
 
         {/* Profile Avatar */}
         <div className="w-[68px] h-[68px] sm:w-[76px] sm:h-[76px] rounded-full bg-[#EAF3EF] mb-3 overflow-hidden border-2 border-white shadow-md group-hover:border-[#188B48]/30 group-hover:shadow-lg transition-all duration-300 flex items-center justify-center shrink-0 relative z-10">
-          {org.image ? (
+          {cardImg ? (
             <img 
-              src={urlFor(org.image).width(160).height(160).fit('crop').format('webp').url()} 
+              src={cardImg} 
               alt={org.name} 
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               loading="lazy"
@@ -124,9 +137,9 @@ export default function OrgCardWithModal({
 
             {/* Large Clear Photo */}
             <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-[28px] bg-[#EAF3EF] mb-5 overflow-hidden border-4 border-white shadow-xl flex items-center justify-center shrink-0 relative mt-2 ring-4 ring-[#188B48]/10">
-              {org.image ? (
+              {modalImg ? (
                 <img 
-                  src={urlFor(org.image).width(400).height(400).fit('crop').format('webp').url()} 
+                  src={modalImg} 
                   alt={org.name} 
                   className="w-full h-full object-cover"
                 />
