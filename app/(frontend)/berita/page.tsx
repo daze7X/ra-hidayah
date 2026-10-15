@@ -17,7 +17,8 @@ async function getPosts() {
     slug,
     publishedAt,
     mainImage,
-    "excerpt": array::join(string::split((pt::text(body)), "")[0..120], "") + "..."
+    "category": categories[0]->title,
+    "excerpt": array::join(string::split((pt::text(body)), "")[0..130], "") + "..."
   }`;
   
   return await client.fetch(query, {}, { next: { revalidate: 0 } });
@@ -85,16 +86,22 @@ export default async function BeritaPage() {
                       <span className="material-symbols-outlined text-[48px]">image</span>
                     </div>
                   )}
-                  {/* Date Badge */}
-                  {post.publishedAt && (
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-bold text-[#188B48] shadow-sm">
-                      {formatDate(post.publishedAt)}
+                  {/* Category Badge */}
+                  {post.category && (
+                    <div className="absolute top-4 left-4 bg-[#188B48] text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                      {post.category}
                     </div>
                   )}
                 </div>
                 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
+                  {post.publishedAt && (
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500 font-medium mb-2">
+                      <span className="material-symbols-outlined text-[16px] text-[#188B48]">calendar_today</span>
+                      <span>{formatDate(post.publishedAt)}</span>
+                    </div>
+                  )}
                   <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-[#188B48] transition-colors line-clamp-2">
                     {post.title}
                   </h3>

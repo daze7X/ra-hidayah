@@ -1,4 +1,5 @@
 import { client } from "../../sanity/lib/client";
+import { urlFor } from "../../sanity/lib/image";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -22,6 +23,29 @@ export default async function Home() {
   const bannerText = siteSettings?.admissionStatus?.trim() || "";
   let phone = settingsPhone.replace(/\D/g, "");
   if (phone.startsWith("0")) phone = "62" + phone.slice(1);
+
+  // Fetch latest 3 posts from Sanity for Warta Sekolah
+  const latestPostsQuery = `*[_type == "post"] | order(publishedAt desc)[0...3] {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    mainImage,
+    "category": categories[0]->title,
+    "excerpt": array::join(string::split((pt::text(body)), "")[0..130], "") + "..."
+  }`;
+  let latestPosts: any[] = [];
+  try {
+    latestPosts = await client.fetch(latestPostsQuery, {}, { next: { revalidate: 0 } });
+  } catch (err) {
+    console.error("Error fetching latest posts:", err);
+  }
+
+  const formatDate = (dateString: string) => {
+    if (!dateString) return '';
+    const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('id-ID', options);
+  };
 
   // Parse openHours into clean structured lines (Option 1 without emoji)
   let scheduleHeader = "Waktu Belajar";
@@ -472,100 +496,95 @@ export default async function Home() {
 <span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-2">Warta Sekolah</span>
 <h2 className="font-headline-lg text-headline-lg text-primary">Kabar &amp; Agenda Ceria PAUD Hidayah</h2>
 </div>
-<a className="inline-flex items-center gap-2 font-label-md text-label-md text-primary font-bold hover:text-secondary transition-colors" href="#">
+<Link className="inline-flex items-center gap-2 font-label-md text-label-md text-primary font-bold hover:text-secondary transition-colors group" href="/berita">
 <span>Lihat Semua Berita</span>
-<span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-</a>
+<span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</Link>
 </div>
 {/* 3 News Cards */}
 <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-8 pb-8 snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
-{/* Article 1 */}
-<article className="bg-white-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-<div className="h-48 overflow-hidden relative">
-          <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Kegiatan Parenting Ceria kreasi batik celup ananda" src="/kegiatan/kegiatan-parenting-batik.webp"/>
-<div className="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full font-bold">
-              Kegiatan Luar Kelas
+{latestPosts && latestPosts.length > 0 ? (
+  latestPosts.map((post: any) => (
+    <Link
+      key={post._id}
+      href={`/berita/${post.slug?.current || ''}`}
+      className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100 min-w-[280px] sm:min-w-0"
+    >
+      <div className="h-48 overflow-hidden relative bg-gray-100">
+        {post.mainImage ? (
+          <img
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            alt={post.title}
+            src={urlFor(post.mainImage).width(600).height(400).format('webp').url()}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-[#EAF3EF] text-[#188B48]/40">
+            <span className="material-symbols-outlined text-[36px]">image</span>
+          </div>
+        )}
+        {post.category && (
+          <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-xs px-3 py-1 rounded-full font-bold shadow-sm">
+            {post.category}
+          </div>
+        )}
+      </div>
+      <div className="p-6 flex flex-col flex-1 justify-between">
+        <div>
+          {post.publishedAt && (
+            <div className="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[13px] mb-2">
+              <span className="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+              <span>{formatDate(post.publishedAt)}</span>
             </div>
-</div>
-<div className="p-6 flex flex-col flex-1 justify-between">
-<div>
-<div className="flex items-center gap-2 text-on-surface-variant font-body-sm text-[13px] mb-2">
-<span className="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
-<span>24 Mei 2025</span>
-<span>•</span>
-<span>Agenda Tahunan</span>
-</div>
-<h3 className="font-headline-sm text-headline-sm text-primary mb-2 hover:text-secondary cursor-pointer transition-colors">
-                Kunjungan Edukasi Manasik Haji Cilik di Mini Asrama Haji
-              </h3>
-<p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
-                Mengenalkan rukun Islam kelima sedini mungkin dengan simulasi tawaf, sai, dan wukuf yang dirancang interaktif serta penuh suka cita bagi ananda TK A &amp; TK B.
-              </p>
-</div>
-<div className="pt-4 mt-4 flex items-center justify-between border-t border-surface-container">
-<span className="font-label-md text-label-md text-primary font-semibold">Baca Selengkapnya</span>
-<span className="material-symbols-outlined text-primary text-[18px]">arrow_right_alt</span>
-</div>
-</div>
-</article>
-{/* Article 2 */}
-<article className="bg-white-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-<div className="h-48 overflow-hidden relative">
-          <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Sentra role play dan Market Day Cilik ananda" src="/kegiatan/kegiatan-market-day.webp"/>
-<div className="absolute top-4 left-4 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1 rounded-full font-bold">
-              Karakter &amp; Wirausaha
-            </div>
-</div>
-<div className="p-6 flex flex-col flex-1 justify-between">
-<div>
-<div className="flex items-center gap-2 text-on-surface-variant font-body-sm text-[13px] mb-2">
-<span className="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
-<span>12 Mei 2025</span>
-<span>•</span>
-<span>Peringatan Hari Besar</span>
-</div>
-<h3 className="font-headline-sm text-headline-sm text-primary mb-2 hover:text-secondary cursor-pointer transition-colors">
-                Peringatan Maulid Nabi &amp; Gelar Market Day Cilik 2025
-              </h3>
-<p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
-                Meneladani sifat jujur dan amanah Rasulullah SAW lewat transaksi jual-beli aneka kudapan halal dan kreasi celengan buatan murid sendiri.
-              </p>
-</div>
-<div className="pt-4 mt-4 flex items-center justify-between border-t border-surface-container">
-<span className="font-label-md text-label-md text-primary font-semibold">Baca Selengkapnya</span>
-<span className="material-symbols-outlined text-primary text-[18px]">arrow_right_alt</span>
-</div>
-</div>
-</article>
-{/* Article 3 */}
-<article className="bg-white-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-<div className="h-48 overflow-hidden relative">
-          <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Kebersamaan keluarga besar santri dan guru RA Hidayah" src="/kegiatan/kegiatan-bersama-sekolah.webp"/>
-<div className="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full font-bold">
-              Informasi PPDB
-            </div>
-</div>
-<div className="p-6 flex flex-col flex-1 justify-between">
-<div>
-<div className="flex items-center gap-2 text-on-surface-variant font-body-sm text-[13px] mb-2">
-<span className="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
-<span>1 Mei 2025</span>
-<span>•</span>
-<span>Penerimaan Siswa</span>
-</div>
-<h3 className="font-headline-sm text-headline-sm text-primary mb-2 hover:text-secondary cursor-pointer transition-colors">
-                Buka Pendaftaran Siswa Baru (PPDB) Gelombang 1 TA 2025/2026
-              </h3>
-<p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
-                Dapatkan potongan biaya pendaftaran formulir early bird dan fasilitas perlengkapan seragam lengkap bagi 30 pendaftar pertama bulan ini.
-              </p>
-</div>
-<div className="pt-4 mt-4 flex items-center justify-between border-t border-surface-container">
-<span className="font-label-md text-label-md text-primary font-semibold">Baca Selengkapnya</span>
-<span className="material-symbols-outlined text-primary text-[18px]">arrow_right_alt</span>
-</div>
-</div>
-</article>
+          )}
+          <h3 className="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
+            {post.title}
+          </h3>
+          <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+            {post.excerpt}
+          </p>
+        </div>
+        <div className="pt-4 mt-4 flex items-center justify-between border-t border-surface-container">
+          <span className="font-label-md text-label-md text-primary font-semibold group-hover:text-secondary transition-colors">
+            Baca Selengkapnya
+          </span>
+          <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
+            arrow_forward
+          </span>
+        </div>
+      </div>
+    </Link>
+  ))
+) : (
+  <>
+    {/* Fallback Static Article 1 */}
+    <Link href="/berita" className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100 min-w-[280px] sm:min-w-0">
+      <div className="h-48 overflow-hidden relative">
+        <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Kegiatan Parenting Ceria kreasi batik celup ananda" src="/kegiatan/kegiatan-parenting-batik.webp"/>
+        <div className="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1 rounded-full font-bold">
+          Kegiatan Luar Kelas
+        </div>
+      </div>
+      <div className="p-6 flex flex-col flex-1 justify-between">
+        <div>
+          <div className="flex items-center gap-2 text-on-surface-variant font-body-sm text-[13px] mb-2">
+            <span className="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+            <span>24 Mei 2025</span>
+          </div>
+          <h3 className="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
+            Kunjungan Edukasi Manasik Haji Cilik di Mini Asrama Haji
+          </h3>
+          <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+            Mengenalkan rukun Islam kelima sedini mungkin dengan simulasi tawaf, sai, dan wukuf yang dirancang interaktif serta penuh suka cita bagi ananda TK A &amp; TK B.
+          </p>
+        </div>
+        <div className="pt-4 mt-4 flex items-center justify-between border-t border-surface-container">
+          <span className="font-label-md text-label-md text-primary font-semibold group-hover:text-secondary transition-colors">Baca Selengkapnya</span>
+          <span className="material-symbols-outlined text-primary text-[18px]">arrow_forward</span>
+        </div>
+      </div>
+    </Link>
+  </>
+)}
 </div>
 </div>
 </section>
