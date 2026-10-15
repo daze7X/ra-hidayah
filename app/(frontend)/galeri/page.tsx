@@ -9,23 +9,130 @@ export const metadata = {
   description: "Dokumentasi kegiatan dan momen seru di PAUD Hidayah.",
 };
 
+const defaultActivities = [
+  {
+    _id: "act-1",
+    title: "Kebersamaan Seluruh Santri & Dewan Guru",
+    description: "Seluruh ananda murid dan pendidik PAUD Hidayah berfoto bersama membentangkan karya batik celup rintang penuh warna.",
+    imageUrl: "/kegiatan/kegiatan-bersama-sekolah.webp",
+  },
+  {
+    _id: "act-2",
+    title: "Pondasi Belajar Melingkar Playgroup",
+    description: "Ananda Kelompok Bermain (Playgroup) usia 3-4 tahun bernyanyi ceria dan berdoa bersama ustadzah pembimbing.",
+    imageUrl: "/kegiatan/kegiatan-playgroup-lingkaran.webp",
+  },
+  {
+    _id: "act-3",
+    title: "Aktivitas Sentra Kelas TK A",
+    description: "Stimulasi motorik halus dan kognitif melalui pencocokan bentuk, berhitung, dan balok edukasi.",
+    imageUrl: "/kegiatan/kegiatan-sentra-belajar.webp",
+  },
+  {
+    _id: "act-4",
+    title: "Kreativitas Seni & Mewarnai Kupu-Kupu",
+    description: "Mengeksplorasi warna dan motorik halus melalui kegiatan mewarnai bersama ustadzah.",
+    imageUrl: "/kegiatan/kegiatan-mewarnai-kupu.webp",
+  },
+  {
+    _id: "act-5",
+    title: "Eksplorasi Sentra Bahan Alam",
+    description: "Bermain sensorik di rumput hijau, mengenalkan sayuran, lesung rempah, dan air secara kontekstual.",
+    imageUrl: "/kegiatan/kegiatan-sentra-bahan-alam.webp",
+  },
+  {
+    _id: "act-6",
+    title: "Market Day & Role Play 'Jual Ikan Segar'",
+    description: "Simulasi interaktif jual beli ikan kreasi sendiri untuk melatih kemandirian dan konsep berniaga Islami.",
+    imageUrl: "/kegiatan/kegiatan-market-day.webp",
+  },
+  {
+    _id: "act-7",
+    title: "Penataan Sentra Belajar 'Pasar Tayu'",
+    description: "Media pembelajaran konkret mengenal huruf dan angka dengan kancing warna-warni dan kartu edukatif.",
+    imageUrl: "/kegiatan/kegiatan-sentra-pasartayu.webp",
+  },
+  {
+    _id: "act-8",
+    title: "Belajar Terbuka di Pendopo Asri",
+    description: "Suasana belajar menggambar dan menyusun balok di area pendopo semi-outdoor yang sejuk dan terang.",
+    imageUrl: "/kegiatan/kegiatan-belajar-paviliun.webp",
+  },
+  {
+    _id: "act-9",
+    title: "Parenting Ceria: Kreasi Batik Jumputan",
+    description: "Kolaborasi hangat orang tua dan anak mewarnai kain batik bersama sebagai wujud sinergi keluarga dan sekolah.",
+    imageUrl: "/kegiatan/kegiatan-parenting-batik.webp",
+  },
+  {
+    _id: "act-10",
+    title: "Pentas Kreasi & Unjuk Bakat Santri",
+    description: "Apresiasi panggung kebanggaan ananda menampilkan karya seni celup rintang di hadapan orang tua.",
+    imageUrl: "/kegiatan/kegiatan-panggung-prestasi.webp",
+  },
+  {
+    _id: "act-11",
+    title: "Senyum Hangat & Sambutan Dewan Guru",
+    description: "Bunda guru dan staf PAUD Hidayah selalu menyambut ananda dengan senyum, salam, dan sapa penuh kasih.",
+    imageUrl: "/kegiatan/kegiatan-guru-salam.webp",
+  },
+  {
+    _id: "act-12",
+    title: "Sentra Pembelajaran Terpadu & Terstruktur",
+    description: "Fasilitas ruang sentra yang tertata rapi dengan beragam sudut eksplorasi, poster asmaul husna, dan karpet edukasi.",
+    imageUrl: "/kegiatan/kegiatan-display-sentra.webp",
+  },
+  {
+    _id: "act-13",
+    title: "Pelatihan & Pengembangan Guru Berkelanjutan",
+    description: "Ustadzah PAUD Hidayah rutin mengikuti workshop dan pembekalan kurikulum merdeka PAUD terkini.",
+    imageUrl: "/kegiatan/kegiatan-pelatihan-guru.webp",
+  },
+  {
+    _id: "act-14",
+    title: "Hasil Karya Batik Jumputan Ananda",
+    description: "Deretan kaos dan kain batik penuh warna hasil cipta mandiri ananda dijemur di halaman sekolah.",
+    imageUrl: "/kegiatan/kegiatan-jemuran-karya.webp",
+  },
+  {
+    _id: "act-15",
+    title: "Pemberian Piagam & Apresiasi Belajar",
+    description: "Momen berharga penganugerahan apresiasi atas capaian belajar ananda bersama para bunda pendidik.",
+    imageUrl: "/kegiatan/kegiatan-wisuda-prestasi.webp",
+  },
+  {
+    _id: "act-16",
+    title: "Dewan Guru & Tenaga Kependidikan",
+    description: "Pendidik berdedikasi tinggi yang mendampingi tumbuh kembang dan pembentukan karakter generasi Qur'ani.",
+    imageUrl: "/kegiatan/kegiatan-dewan-guru.webp",
+  }
+];
+
 async function getGalleryData() {
-  const query = `*[_type == "gallery"] | order(publishedAt desc) {
-    _id,
-    title,
-    description,
-    image
-  }`;
-  
-  const galleries = await client.fetch(query, {}, { next: { revalidate: 0 } });
-  
-  // Format the items to resolve the Image URL safely
-  return galleries.map((item: any) => ({
-    _id: item._id,
-    title: item.title,
-    description: item.description,
-    imageUrl: item.image ? urlFor(item.image).url() : '/gedung-tk.jpg',
-  }));
+  try {
+    const query = `*[_type == "gallery"] | order(publishedAt desc) {
+      _id,
+      title,
+      description,
+      image
+    }`;
+    
+    const galleries = await client.fetch(query, {}, { next: { revalidate: 0 } });
+    
+    const sanityItems = (galleries || []).map((item: any) => ({
+      _id: item._id,
+      title: item.title,
+      description: item.description,
+      imageUrl: item.image ? urlFor(item.image).url() : '/gedung-tk.jpg',
+    }));
+
+    // If Sanity items exist, display Sanity items first followed by curated activity items
+    // If no Sanity items exist or only test items, include default curated activities
+    return [...sanityItems, ...defaultActivities];
+  } catch (err) {
+    console.error("Error fetching gallery from Sanity:", err);
+    return defaultActivities;
+  }
 }
 
 export default async function GalleryPage() {
@@ -49,7 +156,7 @@ export default async function GalleryPage() {
             Momen Ceria Anak Hidayah
           </h1>
           <p className="text-white max-w-2xl mx-auto text-lg leading-relaxed">
-            Intip keseruan aktivitas belajar, bermain, dan eksplorasi para pangeran dan putri cilik PAUD Hidayah.
+            Intip keseruan aktivitas belajar, bermain, dan eksplorasi para santri dan pendidik cilik PAUD Hidayah.
           </p>
         </div>
       </div>
@@ -60,12 +167,8 @@ export default async function GalleryPage() {
         </svg>
       </div>
       <div className="max-w-[1200px] mx-auto px-6">
-        
-        
-
         {/* Gallery Grid Client Component */}
         <GalleryGrid items={items} />
-
       </div>
     </main>
   );

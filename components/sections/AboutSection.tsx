@@ -16,10 +16,10 @@ export default function AboutSection() {
 {/* Welcome Note Grid */}
 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-surface-container-low rounded-3xl p-6 sm:p-10 mb-14 shadow-sm">
 <div className="lg:col-span-4 flex flex-col items-center text-center">
-<div className="relative w-36 h-36 rounded-full overflow-hidden shadow-md mb-4 bg-primary-fixed">
-<img className="w-full h-full object-cover" data-alt="Potret ramah dan bersahaja Ibu Kepala Sekolah RA Hidayah mengenakan jilbab hijau rapi dan tersenyum ramah kepada anak-anak murid dengan latar belakang perpustakaan ramah anak bertema Islami modern bernuansa hangat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaHwDjqRnJVTBKTJJ65m6Qyy0uQZJD2D0T6nzJVRdOOfyBM8vqDn3glq0dZr2he57H0pwogAoZk9t_z7R2YbDTFKT7sdsuUvuHJdNd0bvofNNS4aidS_z-FQyRzxrPfQs7lfIHoK5ZPHJThnpcBUcUaVpOOTB91gKGH1Ma8kU328oJQMkJ2R6t3_npC2Zaqlr-H53mnVl8q195u2_oBBPHD1ey4E6GtQ9_oBpKT0gC8dMdJmP0rF2n"/>
-</div>
-<h4 className="font-headline-sm text-headline-sm text-primary">Sri Surami Widyastuti, S.Pd</h4>
+  <div className="relative w-36 h-36 rounded-full overflow-hidden shadow-md mb-4 bg-primary-fixed">
+    <img className="w-full h-full object-cover" alt="Potret Kepala Sekolah RA Hidayah Ibu Sri Surami Widyastuti, S.Pd" src="/kegiatan/kepala-sekolah-paud.webp"/>
+  </div>
+  <h4 className="font-headline-sm text-headline-sm text-primary">Sri Surami Widyastuti, S.Pd</h4>
 <p className="font-label-md text-label-md text-secondary font-medium">Kepala Sekolah RA Hidayah</p>
 <span className="font-body-sm text-[12px] text-on-surface-variant mt-1">Pengabdi Pendidikan Anak Usia Dini 15+ Tahun</span>
 </div>

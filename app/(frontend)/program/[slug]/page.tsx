@@ -8,7 +8,7 @@ const programsData: Record<string, any> = {
     badge: "TK A (Usia 4–5 Tahun)",
     title: "Mengenal, Bereksplorasi, dan Mulai Mandiri",
     desc: "Program pembelajaran untuk anak usia 4–5 tahun melalui kegiatan bermain, eksplorasi, dan pembiasaan yang menyenangkan.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv",
+    image: "/kegiatan/kegiatan-sentra-belajar.webp",
     about: "Di usia 4-5 tahun, anak mulai mengenal lingkungan dengan lebih luas. Program TK A dirancang untuk mengembangkan potensi dasar anak, membangun kemandirian, serta menumbuhkan rasa percaya diri dalam suasana yang hangat dan menyenangkan.",
     goals: [
       "Mengembangkan kemampuan dasar kognitif, bahasa, sosial, dan motorik.",
@@ -24,16 +24,16 @@ const programsData: Record<string, any> = {
       { icon: "mosque", title: "Karakter", desc: "Akhlak & Nilai Islami" }
     ],
     gallery: [
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni", caption: "Belajar Melalui Bermain" },
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv", caption: "Kegiatan Seni & Kreativitas" },
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni", caption: "Pembiasaan Ibadah" }
+      { img: "/kegiatan/kegiatan-sentra-pasartayu.webp", caption: "Belajar Melalui Bermain di Sentra" },
+      { img: "/kegiatan/kegiatan-mewarnai-kupu.webp", caption: "Kegiatan Seni & Kreativitas" },
+      { img: "/kegiatan/kegiatan-belajar-paviliun.webp", caption: "Belajar Mandiri di Pendopo" }
     ]
   },
   "tk-b": {
     badge: "TK B (Usia 5–6 Tahun)",
     title: "Bersiap Tumbuh Lebih Mandiri",
     desc: "Mendampingi anak usia 5–6 tahun mengembangkan kemampuan, kreativitas, dan kemandirian sebagai bekal menuju jenjang pendidikan berikutnya.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni",
+    image: "/kegiatan/kegiatan-mewarnai-kupu.webp",
     about: "Di tahap ini, anak semakin aktif, ingin tahu, dan siap mengembangkan berbagai keterampilan. Program TK B difokuskan pada penguatan literasi, numerasi, kemandirian, serta pembentukan karakter Islami yang kuat.",
     goals: [
       "Meningkatkan kemampuan kognitif dan akademik dasar.",
@@ -49,16 +49,17 @@ const programsData: Record<string, any> = {
       { icon: "mood", title: "Sosial & Emosional", desc: "Empati & Berbagi" }
     ],
     gallery: [
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv", caption: "Proyek Tematik Mandiri" },
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni", caption: "Eksperimen Sederhana" },
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv", caption: "Praktik Keagamaan" }
+      { img: "/kegiatan/kegiatan-sentra-pasartayu.webp", caption: "Penataan Ruang Sentra Belajar" },
+      { img: "/kegiatan/kegiatan-display-sentra.webp", caption: "Eksplorasi Ruang Belajar Terpadu" },
+      { img: "/kegiatan/kegiatan-jemuran-karya.webp", caption: "Karya Seni & Eksperimen Mandiri" },
+      { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Prestasi Santri" }
     ]
   },
   "playgroup": {
     badge: "Taman Bermain (Playgroup)",
     title: "Dunia Pertama untuk Belajar dan Bermain",
     desc: "Ruang aman dan menyenangkan bagi anak usia dini untuk mengenal lingkungan, bermain bersama, dan membangun rasa percaya diri.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv",
+    image: "/kegiatan/kegiatan-sentra-belajar.webp",
     about: "Program Playgroup di PAUD Hidayah dirancang khusus untuk membantu anak beradaptasi dengan lingkungan sekolah. Kami mengutamakan stimulasi bermain yang mengasah sensorik, motorik, dan kemampuan bergaul secara natural.",
     goals: [
       "Membantu anak merasa aman dan nyaman di lingkungan baru.",
@@ -73,16 +74,16 @@ const programsData: Record<string, any> = {
       { icon: "brush", title: "Kreativitas", desc: "Seni & Imajinasi" }
     ],
     gallery: [
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni", caption: "Bermain di Luar Ruangan" },
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv", caption: "Bernyanyi & Bercerita" },
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni", caption: "Mewarnai & Berkarya" }
+      { img: "/kegiatan/kegiatan-sentra-bahan-alam.webp", caption: "Bermain Sensorik & Bahan Alam" },
+      { img: "/kegiatan/kegiatan-playgroup-lingkaran.webp", caption: "Bernyanyi & Bercerita Melingkar" },
+      { img: "/kegiatan/kegiatan-candid-ibu-anak.webp", caption: "Mewarnai & Berkarya Bersama Bunda" }
     ]
   },
   "ekstrakurikuler": {
     badge: "Ekstrakurikuler",
     title: "Temukan Minat, Kembangkan Bakat",
     desc: "Beragam kegiatan yang membantu anak mengeksplorasi minat dan mengembangkan potensi melalui pengalaman yang menyenangkan.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni",
+    image: "/kegiatan/kegiatan-panggung-prestasi.webp",
     about: "Selain program intrakurikuler, PAUD Hidayah menyediakan kegiatan ekstrakurikuler yang bertujuan untuk mewadahi minat khusus anak. Kami percaya setiap anak memiliki potensi unik yang perlu digali sejak dini.",
     goals: [
       "Menyalurkan energi dan minat anak ke kegiatan positif.",
@@ -99,9 +100,9 @@ const programsData: Record<string, any> = {
       { icon: "sports_soccer", title: "Olahraga", desc: "Menjaga kesehatan & kebugaran" }
     ],
     gallery: [
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv", caption: "Kegiatan Tahfidz" },
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni", caption: "Pentas Seni" },
-      { img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv", caption: "Olahraga Bersama" }
+      { img: "/kegiatan/kegiatan-panggung-prestasi.webp", caption: "Pentas Seni & Kreasi Panggung" },
+      { img: "/kegiatan/kegiatan-market-day.webp", caption: "Market Day & Kewirausahaan Cilik" },
+      { img: "/kegiatan/kegiatan-parenting-batik.webp", caption: "Workshop Membatik Bersama" }
     ]
   }
 };

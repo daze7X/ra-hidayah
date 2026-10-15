@@ -49,9 +49,7 @@ export default function ProgramLandingPage() {
              <div className="absolute top-4 -right-4 w-[90%] aspect-[4/3] bg-[#FCD116] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] -z-10 blur-sm opacity-80"></div>
              
              <div className="relative w-full max-w-[500px] aspect-[4/3] rounded-[30%_70%_50%_50%/50%_40%_60%_50%] overflow-hidden shadow-2xl border-[6px] border-white">
-               <img 
-                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv" 
-                 alt="Anak-anak belajar di PAUD Hidayah" 
+               <img src="/kegiatan/kegiatan-bersama-sekolah.webp" alt="Anak-anak dan guru PAUD Hidayah" 
                  className="w-full h-full object-cover"
                />
              </div>
@@ -77,7 +75,7 @@ export default function ProgramLandingPage() {
             {/* TK A */}
             <Link href="/program/tk-a" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
               <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv" alt="TK A" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/kegiatan/kegiatan-sentra-belajar.webp" alt="Program TK A RA Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#188B48] shadow-sm">
                   Usia 4-5 Tahun
                 </div>
@@ -94,7 +92,7 @@ export default function ProgramLandingPage() {
             {/* TK B */}
             <Link href="/program/tk-b" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
               <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni" alt="TK B" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/kegiatan/kegiatan-mewarnai-kupu.webp" alt="Program TK B RA Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#188B48] shadow-sm">
                   Usia 5-6 Tahun
                 </div>
@@ -111,7 +109,7 @@ export default function ProgramLandingPage() {
             {/* Playgroup */}
             <Link href="/program/playgroup" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
               <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv" alt="Playgroup" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/kegiatan/kegiatan-playgroup-lingkaran.webp" alt="Program Playgroup RA Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#188B48] shadow-sm">
                   Usia 3-4 Tahun
                 </div>
@@ -128,7 +126,7 @@ export default function ProgramLandingPage() {
             {/* Ekstrakurikuler */}
             <Link href="/program/ekstrakurikuler" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
               <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPV_vbEUjB6A5Zt81MX_xoP75aiW0Z-dHYZ0I4Ds9ja_KJt7dHNleWhb0nMGQjRzxqqT8-feNuibyIQ1AnF2FT8SV3rfVTjlkr1H0ZSJdRtvwZMT4x04b65JM2cWv-Rr1g28aECOH_NcL0DgBx7X6ph__qprV5845K7yU7nIt4urwGIGs9LhPFC_inbNKbqv_em7S4qhB8fi6z4dnnG_lABd0IblSOva6c0TDQBIueveckTIsjk9ni" alt="Ekstrakurikuler" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/kegiatan/kegiatan-panggung-prestasi.webp" alt="Ekstrakurikuler RA Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#FCD116] shadow-sm">
                   Pengembangan Diri
                 </div>

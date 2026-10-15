@@ -27,7 +27,7 @@ export default function NewsSection() {
 </div>
 <div className="flex items-center gap-3 pt-4 border-t border-surface-container-high">
 <div className="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed">
-<img className="w-full h-full object-cover" data-alt="Potret wajah ramah Bunda Rina tersenyum santun dengan hijab warna pastel, wali murid dari siswa TK B di RA Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcIZSgRPwLzV6lNtTUrpCTsjeIEfyyPQLoo9JzHqlFrWLk-XbEy-ev2av6ZoHwy7UMlpwn1YqQmXUCA93ZwBZfghF-UlVnc_JQwjh0fNoEyN7eha5XdHOG6OtrDUHw__fGUEqiIaBV3Xsd-PT0WXTczbz3Kh3-H4fi5-HKB2G5ni5j42cq-pj1Y_tjDexC_TRSQqWxH9BSo8aDJ0MoYVrwABUHcTrTiHtJxjZ7iUAnGf2gY6e16JO4"/>
+<img className="w-full h-full object-cover" alt="Bunda Rina Wardhani, wali murid RA Hidayah" src="/kegiatan/kegiatan-candid-ibu-anak.webp"/>
 </div>
 <div>
 <h5 className="font-label-lg text-label-lg font-bold text-primary">Bunda Rina Wardhani</h5>

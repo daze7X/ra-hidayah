@@ -70,7 +70,7 @@ export default function HeroSection() {
 {/* Main Parabolic Islamic-inspired Image Card */}
 <div className="relative overflow-hidden rounded-t-[160px] rounded-b-[36px] bg-surface-container-lowest shadow-2xl p-2.5">
 <div className="overflow-hidden rounded-t-[150px] rounded-b-[28px] aspect-[4/3] sm:aspect-[16/11]">
-<img alt="Keceriaan Belajar Anak RA Hidayah" className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv"/>
+<img alt="Keceriaan Belajar Anak RA Hidayah" className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" src="/kegiatan/kegiatan-bersama-sekolah.webp"/>
 </div>
 {/* Overlaid Floating Badge */}
 <div className="absolute -bottom-1 -left-1 sm:left-4 sm:bottom-4 bg-surface-container-lowest/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3">

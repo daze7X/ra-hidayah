@@ -79,8 +79,8 @@ export default async function StrukturOrganisasi() {
              {/* Main Image Mask */}
              <div className="relative w-full max-w-[480px] aspect-[4/3] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden shadow-2xl border-[6px] border-white">
                <img 
-                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv" 
-                 alt="Guru dan Anak-anak" 
+                 src="/kegiatan/kegiatan-dewan-guru.webp" 
+                 alt="Dewan Guru dan Tenaga Kependidikan PAUD Hidayah" 
                  className="w-full h-full object-cover"
                />
              </div>

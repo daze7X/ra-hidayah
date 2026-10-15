@@ -68,7 +68,7 @@ export default async function ProfilTK() {
               <div className="relative w-full aspect-[4/5] rounded-t-[160px] rounded-b-[40px] overflow-hidden shadow-2xl border-4 border-surface-container-lowest bg-surface">
                 {/* Fallback image placeholder (You can change this src to any real image) */}
                 <Image 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAby3nFVP69Hg7rEX10Yk5-k6Tz0GQzeBFUa14K1pSDSF8nNIvoP1fjxQJGWxwtn8wtr4yRXatuZQKcaRcXADEsghjM6LEZcjIDvL93KDkcNI53sZEc3Hef1xEACff-zb5cm8wqxNOoek0KFTrzWCR8w61T8nytr8JAv2PvdFcgSVAEOn9JPGPtFtFnbWh96CbZOcW3OVLLGtoFv2fapAjMluxeAVerAG2z4MOAw9o5Dcnb-B0Cmnwv" 
+                  src="/kegiatan/kegiatan-sentra-belajar.webp" 
                   alt="Anak-anak PAUD Hidayah" 
                   fill 
                   className="object-cover hover:scale-105 transition-transform duration-700" 

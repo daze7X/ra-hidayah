@@ -159,7 +159,7 @@ export default async function Home() {
 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white/10-container-low rounded-3xl p-6 sm:p-10 mb-14 shadow-sm">
 <div className="lg:col-span-4 flex flex-col items-center text-center">
 <div className="relative w-36 h-36 rounded-full overflow-hidden shadow-md mb-4 bg-primary-fixed">
-<img className="w-full h-full object-cover" data-alt="Potret ramah dan bersahaja Ibu Kepala Sekolah PAUD Hidayah mengenakan jilbab hijau rapi dan tersenyum ramah kepada anak-anak murid dengan latar belakang perpustakaan ramah anak bertema Islami modern bernuansa hangat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaHwDjqRnJVTBKTJJ65m6Qyy0uQZJD2D0T6nzJVRdOOfyBM8vqDn3glq0dZr2he57H0pwogAoZk9t_z7R2YbDTFKT7sdsuUvuHJdNd0bvofNNS4aidS_z-FQyRzxrPfQs7lfIHoK5ZPHJThnpcBUcUaVpOOTB91gKGH1Ma8kU328oJQMkJ2R6t3_npC2Zaqlr-H53mnVl8q195u2_oBBPHD1ey4E6GtQ9_oBpKT0gC8dMdJmP0rF2n"/>
+            <img className="w-full h-full object-cover" alt="Ibu Kepala Sekolah RA Hidayah Sri Surami Widyastuti, S.Pd" src="/kegiatan/kepala-sekolah-paud.webp"/>
 </div>
 <h4 className="font-headline-sm text-headline-sm text-white">Ustadzah Hj. Maryam, S.Pd.I</h4>
 <p className="font-label-md text-label-md text-[#FCD116] font-medium">Kepala Sekolah PAUD Hidayah</p>
@@ -251,7 +251,7 @@ export default async function Home() {
 <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-2 ring-primary/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative">
 
 <div className="relative h-48 overflow-hidden bg-primary-fixed/30">
-<img className="w-full h-full object-cover" data-alt="Anak-anak TK usia 4-5 tahun perempuan berkerudung putih dan anak laki-laki berkopiah ceria sedang menata huruf hijaiyah bergambar dengan senyum gembira di meja kayu kelas TK PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqFeTlBzosePPvDd-3-WrOFgMFnhmQyypTpbIDCQaCncycbhFbRinkT4d99cSIPmQjeilchImiNlOpaNETSWhdqLX8nFCOle_UPeWhTJet1YchlZDAi8SPqNdvoyrTPMz1-Wb1Trs9KMYqoO4tWvlfFLRpoYaMHWNC9FJT7fSHon7zLv41ixq_YwVmtF2gXwUa7dOL8HaZJEtqu4vcny0g1MJ1QoRkIn2A7JbdmwsJRiwJLew5EABX"/>
+            <img className="w-full h-full object-cover" alt="Kelompok Bermain RA Hidayah belajar melingkar ceria" src="/kegiatan/kegiatan-playgroup-lingkaran.webp"/>
 <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
               Usia 4 - 5 Tahun
             </div>
@@ -287,7 +287,7 @@ export default async function Home() {
 {/* Program 3: TK B */}
 <div className="bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative">
 <div className="relative h-48 overflow-hidden bg-secondary-fixed/30">
-<img className="w-full h-full object-cover" data-alt="Murid-murid TK B usia 5-6 tahun tersenyum bangga memegang karya gambar sains mini dan buku cerita Islam di meja kelas cerah dengan latar hiasan kaligrafi asmaul husna anak-anak." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAydOhfiM8gMV1CzijOuYr06kXlkAoBYLBTYNXnDRSQC58U5k8AyVL5Mh56gcASt_o_8Zyhs8mR_c8mTqdU3uEzg6QIE1MF_ca3tSNSKB_pq1godkoZCEyOvAkXseyn--iM7BVhuMy3ZkvtPZoOnS83R-0E4WdNwgMFI0X8a0IBFvJ2xSRD2sPyVc4wW05fIVFiVRfmffSNWOfCDwyDf7Hf2pnHdZuB7HOBDK7E8W_MKMfs_6_WnxpR"/>
+            <img className="w-full h-full object-cover" alt="Anak-anak TK RA Hidayah aktif belajar di kelas sentra" src="/kegiatan/kegiatan-sentra-belajar.webp"/>
 <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
               Usia 5 - 6 Tahun
             </div>
@@ -482,7 +482,7 @@ export default async function Home() {
 {/* Article 1 */}
 <article className="bg-white-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
 <div className="h-48 overflow-hidden relative">
-<img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Anak-anak murid TK Islam memakai baju ihram putih mini sedang berjalan tertib di replika miniatur Ka'bah halaman sekolah dalam kegiatan Manasik Haji Cilik ceria dengan bimbingan guru-guru." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKCWPcmdLs335TWon99Yh1SXdB7wsr3N2FliA17SBCorCdaX9av5yenOJbzHUOLo11HQQitB8gHA4Gx0LJqJl4DtAK6XDnA3-OpLw-60oyPqW9kLQ69M4zaDdl7vxDlTw0kf7z_sA91RFir3C3g6u8M6S_L4CvIaFg0WNCVWGUBeC4oJ5m3d1XoLoO0M96GyXerkavlq-l3UK_AU9fzVfibF5PO6fQZHPXb2AqFbapzQriAnUyBBgZ"/>
+          <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Kegiatan Parenting Ceria kreasi batik celup ananda" src="/kegiatan/kegiatan-parenting-batik.webp"/>
 <div className="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full font-bold">
               Kegiatan Luar Kelas
             </div>
@@ -511,7 +511,7 @@ export default async function Home() {
 {/* Article 2 */}
 <article className="bg-white-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
 <div className="h-48 overflow-hidden relative">
-<img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Anak-anak TK PAUD Hidayah berjualan kue sehat tradisional dan kerajinan tangan dalam acara Market Day Ceria memperingati Maulid Nabi Muhammad SAW dengan riang gembira bersama orang tua mereka." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGE4B77VdDXhLqkIziUrpoYXKojmODOmh0T7sD_lVpmw1gTfOwPq2_yykegfSnx67IZH_mdNxS02fCTPcshWTUkD-ghoIbddGjEkNw13vbQNTyxz24Rf8GPZ76iGu_WmG_7lgGjislDarOnykMr8gV7xqyMSl3sQXjIUtzRLrQ-6EHn-g3fSVnHrWAZwcFXMX_riD_-n4xqQNKkhb9p7r98CZEpZ23Vsgc71CBcSi2v8q6iylGkN9y"/>
+          <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Sentra role play dan Market Day Cilik ananda" src="/kegiatan/kegiatan-market-day.webp"/>
 <div className="absolute top-4 left-4 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1 rounded-full font-bold">
               Karakter &amp; Wirausaha
             </div>
@@ -540,7 +540,7 @@ export default async function Home() {
 {/* Article 3 */}
 <article className="bg-white-container-lowest rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
 <div className="h-48 overflow-hidden relative">
-<img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Ruang pendaftaran admisi TK Islam yang hangat dan ramah anak dengan spanduk PPDB, meja pendaftaran berhias bunga dan pamflet informatif untuk orang tua wali murid baru PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfXnfU7ZiPKg42pRsKbHhPJ7CdUFpR0LlH-XJviySKoxFGjzZlxSXwRDRblhummdb3DoponcSrjSHeHxkJMbgHcsWqfgSg8XFaT-NrZtDKU9m31vnk-iZb5fEnC11maAsJVMZRKiJg_IXg0xCvRxYcQCjMo17tCt7cAi38cO7XN8X6MJCZY7khlXVpUhtyuUfjljGrIxnPh68SN8zhrAZAwQh5u-WsSDB6HL1bfZhSmZDgr69eWtyC"/>
+          <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Kebersamaan keluarga besar santri dan guru RA Hidayah" src="/kegiatan/kegiatan-bersama-sekolah.webp"/>
 <div className="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full font-bold">
               Informasi PPDB
             </div>
@@ -587,7 +587,7 @@ export default async function Home() {
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[220px]">
 {/* Photo 1: Big Highlight (Left) */}
 <div className="lg:col-span-2 lg:row-span-2 relative overflow-hidden rounded-3xl group shadow-sm">
-<img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Suasana anak-anak TK laki-laki dan perempuan PAUD Hidayah sedang berjejer rapi melaksanakan sholat Dhuha berjamaah di musholla mini sekolah beralaskan sajadah hijau asri dengan pancaran sinar matahari pagi yang teduh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn6693uM3gsNdWqCLneCgBVZoJcocQeTLE08GeRLRo7xMQoDwWXSRKN4UDJ8XSeEYRrkSW5Id1qTAAGxpKiyXtOt94nYml8i5TNO-pi0p4u_xq-f05ea-8YqYJFQtgljesPtao4cucCa-K-sT_Kgoh60tvPVLvPUaPo8wBQodwgKDW0GvlFLH9cFSGgG9Etn0AWqIsQZvvy3SkHpIEoM4eAM5Ciyv3sXPnRXFK1WN7jKzr3ECAbaMS"/>
+          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kebersamaan santri dan guru membentangkan kain jumputan" src="/kegiatan/kegiatan-bersama-sekolah.webp"/>
 <div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-90 flex flex-col justify-end p-6 text-on-primary">
 <span className="font-label-sm text-label-sm text-secondary-fixed font-bold uppercase tracking-wider">Ibadah Harian</span>
 <h4 className="font-headline-sm text-headline-sm">Sholat Dhuha &amp; Muroja'ah Berjamaah</h4>
@@ -596,7 +596,7 @@ export default async function Home() {
 </div>
 {/* Photo 2: Mini Gardening */}
 <div className="relative overflow-hidden rounded-3xl group shadow-sm">
-<img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Dua anak TK tersenyum ceria memakai topi jerami mini sedang menyiram tanaman bayam dan stroberi di kebun edukasi outdoor sekolah PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABga1lyJkosTPRB1io-inGWW86u9dRPHhR8_RwSCSNwujZ_VmU55l6RtWGZukUPAuQSYtQVV1hagbXfEbfWJdObwbdqkE3x30Ns9RxrVr5rqNPnzl3i8d8f101t-JJvNR_Dbncsf2OsvhTXTj9-r0tWV08_zza_y3KiM0GE_35tahFJeW6Le-3uPiAsFUeq6HLRzu22RseczBi_GYtf7j4fTnqRb2eS-4TA2wtZAQfSKFybPl8xmUD"/>
+          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Eksplorasi sensorik di Sentra Bahan Alam" src="/kegiatan/kegiatan-sentra-bahan-alam.webp"/>
 <div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-on-primary">
 <span className="font-label-sm text-label-sm text-secondary-fixed font-semibold">Kebun Edukasi</span>
 <h5 className="font-label-lg text-label-lg font-bold">Bercocok Tanam Mini</h5>
@@ -604,7 +604,7 @@ export default async function Home() {
 </div>
 {/* Photo 3: Outdoor Fun / Senam Ceria */}
 <div className="relative overflow-hidden rounded-3xl group shadow-sm">
-<img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Murid-murid TK berseragam kaos olahraga hijau kuning cerah sedang merentangkan tangan dalam senam pagi ceria di lapangan rumput sintetis sekolah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQQypKJYAFWzPgqkJsmC4ANw6sL3it5wQyijyUxHOK7HRQiSvBtacoWQV4Hzm8NRF8wseHfCW57npcJh_ba0Pl_WqhBv10rZEE83v9izUrCTzpgui56vt_jvoushz1KS_2s8xuVghn8QUlPTKgnLXvEU6PBAqsOiO1kNh-vJi7VhDGL4EtOcXcDoJKGfj0xW7ULn5c4h1-cKtp8q_00PJE1VFmOOPXA7lau_d8hcdBTYq6otMbUrJ_"/>
+          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Belajar ceria di pendopo terbuka RA Hidayah" src="/kegiatan/kegiatan-belajar-paviliun.webp"/>
 <div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-on-primary">
 <span className="font-label-sm text-label-sm text-secondary-fixed font-semibold">Kebugaran Jasmani</span>
 <h5 className="font-label-lg text-label-lg font-bold">Senam Anak Sholeh</h5>
@@ -612,7 +612,7 @@ export default async function Home() {
 </div>
 {/* Photo 4: Pentas Seni Islami (Wide Span Bottom Right) */}
 <div className="lg:col-span-2 relative overflow-hidden rounded-3xl group shadow-sm">
-<img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Pentas seni ceria anak TK PAUD Hidayah menampilkan pertunjukan qasidah rebana anak cilik di panggung bernuansa hijau ceria dengan tawa bangga orang tua yang menonton." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8UM6lGaHQdOJ54zYZADwhAmEpf9FBWdr3ezB0QoBz8YWFu7J6oY0I9lIBC1c8wXvvztsIy5X0Mnna7BO0DMmChXj_emQXrc1mnCO23LnQf5RTIz-9nYF0Os0YJqsebo87udduOXQh780GjymLe_7ZDywBDo15ujlwfwwPufAEHWC6YpVGGsdmvCPgOyIreahK8TfX7atfOSymShJlGf-9ZSDp8ftPhOkG8ZskTUBnyiuqtZxpd1rZ"/>
+          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Pentas kreativitas dan apresiasi seni ananda" src="/kegiatan/kegiatan-panggung-prestasi.webp"/>
 <div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-on-primary">
 <span className="font-label-sm text-label-sm text-secondary-fixed font-semibold">Unjuk Bakat</span>
 <h5 className="font-label-lg text-label-lg font-bold">Pentas Kreativitas &amp; Qasidah Rebana Cilik</h5>
@@ -652,7 +652,7 @@ export default async function Home() {
 </div>
 <div className="flex items-center gap-3 pt-4 border-t border-surface-container-high">
 <div className="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed">
-<img className="w-full h-full object-cover" data-alt="Potret wajah ramah Bunda Rina tersenyum santun dengan hijab warna pastel, wali murid dari siswa TK B di PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcIZSgRPwLzV6lNtTUrpCTsjeIEfyyPQLoo9JzHqlFrWLk-XbEy-ev2av6ZoHwy7UMlpwn1YqQmXUCA93ZwBZfghF-UlVnc_JQwjh0fNoEyN7eha5XdHOG6OtrDUHw__fGUEqiIaBV3Xsd-PT0WXTczbz3Kh3-H4fi5-HKB2G5ni5j42cq-pj1Y_tjDexC_TRSQqWxH9BSo8aDJ0MoYVrwABUHcTrTiHtJxjZ7iUAnGf2gY6e16JO4"/>
+            <img className="w-full h-full object-cover" alt="Bunda Rina Wardhani, wali murid RA Hidayah" src="/kegiatan/kegiatan-candid-ibu-anak.webp"/>
 </div>
 <div>
 <h5 className="font-label-lg text-label-lg font-bold text-white">Bunda Rina Wardhani</h5>
