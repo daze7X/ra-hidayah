@@ -46,22 +46,22 @@ export default async function Home() {
       <h1 className="text-4xl md:text-5xl lg:text-6xl md:leading-tight font-bold leading-[1.15] mb-6">
         Tumbuh Ceria, Cerdas, Mandiri &amp; <span className="text-[var(--color-secondary)] drop-shadow-md">Berkarakter Islami</span>
       </h1>
-      <p className="font-body-lg text-lg text-white/90 mb-8 max-w-xl">
+      <p className="font-body-lg text-lg text-white/90 max-w-xl">
         Pendidikan anak usia dini berbasis bermain aktif yang ceria dan menyenangkan, menumbuhkan kemandirian, kecerdasan, serta pembiasaan nilai-nilai Islami sejak dini.
       </p>
       
-      <div className="flex flex-wrap items-center gap-4">
-        <a className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[var(--color-secondary)] text-[var(--color-on-secondary)] font-bold shadow-lg hover:brightness-105 active:scale-95 transition-all" href="#daftar-ppdb">
-          Daftar Sekarang <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-        </a>
-        <a className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/20 backdrop-blur text-white font-bold hover:bg-white/30 transition-all border border-white/30 shadow-sm" href="/program">
-          Jelajahi Program
-        </a>
-      </div>
+
+
+
+
+
+
+
+
     </div>
 
     {/* Info Cards Row (relocated from Top Bar) */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-16 max-w-4xl">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 md:mt-12 max-w-4xl">
       <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 text-white shadow-lg transition-transform hover:-translate-y-1">
         <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0">
           <span className="material-symbols-outlined text-[24px]">verified</span>
@@ -88,7 +88,7 @@ export default async function Home() {
         </div>
         <div>
           <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider">Hotline / WA</p>
-          <p className="font-bold text-[16px]">0822-6055-4060</p>
+          <p className="font-bold text-[16px]">{siteSettings?.phone || "082260654060"}</p>
         </div>
       </div>
     </div>
