@@ -55,9 +55,9 @@ export const siteSettingsType = defineType({
     }),
     defineField({
       name: 'showAdmissionBanner',
-      title: 'Tampilkan Banner Pengumuman',
+      title: 'Tampilkan Banner Pengumuman PPDB',
       type: 'boolean',
-      description: 'Aktifkan (ON) untuk menampilkan banner pengumuman di atas hero website, atau matikan (OFF) untuk menyembunyikannya.',
+      description: 'Aktifkan (ON) untuk menampilkan badge pengumuman PPDB di hero atas dan banner bawah, matikan (OFF) untuk menyembunyikannya.',
       initialValue: false,
       options: {
         layout: 'switch',
@@ -67,7 +67,7 @@ export const siteSettingsType = defineType({
       name: 'admissionStatus',
       title: 'Status Penerimaan Siswa Baru / Teks Pengumuman',
       type: 'string',
-      description: 'Teks banner pengumuman (contoh: Penerimaan Siswa Baru TA 2025/2026 Telah Dibuka). Banner hanya akan tampil jika sakelar di atas dalam posisi ON dan teks ini diisi.',
+      description: 'Teks pengumuman PPDB (contoh: Penerimaan Peserta Didik Baru (PPDB) 2025/2026). Tampil di badge hero atas dan banner bawah saat sakelar di atas dalam posisi ON.',
     })
   ],
 })

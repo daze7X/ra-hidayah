@@ -8,6 +8,8 @@ export default async function Home() {
   const siteSettings = await client.fetch(
     `*[_type == "siteSettings"][0]{
       phone,
+      address,
+      openHours,
       showAdmissionBanner,
       admissionStatus
     }`,
@@ -674,12 +676,14 @@ export default async function Home() {
 <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"></div>
 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 <div className="lg:col-span-8 flex flex-col items-start space-y-4">
+{showBanner && (
 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold shadow">
 <span className="material-symbols-outlined text-[16px]">celebration</span>
-<span>Penerimaan Peserta Didik Baru (PPDB) 2025/2026</span>
+<span>{bannerText}</span>
 </div>
+)}
 <h2 className="font-headline-lg text-headline-lg lg:text-[40px] lg:leading-[48px] font-bold text-on-primary">
-              Siapkan Masa Depan Qur'ani Ananda Bersama PAUD Hidayah
+              Siapkan Masa Depan Berkarakter Islami Ananda Bersama PAUD Hidayah
             </h2>
 <p className="font-body-lg text-body-lg text-surface-container max-w-2xl">
               Kuota kelas terbatas hanya 15 siswa per kelompok belajar demi memastikan perhatian personal dan pendampingan kasih sayang maksimal. Konsultasikan kebutuhan tumbuh kembang putra-putri Ayah &amp; Bunda sekarang.
@@ -706,11 +710,11 @@ export default async function Home() {
 <div className="space-y-2 pt-2 text-on-primary font-body-sm text-[13px]">
 <div className="flex items-center gap-2">
 <span className="material-symbols-outlined text-secondary-fixed text-[18px]">alarm</span>
-<span>Senin - Jumat: 08.00 - 13.00 WIB</span>
+<span>{siteSettings?.openHours || "Senin - Jumat: 07.30 - 11.30 WIB"}</span>
 </div>
 <div className="flex items-center gap-2">
 <span className="material-symbols-outlined text-secondary-fixed text-[18px]">location_on</span>
-<span>Jl. Masjid Hidayah No. 12, Kompleks Islam Ceria</span>
+<span>{siteSettings?.address || "Ds. Tayu Wetan, RT.06 RW.01 Kecamatan Tayu, Kabupaten Pati, Jawa Tengah"}</span>
 </div>
 </div>
 </div>
