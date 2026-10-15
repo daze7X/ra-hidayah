@@ -23,6 +23,46 @@ export default async function Home() {
   let phone = settingsPhone.replace(/\D/g, "");
   if (phone.startsWith("0")) phone = "62" + phone.slice(1);
 
+  // Parse openHours into clean structured lines (Option 1 without emoji)
+  let scheduleHeader = "Waktu Belajar";
+  let scheduleLines: string[] = [];
+  const rawHours = siteSettings?.openHours?.trim() || "Senin - Jumat, 07.30 - 11.30 WIB";
+
+  if (rawHours.includes("\n")) {
+    const lines = rawHours.split("\n").map((l: string) => l.trim()).filter(Boolean);
+    if (lines.length > 0 && (lines[0].toLowerCase().includes("senin") || lines[0].toLowerCase().includes("hari"))) {
+      const dayLabel = lines[0].replace(/^waktu\s*belajar\s*:?\s*/i, "").replace(/:$/, "").trim();
+      scheduleHeader = `Waktu Belajar (${dayLabel})`;
+      scheduleLines = lines.slice(1);
+    } else {
+      scheduleLines = lines;
+    }
+  } else if (rawHours.toLowerCase().includes("reguler") && rawHours.toLowerCase().includes("full day")) {
+    const parts = rawHours.split(/(?=Full\s*Day)/i);
+    const part1 = parts[0] || "";
+    const part2 = parts[1] || "";
+
+    const daysMatch = part1.match(/^([^:]+):/);
+    if (daysMatch) {
+      scheduleHeader = `Waktu Belajar (${daysMatch[1].trim()})`;
+    }
+
+    const regTime = part1.replace(/^[^:]+:\s*/, "").replace(/pukul\s*/gi, "").trim();
+    const fdTime = part2.replace(/pukul\s*/gi, "").trim();
+
+    scheduleLines = [
+      regTime.toLowerCase().startsWith("reguler") ? regTime.replace(/^reguler\s*:?\s*/i, "Reguler: ") : `Reguler: ${regTime}`,
+      fdTime.toLowerCase().startsWith("full day") ? fdTime.replace(/^full\s*day\s*:?\s*/i, "Full Day: ") : `Full Day: ${fdTime}`
+    ];
+  } else {
+    scheduleLines = [rawHours];
+  }
+
+  // Format spacing around hyphens for clean presentation
+  scheduleLines = scheduleLines.map((line) =>
+    line.replace(/(\d{2}\.\d{2})\s*-\s*(\d{2}\.\d{2})/, "$1 - $2")
+  );
+
   return (
     <>
       <main className="w-full bg-surface min-h-[calc(100vh-28rem)]"><div className="flex flex-col w-full">
@@ -63,33 +103,41 @@ export default async function Home() {
 
     {/* Info Cards Row (relocated from Top Bar) */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 md:mt-12 max-w-4xl">
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 text-white shadow-lg transition-transform hover:-translate-y-1">
-        <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0">
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-start gap-4 text-white shadow-lg transition-transform hover:-translate-y-1">
+        <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0 mt-0.5">
           <span className="material-symbols-outlined text-[24px]">verified</span>
         </div>
-        <div>
-          <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider">Status</p>
-          <p className="font-bold text-[16px]">{siteSettings?.accreditation || "Akreditasi A"}</p>
+        <div className="min-w-0">
+          <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider mb-1">Status</p>
+          <p className="font-bold text-[16px] text-white leading-snug">{siteSettings?.accreditation || "Akreditasi A"}</p>
         </div>
       </div>
 
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 text-white shadow-lg transition-transform hover:-translate-y-1">
-        <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0">
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-start gap-4 text-white shadow-lg transition-transform hover:-translate-y-1">
+        <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0 mt-0.5">
           <span className="material-symbols-outlined text-[24px]">schedule</span>
         </div>
-        <div>
-          <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider">Waktu Belajar</p>
-          <p className="font-bold text-[16px]">{siteSettings?.openHours || "Senin - Jumat, 07.30 - 11.30"}</p>
+        <div className="min-w-0 flex-1">
+          <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider mb-1">
+            {scheduleHeader}
+          </p>
+          <div className="flex flex-col gap-0.5">
+            {scheduleLines.map((line, idx) => (
+              <p key={idx} className="font-bold text-[14px] leading-snug text-white">
+                {line}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
 
-      <a href={`https://wa.me/${phone}`} target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4 text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-white/20 cursor-pointer">
-        <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0">
+      <a href={`https://wa.me/${phone}`} target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-start gap-4 text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-white/20 cursor-pointer">
+        <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0 mt-0.5">
           <span className="material-symbols-outlined text-[24px]">call</span>
         </div>
-        <div>
-          <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider">Hotline / WA</p>
-          <p className="font-bold text-[16px]">{siteSettings?.phone || "082260654060"}</p>
+        <div className="min-w-0">
+          <p className="text-[12px] text-white/80 font-medium uppercase tracking-wider mb-1">Hotline / WA</p>
+          <p className="font-bold text-[16px] text-white leading-snug">{siteSettings?.phone || "082260654060"}</p>
         </div>
       </a>
     </div>

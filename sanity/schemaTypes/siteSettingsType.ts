@@ -49,9 +49,10 @@ export const siteSettingsType = defineType({
     }),
     defineField({
       name: 'openHours',
-      title: 'Jam Operasional',
-      type: 'string',
-      description: 'Contoh: Senin - Jumat: 07.30 - 11.30 WIB',
+      title: 'Jam Operasional / Waktu Belajar',
+      type: 'text',
+      rows: 3,
+      description: 'Jadwal belajar sekolah (bisa gunakan tombol Enter untuk baris baru)',
     }),
     defineField({
       name: 'showAdmissionBanner',
