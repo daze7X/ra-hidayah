@@ -181,36 +181,31 @@ export default async function ProfilTK() {
         </div>
       </section>
 
-      {/* ================= NILAI / KARAKTER ================= */}
-      <section className="w-full bg-surface py-20 border-t border-outline-variant/30">
-        <div className="max-w-[1000px] mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
-              <div className="w-16 h-16 rounded-2xl bg-secondary-fixed/50 text-secondary flex items-center justify-center mb-5">
-                <span className="material-symbols-outlined text-[36px]">mood</span>
+      {/* ================= DOKUMENTASI KEGIATAN & KEBERSAMAAN ================= */}
+      <section className="w-full bg-surface py-16 md:py-24 border-t border-outline-variant/30">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="relative w-full rounded-[36px] overflow-hidden shadow-xl border-4 border-white aspect-[16/9] md:aspect-[21/9] group bg-gray-100">
+            <Image
+              src="/kegiatan/kegiatan-bersama-sekolah.webp"
+              alt="Kebersamaan Seluruh Santri dan Dewan Guru PAUD Hidayah"
+              fill
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              priority
+            />
+            {/* Soft gradient overlay with caption */}
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 md:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FCD116] text-[#1b1c1a] font-bold text-xs uppercase tracking-wider mb-2">
+                  Kebersamaan Sekolah
+                </span>
+                <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
+                  Keluarga Besar Santri &amp; Dewan Guru PAUD Hidayah
+                </h3>
               </div>
-              <h4 className="font-bold text-primary font-label-lg text-lg">Ceria</h4>
-            </div>
-            
-            <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
-              <div className="w-16 h-16 rounded-2xl bg-primary-fixed/50 text-primary flex items-center justify-center mb-5">
-                <span className="material-symbols-outlined text-[36px]">menu_book</span>
-              </div>
-              <h4 className="font-bold text-primary font-label-lg text-lg">Cerdas</h4>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
-              <div className="w-16 h-16 rounded-2xl bg-secondary-fixed/50 text-secondary flex items-center justify-center mb-5">
-                <span className="material-symbols-outlined text-[36px]">self_improvement</span>
-              </div>
-              <h4 className="font-bold text-primary font-label-lg text-lg">Mandiri</h4>
-            </div>
-
-            <div className="flex flex-col items-center text-center p-8 bg-surface-container-lowest rounded-[32px] shadow-sm hover:-translate-y-2 transition-transform duration-300 border border-outline-variant/20">
-              <div className="w-16 h-16 rounded-2xl bg-primary-fixed/50 text-primary flex items-center justify-center mb-5">
-                <span className="material-symbols-outlined text-[36px]" style={{ fontVariationSettings: "'FILL' 1" }}>mosque</span>
-              </div>
-              <h4 className="font-bold text-primary font-label-lg text-lg">Islami</h4>
+              <p className="text-white/80 text-sm max-w-md hidden md:block">
+                Membina tunas bangsa dengan kasih sayang, keceriaan bermain, dan keteladanan akhlak Qur&apos;ani.
+              </p>
             </div>
           </div>
         </div>
