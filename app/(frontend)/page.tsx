@@ -83,6 +83,35 @@ export default async function Home() {
     console.error("Error fetching featured programs:", err);
   }
 
+  // Fetch Core Programs from Sanity for Section 3
+  const coreProgramsQuery = `*[_type == "programItem" && isActive != false] | order(order asc) {
+    _id,
+    title,
+    slug,
+    badge,
+    headline,
+    shortDesc,
+    image,
+    goals
+  }`;
+  let corePrograms: any[] = [];
+  try {
+    corePrograms = await client.fetch(coreProgramsQuery, {}, { next: { revalidate: 0 } });
+  } catch (err) {
+    console.error("Error fetching core programs:", err);
+  }
+
+  const findProgram = (key: string) => {
+    return corePrograms.find((p: any) => p.slug?.current === key || p._id === `program-${key}`);
+  };
+
+  const pToddler = findProgram("toddler");
+  const pKb = findProgram("kb");
+  const pRaA = findProgram("ra-a");
+  const pRaB = findProgram("ra-b");
+  const pTahfidz = findProgram("tahfidz");
+  const pTpq = findProgram("tpq");
+
   const defaultFeaturedPrograms = [
     {
       title: "Parenting & Konseling Ortu",
@@ -358,34 +387,36 @@ export default async function Home() {
   {/* Program 1: Toddler */}
   <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
     <div className="relative h-44 overflow-hidden bg-primary-fixed/30">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Toddler PAUD Hidayah bermain ceria" src="/kegiatan/kegiatan-playgroup-lingkaran.webp"/>
+      <img 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+        alt="Toddler PAUD Hidayah bermain ceria" 
+        src={pToddler?.image ? urlFor(pToddler.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-playgroup-lingkaran.webp"}
+      />
       <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        Usia 1,5 - 3 Tahun
+        {pToddler?.badge || "Usia 1,5 - 3 Tahun"}
       </div>
     </div>
     <div className="p-6 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-primary text-[20px]">toys</span>
-          <span className="font-label-md text-sm text-primary font-bold">Toddler</span>
+          <span className="font-label-md text-sm text-primary font-bold">{pToddler?.title || "Toddler"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">Stimulasi &amp; Sensori</h3>
+        <h3 className="text-lg font-bold text-primary mb-2">{pToddler?.headline || "Stimulasi & Sensori"}</h3>
         <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          Stimulasi panca indra, motorik halus, kemandirian awal, serta adaptasi sosial ramah balita yang penuh kehangatan.
+          {pToddler?.shortDesc || "Stimulasi panca indra, motorik halus, kemandirian awal, serta adaptasi sosial ramah balita yang penuh kehangatan."}
         </p>
         <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Multisensory &amp; Motorik Play</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Toilet Training Ramah Anak</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Adaptasi Sosial Hangat</span>
-          </li>
+          {(pToddler?.goals && pToddler.goals.length > 0 ? pToddler.goals.slice(0, 3) : [
+            "Multisensory & Motorik Play",
+            "Toilet Training Ramah Anak",
+            "Adaptasi Sosial Hangat"
+          ]).map((goal: string, gIdx: number) => (
+            <li key={gIdx} className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+              <span>{goal}</span>
+            </li>
+          ))}
         </ul>
       </div>
       <Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary text-sm font-semibold hover:brightness-110 transition-all shadow-sm block" href="/program/toddler">Detail Toddler</Link>
@@ -395,34 +426,36 @@ export default async function Home() {
   {/* Program 2: Kelompok Bermain (KB) */}
   <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
     <div className="relative h-44 overflow-hidden bg-secondary-fixed/30">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kelompok Bermain KB PAUD Hidayah" src="/kegiatan/kegiatan-sentra-belajar.webp"/>
+      <img 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+        alt="Kelompok Bermain KB PAUD Hidayah" 
+        src={pKb?.image ? urlFor(pKb.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-sentra-belajar.webp"}
+      />
       <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        Usia 3 - 4 Tahun
+        {pKb?.badge || "Usia 3 - 4 Tahun"}
       </div>
     </div>
     <div className="p-6 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-secondary text-[20px]">smart_toy</span>
-          <span className="font-label-md text-sm text-secondary font-bold">Kelompok Bermain (KB)</span>
+          <span className="font-label-md text-sm text-secondary font-bold">{pKb?.title || "Kelompok Bermain (KB)"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">Bermain Peran &amp; Sosialisasi</h3>
+        <h3 className="text-lg font-bold text-primary mb-2">{pKb?.headline || "Bermain Peran & Sosialisasi"}</h3>
         <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          Mengenal lingkungan belajar melalui bermain peran, kosakata aktif, bahan alam, dan pembiasaan adab Islami harian.
+          {pKb?.shortDesc || "Mengenal lingkungan belajar melalui bermain peran, kosakata aktif, bahan alam, dan pembiasaan adab Islami harian."}
         </p>
         <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Kosakata &amp; Bahasa Komunikasi</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Bermain Peran &amp; Sentra Alam</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Pembiasaan Doa &amp; Adab 5S</span>
-          </li>
+          {(pKb?.goals && pKb.goals.length > 0 ? pKb.goals.slice(0, 3) : [
+            "Kosakata & Bahasa Komunikasi",
+            "Bermain Peran & Sentra Alam",
+            "Pembiasaan Doa & Adab 5S"
+          ]).map((goal: string, gIdx: number) => (
+            <li key={gIdx} className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+              <span>{goal}</span>
+            </li>
+          ))}
         </ul>
       </div>
       <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/kb">Detail Program KB</Link>
@@ -432,34 +465,36 @@ export default async function Home() {
   {/* Program 3: RA-A */}
   <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-2 ring-primary/20 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
     <div className="relative h-44 overflow-hidden bg-primary-fixed/30">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kelompok RA-A PAUD Hidayah" src="/kegiatan/kegiatan-mewarnai-kupu.webp"/>
+      <img 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+        alt="Kelompok RA-A PAUD Hidayah" 
+        src={pRaA?.image ? urlFor(pRaA.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-mewarnai-kupu.webp"}
+      />
       <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        Usia 4 - 5 Tahun
+        {pRaA?.badge || "Usia 4 - 5 Tahun"}
       </div>
     </div>
     <div className="p-6 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
-          <span className="font-label-md text-sm text-primary font-bold">Kelompok RA-A</span>
+          <span className="font-label-md text-sm text-primary font-bold">{pRaA?.title || "Kelompok RA-A"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">Pondasi Huruf &amp; Akhlak</h3>
+        <h3 className="text-lg font-bold text-primary mb-2">{pRaA?.headline || "Pondasi Huruf & Akhlak"}</h3>
         <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          Pengenalan huruf Hijaiyah, fonik ceria, pemahaman angka dasar melalui benda konkrit, dan sholat berjamaah.
+          {pRaA?.shortDesc || "Pengenalan huruf Hijaiyah, fonik ceria, pemahaman angka dasar melalui benda konkrit, dan sholat berjamaah."}
         </p>
         <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Tahfidz Surat Pendek Juz 'Amma</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Fonik &amp; Pra-Calistung Ceria</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Eksperimen Sentra Bahan Alam</span>
-          </li>
+          {(pRaA?.goals && pRaA.goals.length > 0 ? pRaA.goals.slice(0, 3) : [
+            "Tahfidz Surat Pendek Juz 'Amma",
+            "Fonik & Pra-Calistung Ceria",
+            "Eksperimen Sentra Bahan Alam"
+          ]).map((goal: string, gIdx: number) => (
+            <li key={gIdx} className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+              <span>{goal}</span>
+            </li>
+          ))}
         </ul>
       </div>
       <Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary text-sm font-semibold hover:brightness-110 transition-all shadow-sm block" href="/program/ra-a">Detail Program RA-A</Link>
@@ -469,34 +504,36 @@ export default async function Home() {
   {/* Program 4: RA-B */}
   <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
     <div className="relative h-44 overflow-hidden bg-secondary-fixed/30">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kelompok RA-B PAUD Hidayah wisuda" src="/kegiatan/kegiatan-wisuda-prestasi.webp"/>
+      <img 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+        alt="Kelompok RA-B PAUD Hidayah wisuda" 
+        src={pRaB?.image ? urlFor(pRaB.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-wisuda-prestasi.webp"}
+      />
       <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        Usia 5 - 6 Tahun
+        {pRaB?.badge || "Usia 5 - 6 Tahun"}
       </div>
     </div>
     <div className="p-6 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-secondary text-[20px]">school</span>
-          <span className="font-label-md text-sm text-secondary font-bold">Kelompok RA-B</span>
+          <span className="font-label-md text-sm text-secondary font-bold">{pRaB?.title || "Kelompok RA-B"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">Kesiapan SD Unggul</h3>
+        <h3 className="text-lg font-bold text-primary mb-2">{pRaB?.headline || "Kesiapan SD Unggul"}</h3>
         <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          Mematangkan literasi fungsional, numerasi kontekstual, pemantapan tahfidz juz 30, hafalan hadist, dan kepemimpinan cilik.
+          {pRaB?.shortDesc || "Mematangkan literasi fungsional, numerasi kontekstual, pemantapan tahfidz juz 30, hafalan hadist, dan kepemimpinan cilik."}
         </p>
         <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Target 15+ Surat Pilihan Juz 'Amma</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Literasi &amp; Numerasi Masuk SD</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Praktik Wudhu &amp; Sholat Sempurna</span>
-          </li>
+          {(pRaB?.goals && pRaB.goals.length > 0 ? pRaB.goals.slice(0, 3) : [
+            "Target 15+ Surat Pilihan Juz 'Amma",
+            "Literasi & Numerasi Masuk SD",
+            "Praktik Wudhu & Sholat Sempurna"
+          ]).map((goal: string, gIdx: number) => (
+            <li key={gIdx} className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+              <span>{goal}</span>
+            </li>
+          ))}
         </ul>
       </div>
       <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/ra-b">Detail Program RA-B</Link>
@@ -506,34 +543,36 @@ export default async function Home() {
   {/* Program 5: Tahfidz */}
   <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
     <div className="relative h-44 overflow-hidden bg-primary-fixed/30">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Program Tahfidz PAUD Hidayah" src="/kegiatan/kegiatan-belajar-paviliun.webp"/>
+      <img 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+        alt="Program Tahfidz PAUD Hidayah" 
+        src={pTahfidz?.image ? urlFor(pTahfidz.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-belajar-paviliun.webp"}
+      />
       <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        Program Qur'ani
+        {pTahfidz?.badge || "Program Qur'ani"}
       </div>
     </div>
     <div className="p-6 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
-          <span className="font-label-md text-sm text-primary font-bold">Tahfidz Al-Qur'an</span>
+          <span className="font-label-md text-sm text-primary font-bold">{pTahfidz?.title || "Tahfidz Al-Qur'an"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">Cinta &amp; Hafalan Juz 'Amma</h3>
+        <h3 className="text-lg font-bold text-primary mb-2">{pTahfidz?.headline || "Cinta & Hafalan Juz 'Amma"}</h3>
         <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          Bimbingan talaqqi dan muroja'ah berirama menghafal surat-surat pendek Juz 30 serta penanaman adab Qur'ani sejak dini.
+          {pTahfidz?.shortDesc || "Bimbingan talaqqi dan muroja'ah berirama menghafal surat-surat pendek Juz 30 serta penanaman adab Qur'ani sejak dini."}
         </p>
         <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Metode Talaqqi Ceria &amp; Muroja'ah Rutin</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Target Hafalan Surat Pilihan Juz 'Amma</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Pembiasaan Adab &amp; Doa Sehari-hari</span>
-          </li>
+          {(pTahfidz?.goals && pTahfidz.goals.length > 0 ? pTahfidz.goals.slice(0, 3) : [
+            "Metode Talaqqi Ceria & Muroja'ah Rutin",
+            "Target Hafalan Surat Pilihan Juz 'Amma",
+            "Pembiasaan Adab & Doa Sehari-hari"
+          ]).map((goal: string, gIdx: number) => (
+            <li key={gIdx} className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+              <span>{goal}</span>
+            </li>
+          ))}
         </ul>
       </div>
       <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/tahfidz">Detail Program Tahfidz</Link>
@@ -543,34 +582,36 @@ export default async function Home() {
   {/* Program 6: TPQ */}
   <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
     <div className="relative h-44 overflow-hidden bg-secondary-fixed/30">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Program TPQ PAUD Hidayah" src="/kegiatan/kegiatan-display-sentra.webp"/>
+      <img 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+        alt="Program TPQ PAUD Hidayah" 
+        src={pTpq?.image ? urlFor(pTpq.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-display-sentra.webp"}
+      />
       <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        Taman Pendidikan Al-Qur'an
+        {pTpq?.badge || "Taman Pendidikan Al-Qur'an"}
       </div>
     </div>
     <div className="p-6 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-secondary text-[20px]">menu_book</span>
-          <span className="font-label-md text-sm text-secondary font-bold">TPQ Hidayah</span>
+          <span className="font-label-md text-sm text-secondary font-bold">{pTpq?.title || "TPQ Hidayah"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">Tartil &amp; Fashohah Al-Qur'an</h3>
+        <h3 className="text-lg font-bold text-primary mb-2">{pTpq?.headline || "Tartil & Fashohah Al-Qur'an"}</h3>
         <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          Pondasi membaca Al-Qur'an secara fasih dan tartil bertahap sesuai jilid serta praktek sholat dan wudhu mandiri.
+          {pTpq?.shortDesc || "Pondasi membaca Al-Qur'an secara fasih dan tartil bertahap sesuai jilid serta praktek sholat dan wudhu mandiri."}
         </p>
         <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Bimbingan Membaca Terstruktur Per Jilid</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Praktek Sholat Berjamaah &amp; Wudhu</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-            <span>Hafalan Doa Harian &amp; Hadist Ramah Anak</span>
-          </li>
+          {(pTpq?.goals && pTpq.goals.length > 0 ? pTpq.goals.slice(0, 3) : [
+            "Bimbingan Membaca Terstruktur Per Jilid",
+            "Praktek Sholat Berjamaah & Wudhu",
+            "Hafalan Doa Harian & Hadist Ramah Anak"
+          ]).map((goal: string, gIdx: number) => (
+            <li key={gIdx} className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+              <span>{goal}</span>
+            </li>
+          ))}
         </ul>
       </div>
       <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/tpq">Detail Program TPQ</Link>

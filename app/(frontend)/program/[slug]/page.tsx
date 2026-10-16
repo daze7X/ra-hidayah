@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
 export const revalidate = 0;
 
@@ -191,12 +193,23 @@ const slugAliases: Record<string, string> = {
   "tahfidh": "tahfidz"
 };
 
+async function getSanityProgram(slug: string) {
+  try {
+    const query = `*[_type == "programItem" && (slug.current == $slug || _id == $slug || _id == $prefixedId)][0]`;
+    return await client.fetch(query, { slug, prefixedId: `program-${slug}` }, { next: { revalidate: 0 } });
+  } catch (error) {
+    console.error("Error fetching program from Sanity:", error);
+    return null;
+  }
+}
+
 export default async function ProgramDetail({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const targetSlug = slugAliases[resolvedParams.slug] || resolvedParams.slug;
-  const data = programsData[targetSlug];
+  const fallback = programsData[targetSlug];
+  const sanityDoc = await getSanityProgram(targetSlug);
 
-  if (!data) {
+  if (!fallback && !sanityDoc) {
     return (
       <main className="w-full pt-32 pb-20 bg-[#FDFCF8] min-h-screen text-center">
         <h1 className="text-2xl font-bold text-[#188B48]">Program tidak ditemukan.</h1>
@@ -204,6 +217,26 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
       </main>
     );
   }
+
+  // Gabungkan data Sanity dengan fallback
+  const data = {
+    badge: sanityDoc?.badge || fallback?.badge || "Program PAUD Hidayah",
+    title: sanityDoc?.headline || sanityDoc?.title || fallback?.title || "",
+    desc: sanityDoc?.shortDesc || fallback?.desc || "",
+    image: sanityDoc?.image ? urlFor(sanityDoc.image).width(800).height(600).format('webp').url() : fallback?.image,
+    about: sanityDoc?.about || fallback?.about || "",
+    goals: (sanityDoc?.goals && sanityDoc.goals.length > 0) ? sanityDoc.goals : (fallback?.goals || []),
+    featuresTitle: sanityDoc?.featuresTitle || fallback?.featuresTitle || "Fokus Stimulasi & Keunggulan",
+    features: (sanityDoc?.features && sanityDoc.features.length > 0)
+      ? sanityDoc.features
+      : (fallback?.features || []),
+    gallery: (sanityDoc?.gallery && sanityDoc.gallery.length > 0)
+      ? sanityDoc.gallery.map((g: any) => ({
+          img: g.image ? urlFor(g.image).width(800).height(600).format('webp').url() : "/kegiatan/kegiatan-playgroup-lingkaran.webp",
+          caption: g.caption || ""
+        }))
+      : (fallback?.gallery || [])
+  };
 
   return (
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">

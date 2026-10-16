@@ -24,8 +24,11 @@ export const structure: StructureResolver = (S) =>
       // 3. Fasilitas
       S.documentTypeListItem('fasilitas').title('Fasilitas Sekolah'),
 
-      // 4. Program Unggulan
-      S.documentTypeListItem('featuredProgram').title('⭐ Program Unggulan'),
+      // 4. Program Pembelajaran & Ekstrakurikuler
+      S.documentTypeListItem('programItem').title('📚 Program Pembelajaran'),
+
+      // 5. Program Unggulan (Beranda)
+      S.documentTypeListItem('featuredProgram').title('⭐ Program Unggulan (Beranda)'),
 
       S.divider(),
 
