@@ -39,10 +39,10 @@ export default async function ProfilTK() {
             </span>
             <h1 className="font-display-hero text-4xl md:text-5xl lg:text-6xl text-white leading-tight tracking-tight">
               Tumbuh Ceria,<br/>
-              <span className="text-[#FCD116] drop-shadow-sm">Belajar dengan Makna.</span>
+              <span className="text-[#FCD116] drop-shadow-sm">Belajar Bermakna</span>
             </h1>
             <p className="font-body-lg text-lg text-white max-w-lg leading-relaxed mt-2">
-              Mengenal lebih dekat perjalanan, nilai, dan lingkungan pendidikan PAUD Hidayah dalam membentuk generasi yang ceria, mandiri, cerdas, dan berakhlak Islami.
+              PAUD Hidayah mendampingi setiap anak tumbuh menjadi generasi yang cerdas, mandiri, kreatif, dan berakhlak Islami melalui pembelajaran yang menyenangkan dan berpusat pada anak.
             </p>
             
             {/* Editorial Badges */}
@@ -54,7 +54,7 @@ export default async function ProfilTK() {
                 <span className="text-[#FCD116] text-lg">✦</span> Ramah Anak
               </div>
               <div className="flex items-center gap-2 text-white font-label-md text-[15px]">
-                <span className="text-[#FCD116] text-lg">✦</span> Pembelajaran Ceria
+                <span className="text-[#FCD116] text-lg">✦</span> Kreatif dan Menyenangkan
               </div>
             </div>
           </div>
@@ -92,17 +92,32 @@ export default async function ProfilTK() {
       <section className="w-full bg-surface py-20 relative border-t border-outline-variant/30">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="font-headline-lg text-3xl md:text-4xl text-primary">Perjalanan PAUD Hidayah</h2>
+            <h2 className="font-headline-lg text-3xl md:text-4xl text-primary">Profil &amp; Perjalanan PAUD Hidayah</h2>
             <div className="w-16 h-1.5 bg-secondary rounded-full mt-4"></div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Sejarah Text (Sanity Portable Text) */}
-            <div className="lg:col-span-7 prose prose-lg prose-p:text-on-surface-variant prose-p:leading-relaxed font-body-md text-on-surface-variant">
-              {profile.history ? (
-                <PortableText value={profile.history} />
-              ) : (
-                <p>Data sejarah belum diisi di Sanity.</p>
+            {/* Sejarah Text */}
+            <div className="lg:col-span-7 space-y-5 text-gray-700 font-body-md text-base leading-relaxed">
+              <p>
+                <strong>PAUD Hidayah</strong> merupakan lembaga Pendidikan Anak Usia Dini yang berlokasi di Desa Tayu Wetan, Kecamatan Tayu, Kabupaten Pati, Jawa Tengah. Berada di lingkungan masyarakat yang religius dan kaya akan potensi budaya lokal, PAUD Hidayah berkomitmen memberikan layanan pendidikan yang berkualitas dengan memadukan nilai-nilai Islami, kearifan lokal, dan pembelajaran yang sesuai dengan tahap perkembangan anak.
+              </p>
+              <p>
+                PAUD Hidayah didirikan pada tahun 1968 atas inisiatif para pendiri dan tokoh masyarakat, termasuk ibu-ibu Muslimat, untuk memenuhi kebutuhan pendidikan anak usia dini di lingkungan setempat. Pada awalnya, kegiatan pembelajaran dilaksanakan di kediaman Ibu Muflichah, kemudian berpindah beberapa kali hingga pada tahun 1970 menetap di Desa Tayu Wetan RT 06 RW 01 di atas tanah wakaf keluarga Ibu Juwariyah.
+              </p>
+              <p>
+                Dalam pelaksanaan pembelajaran, PAUD Hidayah mengedepankan kegiatan yang aktif, kreatif, dan menyenangkan melalui pemanfaatan alat permainan edukatif (APE), eksplorasi lingkungan, permainan edukatif, serta kegiatan yang mengembangkan minat dan bakat anak. Pembelajaran juga diintegrasikan dengan nilai-nilai Islam melalui pembiasaan berdoa, salat, Asmaul Husna, hafalan surah pendek, doa harian, dan pengenalan huruf hijaiyah.
+              </p>
+              <p>
+                Selain mengembangkan kemampuan dasar anak, PAUD Hidayah memberikan perhatian terhadap pembentukan karakter, kemandirian, kreativitas, kemampuan sosial, serta perkembangan fisik dan emosional anak. Lingkungan masyarakat yang religius dan budaya lokal, seperti tradisi sedekah bumi dan kegiatan keagamaan, turut menjadi sumber belajar yang bermakna bagi anak.
+              </p>
+              <p>
+                PAUD Hidayah juga menjalin kerja sama dengan orang tua dan masyarakat untuk menciptakan lingkungan pendidikan yang aman, nyaman, dan mendukung tumbuh kembang anak secara optimal. Melalui pendidikan yang berpusat pada anak dan berlandaskan nilai-nilai Islami, PAUD Hidayah berkomitmen membentuk generasi yang sehat, cerdas, ceria, kreatif, mandiri, serta berakhlakul karimah.
+              </p>
+              {profile.history && (
+                <div className="mt-6 pt-6 border-t border-outline-variant/30 prose prose-lg">
+                  <PortableText value={profile.history} />
+                </div>
               )}
             </div>
 
@@ -119,13 +134,13 @@ export default async function ProfilTK() {
                   <div className="relative pl-10">
                     <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container border-4 border-surface-container-lowest flex items-center justify-center z-10 shadow-sm"></div>
                     <h4 className="font-bold text-primary font-label-lg text-xl mb-1">1968</h4>
-                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Berdiri pertama kali oleh para pendiri dengan harapan memberikan pendidikan bermakna.</p>
+                    <p className="text-[14px] text-gray-600 leading-relaxed">Didirikan atas inisiatif tokoh masyarakat &amp; Muslimat, bertempat di kediaman Ibu Muflichah.</p>
                   </div>
                   
                   <div className="relative pl-10">
                     <div className="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container border-4 border-surface-container-lowest flex items-center justify-center z-10 shadow-sm"></div>
                     <h4 className="font-bold text-primary font-label-lg text-xl mb-1">1970</h4>
-                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Menetap di Desa Tayu Wetan (di atas tanah wakaf) dan resmi beroperasi sebagai Raudlatul Athfal.</p>
+                    <p className="text-[14px] text-gray-600 leading-relaxed">Menetap resmi di Desa Tayu Wetan RT 06 RW 01 di atas tanah wakaf keluarga Ibu Juwariyah.</p>
                   </div>
                   
                   <div className="relative pl-10">
@@ -133,7 +148,7 @@ export default async function ProfilTK() {
                       <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
                     </div>
                     <h4 className="font-bold text-primary font-label-lg text-xl mb-1">Sekarang</h4>
-                    <p className="text-[15px] text-on-surface-variant leading-relaxed">Telah melayani 180+ peserta didik dengan pendekatan Literasi, Numerasi, dan STEAM.</p>
+                    <p className="text-[14px] text-gray-600 leading-relaxed">Menyelenggarakan pembelajaran berbasis Sentra, APE, dan nilai Islami untuk 180+ santri.</p>
                   </div>
 
                 </div>

@@ -47,11 +47,14 @@ export default async function StrukturOrganisasi() {
           
           {/* Text Content */}
           <div className="flex flex-col items-start gap-4">
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="text-[12px] font-bold text-[#188B48] tracking-widest uppercase">
                 Tentang Kami
               </span>
               <span className="material-symbols-outlined text-[#188B48] text-[18px]">verified</span>
+              <span className="inline-block px-3 py-1 bg-[#188B48]/10 text-[#188B48] text-xs font-semibold rounded-full italic">
+                &ldquo;Mendidik dengan Cinta, Melayani dengan Sepenuh Hati&rdquo;
+              </span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#188B48] leading-[1.15] tracking-tight">
@@ -219,6 +222,17 @@ export default async function StrukturOrganisasi() {
 
           </div>
         )}
+
+        {/* Slogan PAUD Hidayah */}
+        <div className="w-full mt-12 md:mt-16 p-8 md:p-10 bg-gradient-to-r from-[#188B48] to-[#126B36] rounded-3xl text-center text-white shadow-xl relative overflow-hidden">
+          <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+            <span className="material-symbols-outlined text-4xl text-[#FCD116] mb-3">favorite</span>
+            <p className="text-xl md:text-2xl font-bold italic tracking-wide">
+              &ldquo;Mendidik dengan Cinta, Melayani dengan Sepenuh Hati.&rdquo;
+            </p>
+            <p className="text-sm text-green-100 mt-2 font-medium">Keluarga Besar Pendidik &amp; Tenaga Kependidikan PAUD Hidayah Tayu</p>
+          </div>
+        </div>
 
       </div>
     </main>

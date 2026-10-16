@@ -10,42 +10,42 @@ const fallbackPrograms = [
     slug: "toddler",
     badge: "Usia 1,5 - 3 Tahun",
     title: "Toddler",
-    shortDesc: "Stimulasi panca indra, motorik halus, dan kemandirian awal balita.",
+    shortDesc: "Mendukung perkembangan sensorik, motorik, komunikasi awal, dan ikatan emosional melalui stimulasi yang sesuai usia, permainan sederhana, sekaligus melatih kemandirian dalam kegiatan sehari-hari.",
     image: "/kegiatan/kegiatan-playgroup-lingkaran.webp",
   },
   {
     slug: "kb",
     badge: "Usia 3 - 4 Tahun",
     title: "Kelompok Bermain (KB)",
-    shortDesc: "Ruang aman dan ceria untuk mengenal lingkungan, sosialisasi, dan bermain peran.",
+    shortDesc: "Mengembangkan kemampuan berbahasa, motorik, kreativitas, sosial-emosional, dan berpikir sederhana melalui bermain, berkarya, serta pembiasaan adab dan kemandirian.",
     image: "/kegiatan/kegiatan-sentra-belajar.webp",
   },
   {
     slug: "ra-a",
     badge: "Usia 4 - 5 Tahun",
-    title: "RA-A",
-    shortDesc: "Mengenal huruf Hijaiyah, fonik ceria, pra-calistung, dan pondasi akhlak.",
+    title: "RA A",
+    shortDesc: "Mengembangkan kemampuan bahasa, literasi awal, numerasi dasar, kreativitas, pemecahan masalah sederhana, dan kerja sama melalui pembelajaran berbasis sentra serta pembiasaan nilai-nilai Islami.",
     image: "/kegiatan/kegiatan-mewarnai-kupu.webp",
   },
   {
     slug: "ra-b",
     badge: "Usia 5 - 6 Tahun",
-    title: "RA-B",
-    shortDesc: "Kesiapan masuk jenjang SD unggul dengan kemandirian dan fokus belajar.",
+    title: "RA B",
+    shortDesc: "Mempersiapkan ananda melangkah ke jenjang sekolah dasar dengan menguatkan karakter Islami, kemandirian, kemampuan berpikir, literasi numerasi, bahasa, dan keterampilan sosial.",
     image: "/kegiatan/kegiatan-wisuda-prestasi.webp",
   },
   {
     slug: "tahfidz",
     badge: "Program Qur'ani",
-    title: "Tahfidz",
-    shortDesc: "Bimbingan hafalan surat-surat pendek Juz 'Amma dengan metode talaqqi ceria.",
+    title: "Tahfidz Cilik",
+    shortDesc: "Bimbingan hafalan surat-surat pendek Juz 'Amma dengan metode talaqqi ceria, doa harian, dan pembiasaan adab Qur'ani.",
     image: "/kegiatan/kegiatan-belajar-paviliun.webp",
   },
   {
     slug: "tpq",
-    badge: "Taman Pendidikan Al-Qur'an",
-    title: "TPQ",
-    shortDesc: "Pondasi membaca Al-Qur'an tartil, makhroj fasih, dan praktek ibadah harian.",
+    badge: "Metode Qiro'ati",
+    title: "TPQ PAUD",
+    shortDesc: "Pondasi membaca Al-Qur'an metode Qiro'ati tartil, makhroj fasih, pengenalan hijaiyah, dan praktek ibadah praktis sejak dini.",
     image: "/kegiatan/kegiatan-display-sentra.webp",
   },
 ];
@@ -115,11 +115,11 @@ export default async function ProgramLandingPage() {
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#188B48] leading-[1.15] tracking-tight">
               Setiap Anak Tumbuh<br/>
-              <span className="text-[#188B48]">dengan Ritme Berbeda</span>
+              <span className="text-[#188B48]">dengan Cara Berbeda</span>
             </h1>
             
             <p className="text-[16px] text-gray-600 max-w-lg leading-relaxed mt-2">
-              Kami menyediakan ruang belajar yang sesuai dengan tahap perkembangan mereka, melalui pendekatan yang menyenangkan, aman, dan berlandaskan nilai-nilai Islami.
+              PAUD Hidayah menyediakan lingkungan yang mendukung tumbuh kembang ananda sesuai tahap perkembangannya, melalui pendekatan yang menyenangkan, aman, dan berlandaskan nilai-nilai Islami.
             </p>
 
             <div className="flex gap-2 mt-4">
@@ -150,9 +150,9 @@ export default async function ProgramLandingPage() {
           <div className="flex flex-col items-center text-center mb-16">
             <div className="flex items-center gap-3 justify-center mb-3">
               <span className="material-symbols-outlined text-[#FCD116] text-[32px]">school</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#188B48]">Pilihan Program Kami</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#188B48]">Pilihan Program PAUD Hidayah</h2>
             </div>
-            <p className="text-gray-500 max-w-xl text-[15px]">Pilih program yang sesuai dengan tahap perkembangan dan usia anak Anda.</p>
+            <p className="text-gray-500 max-w-xl text-[15px]">Pilih program yang sesuai dengan tahap perkembangan dan usia Ananda</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 mb-12">

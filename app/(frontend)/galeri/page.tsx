@@ -152,10 +152,10 @@ export default async function GalleryPage() {
             <span>GALERI FOTO</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
-            Momen Ceria Anak Hidayah
+            Ceria Bersama PAUD Hidayah
           </h1>
           <p className="text-white max-w-2xl mx-auto text-lg leading-relaxed">
-            Intip keseruan aktivitas belajar, bermain, dan eksplorasi para santri dan pendidik cilik PAUD Hidayah.
+            Yuk, intip keseruan ananda dalam berbagai kegiatan belajar melalui bermain, berkarya dan bereksplorasi setiap hari.
           </p>
         </div>
       </div>

@@ -19,8 +19,8 @@ export default async function Home() {
     { next: { revalidate: 0 } }
   );
   const settingsPhone = siteSettings?.phone || "0851 8740 9266";
-  const showBanner = siteSettings?.showAdmissionBanner === true && !!siteSettings?.admissionStatus?.trim();
-  const bannerText = siteSettings?.admissionStatus?.trim() || "";
+  const showBanner = siteSettings?.showAdmissionBanner !== false;
+  const bannerText = siteSettings?.admissionStatus?.trim() || "Penerimaan Murid Baru TA 2026/2027";
   let phone = settingsPhone.replace(/\D/g, "");
   if (phone.startsWith("0")) phone = "62" + phone.slice(1);
 
@@ -39,12 +39,12 @@ export default async function Home() {
     { next: { revalidate: 0 } }
   );
 
-  const principalName = profile?.principalName?.trim() || "Nur Laeli, S.Pd";
+  const principalName = profile?.principalName?.trim() || "Ustadzah Hj. Nur Laeli, S.Pd";
   const principalRole = profile?.principalRole?.trim() || "Kepala Sekolah PAUD Hidayah";
-  const principalDedication = profile?.principalDedication?.trim() || "Pengabdi Pendidikan Anak Usia Dini 30+ Tahun";
-  const principalGreeting = profile?.principalGreeting?.trim() || "Mendidik anak usia dini bukan sekadar mengisi botol kosong dengan angka dan huruf, melainkan menyalakan lentera tauhid dan rasa ingin tahu di dalam kalbu mereka. Kami menghadirkan suasana sekolah seperti rumah kedua yang sarat kegembiraan, kasih sayang, dan tuntunan keteladanan Rasulullah SAW.";
-  const schoolEstablished = profile?.schoolEstablished?.trim() || "Yayasan Hidayah • Berdiri sejak 1968";
-  const welcomeSubtitle = profile?.welcomeSubtitle?.trim() || "Di bawah naungan Yayasan Hidayah, kami mendampingi ananda melewati masa keemasan (golden age) dengan kelembutan fitrah, pembiasaan akhlak sunnah, dan stimulasi ragam kecerdasan.";
+  const principalDedication = profile?.principalDedication?.trim() || "Pengabdian Pendidikan Anak Usia Dini 30+ Tahun";
+  const principalGreeting = profile?.principalGreeting?.trim() || "Anak-anak belajar bukan hanya dari apa yang mereka dengar, tetapi juga dari apa yang mereka lihat, rasakan, dan alami setiap hari. Karena itu, lingkungan yang positif, pendidik yang menjadi teladan, dan pengalaman belajar yang menyenangkan menjadi bagian penting dalam perjalanan pendidikan anak usia dini. Sebab, setiap anak memiliki potensi untuk bersinar, dan tugas kita adalah memberikan ruang untuk bertumbuh, teladan untuk ditiru, serta kasih sayang untuk menguatkan setiap langkahnya.";
+  const schoolEstablished = profile?.schoolEstablished?.trim() || "PAUD Hidayah • Berdiri sejak 1968";
+  const welcomeSubtitle = profile?.welcomeSubtitle?.trim() || "Setiap anak adalah amanah dan anugrah yang istimewa. Dengan cinta sebagai landasan pendidikan, PAUD Hidayah berkomitmen mendukung tumbuh kembang ananda melalui pembiasaan akhlak mulia, pengalaman belajar yang bermakna, serta pengembangan potensi sesuai fitrah dan tahap perkembangannya.";
   const principalPhoto = profile?.principalImage
     ? urlFor(profile.principalImage).width(400).height(400).format('webp').url()
     : "/kegiatan/kepala-sekolah-paud.webp";
@@ -114,39 +114,45 @@ export default async function Home() {
 
   const defaultFeaturedPrograms = [
     {
-      title: "Parenting & Konseling Ortu",
+      title: "Parenting",
       category: "Kemitraan Keluarga",
-      description: "Sekolah rutin memberikan sosialisasi parenting kepada orang tua dengan mendatangkan narasumber ahli di bidang psikologi, gizi, dan kesehatan anak.",
+      headline: "Bersinergi dengan Orang Tua, Mendampingi Tumbuh Kembang Anak",
+      description: "PAUD Hidayah menghadirkan kegiatan parenting secara rutin dengan menghadirkan narasumber ahli di bidang psikologi, pengasuhan, gizi, dan kesehatan anak. Melalui kegiatan ini, sekolah dan orang tua bekerja sama menciptakan lingkungan yang mendukung tumbuh kembang anak secara optimal.",
       icon: "family_restroom",
     },
     {
-      title: "Character Building & Adab Islami",
+      title: "Character Building",
       category: "Akhlak & Spiritual",
-      description: "Menerapkan pembiasaan positif sesuai nilai Islam. Mulai dari disiplin, mengucapkan salam, berdoa, sholat, hingga pembiasaan akhlak sunnah.",
+      headline: "Membiasakan Kebaikan, Menanamkan Akhlak Mulia",
+      description: "Kami menanamkan nilai-nilai Islam melalui pembiasaan sehari-hari, seperti mengucapkan salam, berdoa, bersikap disiplin, melaksanakan salat, membaca Al-Qur'an, serta membiasakan perilaku santun dan peduli terhadap sesama. Dengan keteladanan dan pembiasaan positif, anak belajar menjadi pribadi yang mandiri dan berakhlakul karimah.",
       icon: "favorite",
     },
     {
-      title: "Kurikulum Merdeka & Bermain Bermakna",
-      category: "Pengembangan Kognitif",
-      description: "Menerapkan Kurikulum Merdeka yang menyenangkan, didukung alat permainan edukatif (APE) ramah anak dan pembelajaran kontekstual berbasis alam.",
-      icon: "extension",
+      title: "Full Learning",
+      category: "Kurikulum Merdeka",
+      headline: "Belajar Aktif, Kreatif, dan Menyenangkan",
+      description: "Dengan menerapkan Kurikulum Merdeka dan pembelajaran yang berpusat pada anak, kami menghadirkan pengalaman belajar yang menyenangkan dan sesuai tahap perkembangan anak. Didukung alat permainan edukatif (APE), kegiatan seni, serta eksplorasi alam dan lingkungan sekitar, anak mendapatkan kesempatan untuk mengembangkan kreativitas, rasa ingin tahu, kemampuan berpikir, dan keterampilan motoriknya.",
+      icon: "auto_stories",
     },
     {
-      title: "Deep Learning & Eksplorasi Alam",
-      category: "Sains & Lingkungan",
-      description: "Pendekatan eksploratif, reflektif, dan kontekstual. Anak diajak menghubungkan konsep dengan kehidupan sehari-hari seperti berkebun dan meneliti alam.",
+      title: "Deep Learning",
+      category: "Eksplorasi Kontekstual",
+      headline: "Belajar Bermakna Melalui Pengalaman Nyata",
+      description: "Anak diajak belajar melalui kegiatan eksploratif, reflektif, dan kontekstual yang dekat dengan kehidupan sehari-hari. Melalui kegiatan mengamati, mencoba, bertanya, berkarya, dan mengenal alam sekitar, anak tidak hanya memperoleh pengetahuan, tetapi juga belajar berpikir kritis, memecahkan masalah, serta peduli terhadap lingkungan.",
       icon: "psychology",
     },
     {
-      title: "Fun Games & Motorik Ceria",
-      category: "Kebugaran & Sosial",
-      description: "Menyelingi pembelajaran dengan permainan tradisional edukatif untuk mengasah kekompakan, sportivitas, dan motorik anak agar ceria selalu.",
+      title: "Fun Games",
+      category: "Motorik & Sosial",
+      headline: "Bermain Ceria, Tumbuh Bersama",
+      description: "Permainan menjadi bagian penting dalam proses belajar anak. Melalui permainan tradisional dan edukatif, anak belajar bekerja sama, melatih koordinasi motorik, membangun keberanian, mengembangkan kreativitas, serta belajar mengikuti aturan dan menghargai teman. Suasana belajar yang ceria membuat anak lebih aktif, percaya diri, dan bersemangat.",
       icon: "sports_esports",
     },
     {
-      title: "TPQ PAUD Metode Qiro'ati",
-      category: "Literasi Qur'ani",
-      description: "Metode pembelajaran Al-Qur'an secara bertahap dan tartil. Mengenal huruf hijaiyah dengan cara yang mudah, asyik, dan menyenangkan sejak dini.",
+      title: "TPQ PAUD",
+      category: "Metode Qiro'ati",
+      headline: "Mencintai Al-Qur'an Sejak Usia Dini",
+      description: "Program TPQ PAUD Hidayah menggunakan metode Qiro'ati secara bertahap sesuai kemampuan anak. Anak dikenalkan pada huruf hijaiyah dan dibimbing untuk belajar membaca Al-Qur'an secara tartil melalui pendampingan yang terarah, pembiasaan berulang, dan suasana belajar yang menyenangkan. Kami berharap tumbuh kecintaan anak terhadap Al-Qur'an sejak dini.",
       icon: "menu_book",
     },
   ];
@@ -162,7 +168,7 @@ export default async function Home() {
   // Parse openHours into clean structured lines (Option 1 without emoji)
   let scheduleHeader = "Waktu Belajar";
   let scheduleLines: string[] = [];
-  const rawHours = siteSettings?.openHours?.trim() || "Senin - Jumat, 07.30 - 11.30 WIB";
+  const rawHours = siteSettings?.openHours?.trim() || "Waktu Belajar (Senin - Sabtu)\nReguler: 07.00 - 11.00 WIB\nFull Day: 07.00 - 14.00 / 16.00 WIB";
 
   if (rawHours.includes("\n")) {
     const lines = rawHours.split("\n").map((l: string) => l.trim()).filter(Boolean);
@@ -221,10 +227,10 @@ export default async function Home() {
         </div>
       )}
       <h1 className="text-4xl md:text-5xl lg:text-6xl md:leading-tight font-bold leading-[1.15] mb-6">
-        Tumbuh Ceria, Cerdas, Mandiri &amp; <span className="text-[var(--color-secondary)] drop-shadow-md">Berkarakter Islami</span>
+        Membentuk Generasi yang <span className="text-[var(--color-secondary)] drop-shadow-md">Berkarakter Islami</span>, Cerdas, Ceria &amp; Mandiri
       </h1>
       <p className="font-body-lg text-lg text-white/90 max-w-xl">
-        Pendidikan anak usia dini berbasis bermain aktif yang ceria dan menyenangkan, menumbuhkan kemandirian, kecerdasan, serta pembiasaan nilai-nilai Islami sejak dini.
+        Menumbuhkan potensi anak sesuai fitrahnya melalui pembelajaran aktif dan menyenangkan dengan pembiasaan nilai-nilai Islami, serta penguatan karakter dan kemandirian sejak usia dini.
       </p>
       
 
@@ -286,7 +292,7 @@ export default async function Home() {
 {/* Section Tagline */}
 <div className="text-center max-w-2xl mx-auto mb-12">
 <span className="font-label-sm text-label-sm font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-3">Tentang PAUD Hidayah</span>
-<h2 className="font-headline-lg text-headline-lg text-white">Tumbuh Harmonis dalam Iman, Ilmu &amp; Cinta</h2>
+<h2 className="font-headline-lg text-headline-lg text-white">Mendidik dengan Cinta, Melayani dengan Sepenuh Hati</h2>
 <p className="font-body-md text-body-md text-white/80 mt-3">
           {welcomeSubtitle}
         </p>
@@ -323,12 +329,12 @@ export default async function Home() {
 <div className="w-14 h-14 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>mosque</span>
 </div>
-<h3 className="font-headline-sm text-headline-sm text-white mb-3">1. Karakter Qur'ani &amp; Adab</h3>
+<h3 className="font-headline-sm text-headline-sm text-white mb-3">1. Karakter Islami &amp; Adab</h3>
 <p className="font-body-md text-body-md text-white/80">
-            Penanaman tauhid aplikatif, hafalan surat pendek juz 30, doa keseharian, serta pembiasaan 5S (Senyum, Salam, Sapa, Sopan, Santun) dalam setiap langkah interaksi bermain.
+            Menanamkan nilai-nilai Islami melalui doa sehari-hari, hafalan surah pendek, pengenalan huruf hijaiyah, praktik ibadah sederhana, serta pembiasaan 5S (Senyum, Salam, Sapa, Sopan, Santun) dalam kegiatan sehari-hari.
           </p>
-<div className="mt-6 inline-flex items-center gap-1.5 font-label-md text-label-md text-white font-semibold">
-<span>Sentra Imtaq &amp; Sirah</span>
+<div className="mt-6 inline-flex items-center gap-1.5 font-label-md text-label-md text-[#FCD116] font-semibold">
+<span>Sentra Imtaq &amp; Ibadah</span>
 <span className="material-symbols-outlined text-[16px]">chevron_right</span>
 </div>
 </div>
@@ -339,7 +345,7 @@ export default async function Home() {
 </div>
 <h3 className="font-headline-sm text-headline-sm text-white mb-3">2. Kemandirian &amp; Life Skills</h3>
 <p className="font-body-md text-body-md text-white/80">
-            Melatih kemandirian motorik praktis: adab makan Islami secara mandiri, merapikan mainan sendiri, toilet training ramah anak, dan keberanian mengungkapkan pendapat.
+            Menumbuhkan kemandirian dan kecakapan hidup melalui pembiasaan sesuai usia, seperti makan sendiri, menjaga kebersihan, merapikan mainan, merawat barang pribadi, dan belajar bertanggung jawab dalam kegiatan sehari-hari.
           </p>
 <div className="mt-6 inline-flex items-center gap-1.5 font-label-md text-label-md text-[#FCD116] font-semibold">
 <span>Pembiasaan Practical Life</span>
@@ -353,10 +359,10 @@ export default async function Home() {
 </div>
 <h3 className="font-headline-sm text-headline-sm text-white mb-3">3. Kreativitas &amp; Eksplorasi</h3>
 <p className="font-body-md text-body-md text-white/80">
-            Eksperimen sains sederhana ramah anak, bermain peran, stimulasi musik Islami/perkusi, serta kebebasan berkreasi melukis tanpa takut salah untuk mengasah kognitif.
+            Mengajak anak bereksperimen sederhana, bermain balok, berkarya dengan bahan alam, bermain peran, dan mengungkapkan ide melalui model pembelajaran sentra untuk menumbuhkan rasa ingin tahu, imajinasi, kreativitas, serta kemampuan memecahkan masalah.
           </p>
-<div className="mt-6 inline-flex items-center gap-1.5 font-label-md text-label-md text-white font-semibold">
-<span>Sentra Seni &amp; Balok Rancang</span>
+<div className="mt-6 inline-flex items-center gap-1.5 font-label-md text-label-md text-[#FCD116] font-semibold">
+<span>Sentra Balok &amp; Bahan Alam</span>
 <span className="material-symbols-outlined text-[16px]">chevron_right</span>
 </div>
 </div>
@@ -377,49 +383,49 @@ export default async function Home() {
 <span className="font-label-sm text-label-sm font-bold text-primary uppercase tracking-widest px-3 py-1 rounded-full bg-primary-fixed/40 inline-block mb-3">Jenjang Pendidikan</span>
 <h2 className="font-headline-lg text-headline-lg text-primary">Program Belajar Sesuai Tahap Usia</h2>
 </div>
-<p className="font-body-md text-body-md text-gray-700 max-w-md">
-          Dirancang dengan panduan kurikulum merdeka PAUD terintegrasi kurikulum diniyyah khas PAUD Hidayah.
-        </p>
+<p className="font-body-md text-body-md text-gray-800 max-w-md font-medium">
+  Dirancang dengan panduan Kurikulum Merdeka PAUD berbasis cinta dengan model pembelajaran sentra. Tersedia pilihan Reguler dan Fullday School.
+</p>
 </div>
-{/* 6 Program Cards Grid */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
+{/* 4 Program Cards Grid */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
   {/* Program 1: Toddler */}
   <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
     <div className="relative h-44 overflow-hidden bg-primary-fixed/30">
       <img 
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-        alt="Toddler PAUD Hidayah bermain ceria" 
+        alt="Kelompok Toddler PAUD Hidayah bermain ceria" 
         src={pToddler?.image ? urlFor(pToddler.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-playgroup-lingkaran.webp"}
       />
       <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        {pToddler?.badge || "Usia 1,5 - 3 Tahun"}
+        {pToddler?.badge || "Usia 1,5–3 Tahun"}
       </div>
     </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
+    <div className="p-5 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-primary text-[20px]">toys</span>
-          <span className="font-label-md text-sm text-primary font-bold">{pToddler?.title || "Toddler"}</span>
+          <span className="font-label-md text-sm text-primary font-bold">{pToddler?.title || "Kelompok Toddler"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">{pToddler?.headline || "Stimulasi & Sensori"}</h3>
-        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          {pToddler?.shortDesc || "Stimulasi panca indra, motorik halus, kemandirian awal, serta adaptasi sosial ramah balita yang penuh kehangatan."}
+        <h3 className="text-base font-bold text-primary mb-2 leading-snug">{pToddler?.headline || "Tumbuh Hangat, Bermain Penuh Makna"}</h3>
+        <p className="text-gray-600 text-[12px] mb-4 leading-relaxed">
+          {pToddler?.shortDesc || "Pengalaman awal yang penuh kasih untuk mendukung tumbuh kembang anak melalui permainan sensorik, stimulasi motorik, interaksi sederhana, dan pembiasaan Islami sejak dini."}
         </p>
-        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+        <ul className="space-y-1.5 mb-6 text-[12px] text-gray-700 font-medium">
           {(pToddler?.goals && pToddler.goals.length > 0 ? pToddler.goals.slice(0, 3) : [
-            "Multisensory & Motorik Play",
-            "Toilet Training Ramah Anak",
-            "Adaptasi Sosial Hangat"
+            "Stimulasi Sensorik dan Motorik",
+            "Pengenalan Bahasa dan Interaksi Sosial",
+            "Pembiasaan Doa dan Akhlak Baik"
           ]).map((goal: string, gIdx: number) => (
-            <li key={gIdx} className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <li key={gIdx} className="flex items-start gap-1.5">
+              <span className="material-symbols-outlined text-primary text-[15px] shrink-0 mt-0.5">check_circle</span>
               <span>{goal}</span>
             </li>
           ))}
         </ul>
       </div>
-      <Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary text-sm font-semibold hover:brightness-110 transition-all shadow-sm block" href="/program/toddler">Detail Toddler</Link>
+      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors block" href="/program/toddler">Detail Toddler</Link>
     </div>
   </div>
 
@@ -432,33 +438,33 @@ export default async function Home() {
         src={pKb?.image ? urlFor(pKb.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-sentra-belajar.webp"}
       />
       <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        {pKb?.badge || "Usia 3 - 4 Tahun"}
+        {pKb?.badge || "Usia 3–4 Tahun"}
       </div>
     </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
+    <div className="p-5 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-secondary text-[20px]">smart_toy</span>
-          <span className="font-label-md text-sm text-secondary font-bold">{pKb?.title || "Kelompok Bermain (KB)"}</span>
+          <span className="font-label-md text-sm text-secondary font-bold">{pKb?.title || "Kelompok Bermain"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">{pKb?.headline || "Bermain Peran & Sosialisasi"}</h3>
-        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          {pKb?.shortDesc || "Mengenal lingkungan belajar melalui bermain peran, kosakata aktif, bahan alam, dan pembiasaan adab Islami harian."}
+        <h3 className="text-base font-bold text-primary mb-2 leading-snug">{pKb?.headline || "Berani Mencoba, Ceria Berkarya"}</h3>
+        <p className="text-gray-600 text-[12px] mb-4 leading-relaxed">
+          {pKb?.shortDesc || "Anak belajar mengenal diri dan lingkungan, membangun kemandirian, mengembangkan kemampuan berbahasa, serta menumbuhkan kreativitas melalui bermain, berkarya, dan pengalaman langsung."}
         </p>
-        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+        <ul className="space-y-1.5 mb-6 text-[12px] text-gray-700 font-medium">
           {(pKb?.goals && pKb.goals.length > 0 ? pKb.goals.slice(0, 3) : [
-            "Kosakata & Bahasa Komunikasi",
-            "Bermain Peran & Sentra Alam",
-            "Pembiasaan Doa & Adab 5S"
+            "Kemandirian dan Pembiasaan Islami",
+            "Bahasa, Sosial, dan Motorik melalui Bermain",
+            "Eksplorasi Alam, Seni, dan Konsep Angka"
           ]).map((goal: string, gIdx: number) => (
-            <li key={gIdx} className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <li key={gIdx} className="flex items-start gap-1.5">
+              <span className="material-symbols-outlined text-primary text-[15px] shrink-0 mt-0.5">check_circle</span>
               <span>{goal}</span>
             </li>
           ))}
         </ul>
       </div>
-      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/kb">Detail Program KB</Link>
+      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors block" href="/program/kb">Detail Program KB</Link>
     </div>
   </div>
 
@@ -471,33 +477,33 @@ export default async function Home() {
         src={pRaA?.image ? urlFor(pRaA.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-mewarnai-kupu.webp"}
       />
       <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        {pRaA?.badge || "Usia 4 - 5 Tahun"}
+        {pRaA?.badge || "Usia 4–5 Tahun"}
       </div>
     </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
+    <div className="p-5 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
-          <span className="font-label-md text-sm text-primary font-bold">{pRaA?.title || "Kelompok RA-A"}</span>
+          <span className="font-label-md text-sm text-primary font-bold">{pRaA?.title || "Kelompok RA A"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">{pRaA?.headline || "Pondasi Huruf & Akhlak"}</h3>
-        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          {pRaA?.shortDesc || "Pengenalan huruf Hijaiyah, fonik ceria, pemahaman angka dasar melalui benda konkrit, dan sholat berjamaah."}
+        <h3 className="text-base font-bold text-primary mb-2 leading-snug">{pRaA?.headline || "Membangun Pondasi, Belajar Ceria"}</h3>
+        <p className="text-gray-600 text-[12px] mb-4 leading-relaxed">
+          {pRaA?.shortDesc || "Anak diajak mengenal nilai-nilai Islam, membangun kemandirian, mengembangkan kemampuan berbahasa dan berhitung awal, serta mengeksplorasi lingkungan melalui kegiatan bermain yang menyenangkan."}
         </p>
-        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+        <ul className="space-y-1.5 mb-6 text-[12px] text-gray-700 font-medium">
           {(pRaA?.goals && pRaA.goals.length > 0 ? pRaA.goals.slice(0, 3) : [
-            "Tahfidz Surat Pendek Juz 'Amma",
-            "Fonik & Pra-Calistung Ceria",
-            "Eksperimen Sentra Bahan Alam"
+            "Pembiasaan Doa, Ibadah, dan Akhlak Mulia",
+            "Pengenalan Huruf, Bahasa, dan Angka 1–10",
+            "Eksplorasi Alam, Seni, dan Motorik"
           ]).map((goal: string, gIdx: number) => (
-            <li key={gIdx} className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <li key={gIdx} className="flex items-start gap-1.5">
+              <span className="material-symbols-outlined text-primary text-[15px] shrink-0 mt-0.5">check_circle</span>
               <span>{goal}</span>
             </li>
           ))}
         </ul>
       </div>
-      <Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary text-sm font-semibold hover:brightness-110 transition-all shadow-sm block" href="/program/ra-a">Detail Program RA-A</Link>
+      <Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary text-xs font-bold hover:brightness-110 transition-all shadow-sm block" href="/program/ra-a">Detail Program RA-A</Link>
     </div>
   </div>
 
@@ -510,121 +516,44 @@ export default async function Home() {
         src={pRaB?.image ? urlFor(pRaB.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-wisuda-prestasi.webp"}
       />
       <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        {pRaB?.badge || "Usia 5 - 6 Tahun"}
+        {pRaB?.badge || "Usia 5–6 Tahun"}
       </div>
     </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
+    <div className="p-5 flex flex-col flex-1 justify-between">
       <div>
         <div className="flex items-center gap-2 mb-2">
           <span className="material-symbols-outlined text-secondary text-[20px]">school</span>
-          <span className="font-label-md text-sm text-secondary font-bold">{pRaB?.title || "Kelompok RA-B"}</span>
+          <span className="font-label-md text-sm text-secondary font-bold">{pRaB?.title || "Kelompok RA B"}</span>
         </div>
-        <h3 className="text-lg font-bold text-primary mb-2">{pRaB?.headline || "Kesiapan SD Unggul"}</h3>
-        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          {pRaB?.shortDesc || "Mematangkan literasi fungsional, numerasi kontekstual, pemantapan tahfidz juz 30, hafalan hadist, dan kepemimpinan cilik."}
+        <h3 className="text-base font-bold text-primary mb-2 leading-snug">{pRaB?.headline || "Mandiri, Kreatif, Siap Melangkah"}</h3>
+        <p className="text-gray-600 text-[12px] mb-4 leading-relaxed">
+          {pRaB?.shortDesc || "Anak dibimbing untuk semakin mandiri dalam beribadah, berkomunikasi dengan baik, mengembangkan literasi dan numerasi awal, memecahkan masalah sederhana, serta menunjukkan kreativitas dan kepedulian terhadap lingkungan."}
         </p>
-        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+        <ul className="space-y-1.5 mb-6 text-[12px] text-gray-700 font-medium">
           {(pRaB?.goals && pRaB.goals.length > 0 ? pRaB.goals.slice(0, 3) : [
-            "Target 15+ Surat Pilihan Juz 'Amma",
-            "Literasi & Numerasi Masuk SD",
-            "Praktik Wudhu & Sholat Sempurna"
+            "Penguatan Ibadah, Akhlak, dan Kemandirian",
+            "Literasi, Numerasi, dan Keaksaraan Awal",
+            "Pemecahan Masalah, Sains, dan Kreativitas"
           ]).map((goal: string, gIdx: number) => (
-            <li key={gIdx} className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <li key={gIdx} className="flex items-start gap-1.5">
+              <span className="material-symbols-outlined text-primary text-[15px] shrink-0 mt-0.5">check_circle</span>
               <span>{goal}</span>
             </li>
           ))}
         </ul>
       </div>
-      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/ra-b">Detail Program RA-B</Link>
-    </div>
-  </div>
-
-  {/* Program 5: Tahfidz */}
-  <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
-    <div className="relative h-44 overflow-hidden bg-primary-fixed/30">
-      <img 
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-        alt="Program Tahfidz PAUD Hidayah" 
-        src={pTahfidz?.image ? urlFor(pTahfidz.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-belajar-paviliun.webp"}
-      />
-      <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        {pTahfidz?.badge || "Program Qur'ani"}
-      </div>
-    </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
-      <div>
-        <div className="flex items-center gap-2 mb-2">
-          <span className="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
-          <span className="font-label-md text-sm text-primary font-bold">{pTahfidz?.title || "Tahfidz Al-Qur'an"}</span>
-        </div>
-        <h3 className="text-lg font-bold text-primary mb-2">{pTahfidz?.headline || "Cinta & Hafalan Juz 'Amma"}</h3>
-        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          {pTahfidz?.shortDesc || "Bimbingan talaqqi dan muroja'ah berirama menghafal surat-surat pendek Juz 30 serta penanaman adab Qur'ani sejak dini."}
-        </p>
-        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
-          {(pTahfidz?.goals && pTahfidz.goals.length > 0 ? pTahfidz.goals.slice(0, 3) : [
-            "Metode Talaqqi Ceria & Muroja'ah Rutin",
-            "Target Hafalan Surat Pilihan Juz 'Amma",
-            "Pembiasaan Adab & Doa Sehari-hari"
-          ]).map((goal: string, gIdx: number) => (
-            <li key={gIdx} className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-              <span>{goal}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/tahfidz">Detail Program Tahfidz</Link>
-    </div>
-  </div>
-
-  {/* Program 6: TPQ */}
-  <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
-    <div className="relative h-44 overflow-hidden bg-secondary-fixed/30">
-      <img 
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-        alt="Program TPQ PAUD Hidayah" 
-        src={pTpq?.image ? urlFor(pTpq.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-display-sentra.webp"}
-      />
-      <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
-        {pTpq?.badge || "Taman Pendidikan Al-Qur'an"}
-      </div>
-    </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
-      <div>
-        <div className="flex items-center gap-2 mb-2">
-          <span className="material-symbols-outlined text-secondary text-[20px]">menu_book</span>
-          <span className="font-label-md text-sm text-secondary font-bold">{pTpq?.title || "TPQ Hidayah"}</span>
-        </div>
-        <h3 className="text-lg font-bold text-primary mb-2">{pTpq?.headline || "Tartil & Fashohah Al-Qur'an"}</h3>
-        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
-          {pTpq?.shortDesc || "Pondasi membaca Al-Qur'an secara fasih dan tartil bertahap sesuai jilid serta praktek sholat dan wudhu mandiri."}
-        </p>
-        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
-          {(pTpq?.goals && pTpq.goals.length > 0 ? pTpq.goals.slice(0, 3) : [
-            "Bimbingan Membaca Terstruktur Per Jilid",
-            "Praktek Sholat Berjamaah & Wudhu",
-            "Hafalan Doa Harian & Hadist Ramah Anak"
-          ]).map((goal: string, gIdx: number) => (
-            <li key={gIdx} className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
-              <span>{goal}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/tpq">Detail Program TPQ</Link>
+      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-xs font-bold hover:bg-primary hover:text-white transition-colors block" href="/program/ra-b">Detail Program RA-B</Link>
     </div>
   </div>
 
 </div>
+
 {/* Ekstrakurikuler Pilihan */}
 <div className="mt-14 pt-10 bg-white rounded-3xl p-6 sm:p-8 shadow-sm">
   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
     <div>
-      <h3 className="font-headline-md text-2xl font-bold text-primary">Ekstrakurikuler Minat &amp; Bakat</h3>
-      <p className="font-body-sm text-sm text-gray-600 mt-1">Mengasah kecerdasan kinestetik, seni, musikalitas, dan melestarikan budaya tradisional nusantara.</p>
+      <h3 className="font-headline-md text-2xl font-bold text-primary">Ekstrakurikuler Minat &amp; Bakat Ceria</h3>
+      <p className="font-body-sm text-sm text-gray-600 mt-1">Mengasah kecerdasan kinestetik, seni dan teknologi islami sejak dini.</p>
     </div>
     <Link href="/program/ekstrakurikuler" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline shrink-0">
       Lihat Semua <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -637,8 +566,8 @@ export default async function Home() {
       <div className="w-14 h-14 rounded-2xl bg-[#188B48] flex items-center justify-center text-white mb-3 shadow-sm">
         <span className="material-symbols-outlined text-[28px]">music_note</span>
       </div>
-      <p className="font-bold text-base text-primary">Seni Tari</p>
-      <p className="text-xs text-gray-600 mt-1">Motorik &amp; Percaya Diri</p>
+      <p className="font-bold text-base text-primary">Tari</p>
+      <p className="text-xs text-gray-600 mt-1">Kinestetik &amp; Percaya Diri</p>
     </div>
 
     {/* Drumband */}
@@ -650,13 +579,13 @@ export default async function Home() {
       <p className="text-xs text-gray-600 mt-1">Musikalitas &amp; Tim</p>
     </div>
 
-    {/* Melukis */}
+    {/* Melukis / Kaligrafi */}
     <div className="flex flex-col items-center text-center p-5 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
       <div className="w-14 h-14 rounded-2xl bg-[#188B48] flex items-center justify-center text-white mb-3 shadow-sm">
         <span className="material-symbols-outlined text-[28px]">brush</span>
       </div>
-      <p className="font-bold text-base text-primary">Melukis</p>
-      <p className="text-xs text-gray-600 mt-1">Seni &amp; Imajinasi Warna</p>
+      <p className="font-bold text-base text-primary">Melukis / Kaligrafi</p>
+      <p className="text-xs text-gray-600 mt-1">Kreativitas &amp; Imajinasi</p>
     </div>
 
     {/* Permainan Tradisional */}
@@ -677,14 +606,14 @@ export default async function Home() {
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
   </svg>
 </div>
-{/* SECTION 4: PROGRAM UNGGULAN */}
+{/* SECTION 4: PENDEKATAN BELAJAR */}
 <section className="w-full py-20 bg-[#188B48] text-white">
   <div className="max-w-[1200px] mx-auto px-6">
     <div className="text-center max-w-3xl mx-auto mb-16">
-      <span className="font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-[#FCD116]/20 inline-block mb-3 text-[12px]">Program Unggulan</span>
-      <h2 className="text-3xl md:text-4xl font-bold text-white">Membangun Karakter &amp; Potensi Terbaik Anak</h2>
-      <p className="text-white/90 mt-4 text-[16px]">
-        Kami menyusun rangkaian program unggulan terpadu sesuai dengan tahap perkembangan anak agar ceria, mandiri, mengedepankan kreativitas, dan berakhlak mulia.
+      <span className="font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-[#FCD116]/20 inline-block mb-3 text-[12px]">Pendekatan Belajar</span>
+      <h2 className="text-3xl md:text-4xl font-bold text-white">Membangun Karakter, Mengembangkan Potensi</h2>
+      <p className="text-white/90 mt-4 text-[16px] leading-relaxed">
+        PAUD Hidayah menghadirkan pembelajaran Islami yang aktif, kreatif, dan menyenangkan untuk membentuk anak yang cerdas, ceria, mandiri, dan berakhlakul karimah.
       </p>
     </div>
 
@@ -702,8 +631,11 @@ export default async function Home() {
                 </span>
               )}
             </div>
-            <h3 className="text-xl font-bold text-white mb-3 leading-snug">{prog.title}</h3>
-            <p className="text-white/90 text-[14px] leading-relaxed">
+            <h3 className="text-xl font-bold text-white mb-1.5 leading-snug">{prog.title}</h3>
+            {prog.headline && (
+              <h4 className="text-[13px] font-semibold text-[#FCD116] mb-3 leading-snug">{prog.headline}</h4>
+            )}
+            <p className="text-white/90 text-[13px] leading-relaxed">
               {prog.description}
             </p>
           </div>
@@ -718,103 +650,129 @@ export default async function Home() {
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
   </svg>
 </div>
-{/* SECTION 5: BERITA & AGENDA KEGIATAN */}
+{/* SECTION 5: INFORMASI & AGENDA SEKOLAH (Slide 5) */}
 <section className="w-full py-12 md:py-20 bg-white">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-10 gap-4">
 <div>
-<span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-2">Warta Sekolah</span>
-<h2 className="font-headline-lg text-headline-lg text-primary">Kabar &amp; Agenda Ceria PAUD Hidayah</h2>
+<span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-2">Informasi &amp; Kegiatan</span>
+<h2 className="font-headline-lg text-headline-lg text-primary">Kabar, Program &amp; Agenda Ceria</h2>
 </div>
 <Link className="inline-flex items-center gap-2 font-label-md text-label-md text-primary font-bold hover:text-secondary transition-colors group" href="/berita">
 <span>Lihat Semua Berita</span>
 <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </Link>
 </div>
-{/* 3 News Cards */}
-<div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-8 pb-8 snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
-{latestPosts && latestPosts.length > 0 ? (
-  latestPosts.map((post: any) => (
-    <Link
-      key={post._id}
-      href={`/berita/${post.slug?.current || ''}`}
-      className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100 min-w-[280px] sm:min-w-0"
-    >
-      <div className="h-48 overflow-hidden relative bg-gray-100">
-        {post.mainImage ? (
-          <img
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            alt={post.title}
-            src={urlFor(post.mainImage).width(600).height(400).format('webp').url()}
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-[#EAF3EF] text-[#188B48]/40">
-            <span className="material-symbols-outlined text-[36px]">image</span>
-          </div>
-        )}
-        {post.category && (
-          <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-xs px-3 py-1 rounded-full font-bold shadow-sm">
-            {post.category}
-          </div>
-        )}
+
+{/* 3 Highlight Cards (Slide 5) */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {/* Kotak 1: AGENDA TAHUNAN */}
+  <Link
+    href="/berita"
+    className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100"
+  >
+    <div className="h-52 overflow-hidden relative bg-gray-100">
+      <img
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        alt="Kegiatan Seru dan Bermakna Sepanjang Tahun PAUD Hidayah"
+        src="/kegiatan/kegiatan-parenting-batik.webp"
+      />
+      <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm flex items-center gap-1.5">
+        <span className="material-symbols-outlined text-[16px]">calendar_month</span>
+        <span>Agenda Tahunan</span>
       </div>
-      <div className="p-6 flex flex-col flex-1 justify-between">
-        <div>
-          {post.publishedAt && (
-            <div className="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[13px] mb-2">
-              <span className="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
-              <span>{formatDate(post.publishedAt)}</span>
-            </div>
-          )}
-          <h3 className="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
-            {post.title}
-          </h3>
-          <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
-            {post.excerpt}
-          </p>
-        </div>
-        <div className="pt-4 mt-4 flex items-center justify-between border-t border-surface-container">
-          <span className="font-label-md text-label-md text-primary font-semibold group-hover:text-secondary transition-colors">
-            Baca Selengkapnya
-          </span>
-          <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
-            arrow_forward
-          </span>
-        </div>
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors leading-snug">
+          Kegiatan Seru dan Bermakna Sepanjang Tahun
+        </h3>
+        <p className="text-gray-600 text-[14px] leading-relaxed">
+          Beragam kegiatan edukatif dan menyenangkan untuk menumbuhkan keimanan, kreativitas, kemandirian, serta pengalaman berharga bagi anak.
+        </p>
       </div>
-    </Link>
-  ))
-) : (
-  <>
-    {/* Fallback Static Article 1 */}
-    <Link href="/berita" className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100 min-w-[280px] sm:min-w-0">
-      <div className="h-48 overflow-hidden relative">
-        <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Kegiatan Parenting Ceria kreasi batik celup ananda" src="/kegiatan/kegiatan-parenting-batik.webp"/>
-        <div className="absolute top-4 left-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1 rounded-full font-bold">
-          Kegiatan Luar Kelas
-        </div>
+      <div className="pt-5 mt-6 flex items-center justify-between border-t border-gray-100">
+        <span className="font-bold text-sm text-primary group-hover:text-secondary transition-colors">
+          Baca Selengkapnya
+        </span>
+        <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
+          arrow_forward
+        </span>
       </div>
-      <div className="p-6 flex flex-col flex-1 justify-between">
-        <div>
-          <div className="flex items-center gap-2 text-on-surface-variant font-body-sm text-[13px] mb-2">
-            <span className="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
-            <span>24 Mei 2025</span>
-          </div>
-          <h3 className="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
-            Kunjungan Edukasi Manasik Haji Cilik di Mini Asrama Haji
-          </h3>
-          <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
-            Mengenalkan rukun Islam kelima sedini mungkin dengan simulasi tawaf, sai, dan wukuf yang dirancang interaktif serta penuh suka cita bagi ananda RA-A &amp; RA-B.
-          </p>
-        </div>
-        <div className="pt-4 mt-4 flex items-center justify-between border-t border-surface-container">
-          <span className="font-label-md text-label-md text-primary font-semibold group-hover:text-secondary transition-colors">Baca Selengkapnya</span>
-          <span className="material-symbols-outlined text-primary text-[18px]">arrow_forward</span>
-        </div>
+    </div>
+  </Link>
+
+  {/* Kotak 2: PROGRAM PEMBELAJARAN MODEL SENTRA */}
+  <Link
+    href="/program"
+    className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100"
+  >
+    <div className="h-52 overflow-hidden relative bg-gray-100">
+      <img
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        alt="Belajar Sambil Bermain melalui Model Sentra"
+        src="/kegiatan/kegiatan-sentra-belajar.webp"
+      />
+      <div className="absolute top-4 left-4 bg-[#FCD116] text-[#188B48] font-label-sm text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm flex items-center gap-1.5">
+        <span className="material-symbols-outlined text-[16px]">dashboard_customize</span>
+        <span>Model Pembelajaran</span>
       </div>
-    </Link>
-  </>
-)}
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors leading-snug">
+          Belajar Sambil Bermain melalui Model Sentra
+        </h3>
+        <p className="text-gray-600 text-[14px] leading-relaxed">
+          Mengenal pembelajaran di Sentra Balok, Bahan Alam, Persiapan, Kreativitas, Imtaq, Masak, Mikro dan Makro yang memberi ruang anak bereksplorasi.
+        </p>
+      </div>
+      <div className="pt-5 mt-6 flex items-center justify-between border-t border-gray-100">
+        <span className="font-bold text-sm text-primary group-hover:text-secondary transition-colors">
+          Baca Selengkapnya
+        </span>
+        <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
+          arrow_forward
+        </span>
+      </div>
+    </div>
+  </Link>
+
+  {/* Kotak 3: INFORMASI PENERIMAAN MURID BARU */}
+  <Link
+    href="/#daftar-ppdb"
+    className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100"
+  >
+    <div className="h-52 overflow-hidden relative bg-gray-100">
+      <img
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        alt="SPMB PAUD Hidayah Tahun Ajaran 2026/2027"
+        src="/kegiatan/kegiatan-bersama-sekolah.webp"
+      />
+      <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm flex items-center gap-1.5">
+        <span className="material-symbols-outlined text-[16px]">how_to_reg</span>
+        <span>Penerimaan Murid Baru</span>
+      </div>
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors leading-snug">
+          SPMB PAUD Hidayah TA 2026/2027
+        </h3>
+        <p className="text-gray-600 text-[14px] leading-relaxed">
+          Saatnya bergabung bersama PAUD Hidayah! Temukan informasi pendaftaran, pilihan layanan pendidikan, dan kesempatan belajar dalam lingkungan Islami.
+        </p>
+      </div>
+      <div className="pt-5 mt-6 flex items-center justify-between border-t border-gray-100">
+        <span className="font-bold text-sm text-primary group-hover:text-secondary transition-colors">
+          Informasi Pendaftaran
+        </span>
+        <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
+          arrow_forward
+        </span>
+      </div>
+    </div>
+  </Link>
 </div>
 </div>
 </section>
@@ -824,13 +782,13 @@ export default async function Home() {
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="white"/>
   </svg>
 </div>
-{/* SECTION 6: CUPLIKAN GALERI CERIA (PHOTO MOSAIC) */}
+{/* SECTION 6: CUPLIKAN GALERI CERIA (Slide 6) */}
 <section className="w-full py-12 md:py-20 bg-[#FCD116]">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="text-center max-w-2xl mx-auto mb-10">
-<span className="font-label-sm text-label-sm font-bold text-primary uppercase tracking-widest px-3 py-1 rounded-full bg-primary-fixed/40 inline-block mb-3">Dokumentasi Sekolah</span>
-<h2 className="font-headline-lg text-headline-lg text-primary">Galeri Keceriaan Ananda</h2>
-<p className="font-body-md text-body-md text-on-surface-variant mt-2">Momen hangat kebersamaan belajar, beribadah, dan bereksplorasi di lingkungan asri PAUD Hidayah.</p>
+<span className="font-label-sm text-label-sm font-bold text-primary uppercase tracking-widest px-3 py-1 rounded-full bg-primary-fixed/40 inline-block mb-3">Dokumentasi Kegiatan</span>
+<h2 className="font-headline-lg text-headline-lg text-primary">Jejak Ceria, Cerita Bermakna</h2>
+<p className="font-body-md text-body-md text-gray-800 mt-2 font-medium">Setiap momen menjadi bagian berharga dari perjalanan Ananda dalam belajar, bermain, berkarya, dan menumbuhkan karakter di PAUD Hidayah.</p>
 </div>
 {/* Bento Grid Photo Gallery */}
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[220px]">
@@ -876,84 +834,84 @@ export default async function Home() {
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
   </svg>
 </div>
-{/* SECTION 7: TESTIMONI WALI MURID */}
+{/* SECTION 7: TESTIMONI WALI MURID (Slide 7) */}
 <section className="w-full py-12 md:py-20 bg-[#188B48] text-white">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="text-center max-w-2xl mx-auto mb-12">
-<span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-3">Kata Ayah &amp; Bunda</span>
-<h2 className="font-headline-lg text-headline-lg text-white">Dipercaya Oleh Ratusan Keluarga Muslim</h2>
-<p className="font-body-md text-body-md text-white/80 mt-2">Kebahagiaan dan ketenangan hati orang tua melihat sang buah hati tumbuh santun dan cerdas.</p>
+<span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-3">Cerita Ayah &amp; Bunda</span>
+<h2 className="font-headline-lg text-headline-lg text-white">Bersama Mengiringi Langkah Kecil Penuh Makna</h2>
+<p className="font-body-md text-body-md text-white/80 mt-2">Setiap perkembangan kecil ananda adalah kebahagiaan besar bagi orang tua. Bersama PAUD Hidayah, menumbuhkan akhlak mulia, kecerdasan, dan kemandirian menjadi perjalanan yang bermakna.</p>
 </div>
 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 {/* Testi 1 */}
-<div className="bg-[#188B48] text-white-container-low rounded-3xl p-8 shadow-sm flex flex-col justify-between">
+<div className="bg-[#188B48] border border-white/20 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform">
 <div>
-<div className="flex items-center gap-1 text-secondary mb-4">
+<div className="flex items-center gap-1 text-[#FCD116] mb-4">
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 </div>
-<p className="font-body-md text-body-md text-white italic mb-6">
-              "Alhamdulillah, sejak sekolah di PAUD Hidayah, hafalan surat Al-Fatihah dan adab makan anak saya Farhan jadi sangat rapi. Selalu ingat berdoa sebelum dan sesudah beraktivitas tanpa disuruh lagi."
-            </p>
+<p className="font-body-md text-[14px] text-white/95 italic mb-6 leading-relaxed">
+  "Terima kasih kepada PAUD Hidayah yang telah memberikan pelayanan yang terbaik, kami sangat mengapresiasi atas pelayanan yang sangat luar biasa, dan kami berpesan mohon tetap dipertahankan apa yang sudah diberikan kepada putra-putri yang terbaik karena mereka adalah masa depan bangsa."
+</p>
 </div>
-<div className="flex items-center gap-3 pt-4 border-t border-surface-container-high">
-<div className="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed">
-            <img className="w-full h-full object-cover" alt="Bunda Rina Wardhani, wali murid RA Hidayah" src="/kegiatan/kegiatan-candid-ibu-anak.webp"/>
+<div className="flex items-center gap-3 pt-4 border-t border-white/20">
+<div className="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed shrink-0">
+  <img className="w-full h-full object-cover" alt="Zahrotun Istiqomah, S.Kom, wali murid RA Hidayah" src="/kegiatan/kegiatan-candid-ibu-anak.webp"/>
 </div>
 <div>
-<h5 className="font-label-lg text-label-lg font-bold text-white">Bunda Rina Wardhani</h5>
-<p className="font-body-sm text-[12px] text-white/80">Ibunda dari Farhan (Siswa RA-B)</p>
+<h5 className="font-bold text-[15px] text-white">Zahrotun Istiqomah, S.Kom</h5>
+<p className="text-[12px] text-[#FCD116] font-medium">Ibunda dari Alka (Murid RA B)</p>
 </div>
 </div>
 </div>
 {/* Testi 2 */}
-<div className="bg-[#188B48] text-white-container-low rounded-3xl p-8 shadow-sm flex flex-col justify-between">
+<div className="bg-[#188B48] border border-white/20 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform">
 <div>
-<div className="flex items-center gap-1 text-secondary mb-4">
+<div className="flex items-center gap-1 text-[#FCD116] mb-4">
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 </div>
-<p className="font-body-md text-body-md text-white italic mb-6">
-              "Para ustadzah di PAUD Hidayah sangat sabar dan keibuan. Aisyah dulu sangat pemalu, sekarang aktif bercerita tentang sirah nabi dan berani tampil di pentas seni. Kami sangat bersyukur!"
-            </p>
+<p className="font-body-md text-[14px] text-white/95 italic mb-6 leading-relaxed">
+  "Terima kasih kepada seluruh Bunda-bunda PAUD Hidayah yang telah membersamai anak kami, mendidik anak kami, mengajarkan suri tauladan yang baik dan nilai-nilai Islami. Kesan dan pesan kami alhamdulillah hampir 4 tahun lebih anak kami di PAUD Hidayah perkembangannya sangat luar biasa, menjadi lebih mandiri, berani, percaya diri, dan tumbuh luar biasa. Semoga kelak PAUD Hidayah menjadi kebanggaan orang tua di sekitar Tayu dan selalu menjadi unggulan dari sekolah lainnya."
+</p>
 </div>
-<div className="flex items-center gap-3 pt-4 border-t border-surface-container-high">
-<div className="w-12 h-12 rounded-full overflow-hidden bg-secondary-fixed">
-<img className="w-full h-full object-cover" data-alt="Potret wajah Ayah Dimas tersenyum berkacamata rapi dan hangat, wali murid siswa RA-A di PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUzncmP6paJZu5Wghe2TqKL3pDypnHC_BoLJ7XAvnu0_h8foEbVHAzLSa6IFOY8dukGy-jra62fEzzqEcIi2ckbSuKpMVwbwICR9guQXAD-TGycdbWaPPoTgXzFulKbEv3U9OY2FwnEjsNk_c347QexHvSfj5tzIgjHIOqapsFO2uxoKEUXzVuWPB1L4yDH_7Nsm3hPPboynO8b2awpOX1lc-6ewT6IKuxftFuShBhNR3TAGJvJXq2"/>
+<div className="flex items-center gap-3 pt-4 border-t border-white/20">
+<div className="w-12 h-12 rounded-full overflow-hidden bg-secondary-fixed shrink-0">
+  <img className="w-full h-full object-cover" alt="drg. Karina Wyne, wali murid siswa RA-B di PAUD Hidayah" src="/kegiatan/kegiatan-market-day.webp"/>
 </div>
 <div>
-<h5 className="font-label-lg text-label-lg font-bold text-white">Ayah Dimas Pratama, S.T.</h5>
-<p className="font-body-sm text-[12px] text-white/80">Ayahanda dari Aisyah (Siswi RA-A)</p>
+<h5 className="font-bold text-[15px] text-white">drg. Karina Wyne</h5>
+<p className="text-[12px] text-[#FCD116] font-medium">Ibunda dari Haisha (Murid RA B)</p>
 </div>
 </div>
 </div>
 {/* Testi 3 */}
-<div className="bg-[#188B48] text-white-container-low rounded-3xl p-8 shadow-sm flex flex-col justify-between">
+<div className="bg-[#188B48] border border-white/20 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform">
 <div>
-<div className="flex items-center gap-1 text-secondary mb-4">
+<div className="flex items-center gap-1 text-[#FCD116] mb-4">
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
 </div>
-<p className="font-body-md text-body-md text-white italic mb-6">
-              "Fasilitas kebun mini dan arena bermain pasirnya sangat bersih dan aman. Program parenting untuk orang tua juga sangat bermanfaat menyelaraskan pola asuh di rumah dan sekolah."
-            </p>
+<p className="font-body-md text-[14px] text-white/95 italic mb-6 leading-relaxed">
+  "Saya ucapkan banyak terima kasih kepada lembaga PAUD Hidayah yang telah membersamai anak kami dengan perasaan nyaman dan gembira. Di sini metode pembelajarannya sangat menyenangkan sehingga pembelajaran bisa maksimal dan anak merasa sekolah ini merupakan rumah kedua. Kesan saya menyekolahkan anak di sini para bunda mempunyai kesabaran yang luar biasa. Semangat untuk PAUD Hidayah semoga sukses selalu dan semakin maju."
+</p>
 </div>
-<div className="flex items-center gap-3 pt-4 border-t border-surface-container-high">
-<div className="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed">
-<img className="w-full h-full object-cover" data-alt="Potret wajah Ibu dr. Nabila tersenyum bersahabat dengan kerudung hijau lembut, wali murid Kelompok Bermain PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALoKQSx2MEpadtar8ArhavApitIuNGkCCbZQH408gzruB3EMi1VfFxFJi4MfKmmnVgZkEy7C28QmKx0C5Tu9oI0ixrVWxFb54GPx43noOL8RHI-VUZcr-2jQ0O4ORjubDFBiHHyEYZqCR6SZhVBC_5cmzUQeOnTgHMq9JSRT2MNyJOCufV7Xts1_f8eG2tPFsbphHiv8Pr_x8yMPMQ_F8CcKZZmOUWzWQ4yxKdLdaxrPms09Jdu2An"/>
+<div className="flex items-center gap-3 pt-4 border-t border-white/20">
+<div className="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed shrink-0">
+  <img className="w-full h-full object-cover" alt="Ulfatin Nu'fah, wali murid Kelompok Bermain PAUD Hidayah" src="/kegiatan/kegiatan-sentra-bahan-alam.webp"/>
 </div>
 <div>
-<h5 className="font-label-lg text-label-lg font-bold text-white">dr. Nabila Hapsari</h5>
-<p className="font-body-sm text-[12px] text-white/80">Ibunda dari Rayyan (Playgroup)</p>
+<h5 className="font-bold text-[15px] text-white">Ulfatin Nu’fah</h5>
+<p className="text-[12px] text-[#FCD116] font-medium">Ibunda dari Airin (Murid KB)</p>
 </div>
 </div>
 </div>
@@ -966,14 +924,14 @@ export default async function Home() {
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
   </svg>
 </div>
-{/* SECTION 8: BANNER PENUTUP CTA PPDB & KONSULTASI */}
+{/* SECTION 8: BANNER PENUTUP CTA PPDB & KONSULTASI (Slide 8) */}
 <section className="w-full py-12 md:py-20 bg-[#FCD116]" id="daftar-ppdb">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="relative overflow-hidden rounded-[36px] bg-gradient-to-r from-primary via-primary-container to-tertiary p-8 sm:p-14 text-on-primary shadow-xl">
 {/* Subtle Pattern Overlay */}
 <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"></div>
 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-<div className="lg:col-span-8 flex flex-col items-start space-y-4">
+<div className="lg:col-span-7 flex flex-col items-start space-y-4">
 {showBanner && (
 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold shadow">
 <span className="material-symbols-outlined text-[16px]">celebration</span>
@@ -981,39 +939,60 @@ export default async function Home() {
 </div>
 )}
 <h2 className="font-headline-lg text-headline-lg lg:text-[40px] lg:leading-[48px] font-bold text-on-primary">
-              Siapkan Masa Depan Berkarakter Islami Ananda Bersama PAUD Hidayah
-            </h2>
-<p className="font-body-lg text-body-lg text-surface-container max-w-2xl">
-              Kuota kelas terbatas hanya 15 siswa per kelompok belajar demi memastikan perhatian personal dan pendampingan kasih sayang maksimal. Konsultasikan kebutuhan tumbuh kembang putra-putri Ayah &amp; Bunda sekarang.
-            </p>
+  Awal Ceria, Langkah Bermakna Bersama PAUD Hidayah
+</h2>
+<p className="font-body-lg text-body-lg text-surface-container max-w-2xl leading-relaxed">
+  Mari menjadi bagian dari keluarga besar PAUD Hidayah. Bersama Ayah dan Bunda, kami menumbuhkan akhlak mulia, mengembangkan potensi, serta membangun kemandirian ananda sejak usia dini.
+</p>
 <div className="pt-2 flex flex-wrap items-center gap-4">
 <a className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold shadow-lg hover:brightness-105 active:scale-95 transition-all" href={`https://wa.me/${phone}?text=${encodeURIComponent("Assalamu’alaikum Admin PAUD Hidayah, saya berminat mendaftarkan putra/putri saya di PAUD Hidayah. Boleh dibantu informasi syarat pendaftaran dan formulir PPDB saat ini? Terima kasih.")}`} target="_blank">
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
-<span>Konsultasi Admisi WhatsApp</span>
+<span>Konsultasi Pendaftaran</span>
 </a>
-<a className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#FCD116]/15 backdrop-blur-md text-on-primary font-label-lg text-label-lg font-semibold hover:bg-[#FCD116]/25 transition-all" href={`https://wa.me/${phone}?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20PAUD%20Hidayah.%20Boleh%20minta%20dikirimkan%20file%20Brosur%20dan%20Rincian%20Biaya%20terbaru%3F`} target="_blank">
+<a className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#FCD116]/15 backdrop-blur-md text-on-primary font-label-lg text-label-lg font-semibold hover:bg-[#FCD116]/25 transition-all" href={`https://wa.me/${phone}?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20PAUD%20Hidayah.%20Boleh%20minta%20dikirimkan%20file%20Brosur%20dan%20Rincian%20Biaya%20terbaru%20TA%202026/2027%3F`} target="_blank">
 <span className="material-symbols-outlined text-[20px]">download</span>
-<span>Unduh Brosur &amp; Biaya</span>
+<span>Brosur &amp; Rincian Biaya</span>
 </a>
 </div>
 </div>
-<div className="lg:col-span-4 bg-gradient-to-br from-[#1fa555] to-[#14753c] shadow-inner border border-white/20 rounded-3xl p-6 flex flex-col space-y-4">
+<div className="lg:col-span-5 bg-gradient-to-br from-[#1fa555] to-[#14753c] shadow-inner border border-white/20 rounded-3xl p-6 flex flex-col space-y-4">
 <h4 className="font-headline-sm text-headline-sm text-on-primary flex items-center gap-2">
 <span className="material-symbols-outlined text-secondary-fixed">pin_drop</span>
-<span>Kunjungi Kampus Kami</span>
+<span>Kunjungi Sekolah Kami</span>
 </h4>
-<p className="font-body-sm text-body-sm text-inverse-on-surface">
-              Ayah &amp; Bunda dipersilakan melakukan <span className="font-semibold text-secondary-fixed">School Tour Gratis</span> untuk melihat langsung sarana kelas ceria, musholla, dan kebun kami.
-            </p>
-<div className="space-y-2 pt-2 text-on-primary font-body-sm text-[13px]">
+<p className="font-body-sm text-body-sm text-inverse-on-surface leading-relaxed">
+  Ayah &amp; Bunda dipersilakan berkunjung untuk mengenal lingkungan belajar, fasilitas, serta kegiatan anak secara langsung. Silakan menghubungi sekolah untuk mengatur jadwal kunjungan.
+</p>
+<div className="space-y-2 pt-1 text-on-primary font-body-sm text-[13px]">
 <div className="flex items-center gap-2">
 <span className="material-symbols-outlined text-secondary-fixed text-[18px]">alarm</span>
-<span>{siteSettings?.openHours || "Senin - Jumat: 07.30 - 11.30 WIB"}</span>
+<span>Senin - Sabtu : 07.00 - 10.00 WIB</span>
 </div>
 <div className="flex items-center gap-2">
 <span className="material-symbols-outlined text-secondary-fixed text-[18px]">location_on</span>
 <span>{siteSettings?.address || "Ds. Tayu Wetan, RT.06 RW.01 Kecamatan Tayu, Kabupaten Pati, Jawa Tengah"}</span>
 </div>
+</div>
+
+{/* Code Barcode / QR Code Link Pendaftaran (Slide 8) */}
+<div className="mt-3 pt-3 border-t border-white/20 flex items-center gap-3.5 bg-black/15 rounded-2xl p-3">
+  <div className="w-[76px] h-[76px] bg-white rounded-xl p-1 shrink-0 shadow-md flex items-center justify-center">
+    <img 
+      src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`https://wa.me/${phone}?text=${encodeURIComponent("Assalamu’alaikum Admin PAUD Hidayah, saya berminat mendaftarkan putra/putri saya di PAUD Hidayah. Boleh dibantu informasi syarat pendaftaran dan formulir PPDB saat ini? Terima kasih.")}`)}`}
+      alt="Barcode Pendaftaran PAUD Hidayah"
+      className="w-full h-full object-contain"
+      loading="lazy"
+    />
+  </div>
+  <div>
+    <p className="font-bold text-[13px] text-[#FCD116] flex items-center gap-1">
+      <span className="material-symbols-outlined text-[16px]">qr_code_scanner</span>
+      Barcode Pendaftaran
+    </p>
+    <p className="text-[11px] text-white/90 leading-tight mt-1">
+      Scan barcode dengan kamera ponsel Ayah &amp; Bunda untuk langsung terhubung pendaftaran.
+    </p>
+  </div>
 </div>
 </div>
 </div>

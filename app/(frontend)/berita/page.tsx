@@ -52,7 +52,7 @@ export default async function BeritaPage() {
             Kabar Terbaru
           </h1>
           <p className="text-white max-w-2xl mx-auto text-lg leading-relaxed">
-            Ikuti perkembangan terbaru, kegiatan mendatang, dan informasi penting lainnya seputar PAUD Hidayah.
+            Ikuti kabar terbaru seputar kegiatan, agenda mendatang, dan berbagai informasi penting dari PAUD Hidayah.
           </p>
         </div>
       </div>

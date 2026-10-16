@@ -23,10 +23,11 @@ export default async function Footer() {
                 <p className="font-label-sm text-label-sm text-secondary">{settings?.foundationName || "Yayasan Hidayah"}</p>
               </div>
             </div>
-            <p className="font-body-sm text-body-sm text-on-surface-variant mt-2">Membina tunas bangsa dengan pendidikan berakhlak Qurani, ceria, mandiri, dan berwawasan global dalam lingkungan yang asri serta aman bagi ananda.</p>
-            <div className="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm w-fit">
+            <p className="font-bold text-[13px] text-primary">Membentuk Generasi yang Berkarakter Islami, Cerdas, Ceria, dan Mandiri.</p>
+            <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Mendampingi tumbuh kembang ananda melalui pembiasaan akhlak mulia, pembelajaran yang menyenangkan, serta pengalaman bermain yang bermakna dalam lingkungan yang aman, nyaman, dan mendukung potensi setiap anak.</p>
+            <div className="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm w-fit border border-[#188B48]/10 shadow-sm">
               <span className="material-symbols-outlined text-[16px] text-secondary">workspace_premium</span>
-              <span>{settings?.accreditation || "Terakreditasi A (Unggul) BAN-PDM"}</span>
+              <span className="font-bold">{settings?.accreditation || "Terakreditasi A BAN-PDM"}</span>
             </div>
           </div>
 
@@ -34,9 +35,9 @@ export default async function Footer() {
             <h5 className="font-label-lg text-label-lg text-on-surface font-bold mb-4">Profil &amp; Yayasan</h5>
             <ul className="flex flex-col gap-2 font-body-sm text-body-sm">
               <li><Link href="/profil/paud" className="text-on-surface-variant hover:text-primary transition-colors">Profil PAUD Hidayah</Link></li>
-              <li><Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">{settings?.foundationName || ""}</Link></li>
-              <li><Link href="/profil/paud" className="text-on-surface-variant hover:text-primary transition-colors">Visi, Misi &amp; Nilai Dasar</Link></li>
-              <li><Link href="/struktur-organisasi" className="text-on-surface-variant hover:text-primary transition-colors">Tenaga Pengajar &amp; Ustadzah</Link></li>
+              <li><Link href="/profil/paud#visi-misi" className="text-on-surface-variant hover:text-primary transition-colors">Visi, Misi &amp; Tujuan</Link></li>
+              <li><Link href="/struktur-organisasi/paud" className="text-on-surface-variant hover:text-primary transition-colors">Tenaga Pendidik &amp; Kependidikan</Link></li>
+              <li><Link href="/profil/yayasan" className="text-on-surface-variant hover:text-primary transition-colors">Yayasan Hidayah</Link></li>
             </ul>
           </div>
 
@@ -45,10 +46,10 @@ export default async function Footer() {
             <ul className="flex flex-col gap-2 font-body-sm text-body-sm">
               <li><Link href="/program/toddler" className="text-on-surface-variant hover:text-primary transition-colors">Toddler (Usia 1,5–3 Thn)</Link></li>
               <li><Link href="/program/kb" className="text-on-surface-variant hover:text-primary transition-colors">Kelompok Bermain (Usia 3–4 Thn)</Link></li>
-              <li><Link href="/program/ra-a" className="text-on-surface-variant hover:text-primary transition-colors">RA-A (Usia 4–5 Thn)</Link></li>
-              <li><Link href="/program/ra-b" className="text-on-surface-variant hover:text-primary transition-colors">RA-B (Usia 5–6 Thn)</Link></li>
-              <li><Link href="/program/tahfidz" className="text-on-surface-variant hover:text-primary transition-colors">Tahfidz</Link></li>
-              <li><Link href="/program/tpq" className="text-on-surface-variant hover:text-primary transition-colors">TPQ (Taman Pendidikan Al-Qur'an)</Link></li>
+              <li><Link href="/program/ra-a" className="text-on-surface-variant hover:text-primary transition-colors">RA A (Usia 4–5 Thn)</Link></li>
+              <li><Link href="/program/ra-b" className="text-on-surface-variant hover:text-primary transition-colors">RA B (Usia 5–6 Thn)</Link></li>
+              <li><Link href="/program/tahfidz" className="text-on-surface-variant hover:text-primary transition-colors">Tahfidz Al-Qur'an</Link></li>
+              <li><Link href="/program/tpq" className="text-on-surface-variant hover:text-primary transition-colors">TPQ PAUD (Metode Qiro'ati)</Link></li>
               <li><Link href="/program/ekstrakurikuler" className="text-on-surface-variant hover:text-primary transition-colors">Ekstrakurikuler</Link></li>
             </ul>
           </div>
@@ -70,14 +71,14 @@ export default async function Footer() {
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="material-symbols-outlined text-secondary text-[20px] shrink-0">school</span>
-                <span>NPSN: {settings?.npsn || "-"} {settings?.nsm && `| NSM: ${settings.nsm}`}</span>
+                <span className="font-semibold">NPSN: {settings?.npsn || "69884826"} | NSM: {settings?.nsm || "101233180135"}</span>
               </div>
             </div>
           </div>
         </div>
         
         <div className="mt-space-lg pt-6 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4 font-body-sm text-body-sm text-on-surface-variant">
-          <p>© {new Date().getFullYear()} {settings?.schoolName || "PAUD Hidayah"}. Hak Cipta Dilindungi • Membina Generasi Qurani &amp; Cerdas.</p>
+          <p>© {new Date().getFullYear()} {settings?.schoolName || "PAUD Hidayah Tayu"}. Hak Cipta Dilindungi • Membentuk Generasi yang Berkarakter Islami, Cerdas, Ceria &amp; Mandiri.</p>
           <div className="flex items-center gap-6 font-label-sm text-label-sm">
             <span className="hover:text-primary transition-colors cursor-pointer">Kebijakan Privasi</span>
             <span className="hover:text-primary transition-colors cursor-pointer">Panduan Orang Tua</span>

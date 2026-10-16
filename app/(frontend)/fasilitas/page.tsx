@@ -29,26 +29,26 @@ async function getFasilitasData() {
   }));
 }
 
-// Fallback hardcoded data just in case CMS is empty initially
+// Fallback hardcoded data matching official school facilities
 const fallbackData = [
   {
     _id: "fb1",
     title: "Ruang Kelas Nyaman",
-    description: "Ruang kelas yang didesain khusus, bersih, aman, dan dilengkapi dengan AC serta media pembelajaran interaktif.",
+    description: "Belajar nyaman, anak lebih bersemangat. Ruang kelas yang bersih, aman, dan nyaman, dirancang khusus untuk mendukung kegiatan belajar sambil bermain. Dilengkapi dengan AC dan TV sebagai media pembelajaran interaktif yang menyenangkan.",
     icon: "meeting_room",
     imageUrl: "/gedung-tk.jpg"
   },
   {
     _id: "fb2",
-    title: "Area Bermain (Indoor & Outdoor)",
-    description: "Tempat bermain yang aman untuk melatih motorik kasar anak, bersosialisasi, dan mengeksplorasi lingkungan.",
+    title: "Area Bermain Indoor & Outdoor",
+    description: "Aktif bergerak, bebas bereksplorasi. Area bermain di dalam dan luar ruangan yang menyenangkan untuk melatih motorik kasar dan halus, mengembangkan kemampuan bersosialisasi, serta mendorong anak bereksplorasi dan belajar melalui pengalaman langsung.",
     icon: "sports_handball",
     imageUrl: "/gedung-tk.jpg"
   },
   {
     _id: "fb3",
-    title: "Alat Peraga Edukatif (APE)",
-    description: "Koleksi mainan dan alat peraga edukatif yang lengkap untuk menstimulasi kecerdasan majemuk anak.",
+    title: "Alat Permainan Edukatif (APE)",
+    description: "Bermain seru, potensi anak berkembang. Beragam alat permainan edukatif yang menarik untuk menstimulasi kecerdasan majemuk, kreativitas, kemampuan berpikir, serta keterampilan motorik anak melalui kegiatan bermain yang bermakna.",
     icon: "extension",
     imageUrl: "/gedung-tk.jpg"
   }
@@ -77,10 +77,10 @@ export default async function FasilitasPage() {
             <span>FASILITAS SEKOLAH</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
-            Sarana & Prasarana Ceria
+            Sarana &amp; Prasarana PAUD Hidayah
           </h1>
           <p className="text-white max-w-2xl mx-auto text-lg leading-relaxed">
-            Kami menyediakan lingkungan belajar yang aman, nyaman, dan mendukung eksplorasi tanpa batas bagi anak usia dini.
+            Kami menyediakan lingkungan belajar yang aman, nyaman, dan menyenangkan untuk mendukung tumbuh kembang ananda secara optimal.
           </p>
         </div>
       </div>
@@ -99,13 +99,24 @@ export default async function FasilitasPage() {
 
         {/* Call to Action */}
         <div className="mt-16 bg-[#EAF3EF] rounded-3xl p-8 md:p-12 text-center border border-[#188B48]/10 flex flex-col items-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#188B48] mb-4">Ingin Melihat Langsung Fasilitas Kami?</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Kunjungi PAUD Hidayah secara langsung pada jam operasional untuk melakukan tur keliling sekolah dan berkonsultasi dengan para guru kami.
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FCD116] text-[#1b1c1a] font-bold text-xs uppercase tracking-wider mb-3">
+            Kunjungan Sekolah
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#188B48] mb-4">Yuk, Kenali PAUD Hidayah Lebih Dekat!</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-4 leading-relaxed">
+            Penasaran dengan fasilitas dan keseruan belajar di PAUD Hidayah? Ayah dan Bunda dipersilakan berkunjung pada jam operasional untuk melihat langsung lingkungan sekolah, mengenal program pembelajaran, dan berkonsultasi dengan guru kami.
           </p>
-          <a href="https://wa.me/6285187409266" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#188B48] text-white font-bold hover:bg-[#126b36] hover:scale-105 transition-all shadow-lg">
+          <p className="text-[#188B48] font-bold text-base mb-8">
+            Kami tunggu kehadiran Ayah dan Bunda!
+          </p>
+          <a 
+            href="https://wa.me/6285187409266?text=Halo%20Admin%20PAUD%20Hidayah,%20saya%20ingin%20menjadwalkan%20kunjungan%20ke%20sekolah%20untuk%20melihat%20fasilitas%20dan%20konsultasi%20program%20pembelajaran." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#188B48] text-white font-bold hover:bg-[#126b36] hover:scale-105 transition-all shadow-lg"
+          >
             <span className="material-symbols-outlined text-[20px]">calendar_month</span>
-            Jadwalkan Kunjungan
+            Jadwalkan Kunjungan Sekarang
           </a>
         </div>
 
