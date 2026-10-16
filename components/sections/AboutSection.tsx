@@ -10,30 +10,30 @@ export default function AboutSection() {
 <span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-3">Tentang RA Hidayah</span>
 <h2 className="font-headline-lg text-headline-lg text-primary">Tumbuh Ceria, Cerdas, Mandiri dan Islami</h2>
 <p className="font-body-md text-body-md text-on-surface-variant mt-3">
-          Di bawah naungan Yayasan Hidayatullah, kami mendampingi ananda melewati masa keemasan (golden age) dengan kelembutan fitrah, pembiasaan akhlak sunnah, dan stimulasi ragam kecerdasan.
+          Di bawah naungan Yayasan Hidayah, kami mendampingi ananda melewati masa keemasan (golden age) dengan kelembutan fitrah, pembiasaan akhlak sunnah, dan stimulasi ragam kecerdasan.
         </p>
 </div>
 {/* Welcome Note Grid */}
 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-surface-container-low rounded-3xl p-6 sm:p-10 mb-14 shadow-sm">
 <div className="lg:col-span-4 flex flex-col items-center text-center">
   <div className="relative w-36 h-36 rounded-full overflow-hidden shadow-md mb-4 bg-primary-fixed">
-    <img className="w-full h-full object-cover" alt="Potret Kepala Sekolah RA Hidayah Ibu Sri Surami Widyastuti, S.Pd" src="/kegiatan/kepala-sekolah-paud.webp"/>
+    <img className="w-full h-full object-cover" alt="Potret Kepala Sekolah PAUD Hidayah Ibu Nur Laeli, S.Pd" src="/kegiatan/kepala-sekolah-paud.webp"/>
   </div>
-  <h4 className="font-headline-sm text-headline-sm text-primary">Sri Surami Widyastuti, S.Pd</h4>
-<p className="font-label-md text-label-md text-secondary font-medium">Kepala Sekolah RA Hidayah</p>
-<span className="font-body-sm text-[12px] text-on-surface-variant mt-1">Pengabdi Pendidikan Anak Usia Dini 15+ Tahun</span>
+  <h4 className="font-headline-sm text-headline-sm text-primary">Nur Laeli, S.Pd</h4>
+<p className="font-label-md text-label-md text-secondary font-medium">Kepala Sekolah PAUD Hidayah</p>
+<span className="font-body-sm text-[12px] text-on-surface-variant mt-1">Pengabdi Pendidikan Anak Usia Dini 30+ Tahun</span>
 </div>
 <div className="lg:col-span-8 flex flex-col justify-center space-y-4">
 <div className="flex items-center gap-2 text-secondary">
 <span className="material-symbols-outlined text-[32px]">format_quote</span>
 </div>
 <p className="font-body-lg text-body-lg text-on-surface italic leading-relaxed">
-            "Dengan hati kita melayani, dengan keteladanan kita menginspirasi. RA Hidayah hadir mendampingi ananda melewati masa keemasan (golden age) dengan kelembutan fitrah dan pembiasaan akhlak sunnah."
+            "Dengan hati kita melayani, dengan keteladanan kita menginspirasi. PAUD Hidayah hadir mendampingi ananda melewati masa keemasan (golden age) dengan kelembutan fitrah dan pembiasaan akhlak sunnah."
           </p>
 <div className="pt-2 flex items-center gap-4">
 <div className="flex items-center gap-2 text-primary font-label-md text-label-md">
 <span className="material-symbols-outlined text-[20px]">handshake</span>
-<span>Yayasan Hidayatullah Mandiri • Berdiri sejak 2008</span>
+<span>Yayasan Hidayah • Berdiri sejak 1968</span>
 </div>
 </div>
 </div>

@@ -176,18 +176,18 @@ export default async function Home() {
 <span className="font-label-sm text-label-sm font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-3">Tentang PAUD Hidayah</span>
 <h2 className="font-headline-lg text-headline-lg text-white">Tumbuh Harmonis dalam Iman, Ilmu &amp; Cinta</h2>
 <p className="font-body-md text-body-md text-white/80 mt-3">
-          Di bawah naungan  Mandiri, kami mendampingi ananda melewati masa keemasan (golden age) dengan kelembutan fitrah, pembiasaan akhlak sunnah, dan stimulasi ragam kecerdasan.
+          Di bawah naungan Yayasan Hidayah, kami mendampingi ananda melewati masa keemasan (golden age) dengan kelembutan fitrah, pembiasaan akhlak sunnah, dan stimulasi ragam kecerdasan.
         </p>
 </div>
 {/* Welcome Note Grid */}
 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white/10-container-low rounded-3xl p-6 sm:p-10 mb-14 shadow-sm">
 <div className="lg:col-span-4 flex flex-col items-center text-center">
 <div className="relative w-36 h-36 rounded-full overflow-hidden shadow-md mb-4 bg-primary-fixed">
-            <img className="w-full h-full object-cover" alt="Ibu Kepala Sekolah RA Hidayah Sri Surami Widyastuti, S.Pd" src="/kegiatan/kepala-sekolah-paud.webp"/>
+            <img className="w-full h-full object-cover" alt="Ibu Kepala Sekolah PAUD Hidayah Nur Laeli, S.Pd" src="/kegiatan/kepala-sekolah-paud.webp"/>
 </div>
-<h4 className="font-headline-sm text-headline-sm text-white">Sri Surami Widyastuti, S.Pd</h4>
+<h4 className="font-headline-sm text-headline-sm text-white">Nur Laeli, S.Pd</h4>
 <p className="font-label-md text-label-md text-[#FCD116] font-medium">Kepala Sekolah PAUD Hidayah</p>
-<span className="font-body-sm text-[12px] text-white/80 mt-1">Pengabdi Pendidikan Anak Usia Dini 15+ Tahun</span>
+<span className="font-body-sm text-[12px] text-white/80 mt-1">Pengabdi Pendidikan Anak Usia Dini 30+ Tahun</span>
 </div>
 <div className="lg:col-span-8 flex flex-col justify-center space-y-4">
 <div className="flex items-center gap-2 text-[#FCD116]">
@@ -199,7 +199,7 @@ export default async function Home() {
 <div className="pt-2 flex items-center gap-4">
 <div className="flex items-center gap-2 text-white font-label-md text-label-md">
 <span className="material-symbols-outlined text-[20px]">handshake</span>
-<span> Mandiri • Berdiri sejak 2008</span>
+<span>Yayasan Hidayah • Berdiri sejak 1968</span>
 </div>
 </div>
 </div>
