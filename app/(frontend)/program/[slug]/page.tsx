@@ -209,6 +209,10 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
   const fallback = programsData[targetSlug];
   const sanityDoc = await getSanityProgram(targetSlug);
 
+  const phoneRaw = await client.fetch(`*[_type == "siteSettings"][0].phone`, {}, { next: { revalidate: 0 } }) || "0851 8740 9266";
+  let phone = phoneRaw.replace(/\D/g, "");
+  if (phone.startsWith("0")) phone = "62" + phone.slice(1);
+
   if (!fallback && !sanityDoc) {
     return (
       <main className="w-full pt-32 pb-20 bg-[#FDFCF8] min-h-screen text-center">
@@ -373,8 +377,13 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
               <p className="text-white/80">Kami siap menyambut buah hati Anda di PAUD Hidayah.</p>
             </div>
             
-            <a href="#kontak" className="relative z-10 px-8 py-3.5 bg-[#FCD116] hover:bg-white text-[#188B48] font-bold rounded-full transition-colors shadow-lg flex items-center gap-2">
-              Hubungi Kami <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+            <a 
+              href={`https://wa.me/${phone}?text=${encodeURIComponent(`Assalamu’alaikum Admin PAUD Hidayah, saya berminat mendaftarkan putra/putri saya untuk ${data.badge || 'Program Pembelajaran'}. Boleh dibantu informasi pendaftaran dan kuotanya? Terima kasih.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative z-10 px-8 py-3.5 bg-[#FCD116] hover:bg-white text-[#188B48] font-bold rounded-full transition-colors shadow-lg flex items-center gap-2"
+            >
+              Konsultasi Pendaftaran <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
             </a>
           </div>
         </div>

@@ -158,7 +158,7 @@ export default function MobileMenu() {
             {/* Mobile Footer / CTA */}
             <div className="mt-auto p-6 bg-gray-50 border-t border-gray-100">
               <Link 
-                href="#daftar-ppdb" 
+                href="/#daftar-ppdb" 
                 onClick={closeMenu}
                 className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-[#FCD116] text-[#1b1c1a] font-bold text-[16px] shadow-sm hover:brightness-105 transition-all"
               >

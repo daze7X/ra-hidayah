@@ -267,7 +267,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <a href={`https://wa.me/${phone}`} target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-start gap-4 text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-white/20 cursor-pointer">
+      <a href={`https://wa.me/${phone}?text=${encodeURIComponent("Assalamu’alaikum Admin PAUD Hidayah, saya ingin berkonsultasi mengenai informasi sekolah dan pendaftaran. Terima kasih.")}`} target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-start gap-4 text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-white/20 cursor-pointer">
         <div className="w-12 h-12 bg-[var(--color-secondary)] rounded-full flex items-center justify-center text-[var(--color-primary)] shrink-0 mt-0.5">
           <span className="material-symbols-outlined text-[24px]">call</span>
         </div>
@@ -987,7 +987,7 @@ export default async function Home() {
               Kuota kelas terbatas hanya 15 siswa per kelompok belajar demi memastikan perhatian personal dan pendampingan kasih sayang maksimal. Konsultasikan kebutuhan tumbuh kembang putra-putri Ayah &amp; Bunda sekarang.
             </p>
 <div className="pt-2 flex flex-wrap items-center gap-4">
-<a className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold shadow-lg hover:brightness-105 active:scale-95 transition-all" href={`https://wa.me/${phone}`} target="_blank">
+<a className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold shadow-lg hover:brightness-105 active:scale-95 transition-all" href={`https://wa.me/${phone}?text=${encodeURIComponent("Assalamu’alaikum Admin PAUD Hidayah, saya berminat mendaftarkan putra/putri saya di PAUD Hidayah. Boleh dibantu informasi syarat pendaftaran dan formulir PPDB saat ini? Terima kasih.")}`} target="_blank">
 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
 <span>Konsultasi Admisi WhatsApp</span>
 </a>
