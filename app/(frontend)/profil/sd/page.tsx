@@ -159,7 +159,7 @@ export default async function ProfilSDPage() {
     <main className="w-full bg-[#FDFCF8] min-h-screen font-sans selection:bg-[#FCD116] selection:text-[#188B48]">
       
       {/* ================= HERO SECTION ================= */}
-      <section className="relative w-full bg-[#188B48] text-white pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+      <section className="relative w-full bg-[#188B48] text-white pt-28 pb-14 md:pt-32 md:pb-18 overflow-hidden">
         {/* Soft Decorative Ambient Blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FCD116]/10 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>

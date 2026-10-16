@@ -7,7 +7,7 @@ export default function ProgramLandingPage() {
   return (
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
       {/* ================= HERO SECTION ================= */}
-      <section className="w-full pt-36 pb-16 relative">
+      <section className="w-full pt-28 pb-10 md:pt-32 md:pb-14 relative">
         {/* Background Blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FCD116]/30 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
         <div className="absolute top-40 left-0 w-80 h-80 bg-[#34D399]/10 rounded-full blur-[80px] pointer-events-none -translate-x-1/2"></div>

@@ -42,7 +42,7 @@ export default async function BeritaPage() {
         <div className="absolute top-3/4 right-1/4 w-40 h-40 bg-[#FCD116]/10 rounded-full blur-[60px] pointer-events-none"></div>
       
       {/* Full Bleed Solid Green Hero */}
-      <div className="w-full bg-[#188B48] pt-32 pb-20 md:pt-40 md:pb-24 text-center relative overflow-hidden">
+      <div className="w-full bg-[#188B48] pt-28 pb-14 md:pt-32 md:pb-18 text-center relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white border-white/30 font-bold text-sm mb-6 border">
             <span className="material-symbols-outlined text-[18px]">newspaper</span>

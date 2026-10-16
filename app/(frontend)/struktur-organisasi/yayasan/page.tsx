@@ -86,7 +86,7 @@ export default async function StrukturYayasanPage() {
   return (
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
       {/* ================= FULL BLEED SOLID GREEN HERO ================= */}
-      <section className="w-full bg-[#188B48] pt-36 pb-20 md:pt-44 md:pb-24 text-center relative overflow-hidden">
+      <section className="w-full bg-[#188B48] pt-28 pb-14 md:pt-32 md:pb-18 text-center relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white border-white/30 font-bold text-sm mb-6 border">
             <span className="material-symbols-outlined text-[18px]">account_balance</span>

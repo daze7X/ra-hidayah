@@ -181,7 +181,7 @@ export default async function Home() {
     <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/95 via-[var(--color-primary)]/75 to-[var(--color-primary)]/20"></div>
   </div>
 
-  <div className="max-w-[1200px] w-full mx-auto px-6 relative z-10 pt-32 pb-12 md:pt-40 md:pb-20">
+  <div className="max-w-[1200px] w-full mx-auto px-6 relative z-10 pt-28 pb-12 md:pt-32 md:pb-16">
     <div className="max-w-2xl text-white">
       {showBanner && (
         <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--color-secondary)] shadow-sm mb-6">

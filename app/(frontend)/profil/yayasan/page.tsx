@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function PlaceholderPage() {
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pt-32 pb-24 flex items-center justify-center font-sans">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 md:pt-32 pb-20 flex items-center justify-center font-sans">
       <div className="text-center max-w-xl px-6">
         <div className="w-20 h-20 bg-[#FCD116]/20 text-[#188B48] rounded-full flex items-center justify-center mx-auto mb-6">
           <span className="material-symbols-outlined text-[40px]">construction</span>

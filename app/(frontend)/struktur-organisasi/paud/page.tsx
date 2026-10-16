@@ -36,7 +36,7 @@ export default async function StrukturOrganisasi() {
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
       
       {/* ================= HERO SECTION (Sesuai Mockup) ================= */}
-      <section className="w-full pt-36 pb-20 relative">
+      <section className="w-full pt-28 pb-12 md:pt-32 md:pb-14 relative">
         {/* Background Blobs */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-[#FCD116]/40 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute top-20 right-0 w-96 h-96 bg-[#34D399]/20 rounded-full blur-[100px] translate-x-1/3"></div>

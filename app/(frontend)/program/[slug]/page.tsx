@@ -206,10 +206,10 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
   }
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans pt-16">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
       
       {/* ================= HERO SECTION ================= */}
-      <section className="w-full pt-36 pb-24 md:pt-48 md:pb-32 relative bg-[#188B48]">
+      <section className="w-full pt-28 pb-14 md:pt-32 md:pb-18 relative bg-[#188B48]">
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           
           <div className="flex flex-col items-start gap-4">

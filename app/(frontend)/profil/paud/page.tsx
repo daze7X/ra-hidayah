@@ -25,7 +25,7 @@ export default async function ProfilTK() {
     <main className="w-full bg-surface min-h-screen">
       
       {/* ================= HERO SECTION (Islamic Playful Editorial) ================= */}
-      <section className="w-full bg-[#188B48] pt-36 pb-20 md:pt-48 md:pb-24 relative overflow-hidden">
+      <section className="w-full bg-[#188B48] pt-28 pb-14 md:pt-32 md:pb-18 relative overflow-hidden">
         {/* Subtle Islamic Geometry Glows (Not overwhelming) */}
         
         

@@ -364,7 +364,7 @@ export default async function StrukturSDPage() {
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
       
       {/* ================= HERO SECTION ================= */}
-      <section className="w-full bg-[#188B48] pt-36 pb-20 md:pt-44 md:pb-24 text-center relative overflow-hidden">
+      <section className="w-full bg-[#188B48] pt-28 pb-14 md:pt-32 md:pb-18 text-center relative overflow-hidden">
         {/* Soft Ambient Blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[130px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>

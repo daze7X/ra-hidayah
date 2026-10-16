@@ -51,7 +51,7 @@ export default async function BeritaDetail({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pt-32 pb-24 font-sans">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pt-28 md:pt-32 pb-20 font-sans">
       <article className="max-w-[900px] mx-auto px-6">
         
         {/* Back Button */}
