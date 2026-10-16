@@ -2,26 +2,76 @@ import Link from "next/link";
 
 export const revalidate = 0;
 
-// Data statis untuk 4 variasi program
+// Data program pendidikan dan ekstrakurikuler PAUD Hidayah
 const programsData: Record<string, any> = {
-  "tk-a": {
-    badge: "TK A (Usia 4–5 Tahun)",
-    title: "Mengenal, Bereksplorasi, dan Mulai Mandiri",
-    desc: "Program pembelajaran untuk anak usia 4–5 tahun melalui kegiatan bermain, eksplorasi, dan pembiasaan yang menyenangkan.",
+  "toddler": {
+    badge: "Toddler (Usia 1,5–3 Tahun)",
+    title: "Ruang Tumbuh & Eksplorasi Sensori Balita",
+    desc: "Menstimulasi panca indra, motorik halus, dan kemandirian awal balita dalam lingkungan yang aman, hangat, dan penuh kasih sayang.",
+    image: "/kegiatan/kegiatan-playgroup-lingkaran.webp",
+    about: "Program Toddler di PAUD Hidayah dirancang khusus untuk memfasilitasi masa keemasan (golden age) usia 1,5 hingga 3 tahun. Melalui pendekatan bermain aktif dan stimulasi multisensorik, anak belajar mengenal dunia sekitarnya dengan bahagia dan percaya diri.",
+    goals: [
+      "Mengembangkan kemampuan sensorik dan motorik halus melalui ragam permainan edukatif (APE).",
+      "Melatih adaptasi sosial ramah balita dan toilet training bertahap.",
+      "Membangun rasa aman, kemandirian awal, dan kedekatan emosional positif."
+    ],
+    featuresTitle: "Fokus Stimulasi Toddler",
+    features: [
+      { icon: "toys", title: "Sensory Play", desc: "Stimulasi Panca Indra & Eksplorasi" },
+      { icon: "directions_walk", title: "Motorik Awal", desc: "Keseimbangan & Koordinasi Gerak" },
+      { icon: "waving_hand", title: "Sosialisasi Dini", desc: "Interaksi & Kedekatan Positif" },
+      { icon: "clean_hands", title: "Toilet Training", desc: "Kemandirian Kebiasaan Bersih" },
+      { icon: "sentiment_satisfied", title: "Bahasa & Ritme", desc: "Kosakata Awal & Senandung Lagu" }
+    ],
+    gallery: [
+      { img: "/kegiatan/kegiatan-playgroup-lingkaran.webp", caption: "Bernyanyi & Melingkar Ceria" },
+      { img: "/kegiatan/kegiatan-sentra-bahan-alam.webp", caption: "Bermain Sensorik Bahan Alam" },
+      { img: "/kegiatan/kegiatan-candid-ibu-anak.webp", caption: "Mewarnai & Berkreasi Bersama" }
+    ]
+  },
+  "kb": {
+    badge: "Kelompok Bermain / KB (Usia 3–4 Tahun)",
+    title: "Dunia Pertama untuk Belajar dan Bermain",
+    desc: "Ruang aman dan menyenangkan bagi anak usia 3–4 tahun untuk mengenal lingkungan, bermain peran, dan membangun kemandirian.",
     image: "/kegiatan/kegiatan-sentra-belajar.webp",
-    about: "Di usia 4-5 tahun, anak mulai mengenal lingkungan dengan lebih luas. Program TK A dirancang untuk mengembangkan potensi dasar anak, membangun kemandirian, serta menumbuhkan rasa percaya diri dalam suasana yang hangat dan menyenangkan.",
+    about: "Program Kelompok Bermain (KB) di PAUD Hidayah dirancang khusus untuk membantu anak beradaptasi dengan lingkungan sekolah. Kami mengutamakan stimulasi bermain yang mengasah sensorik, motorik, dan kemampuan bergaul secara natural.",
+    goals: [
+      "Membantu anak merasa aman dan nyaman di lingkungan baru.",
+      "Mengembangkan motorik kasar dan halus melalui bermain edukatif.",
+      "Menumbuhkan rasa ingin tahu, keberanian berekspresi, dan adab Islami harian."
+    ],
+    featuresTitle: "Manfaat & Fokus KB",
+    features: [
+      { icon: "waving_hand", title: "Bersosialisasi", desc: "Mendapat Teman Baru & Berbagi" },
+      { icon: "directions_run", title: "Motorik Aktif", desc: "Bergerak & Bermain Fisik Ceria" },
+      { icon: "record_voice_over", title: "Bahasa", desc: "Kosakata Awal & Bercerita" },
+      { icon: "brush", title: "Kreativitas", desc: "Seni, Imajinasi & Melukis" },
+      { icon: "mosque", title: "Adab Cilik", desc: "Doa Harian & Praktik 5S" }
+    ],
+    gallery: [
+      { img: "/kegiatan/kegiatan-sentra-bahan-alam.webp", caption: "Bermain Sensorik & Bahan Alam" },
+      { img: "/kegiatan/kegiatan-playgroup-lingkaran.webp", caption: "Bernyanyi & Bercerita Melingkar" },
+      { img: "/kegiatan/kegiatan-candid-ibu-anak.webp", caption: "Mewarnai & Berkarya Bersama Bunda" }
+    ]
+  },
+  "ra-a": {
+    badge: "RA-A (Usia 4–5 Tahun)",
+    title: "Mengenal, Bereksplorasi, dan Membangun Karakter",
+    desc: "Program pembelajaran untuk anak usia 4–5 tahun melalui kegiatan sentra bermain, eksplorasi, dan pembiasaan adab Islami yang menyenangkan.",
+    image: "/kegiatan/kegiatan-sentra-belajar.webp",
+    about: "Di usia 4-5 tahun, anak mulai mengenal lingkungan dengan lebih luas. Program RA-A dirancang untuk mengembangkan potensi dasar anak, membangun kemandirian, serta menumbuhkan rasa percaya diri dalam suasana yang hangat dan menyenangkan.",
     goals: [
       "Mengembangkan kemampuan dasar kognitif, bahasa, sosial, dan motorik.",
-      "Membiasakan anak dengan nilai-nilai Islami sejak dini.",
-      "Menumbuhkan kemandirian dan percaya diri."
+      "Membiasakan anak dengan nilai-nilai Islami dan hafalan surat pendek sejak dini.",
+      "Menumbuhkan kemandirian, tanggung jawab, dan percaya diri."
     ],
-    featuresTitle: "Apa yang Dikembangkan?",
+    featuresTitle: "Apa yang Dikembangkan di RA-A?",
     features: [
-      { icon: "chat", title: "Bahasa", desc: "Komunikasi & Percakapan" },
-      { icon: "calculate", title: "Numerasi", desc: "Mengenal Angka & Konsep Matematika" },
+      { icon: "chat", title: "Bahasa", desc: "Komunikasi & Fonik Ceria" },
+      { icon: "calculate", title: "Numerasi", desc: "Mengenal Angka & Konsep Konkrit" },
       { icon: "sports_gymnastics", title: "Motorik", desc: "Motorik Kasar & Halus" },
-      { icon: "diversity_1", title: "Sosial", desc: "Interaksi & Kerja Sama" },
-      { icon: "mosque", title: "Karakter", desc: "Akhlak & Nilai Islami" }
+      { icon: "diversity_1", title: "Sosial", desc: "Interaksi & Kerja Sama Tim" },
+      { icon: "mosque", title: "Karakter & Qur'an", desc: "Tahfidz Juz 'Amma & Adab Sunnah" }
     ],
     gallery: [
       { img: "/kegiatan/kegiatan-sentra-pasartayu.webp", caption: "Belajar Melalui Bermain di Sentra" },
@@ -29,24 +79,24 @@ const programsData: Record<string, any> = {
       { img: "/kegiatan/kegiatan-belajar-paviliun.webp", caption: "Belajar Mandiri di Pendopo" }
     ]
   },
-  "tk-b": {
-    badge: "TK B (Usia 5–6 Tahun)",
-    title: "Bersiap Tumbuh Lebih Mandiri",
-    desc: "Mendampingi anak usia 5–6 tahun mengembangkan kemampuan, kreativitas, dan kemandirian sebagai bekal menuju jenjang pendidikan berikutnya.",
+  "ra-b": {
+    badge: "RA-B (Usia 5–6 Tahun)",
+    title: "Kesiapan Menuju Jenjang Sekolah Dasar Unggul",
+    desc: "Mendampingi anak usia 5–6 tahun mengembangkan literasi-numerasi kontekstual, pemantapan tahfidz, dan kemandirian sebagai bekal menuju jenjang SD.",
     image: "/kegiatan/kegiatan-mewarnai-kupu.webp",
-    about: "Di tahap ini, anak semakin aktif, ingin tahu, dan siap mengembangkan berbagai keterampilan. Program TK B difokuskan pada penguatan literasi, numerasi, kemandirian, serta pembentukan karakter Islami yang kuat.",
+    about: "Di tahap ini, anak semakin aktif, ingin tahu, dan siap mengembangkan berbagai keterampilan. Program RA-B difokuskan pada penguatan literasi fungsional, numerasi kontekstual, kemandirian, serta pembentukan karakter Islami yang kokoh.",
     goals: [
-      "Meningkatkan kemampuan kognitif dan akademik dasar.",
-      "Melatih kemandirian dan tanggung jawab.",
-      "Menyiapkan mental anak untuk jenjang Sekolah Dasar."
+      "Meningkatkan kemampuan literasi baca tulis dan numerasi dasar secara menyenangkan.",
+      "Melatih kepemimpinan cilik, kemandirian, dan tanggung jawab belajar.",
+      "Menyiapkan kesiapan mental dan sosial anak untuk jenjang Sekolah Dasar."
     ],
-    featuresTitle: "Fokus Pembelajaran",
+    featuresTitle: "Fokus Pembelajaran RA-B",
     features: [
-      { icon: "school", title: "Kesiapan Sekolah", desc: "Mental & Sosial" },
-      { icon: "menu_book", title: "Literasi & Numerasi", desc: "Membaca, Menulis, Berhitung (Calistung)" },
+      { icon: "school", title: "Kesiapan Sekolah", desc: "Kematangan Mental & Sosial Masuk SD" },
+      { icon: "menu_book", title: "Literasi & Numerasi", desc: "Membaca, Menulis & Berhitung Menyenangkan" },
       { icon: "biotech", title: "Sains & Eksplorasi", desc: "Rasa Ingin Tahu & Daya Kritis" },
       { icon: "self_improvement", title: "Kemandirian", desc: "Self Help & Life Skills" },
-      { icon: "mood", title: "Sosial & Emosional", desc: "Empati & Berbagi" }
+      { icon: "mood", title: "Sosial & Emosional", desc: "Empati, Berbagi & Kepemimpinan" }
     ],
     gallery: [
       { img: "/kegiatan/kegiatan-sentra-pasartayu.webp", caption: "Penataan Ruang Sentra Belajar" },
@@ -55,49 +105,25 @@ const programsData: Record<string, any> = {
       { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Prestasi Santri" }
     ]
   },
-  "playgroup": {
-    badge: "Taman Bermain (Playgroup)",
-    title: "Dunia Pertama untuk Belajar dan Bermain",
-    desc: "Ruang aman dan menyenangkan bagi anak usia dini untuk mengenal lingkungan, bermain bersama, dan membangun rasa percaya diri.",
-    image: "/kegiatan/kegiatan-sentra-belajar.webp",
-    about: "Program Playgroup di PAUD Hidayah dirancang khusus untuk membantu anak beradaptasi dengan lingkungan sekolah. Kami mengutamakan stimulasi bermain yang mengasah sensorik, motorik, dan kemampuan bergaul secara natural.",
-    goals: [
-      "Membantu anak merasa aman dan nyaman di lingkungan baru.",
-      "Mengembangkan motorik kasar dan halus melalui bermain.",
-      "Menumbuhkan rasa ingin tahu dan keberanian bereksplorasi."
-    ],
-    featuresTitle: "Manfaat Utama",
-    features: [
-      { icon: "waving_hand", title: "Bersosialisasi", desc: "Mendapat Teman Baru" },
-      { icon: "directions_run", title: "Motorik Aktif", desc: "Bergerak & Bermain Fisik" },
-      { icon: "record_voice_over", title: "Bahasa", desc: "Kosakata Awal" },
-      { icon: "brush", title: "Kreativitas", desc: "Seni & Imajinasi" }
-    ],
-    gallery: [
-      { img: "/kegiatan/kegiatan-sentra-bahan-alam.webp", caption: "Bermain Sensorik & Bahan Alam" },
-      { img: "/kegiatan/kegiatan-playgroup-lingkaran.webp", caption: "Bernyanyi & Bercerita Melingkar" },
-      { img: "/kegiatan/kegiatan-candid-ibu-anak.webp", caption: "Mewarnai & Berkarya Bersama Bunda" }
-    ]
-  },
   "ekstrakurikuler": {
-    badge: "Ekstrakurikuler",
-    title: "Temukan Minat, Kembangkan Bakat",
-    desc: "Beragam kegiatan yang membantu anak mengeksplorasi minat dan mengembangkan potensi melalui pengalaman yang menyenangkan.",
+    badge: "Ekstrakurikuler & Pembiasaan Khusus",
+    title: "Asah Minat, Bakat, Seni, & Karakter Qur'ani",
+    desc: "Wadah pengembangan potensi anak melalui seni tari, drumband, melukis, permainan tradisional, tahfidz, dan TPQ dalam suasana menyenangkan.",
     image: "/kegiatan/kegiatan-panggung-prestasi.webp",
-    about: "Selain program intrakurikuler, PAUD Hidayah menyediakan kegiatan ekstrakurikuler yang bertujuan untuk mewadahi minat khusus anak. Kami percaya setiap anak memiliki potensi unik yang perlu digali sejak dini.",
+    about: "Selain program intrakurikuler harian, PAUD Hidayah menyediakan kegiatan ekstrakurikuler untuk mewadahi minat khusus anak. Kami percaya setiap anak memiliki anugerah potensi unik yang perlu dirawat dan dikembangkan sejak usia dini.",
     goals: [
-      "Menyalurkan energi dan minat anak ke kegiatan positif.",
-      "Membangun rasa percaya diri melalui kompetensi baru.",
-      "Melatih kedisiplinan dan sportivitas."
+      "Menyalurkan energi, minat, dan bakat anak ke kegiatan positif dan produktif.",
+      "Membangun rasa percaya diri, kelenturan motorik, dan musikalitas anak.",
+      "Membiasakan kecintaan terhadap Al-Qur'an dan melestarikan budaya tradisional nusantara."
     ],
-    featuresTitle: "Pilihan Ekstrakurikuler",
+    featuresTitle: "Pilihan Ekstrakurikuler & Program Khusus",
     features: [
-      { icon: "auto_stories", title: "Tahfidz Juz 30", desc: "Membiasakan cinta Al-Qur'an sejak dini" },
-      { icon: "music_note", title: "Seni Tari", desc: "Melatih motorik dan percaya diri" },
-      { icon: "record_voice_over", title: "Bahasa Inggris", desc: "Meningkatkan kemampuan bahasa" },
-      { icon: "biotech", title: "Sains", desc: "Menumbuhkan rasa ingin tahu" },
-      { icon: "piano", title: "Musik", desc: "Melatih konsentrasi & kreativitas" },
-      { icon: "sports_soccer", title: "Olahraga", desc: "Menjaga kesehatan & kebugaran" }
+      { icon: "auto_stories", title: "Tahfidz Cilik", desc: "Membiasakan hafalan surat-surat pendek Juz 'Amma sejak dini" },
+      { icon: "menu_book", title: "TPQ Metode Qiro'ati", desc: "Bimbingan membaca Al-Qur'an tartil dengan metode menyenangkan" },
+      { icon: "music_note", title: "Seni Tari", desc: "Melatih motorik gerak, kelenturan tubuh, dan percaya diri tampil" },
+      { icon: "volume_up", title: "Drumband Cilik", desc: "Melatih kekompakan tim, kepekaan ritme irama, dan kepemimpinan" },
+      { icon: "brush", title: "Melukis & Mewarnai", desc: "Menyalurkan imajinasi warna, estetika, dan kreativitas visual" },
+      { icon: "sports_esports", title: "Permainan Tradisional", desc: "Melatih motorik kasar, kerjasama, dan melestarikan kearifan lokal" }
     ],
     gallery: [
       { img: "/kegiatan/kegiatan-panggung-prestasi.webp", caption: "Pentas Seni & Kreasi Panggung" },
@@ -107,9 +133,18 @@ const programsData: Record<string, any> = {
   }
 };
 
+// Alias map untuk kompatibilitas tautan lama & baru
+const slugAliases: Record<string, string> = {
+  "playgroup": "kb",
+  "tk-a": "ra-a",
+  "tk-b": "ra-b",
+  "kelompok-bermain": "kb"
+};
+
 export default async function ProgramDetail({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const data = programsData[resolvedParams.slug];
+  const targetSlug = slugAliases[resolvedParams.slug] || resolvedParams.slug;
+  const data = programsData[targetSlug];
 
   if (!data) {
     return (

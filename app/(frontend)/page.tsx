@@ -352,128 +352,225 @@ export default async function Home() {
           Dirancang dengan panduan kurikulum merdeka PAUD terintegrasi kurikulum diniyyah khas PAUD Hidayah.
         </p>
 </div>
-{/* 3 Program Cards Grid */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-{/* Program 1: TK A */}
-<div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-2 ring-primary/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative">
+{/* 4 Program Cards Grid */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-<div className="relative h-48 overflow-hidden bg-primary-fixed/30">
-            <img className="w-full h-full object-cover" alt="Kelompok Bermain RA Hidayah belajar melingkar ceria" src="/kegiatan/kegiatan-playgroup-lingkaran.webp"/>
-<div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
-              Usia 4 - 5 Tahun
-            </div>
-</div>
-<div className="p-6 flex flex-col flex-1 justify-between">
-<div>
-<div className="flex items-center gap-2 mb-2">
-<span className="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
-<span className="font-label-md text-label-md text-primary font-bold">Kelompok TK A</span>
-</div>
-<h3 className="font-headline-sm text-headline-sm text-primary mb-3">Pondasi Huruf &amp; Akhlak</h3>
-<p className="font-body-sm text-body-sm text-gray-700 mb-4">
-                Pengenalan huruf Hijaiyah metode Tilawati, fonik bahasa Indonesia ceria, pemahaman angka dasar melalui benda konkrit, dan sholat berjamaah.
-              </p>
-<ul className="space-y-2 mb-6 font-body-sm text-body-sm text-on-surface">
-<li className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
-<span>Tahfidz Surat Pendek (An-Nas - Al-Ikhlas)</span>
-</li>
-<li className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
-<span>Pengenalan Fonik &amp; Pra-Calistung Ceria</span>
-</li>
-<li className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
-<span>Eksperimen Sentra Bahan Alam</span>
-</li>
-</ul>
-</div>
-<Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary font-label-md text-label-md font-semibold hover:brightness-110 transition-all shadow-sm block" href="/program/tk-a">Detail Program TK A</Link>
-</div>
-</div>
-{/* Program 3: TK B */}
-<div className="bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative">
-<div className="relative h-48 overflow-hidden bg-secondary-fixed/30">
-            <img className="w-full h-full object-cover" alt="Anak-anak TK RA Hidayah aktif belajar di kelas sentra" src="/kegiatan/kegiatan-sentra-belajar.webp"/>
-<div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
-              Usia 5 - 6 Tahun
-            </div>
-</div>
-<div className="p-6 flex flex-col flex-1 justify-between">
-<div>
-<div className="flex items-center gap-2 mb-2">
-<span className="material-symbols-outlined text-secondary text-[20px]">school</span>
-<span className="font-label-md text-label-md text-secondary font-bold">Kelompok TK B</span>
-</div>
-<h3 className="font-headline-sm text-headline-sm text-primary mb-3">Kesiapan Jenjang SD Unggul</h3>
-<p className="font-body-sm text-body-sm text-gray-700 mb-4">
-                Mematangkan literasi baca tulis fungsional, numerasi kontekstual, pemantapan tahfidz juz 30, hafalan hadist pilihan, dan kepemimpinan cilik.
-              </p>
-<ul className="space-y-2 mb-6 font-body-sm text-body-sm text-on-surface">
-<li className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
-<span>Target 15+ Surat Pilihan Juz 'Amma</span>
-</li>
-<li className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
-<span>Kesiapan Literasi &amp; Numerasi Masuk SD</span>
-</li>
-<li className="flex items-center gap-2">
-<span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
-<span>Praktik Wudhu &amp; Gerakan Sholat Sempurna</span>
-</li>
-</ul>
-</div>
-<a className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary font-label-md text-label-md font-semibold hover:bg-primary hover:text-on-primary transition-colors" href="#">
-              Detail Program TK B
-            </a>
-</div>
-</div>
+  {/* Program 1: Toddler */}
+  <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
+    <div className="relative h-44 overflow-hidden bg-primary-fixed/30">
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Toddler PAUD Hidayah bermain ceria" src="/kegiatan/kegiatan-playgroup-lingkaran.webp"/>
+      <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
+        Usia 1,5 - 3 Tahun
+      </div>
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="material-symbols-outlined text-primary text-[20px]">toys</span>
+          <span className="font-label-md text-sm text-primary font-bold">Toddler</span>
+        </div>
+        <h3 className="text-lg font-bold text-primary mb-2">Stimulasi &amp; Sensori</h3>
+        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
+          Stimulasi panca indra, motorik halus, kemandirian awal, serta adaptasi sosial ramah balita yang penuh kehangatan.
+        </p>
+        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Multisensory &amp; Motorik Play</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Toilet Training Ramah Anak</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Adaptasi Sosial Hangat</span>
+          </li>
+        </ul>
+      </div>
+      <Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary text-sm font-semibold hover:brightness-110 transition-all shadow-sm block" href="/program/toddler">Detail Toddler</Link>
+    </div>
+  </div>
+
+  {/* Program 2: Kelompok Bermain (KB) */}
+  <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
+    <div className="relative h-44 overflow-hidden bg-secondary-fixed/30">
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kelompok Bermain KB PAUD Hidayah" src="/kegiatan/kegiatan-sentra-belajar.webp"/>
+      <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
+        Usia 3 - 4 Tahun
+      </div>
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="material-symbols-outlined text-secondary text-[20px]">smart_toy</span>
+          <span className="font-label-md text-sm text-secondary font-bold">Kelompok Bermain (KB)</span>
+        </div>
+        <h3 className="text-lg font-bold text-primary mb-2">Bermain Peran &amp; Sosialisasi</h3>
+        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
+          Mengenal lingkungan belajar melalui bermain peran, kosakata aktif, bahan alam, dan pembiasaan adab Islami harian.
+        </p>
+        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Kosakata &amp; Bahasa Komunikasi</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Bermain Peran &amp; Sentra Alam</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Pembiasaan Doa &amp; Adab 5S</span>
+          </li>
+        </ul>
+      </div>
+      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/kb">Detail Program KB</Link>
+    </div>
+  </div>
+
+  {/* Program 3: RA-A */}
+  <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-2 ring-primary/20 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
+    <div className="relative h-44 overflow-hidden bg-primary-fixed/30">
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kelompok RA-A PAUD Hidayah" src="/kegiatan/kegiatan-mewarnai-kupu.webp"/>
+      <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
+        Usia 4 - 5 Tahun
+      </div>
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
+          <span className="font-label-md text-sm text-primary font-bold">Kelompok RA-A</span>
+        </div>
+        <h3 className="text-lg font-bold text-primary mb-2">Pondasi Huruf &amp; Akhlak</h3>
+        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
+          Pengenalan huruf Hijaiyah, fonik ceria, pemahaman angka dasar melalui benda konkrit, dan sholat berjamaah.
+        </p>
+        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Tahfidz Surat Pendek Juz 'Amma</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Fonik &amp; Pra-Calistung Ceria</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Eksperimen Sentra Bahan Alam</span>
+          </li>
+        </ul>
+      </div>
+      <Link className="w-full py-2.5 rounded-full bg-primary text-center text-on-primary text-sm font-semibold hover:brightness-110 transition-all shadow-sm block" href="/program/ra-a">Detail Program RA-A</Link>
+    </div>
+  </div>
+
+  {/* Program 4: RA-B */}
+  <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
+    <div className="relative h-44 overflow-hidden bg-secondary-fixed/30">
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kelompok RA-B PAUD Hidayah wisuda" src="/kegiatan/kegiatan-wisuda-prestasi.webp"/>
+      <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
+        Usia 5 - 6 Tahun
+      </div>
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="material-symbols-outlined text-secondary text-[20px]">school</span>
+          <span className="font-label-md text-sm text-secondary font-bold">Kelompok RA-B</span>
+        </div>
+        <h3 className="text-lg font-bold text-primary mb-2">Kesiapan SD Unggul</h3>
+        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
+          Mematangkan literasi fungsional, numerasi kontekstual, pemantapan tahfidz juz 30, hafalan hadist, dan kepemimpinan cilik.
+        </p>
+        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Target 15+ Surat Pilihan Juz 'Amma</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Literasi &amp; Numerasi Masuk SD</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Praktik Wudhu &amp; Sholat Sempurna</span>
+          </li>
+        </ul>
+      </div>
+      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/ra-b">Detail Program RA-B</Link>
+    </div>
+  </div>
+
 </div>
 {/* Ekstrakurikuler Pilihan */}
-<div className="mt-14 pt-10 bg-white rounded-3xl p-8 shadow-sm">
-<div className="text-center max-w-xl mx-auto mb-8">
-<h3 className="font-headline-md text-headline-md text-primary">Ekstrakurikuler Minat &amp; Bakat Ceria</h3>
-<p className="font-body-sm text-body-sm text-gray-700 mt-1">Mengasah kecerdasan kinestetik, seni dan teknologi islami sejak dini.</p>
-</div>
-<div className="flex overflow-x-auto md:grid md:grid-cols-4 gap-4 pb-4 snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
-<div className="flex items-center gap-3 p-4 rounded-2xl bg-[#FCD116] hover:bg-secondary-fixed/20 transition-colors">
-<div className="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
-<span className="material-symbols-outlined text-[22px]">target</span>
-</div>
-<div className="min-w-[150px] snap-center shrink-0">
-  <p className="font-label-md text-label-md font-bold text-on-surface">Memanah Cilik</p>
-<p className="font-body-sm text-[12px] text-gray-700">Fokus &amp; Sunnah Nabi</p>
-</div>
-</div>
-<div className="flex items-center gap-3 p-4 rounded-2xl bg-[#FCD116] hover:bg-primary-fixed/20 transition-colors">
-<div className="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
-<span className="material-symbols-outlined text-[22px]">record_voice_over</span>
-</div>
-<div className="min-w-[150px] snap-center shrink-0">
-  <p className="font-label-md text-label-md font-bold text-on-surface">Tahsin &amp; Da'i Cilik</p>
-<p className="font-body-sm text-[12px] text-gray-700">Keberanian Tampil</p>
-</div>
-</div>
-<div className="flex items-center gap-3 p-4 rounded-2xl bg-[#FCD116] hover:bg-secondary-fixed/20 transition-colors">
-<div className="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
-<span className="material-symbols-outlined text-[22px]">brush</span>
-</div>
-<div className="min-w-[150px] snap-center shrink-0">
-  <p className="font-label-md text-label-md font-bold text-on-surface">Kaligrafi &amp; Lukis</p>
-<p className="font-body-sm text-[12px] text-gray-700">Seni Visual Ceria</p>
-</div>
-</div>
-<div className="flex items-center gap-3 p-4 rounded-2xl bg-[#FCD116] hover:bg-primary-fixed/20 transition-colors">
-<div className="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
-<span className="material-symbols-outlined text-[22px]">smart_toy</span>
-</div>
-<div className="min-w-[150px] snap-center shrink-0">
-  <p className="font-label-md text-label-md font-bold text-on-surface">Robotic Kids</p>
-<p className="font-body-sm text-[12px] text-gray-700">Logika Koding Pemula</p>
-</div>
-</div>
-</div>
+<div className="mt-14 pt-10 bg-white rounded-3xl p-6 sm:p-8 shadow-sm">
+  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+    <div>
+      <h3 className="font-headline-md text-2xl font-bold text-primary">Ekstrakurikuler &amp; Pembiasaan Khusus</h3>
+      <p className="font-body-sm text-sm text-gray-600 mt-1">Mengasah kecerdasan kinestetik, seni, budaya lokal, dan kecintaan Al-Qur'an sejak dini.</p>
+    </div>
+    <Link href="/program/ekstrakurikuler" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline shrink-0">
+      Lihat Semua <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </Link>
+  </div>
+  
+  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+    {/* Seni Tari */}
+    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
+      <div className="w-12 h-12 rounded-xl bg-[#188B48] flex items-center justify-center text-white mb-2 shadow-sm">
+        <span className="material-symbols-outlined text-[24px]">music_note</span>
+      </div>
+      <p className="font-bold text-sm text-primary">Seni Tari</p>
+      <p className="text-[11px] text-gray-600 mt-0.5">Motorik &amp; Percaya Diri</p>
+    </div>
+
+    {/* Drumband */}
+    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
+      <div className="w-12 h-12 rounded-xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-2 shadow-sm">
+        <span className="material-symbols-outlined text-[24px]">volume_up</span>
+      </div>
+      <p className="font-bold text-sm text-primary">Drumband</p>
+      <p className="text-[11px] text-gray-600 mt-0.5">Musikalitas &amp; Tim</p>
+    </div>
+
+    {/* Melukis */}
+    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
+      <div className="w-12 h-12 rounded-xl bg-[#188B48] flex items-center justify-center text-white mb-2 shadow-sm">
+        <span className="material-symbols-outlined text-[24px]">brush</span>
+      </div>
+      <p className="font-bold text-sm text-primary">Melukis</p>
+      <p className="text-[11px] text-gray-600 mt-0.5">Seni &amp; Imajinasi Warna</p>
+    </div>
+
+    {/* Permainan Tradisional */}
+    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
+      <div className="w-12 h-12 rounded-xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-2 shadow-sm">
+        <span className="material-symbols-outlined text-[24px]">sports_esports</span>
+      </div>
+      <p className="font-bold text-sm text-primary">Tradisional</p>
+      <p className="text-[11px] text-gray-600 mt-0.5">Motorik &amp; Budaya Lokal</p>
+    </div>
+
+    {/* Tahfidz */}
+    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#188B48]/10 border border-[#188B48]/30 hover:bg-[#188B48]/20 transition-all hover:-translate-y-1">
+      <div className="w-12 h-12 rounded-xl bg-[#188B48] flex items-center justify-center text-white mb-2 shadow-sm">
+        <span className="material-symbols-outlined text-[24px]">auto_stories</span>
+      </div>
+      <p className="font-bold text-sm text-primary">Tahfidz</p>
+      <p className="text-[11px] text-gray-600 mt-0.5">Hafalan Juz 'Amma</p>
+    </div>
+
+    {/* TPQ */}
+    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#188B48]/10 border border-[#188B48]/30 hover:bg-[#188B48]/20 transition-all hover:-translate-y-1">
+      <div className="w-12 h-12 rounded-xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-2 shadow-sm">
+        <span className="material-symbols-outlined text-[24px]">menu_book</span>
+      </div>
+      <p className="font-bold text-sm text-primary">TPQ</p>
+      <p className="text-[11px] text-gray-600 mt-0.5">Metode Qiro'ati Tartil</p>
+    </div>
+  </div>
 </div>
 </div>
 </section>
@@ -610,7 +707,7 @@ export default async function Home() {
             Kunjungan Edukasi Manasik Haji Cilik di Mini Asrama Haji
           </h3>
           <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
-            Mengenalkan rukun Islam kelima sedini mungkin dengan simulasi tawaf, sai, dan wukuf yang dirancang interaktif serta penuh suka cita bagi ananda TK A &amp; TK B.
+            Mengenalkan rukun Islam kelima sedini mungkin dengan simulasi tawaf, sai, dan wukuf yang dirancang interaktif serta penuh suka cita bagi ananda RA-A &amp; RA-B.
           </p>
         </div>
         <div className="pt-4 mt-4 flex items-center justify-between border-t border-surface-container">
@@ -711,7 +808,7 @@ export default async function Home() {
 </div>
 <div>
 <h5 className="font-label-lg text-label-lg font-bold text-white">Bunda Rina Wardhani</h5>
-<p className="font-body-sm text-[12px] text-white/80">Ibunda dari Farhan (Siswa TK B)</p>
+<p className="font-body-sm text-[12px] text-white/80">Ibunda dari Farhan (Siswa RA-B)</p>
 </div>
 </div>
 </div>
@@ -731,11 +828,11 @@ export default async function Home() {
 </div>
 <div className="flex items-center gap-3 pt-4 border-t border-surface-container-high">
 <div className="w-12 h-12 rounded-full overflow-hidden bg-secondary-fixed">
-<img className="w-full h-full object-cover" data-alt="Potret wajah Ayah Dimas tersenyum berkacamata rapi dan hangat, wali murid siswa TK A di PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUzncmP6paJZu5Wghe2TqKL3pDypnHC_BoLJ7XAvnu0_h8foEbVHAzLSa6IFOY8dukGy-jra62fEzzqEcIi2ckbSuKpMVwbwICR9guQXAD-TGycdbWaPPoTgXzFulKbEv3U9OY2FwnEjsNk_c347QexHvSfj5tzIgjHIOqapsFO2uxoKEUXzVuWPB1L4yDH_7Nsm3hPPboynO8b2awpOX1lc-6ewT6IKuxftFuShBhNR3TAGJvJXq2"/>
+<img className="w-full h-full object-cover" data-alt="Potret wajah Ayah Dimas tersenyum berkacamata rapi dan hangat, wali murid siswa RA-A di PAUD Hidayah." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUzncmP6paJZu5Wghe2TqKL3pDypnHC_BoLJ7XAvnu0_h8foEbVHAzLSa6IFOY8dukGy-jra62fEzzqEcIi2ckbSuKpMVwbwICR9guQXAD-TGycdbWaPPoTgXzFulKbEv3U9OY2FwnEjsNk_c347QexHvSfj5tzIgjHIOqapsFO2uxoKEUXzVuWPB1L4yDH_7Nsm3hPPboynO8b2awpOX1lc-6ewT6IKuxftFuShBhNR3TAGJvJXq2"/>
 </div>
 <div>
 <h5 className="font-label-lg text-label-lg font-bold text-white">Ayah Dimas Pratama, S.T.</h5>
-<p className="font-body-sm text-[12px] text-white/80">Ayahanda dari Aisyah (Siswi TK A)</p>
+<p className="font-body-sm text-[12px] text-white/80">Ayahanda dari Aisyah (Siswi RA-A)</p>
 </div>
 </div>
 </div>

@@ -24,7 +24,7 @@ const defaultActivities = [
   },
   {
     _id: "act-3",
-    title: "Aktivitas Sentra Kelas TK A",
+    title: "Aktivitas Sentra Kelas RA-A",
     description: "Stimulasi motorik halus dan kognitif melalui pencocokan bentuk, berhitung, dan balok edukasi.",
     imageUrl: "/kegiatan/kegiatan-sentra-belajar.webp",
   },

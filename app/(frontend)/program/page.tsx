@@ -70,76 +70,106 @@ export default function ProgramLandingPage() {
             <p className="text-gray-500 max-w-xl text-[15px]">Pilih program yang sesuai dengan tahap perkembangan dan usia anak Anda.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 mb-8">
             
-            {/* TK A */}
-            <Link href="/program/tk-a" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
+            {/* Toddler */}
+            <Link href="/program/toddler" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
               <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
-                <img src="/kegiatan/kegiatan-sentra-belajar.webp" alt="Program TK A RA Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/kegiatan/kegiatan-playgroup-lingkaran.webp" alt="Program Toddler PAUD Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#188B48] shadow-sm">
-                  Usia 4-5 Tahun
+                  Usia 1,5 - 3 Tahun
                 </div>
               </div>
               <div className="p-6 flex flex-col grow">
-                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">TK A</h3>
-                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Mengenal lingkungan, bereksplorasi, dan mulai membangun kemandirian.</p>
+                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">Toddler</h3>
+                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Stimulasi panca indra, motorik halus, dan kemandirian awal balita.</p>
                 <div className="mt-auto flex items-center gap-2 text-[#188B48] font-bold text-[14px] group-hover:gap-3 transition-all">
                   Lihat Program <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </div>
               </div>
             </Link>
 
-            {/* TK B */}
-            <Link href="/program/tk-b" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
+            {/* Kelompok Bermain (KB) */}
+            <Link href="/program/kb" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
               <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
-                <img src="/kegiatan/kegiatan-mewarnai-kupu.webp" alt="Program TK B RA Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/kegiatan/kegiatan-sentra-belajar.webp" alt="Program Kelompok Bermain KB PAUD Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#188B48] shadow-sm">
-                  Usia 5-6 Tahun
+                  Usia 3 - 4 Tahun
                 </div>
               </div>
               <div className="p-6 flex flex-col grow">
-                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">TK B</h3>
-                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Bersiap untuk jenjang sekolah dasar dengan kemandirian dan fokus belajar.</p>
+                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">Kelompok Bermain (KB)</h3>
+                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Ruang aman dan ceria untuk mengenal lingkungan, sosialisasi, dan bermain peran.</p>
                 <div className="mt-auto flex items-center gap-2 text-[#188B48] font-bold text-[14px] group-hover:gap-3 transition-all">
                   Lihat Program <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </div>
               </div>
             </Link>
 
-            {/* Playgroup */}
-            <Link href="/program/playgroup" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
+            {/* RA-A */}
+            <Link href="/program/ra-a" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
               <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
-                <img src="/kegiatan/kegiatan-playgroup-lingkaran.webp" alt="Program Playgroup RA Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src="/kegiatan/kegiatan-mewarnai-kupu.webp" alt="Program RA-A PAUD Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#188B48] shadow-sm">
-                  Usia 3-4 Tahun
+                  Usia 4 - 5 Tahun
                 </div>
               </div>
               <div className="p-6 flex flex-col grow">
-                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">Taman Bermain</h3>
-                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Ruang aman dan menyenangkan untuk mengenal lingkungan pertama kali.</p>
+                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">RA-A</h3>
+                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Mengenal huruf Hijaiyah, fonik ceria, pra-calistung, dan pondasi akhlak.</p>
                 <div className="mt-auto flex items-center gap-2 text-[#188B48] font-bold text-[14px] group-hover:gap-3 transition-all">
                   Lihat Program <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </div>
               </div>
             </Link>
 
-            {/* Ekstrakurikuler */}
-            <Link href="/program/ekstrakurikuler" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
+            {/* RA-B */}
+            <Link href="/program/ra-b" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
               <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
-                <img src="/kegiatan/kegiatan-panggung-prestasi.webp" alt="Ekstrakurikuler RA Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#FCD116] shadow-sm">
-                  Pengembangan Diri
+                <img src="/kegiatan/kegiatan-wisuda-prestasi.webp" alt="Program RA-B PAUD Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-[12px] font-bold text-[#188B48] shadow-sm">
+                  Usia 5 - 6 Tahun
                 </div>
               </div>
               <div className="p-6 flex flex-col grow">
-                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">Ekstrakurikuler</h3>
-                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Temukan minat dan kembangkan bakat melalui beragam kegiatan interaktif.</p>
+                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">RA-B</h3>
+                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Kesiapan masuk jenjang SD unggul dengan kemandirian dan fokus belajar.</p>
                 <div className="mt-auto flex items-center gap-2 text-[#188B48] font-bold text-[14px] group-hover:gap-3 transition-all">
-                  Lihat Pilihan <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                  Lihat Program <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </div>
               </div>
             </Link>
 
+          </div>
+
+          {/* Ekstrakurikuler & Program Khusus Banner Card */}
+          <div className="bg-white rounded-[28px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/10 p-6 md:p-8 flex flex-col lg:flex-row items-center gap-8 group hover:border-[#188B48]/30 transition-all">
+            <div className="w-full lg:w-1/3 aspect-[16/10] rounded-[20px] overflow-hidden bg-gray-100 relative shrink-0">
+              <img src="/kegiatan/kegiatan-panggung-prestasi.webp" alt="Ekstrakurikuler PAUD Hidayah" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute top-3 left-3 bg-[#FCD116] px-3 py-1 rounded-full text-[12px] font-bold text-[#188B48] shadow-sm">
+                Minat &amp; Bakat
+              </div>
+            </div>
+            <div className="w-full lg:w-2/3 flex flex-col">
+              <span className="text-[12px] font-bold text-[#188B48] uppercase tracking-widest mb-1">Pengembangan Karakter &amp; Potensi</span>
+              <h3 className="text-2xl md:text-3xl font-bold text-[#188B48] mb-3">Ekstrakurikuler, Tahfidz &amp; TPQ</h3>
+              <p className="text-gray-600 text-[15px] leading-relaxed mb-6">
+                Wadah menyalurkan minat dan energi positif anak melalui Seni Tari, Drumband Cilik, Melukis &amp; Mewarnai, Permainan Tradisional, serta pembiasaan Al-Qur'an melalui Tahfidz Cilik dan TPQ Metode Qiro'ati.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 rounded-full bg-[#EAF3EF] text-[#188B48] text-xs font-semibold">✦ Seni Tari</span>
+                <span className="px-3 py-1 rounded-full bg-[#EAF3EF] text-[#188B48] text-xs font-semibold">✦ Drumband</span>
+                <span className="px-3 py-1 rounded-full bg-[#EAF3EF] text-[#188B48] text-xs font-semibold">✦ Melukis</span>
+                <span className="px-3 py-1 rounded-full bg-[#EAF3EF] text-[#188B48] text-xs font-semibold">✦ Permainan Tradisional</span>
+                <span className="px-3 py-1 rounded-full bg-[#FCD116]/30 text-[#188B48] text-xs font-bold">✦ Tahfidz</span>
+                <span className="px-3 py-1 rounded-full bg-[#FCD116]/30 text-[#188B48] text-xs font-bold">✦ TPQ</span>
+              </div>
+              <div>
+                <Link href="/program/ekstrakurikuler" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#188B48] text-white font-bold text-[14px] hover:bg-[#14753c] transition-colors shadow-md">
+                  Lihat Detail Ekstrakurikuler <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

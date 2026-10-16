@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | PAUD Hidayah Tayu",
   },
   description:
-    "Pendidikan Anak Usia Dini (PAUD / RA) berbasis bermain aktif dan kurikulum sentra dengan pembiasaan nilai-nilai Islami sejak dini. Melayani Kelompok Bermain (Playgroup), TK A, TK B, dan Ekstrakurikuler di Tayu, Pati, Jawa Tengah.",
+    "Pendidikan Anak Usia Dini (PAUD / RA) berbasis bermain aktif dan kurikulum sentra dengan pembiasaan nilai-nilai Islami sejak dini. Melayani Toddler, Kelompok Bermain (KB), RA-A, RA-B, dan Ekstrakurikuler di Tayu, Pati, Jawa Tengah.",
   keywords: [
     "PAUD Hidayah",
     "RA Hidayah",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "PAUD Hidayah Tayu",
     title: "PAUD Hidayah Tayu - Tumbuh Ceria, Mandiri & Berkarakter Islami",
     description:
-      "Pendidikan Anak Usia Dini (PAUD / RA) berbasis kurikulum sentra dan nilai-nilai Islami. Menerima Playgroup, TK A, TK B, dan Ekstrakurikuler di Tayu, Pati.",
+      "Pendidikan Anak Usia Dini (PAUD / RA) berbasis kurikulum sentra dan nilai-nilai Islami. Menerima Toddler, Kelompok Bermain (KB), RA-A, RA-B, dan Ekstrakurikuler di Tayu, Pati.",
     images: [
       {
         url: "/og-image.jpg",
