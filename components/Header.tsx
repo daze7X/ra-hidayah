@@ -75,11 +75,13 @@ export default async function Header() {
             </Link>
             <div className="absolute left-0 top-full pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
               <div className="w-56 bg-white rounded-xl shadow-xl border border-gray-100 p-2 flex flex-col gap-1">
-                <Link className="px-3 py-2.5 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/tk-a">TK A (Usia 4-5 Thn)</Link>
-                <Link className="px-3 py-2.5 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/tk-b">TK B (Usia 5-6 Thn)</Link>
+                <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/toddler">Toddler (Usia 1,5–3 Thn)</Link>
+                <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/kb">KB (Usia 3–4 Thn)</Link>
+                <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/ra-a">RA-A (Usia 4–5 Thn)</Link>
+                <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/ra-b">RA-B (Usia 5–6 Thn)</Link>
                 
                 <div className="w-full h-px bg-gray-100 my-1"></div>
-                <Link className="px-3 py-2.5 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/ekstrakurikuler">Ekstrakurikuler</Link>
+                <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/ekstrakurikuler">Ekstrakurikuler</Link>
               </div>
             </div>
           </div>

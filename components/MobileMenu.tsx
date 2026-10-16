@@ -113,8 +113,11 @@ export default function MobileMenu() {
                 
                 {openDropdown === 'program' && (
                   <div className="flex flex-col pl-6 pr-4 py-2 gap-1 border-l-2 border-[#188B48]/20 ml-6">
-                    <Link href="/program/tk-a" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">TK A (Usia 4-5 Thn)</Link>
-                    <Link href="/program/tk-b" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">TK B (Usia 5-6 Thn)</Link>
+                    <Link href="/program/toddler" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">Toddler (Usia 1,5–3 Thn)</Link>
+                    <Link href="/program/kb" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">KB (Usia 3–4 Thn)</Link>
+                    <Link href="/program/ra-a" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">RA-A (Usia 4–5 Thn)</Link>
+                    <Link href="/program/ra-b" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">RA-B (Usia 5–6 Thn)</Link>
+                    <div className="w-full h-px bg-gray-100 my-1"></div>
                     <Link href="/program/ekstrakurikuler" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">Ekstrakurikuler</Link>
                   </div>
                 )}

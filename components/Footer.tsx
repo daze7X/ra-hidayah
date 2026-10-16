@@ -33,9 +33,9 @@ export default async function Footer() {
           <div>
             <h5 className="font-label-lg text-label-lg text-on-surface font-bold mb-4">Profil &amp; Yayasan</h5>
             <ul className="flex flex-col gap-2 font-body-sm text-body-sm">
-              <li><Link href="/profil-tk" className="text-on-surface-variant hover:text-primary transition-colors">Profil TK Islam</Link></li>
+              <li><Link href="/profil/paud" className="text-on-surface-variant hover:text-primary transition-colors">Profil PAUD Hidayah</Link></li>
               <li><Link href="#" className="text-on-surface-variant hover:text-primary transition-colors">{settings?.foundationName || ""}</Link></li>
-              <li><Link href="/profil-tk" className="text-on-surface-variant hover:text-primary transition-colors">Visi, Misi &amp; Nilai Dasar</Link></li>
+              <li><Link href="/profil/paud" className="text-on-surface-variant hover:text-primary transition-colors">Visi, Misi &amp; Nilai Dasar</Link></li>
               <li><Link href="/struktur-organisasi" className="text-on-surface-variant hover:text-primary transition-colors">Tenaga Pengajar &amp; Ustadzah</Link></li>
             </ul>
           </div>
@@ -43,11 +43,11 @@ export default async function Footer() {
           <div>
             <h5 className="font-label-lg text-label-lg text-on-surface font-bold mb-4">Program Pembelajaran</h5>
             <ul className="flex flex-col gap-2 font-body-sm text-body-sm">
-              <li className="text-on-surface-variant">Kelompok Bermain (Usia 3-4 Thn)</li>
-              <li className="text-on-surface-variant">TK A (Usia 4-5 Thn)</li>
-              <li className="text-on-surface-variant">TK B (Usia 5-6 Thn)</li>
-              <li className="text-on-surface-variant">Tahfidz Cilik Juz 30 &amp; Hadist</li>
-              <li className="text-on-surface-variant">Sentra Seni, Bahasa &amp; Sains</li>
+              <li><Link href="/program/toddler" className="text-on-surface-variant hover:text-primary transition-colors">Toddler (Usia 1,5–3 Thn)</Link></li>
+              <li><Link href="/program/kb" className="text-on-surface-variant hover:text-primary transition-colors">Kelompok Bermain (Usia 3–4 Thn)</Link></li>
+              <li><Link href="/program/ra-a" className="text-on-surface-variant hover:text-primary transition-colors">RA-A (Usia 4–5 Thn)</Link></li>
+              <li><Link href="/program/ra-b" className="text-on-surface-variant hover:text-primary transition-colors">RA-B (Usia 5–6 Thn)</Link></li>
+              <li><Link href="/program/ekstrakurikuler" className="text-on-surface-variant hover:text-primary transition-colors">Ekstrakurikuler, Tahfidz &amp; TPQ</Link></li>
             </ul>
           </div>
 
