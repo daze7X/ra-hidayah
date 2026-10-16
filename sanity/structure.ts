@@ -30,6 +30,9 @@ export const structure: StructureResolver = (S) =>
       // 5. Program Unggulan (Beranda)
       S.documentTypeListItem('featuredProgram').title('⭐ Program Unggulan (Beranda)'),
 
+      // 6. Testimoni Wali Murid (Beranda)
+      S.documentTypeListItem('testimonial').title('💬 Testimoni Wali Murid'),
+
       S.divider(),
 
       // 4. Struktur Organisasi - DIPISAH MENJADI FOLDER / SUB-MENU
