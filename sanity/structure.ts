@@ -24,6 +24,9 @@ export const structure: StructureResolver = (S) =>
       // 3. Fasilitas
       S.documentTypeListItem('fasilitas').title('Fasilitas Sekolah'),
 
+      // 4. Program Unggulan
+      S.documentTypeListItem('featuredProgram').title('⭐ Program Unggulan'),
+
       S.divider(),
 
       // 4. Struktur Organisasi - DIPISAH MENJADI FOLDER / SUB-MENU

@@ -9,6 +9,7 @@ import {orgStructureType} from './orgStructureType'
 import {schoolProfileType} from './schoolProfileType'
 import {siteSettingsType} from './siteSettingsType'
 import {fasilitasType} from './fasilitasType'
+import {featuredProgramType} from './featuredProgramType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -20,6 +21,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     orgStructureType, 
     schoolProfileType,
     siteSettingsType,
-    fasilitasType
+    fasilitasType,
+    featuredProgramType
   ],
 }

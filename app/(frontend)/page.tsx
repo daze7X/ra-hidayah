@@ -66,6 +66,64 @@ export default async function Home() {
     console.error("Error fetching latest posts:", err);
   }
 
+  // Fetch Program Unggulan from Sanity
+  const featuredProgramsQuery = `*[_type == "featuredProgram" && isActive != false] | order(order asc) {
+    _id,
+    title,
+    category,
+    description,
+    icon,
+    image,
+    order
+  }`;
+  let featuredPrograms: any[] = [];
+  try {
+    featuredPrograms = await client.fetch(featuredProgramsQuery, {}, { next: { revalidate: 0 } });
+  } catch (err) {
+    console.error("Error fetching featured programs:", err);
+  }
+
+  const defaultFeaturedPrograms = [
+    {
+      title: "Parenting & Konseling Ortu",
+      category: "Kemitraan Keluarga",
+      description: "Sekolah rutin memberikan sosialisasi parenting kepada orang tua dengan mendatangkan narasumber ahli di bidang psikologi, gizi, dan kesehatan anak.",
+      icon: "family_restroom",
+    },
+    {
+      title: "Character Building & Adab Islami",
+      category: "Akhlak & Spiritual",
+      description: "Menerapkan pembiasaan positif sesuai nilai Islam. Mulai dari disiplin, mengucapkan salam, berdoa, sholat, hingga pembiasaan akhlak sunnah.",
+      icon: "favorite",
+    },
+    {
+      title: "Kurikulum Merdeka & Bermain Bermakna",
+      category: "Pengembangan Kognitif",
+      description: "Menerapkan Kurikulum Merdeka yang menyenangkan, didukung alat permainan edukatif (APE) ramah anak dan pembelajaran kontekstual berbasis alam.",
+      icon: "extension",
+    },
+    {
+      title: "Deep Learning & Eksplorasi Alam",
+      category: "Sains & Lingkungan",
+      description: "Pendekatan eksploratif, reflektif, dan kontekstual. Anak diajak menghubungkan konsep dengan kehidupan sehari-hari seperti berkebun dan meneliti alam.",
+      icon: "psychology",
+    },
+    {
+      title: "Fun Games & Motorik Ceria",
+      category: "Kebugaran & Sosial",
+      description: "Menyelingi pembelajaran dengan permainan tradisional edukatif untuk mengasah kekompakan, sportivitas, dan motorik anak agar ceria selalu.",
+      icon: "sports_esports",
+    },
+    {
+      title: "TPQ PAUD Metode Qiro'ati",
+      category: "Literasi Qur'ani",
+      description: "Metode pembelajaran Al-Qur'an secara bertahap dan tartil. Mengenal huruf hijaiyah dengan cara yang mudah, asyik, dan menyenangkan sejak dini.",
+      icon: "menu_book",
+    },
+  ];
+
+  const displayFeaturedPrograms = featuredPrograms.length > 0 ? featuredPrograms : defaultFeaturedPrograms;
+
   const formatDate = (dateString: string) => {
     if (!dateString) return '';
     const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -425,85 +483,38 @@ export default async function Home() {
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#FCD116"/>
   </svg>
 </div>
-{/* SECTION 4: METODE & PENDEKATAN BELAJAR */}
+{/* SECTION 4: PROGRAM UNGGULAN */}
 <section className="w-full py-20 bg-[#188B48] text-white">
   <div className="max-w-[1200px] mx-auto px-6">
     <div className="text-center max-w-3xl mx-auto mb-16">
-      <span className="font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-[#FCD116]/20 inline-block mb-3 text-[12px]">Pendekatan Belajar</span>
-      <h2 className="text-3xl md:text-4xl font-bold text-white">Membangun Karakter Melalui Pengalaman</h2>
+      <span className="font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-[#FCD116]/20 inline-block mb-3 text-[12px]">Program Unggulan</span>
+      <h2 className="text-3xl md:text-4xl font-bold text-white">Membangun Karakter &amp; Potensi Terbaik Anak</h2>
       <p className="text-white/90 mt-4 text-[16px]">
-        Kami menyusun metode pembelajaran sesuai dengan tahap perkembangan anak agar tidak mudah lelah dan bosan, mengedepankan kreativitas, dan memfasilitasi anak untuk belajar langsung dari alam.
+        Kami menyusun rangkaian program unggulan terpadu sesuai dengan tahap perkembangan anak agar ceria, mandiri, mengedepankan kreativitas, dan berakhlak mulia.
       </p>
     </div>
 
     <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-8 snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
-      
-      {/* Pillar 1 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
-        <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
-          <span className="material-symbols-outlined text-[28px]">family_restroom</span>
+      {displayFeaturedPrograms.map((prog: any, idx: number) => (
+        <div key={prog._id || idx} className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] group-hover:scale-110 transition-transform shadow-sm">
+                <span className="material-symbols-outlined text-[28px]">{prog.icon || 'star'}</span>
+              </div>
+              {prog.category && (
+                <span className="text-[11px] font-bold text-[#FCD116] bg-black/25 px-3 py-1 rounded-full uppercase tracking-wider">
+                  {prog.category}
+                </span>
+              )}
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3 leading-snug">{prog.title}</h3>
+            <p className="text-white/90 text-[14px] leading-relaxed">
+              {prog.description}
+            </p>
+          </div>
         </div>
-        <h3 className="text-xl font-bold text-white mb-3">Parenting</h3>
-        <p className="text-white/90 text-[14px] leading-relaxed">
-          Sekolah rutin memberikan sosialisasi parenting kepada orang tua dengan mendatangkan narasumber ahli di bidang psikologi, gizi, dan kesehatan anak.
-        </p>
-      </div>
-
-      {/* Pillar 2 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
-        <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
-          <span className="material-symbols-outlined text-[28px]">favorite</span>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-3">Character Building</h3>
-        <p className="text-white/90 text-[14px] leading-relaxed">
-          Menerapkan pembiasaan positif sesuai nilai Islam. Mulai dari disiplin, mengucapkan salam, berdoa, sholat, hingga membaca Al-Qur'an.
-        </p>
-      </div>
-
-      {/* Pillar 3 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
-        <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
-          <span className="material-symbols-outlined text-[28px]">extension</span>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-3">Full Learning</h3>
-        <p className="text-white/90 text-[14px] leading-relaxed">
-          Menerapkan kurikulum Merdeka. Menciptakan suasana belajar menyenangkan yang didukung alat permainan edukatif (APE) dan pembelajaran alam.
-        </p>
-      </div>
-
-      {/* Pillar 4 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
-        <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
-          <span className="material-symbols-outlined text-[28px]">psychology</span>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-3">Deep Learning</h3>
-        <p className="text-white/90 text-[14px] leading-relaxed">
-          Pendekatan eksploratif, reflektif, dan kontekstual. Anak diajak menghubungkan konsep dengan kehidupan sehari-hari seperti menanam tumbuhan.
-        </p>
-      </div>
-
-      {/* Pillar 5 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
-        <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
-          <span className="material-symbols-outlined text-[28px]">sports_esports</span>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-3">Fun Games</h3>
-        <p className="text-white/90 text-[14px] leading-relaxed">
-          Menyelingi pembelajaran dengan permainan tradisional edukatif untuk mengasah kekompakan, objektivitas, dan motorik anak agar ceria selalu.
-        </p>
-      </div>
-
-      {/* Pillar 6 */}
-      <div className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1 hover:shadow-md transition-all group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0">
-        <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-5 group-hover:scale-110 transition-transform">
-          <span className="material-symbols-outlined text-[28px]">menu_book</span>
-        </div>
-        <h3 className="text-xl font-bold text-white mb-3">TPQ PAUD</h3>
-        <p className="text-white/90 text-[14px] leading-relaxed">
-          Metode Qiro'ati secara bertahap. Mengenal huruf hijaiyah dan membaca Al-Qur'an tartil dengan permainan edukatif yang ceria dan asyik.
-        </p>
-      </div>
-
+      ))}
     </div>
   </div>
 </section>
