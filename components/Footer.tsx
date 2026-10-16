@@ -47,7 +47,9 @@ export default async function Footer() {
               <li><Link href="/program/kb" className="text-on-surface-variant hover:text-primary transition-colors">Kelompok Bermain (Usia 3–4 Thn)</Link></li>
               <li><Link href="/program/ra-a" className="text-on-surface-variant hover:text-primary transition-colors">RA-A (Usia 4–5 Thn)</Link></li>
               <li><Link href="/program/ra-b" className="text-on-surface-variant hover:text-primary transition-colors">RA-B (Usia 5–6 Thn)</Link></li>
-              <li><Link href="/program/ekstrakurikuler" className="text-on-surface-variant hover:text-primary transition-colors">Ekstrakurikuler, Tahfidz &amp; TPQ</Link></li>
+              <li><Link href="/program/tahfidz" className="text-on-surface-variant hover:text-primary transition-colors">Tahfidz</Link></li>
+              <li><Link href="/program/tpq" className="text-on-surface-variant hover:text-primary transition-colors">TPQ (Taman Pendidikan Al-Qur'an)</Link></li>
+              <li><Link href="/program/ekstrakurikuler" className="text-on-surface-variant hover:text-primary transition-colors">Ekstrakurikuler</Link></li>
             </ul>
           </div>
 

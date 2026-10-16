@@ -117,6 +117,8 @@ export default function MobileMenu() {
                     <Link href="/program/kb" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">KB (Usia 3–4 Thn)</Link>
                     <Link href="/program/ra-a" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">RA-A (Usia 4–5 Thn)</Link>
                     <Link href="/program/ra-b" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">RA-B (Usia 5–6 Thn)</Link>
+                    <Link href="/program/tahfidz" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">Tahfidz</Link>
+                    <Link href="/program/tpq" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">TPQ</Link>
                     <div className="w-full h-px bg-gray-100 my-1"></div>
                     <Link href="/program/ekstrakurikuler" onClick={closeMenu} className="py-2 text-[15px] text-gray-600 hover:text-[#188B48]">Ekstrakurikuler</Link>
                   </div>

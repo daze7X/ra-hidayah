@@ -352,8 +352,8 @@ export default async function Home() {
           Dirancang dengan panduan kurikulum merdeka PAUD terintegrasi kurikulum diniyyah khas PAUD Hidayah.
         </p>
 </div>
-{/* 4 Program Cards Grid */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+{/* 6 Program Cards Grid */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
 
   {/* Program 1: Toddler */}
   <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
@@ -503,72 +503,128 @@ export default async function Home() {
     </div>
   </div>
 
+  {/* Program 5: Tahfidz */}
+  <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
+    <div className="relative h-44 overflow-hidden bg-primary-fixed/30">
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Program Tahfidz PAUD Hidayah" src="/kegiatan/kegiatan-belajar-paviliun.webp"/>
+      <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
+        Program Qur'ani
+      </div>
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
+          <span className="font-label-md text-sm text-primary font-bold">Tahfidz Al-Qur'an</span>
+        </div>
+        <h3 className="text-lg font-bold text-primary mb-2">Cinta &amp; Hafalan Juz 'Amma</h3>
+        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
+          Bimbingan talaqqi dan muroja'ah berirama menghafal surat-surat pendek Juz 30 serta penanaman adab Qur'ani sejak dini.
+        </p>
+        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Metode Talaqqi Ceria &amp; Muroja'ah Rutin</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Target Hafalan Surat Pilihan Juz 'Amma</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Pembiasaan Adab &amp; Doa Sehari-hari</span>
+          </li>
+        </ul>
+      </div>
+      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/tahfidz">Detail Program Tahfidz</Link>
+    </div>
+  </div>
+
+  {/* Program 6: TPQ */}
+  <div className="bg-white rounded-[32px] overflow-hidden shadow-md ring-1 ring-primary/10 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col relative group">
+    <div className="relative h-44 overflow-hidden bg-secondary-fixed/30">
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Program TPQ PAUD Hidayah" src="/kegiatan/kegiatan-display-sentra.webp"/>
+      <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
+        Taman Pendidikan Al-Qur'an
+      </div>
+    </div>
+    <div className="p-6 flex flex-col flex-1 justify-between">
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="material-symbols-outlined text-secondary text-[20px]">menu_book</span>
+          <span className="font-label-md text-sm text-secondary font-bold">TPQ Hidayah</span>
+        </div>
+        <h3 className="text-lg font-bold text-primary mb-2">Tartil &amp; Fashohah Al-Qur'an</h3>
+        <p className="text-gray-600 text-[13px] mb-4 leading-relaxed">
+          Pondasi membaca Al-Qur'an secara fasih dan tartil bertahap sesuai jilid serta praktek sholat dan wudhu mandiri.
+        </p>
+        <ul className="space-y-1.5 mb-6 text-[13px] text-gray-700">
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Bimbingan Membaca Terstruktur Per Jilid</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Praktek Sholat Berjamaah &amp; Wudhu</span>
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+            <span>Hafalan Doa Harian &amp; Hadist Ramah Anak</span>
+          </li>
+        </ul>
+      </div>
+      <Link className="w-full py-2.5 rounded-full bg-surface-container text-center text-primary text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors block" href="/program/tpq">Detail Program TPQ</Link>
+    </div>
+  </div>
+
 </div>
 {/* Ekstrakurikuler Pilihan */}
 <div className="mt-14 pt-10 bg-white rounded-3xl p-6 sm:p-8 shadow-sm">
   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
     <div>
-      <h3 className="font-headline-md text-2xl font-bold text-primary">Ekstrakurikuler &amp; Pembiasaan Khusus</h3>
-      <p className="font-body-sm text-sm text-gray-600 mt-1">Mengasah kecerdasan kinestetik, seni, budaya lokal, dan kecintaan Al-Qur'an sejak dini.</p>
+      <h3 className="font-headline-md text-2xl font-bold text-primary">Ekstrakurikuler Minat &amp; Bakat</h3>
+      <p className="font-body-sm text-sm text-gray-600 mt-1">Mengasah kecerdasan kinestetik, seni, musikalitas, dan melestarikan budaya tradisional nusantara.</p>
     </div>
     <Link href="/program/ekstrakurikuler" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline shrink-0">
       Lihat Semua <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
     </Link>
   </div>
   
-  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
     {/* Seni Tari */}
-    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 rounded-xl bg-[#188B48] flex items-center justify-center text-white mb-2 shadow-sm">
-        <span className="material-symbols-outlined text-[24px]">music_note</span>
+    <div className="flex flex-col items-center text-center p-5 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
+      <div className="w-14 h-14 rounded-2xl bg-[#188B48] flex items-center justify-center text-white mb-3 shadow-sm">
+        <span className="material-symbols-outlined text-[28px]">music_note</span>
       </div>
-      <p className="font-bold text-sm text-primary">Seni Tari</p>
-      <p className="text-[11px] text-gray-600 mt-0.5">Motorik &amp; Percaya Diri</p>
+      <p className="font-bold text-base text-primary">Seni Tari</p>
+      <p className="text-xs text-gray-600 mt-1">Motorik &amp; Percaya Diri</p>
     </div>
 
     {/* Drumband */}
-    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 rounded-xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-2 shadow-sm">
-        <span className="material-symbols-outlined text-[24px]">volume_up</span>
+    <div className="flex flex-col items-center text-center p-5 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
+      <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-3 shadow-sm">
+        <span className="material-symbols-outlined text-[28px]">volume_up</span>
       </div>
-      <p className="font-bold text-sm text-primary">Drumband</p>
-      <p className="text-[11px] text-gray-600 mt-0.5">Musikalitas &amp; Tim</p>
+      <p className="font-bold text-base text-primary">Drumband</p>
+      <p className="text-xs text-gray-600 mt-1">Musikalitas &amp; Tim</p>
     </div>
 
     {/* Melukis */}
-    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 rounded-xl bg-[#188B48] flex items-center justify-center text-white mb-2 shadow-sm">
-        <span className="material-symbols-outlined text-[24px]">brush</span>
+    <div className="flex flex-col items-center text-center p-5 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
+      <div className="w-14 h-14 rounded-2xl bg-[#188B48] flex items-center justify-center text-white mb-3 shadow-sm">
+        <span className="material-symbols-outlined text-[28px]">brush</span>
       </div>
-      <p className="font-bold text-sm text-primary">Melukis</p>
-      <p className="text-[11px] text-gray-600 mt-0.5">Seni &amp; Imajinasi Warna</p>
+      <p className="font-bold text-base text-primary">Melukis</p>
+      <p className="text-xs text-gray-600 mt-1">Seni &amp; Imajinasi Warna</p>
     </div>
 
     {/* Permainan Tradisional */}
-    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 rounded-xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-2 shadow-sm">
-        <span className="material-symbols-outlined text-[24px]">sports_esports</span>
+    <div className="flex flex-col items-center text-center p-5 rounded-2xl bg-[#FCD116]/20 border border-[#FCD116]/40 hover:bg-[#FCD116]/30 transition-all hover:-translate-y-1">
+      <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-3 shadow-sm">
+        <span className="material-symbols-outlined text-[28px]">sports_esports</span>
       </div>
-      <p className="font-bold text-sm text-primary">Tradisional</p>
-      <p className="text-[11px] text-gray-600 mt-0.5">Motorik &amp; Budaya Lokal</p>
-    </div>
-
-    {/* Tahfidz */}
-    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#188B48]/10 border border-[#188B48]/30 hover:bg-[#188B48]/20 transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 rounded-xl bg-[#188B48] flex items-center justify-center text-white mb-2 shadow-sm">
-        <span className="material-symbols-outlined text-[24px]">auto_stories</span>
-      </div>
-      <p className="font-bold text-sm text-primary">Tahfidz</p>
-      <p className="text-[11px] text-gray-600 mt-0.5">Hafalan Juz 'Amma</p>
-    </div>
-
-    {/* TPQ */}
-    <div className="flex flex-col items-center text-center p-4 rounded-2xl bg-[#188B48]/10 border border-[#188B48]/30 hover:bg-[#188B48]/20 transition-all hover:-translate-y-1">
-      <div className="w-12 h-12 rounded-xl bg-[#FCD116] flex items-center justify-center text-[#188B48] mb-2 shadow-sm">
-        <span className="material-symbols-outlined text-[24px]">menu_book</span>
-      </div>
-      <p className="font-bold text-sm text-primary">TPQ</p>
-      <p className="text-[11px] text-gray-600 mt-0.5">Metode Qiro'ati Tartil</p>
+      <p className="font-bold text-base text-primary">Permainan Tradisional</p>
+      <p className="text-xs text-gray-600 mt-1">Motorik &amp; Budaya Lokal</p>
     </div>
   </div>
 </div>

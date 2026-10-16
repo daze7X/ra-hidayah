@@ -105,21 +105,69 @@ const programsData: Record<string, any> = {
       { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Prestasi Santri" }
     ]
   },
+  "tahfidz": {
+    badge: "Program Tahfidz Al-Qur'an",
+    title: "Menumbuhkan Cinta Al-Qur'an & Hafalan Juz 'Amma",
+    desc: "Program bimbingan menghafal surat-surat pendek Juz 'Amma dengan metode talaqqi dan muroja'ah yang menyenangkan ramah anak.",
+    image: "/kegiatan/kegiatan-playgroup-lingkaran.webp",
+    about: "Program Tahfidz di PAUD Hidayah berfokus pada pembiasaan mendengar, melafalkan, dan menghafal surat-surat pilihan Juz 30. Dengan metode talaqqi (menirukan langsung dari ustadzah) dan muroja'ah berirama, anak belajar mencintai Al-Qur'an sejak usia emas mereka dengan penuh kegembiraan.",
+    goals: [
+      "Membiasakan anak akrab dan gemar melafalkan ayat-ayat suci Al-Qur'an setiap hari.",
+      "Menghafal surat-surat pendek Juz 30 dengan makhroj dan tajwid dasar yang benar.",
+      "Membangun karakter mulia, ketenangan emosional, dan adab Islami berlandaskan Al-Qur'an."
+    ],
+    featuresTitle: "Keunggulan Program Tahfidz",
+    features: [
+      { icon: "record_voice_over", title: "Metode Talaqqi Ceria", desc: "Mendengar & Menirukan Bacaan Ustadzah Bersama" },
+      { icon: "repeat", title: "Muroja'ah Berirama", desc: "Pengulangan Hafalan Menyenangkan Setiap Pagi" },
+      { icon: "menu_book", title: "Makhroj & Tajwid Dasar", desc: "Pelafalan Huruf Hijaiyah Fasih Sejak Dini" },
+      { icon: "star", title: "Buku Prestasi Santri", desc: "Pencatatan & Apresiasi Perkembangan Hafalan" },
+      { icon: "mosque", title: "Adab Qur'ani", desc: "Pembiasaan Menghormati Al-Qur'an & Berdoa" }
+    ],
+    gallery: [
+      { img: "/kegiatan/kegiatan-playgroup-lingkaran.webp", caption: "Halaqoh Muroja'ah Hafalan Pagi" },
+      { img: "/kegiatan/kegiatan-sentra-belajar.webp", caption: "Bimbingan Talaqqi Bersama Ustadzah" },
+      { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Wisuda & Uji Hafalan Juz 'Amma" }
+    ]
+  },
+  "tpq": {
+    badge: "Taman Pendidikan Al-Qur'an (TPQ)",
+    title: "Bimbingan Tartil Membaca Al-Qur'an Sejak Dini",
+    desc: "Pondasi membaca huruf Hijaiyah dan Al-Qur'an secara tartil, fasih, dan menyenangkan dengan metode terstruktur.",
+    image: "/kegiatan/kegiatan-sentra-belajar.webp",
+    about: "Program TPQ (Taman Pendidikan Al-Qur'an) PAUD Hidayah membimbing santri cilik mengenal bentuk huruf, tanda baca (harakat), menyambung huruf, hingga mahir membaca Al-Qur'an secara tartil. Dilengkapi pembiasaan ibadah praktis seperti sholat fardhu berjamaah dan wudhu mandiri.",
+    goals: [
+      "Mengenal huruf Hijaiyah, tanda baca, dan kaidah membaca Al-Qur'an secara bertahap.",
+      "Membimbing santri mampu membaca Al-Qur'an dengan tartil, fasih, dan percaya diri.",
+      "Membekali santri dengan hafalan doa harian, bacaan sholat fardhu, dan praktek ibadah praktis."
+    ],
+    featuresTitle: "Fokus Pembelajaran TPQ",
+    features: [
+      { icon: "auto_stories", title: "Bimbingan Terstruktur", desc: "Metode Cepat & Tepat Sesuai Tingkatan Jilid" },
+      { icon: "hearing", title: "Fasih & Tartil", desc: "Ketepatan Bunyi dan Makharijul Huruf" },
+      { icon: "accessibility_new", title: "Praktek Wudhu & Sholat", desc: "Gerakan & Bacaan Sholat Berjamaah" },
+      { icon: "menu_book", title: "Doa Harian & Hadist", desc: "Doa Sehari-hari & Hadist Pilihan Ramah Anak" },
+      { icon: "emoji_events", title: "Ujian Kenaikan Jilid", desc: "Evaluasi Berkala Menuju Khatam Al-Qur'an" }
+    ],
+    gallery: [
+      { img: "/kegiatan/kegiatan-sentra-belajar.webp", caption: "Bimbingan Membaca Al-Qur'an Mandiri" },
+      { img: "/kegiatan/kegiatan-display-sentra.webp", caption: "Media Belajar Huruf Hijaiyah Interaktif" },
+      { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Santri Berprestasi Khataman" }
+    ]
+  },
   "ekstrakurikuler": {
-    badge: "Ekstrakurikuler & Pembiasaan Khusus",
-    title: "Asah Minat, Bakat, Seni, & Karakter Qur'ani",
-    desc: "Wadah pengembangan potensi anak melalui seni tari, drumband, melukis, permainan tradisional, tahfidz, dan TPQ dalam suasana menyenangkan.",
+    badge: "Ekstrakurikuler Minat & Bakat",
+    title: "Asah Minat, Bakat, Seni, & Karakter Anak",
+    desc: "Wadah pengembangan potensi anak melalui seni tari, drumband, melukis, dan permainan tradisional dalam suasana yang ceria.",
     image: "/kegiatan/kegiatan-panggung-prestasi.webp",
-    about: "Selain program intrakurikuler harian, PAUD Hidayah menyediakan kegiatan ekstrakurikuler untuk mewadahi minat khusus anak. Kami percaya setiap anak memiliki anugerah potensi unik yang perlu dirawat dan dikembangkan sejak usia dini.",
+    about: "Selain program pendidikan reguler, PAUD Hidayah menyediakan kegiatan ekstrakurikuler untuk mewadahi minat dan bakat khusus setiap anak. Kami percaya setiap anak memiliki anugerah keunikan dan kreativitas yang perlu disalurkan sejak dini.",
     goals: [
       "Menyalurkan energi, minat, dan bakat anak ke kegiatan positif dan produktif.",
       "Membangun rasa percaya diri, kelenturan motorik, dan musikalitas anak.",
-      "Membiasakan kecintaan terhadap Al-Qur'an dan melestarikan budaya tradisional nusantara."
+      "Melatih kerjasama tim serta melestarikan kearifan budaya permainan nusantara."
     ],
-    featuresTitle: "Pilihan Ekstrakurikuler & Program Khusus",
+    featuresTitle: "Pilihan Cabang Ekstrakurikuler",
     features: [
-      { icon: "auto_stories", title: "Tahfidz Cilik", desc: "Membiasakan hafalan surat-surat pendek Juz 'Amma sejak dini" },
-      { icon: "menu_book", title: "TPQ Metode Qiro'ati", desc: "Bimbingan membaca Al-Qur'an tartil dengan metode menyenangkan" },
       { icon: "music_note", title: "Seni Tari", desc: "Melatih motorik gerak, kelenturan tubuh, dan percaya diri tampil" },
       { icon: "volume_up", title: "Drumband Cilik", desc: "Melatih kekompakan tim, kepekaan ritme irama, dan kepemimpinan" },
       { icon: "brush", title: "Melukis & Mewarnai", desc: "Menyalurkan imajinasi warna, estetika, dan kreativitas visual" },
@@ -138,7 +186,9 @@ const slugAliases: Record<string, string> = {
   "playgroup": "kb",
   "tk-a": "ra-a",
   "tk-b": "ra-b",
-  "kelompok-bermain": "kb"
+  "kelompok-bermain": "kb",
+  "tahfiz": "tahfidz",
+  "tahfidh": "tahfidz"
 };
 
 export default async function ProgramDetail({ params }: { params: Promise<{ slug: string }> }) {

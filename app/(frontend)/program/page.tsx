@@ -70,7 +70,7 @@ export default function ProgramLandingPage() {
             <p className="text-gray-500 max-w-xl text-[15px]">Pilih program yang sesuai dengan tahap perkembangan dan usia anak Anda.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 mb-12">
             
             {/* Toddler */}
             <Link href="/program/toddler" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
@@ -140,9 +140,43 @@ export default function ProgramLandingPage() {
               </div>
             </Link>
 
+            {/* Tahfidz */}
+            <Link href="/program/tahfidz" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
+              <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
+                <img src="/kegiatan/kegiatan-belajar-paviliun.webp" alt="Program Tahfidz PAUD Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute top-4 left-4 bg-[#188B48] text-white px-3 py-1.5 rounded-full text-[12px] font-bold shadow-sm">
+                  Program Qur'ani
+                </div>
+              </div>
+              <div className="p-6 flex flex-col grow">
+                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">Tahfidz</h3>
+                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Bimbingan hafalan surat-surat pendek Juz 'Amma dengan metode talaqqi ceria.</p>
+                <div className="mt-auto flex items-center gap-2 text-[#188B48] font-bold text-[14px] group-hover:gap-3 transition-all">
+                  Lihat Program <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* TPQ */}
+            <Link href="/program/tpq" className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/5 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,64,40,0.12)] transition-all duration-300">
+              <div className="w-full aspect-[4/3] bg-gray-100 relative overflow-hidden">
+                <img src="/kegiatan/kegiatan-display-sentra.webp" alt="Program TPQ PAUD Hidayah" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute top-4 left-4 bg-[#FCD116] text-[#188B48] px-3 py-1.5 rounded-full text-[12px] font-bold shadow-sm">
+                  Taman Pendidikan Al-Qur'an
+                </div>
+              </div>
+              <div className="p-6 flex flex-col grow">
+                <h3 className="text-[20px] font-bold text-[#188B48] mb-2 group-hover:text-[#188B48] transition-colors">TPQ</h3>
+                <p className="text-gray-500 text-[14px] leading-relaxed mb-6 line-clamp-2">Pondasi membaca Al-Qur'an tartil, makhroj fasih, dan praktek ibadah harian.</p>
+                <div className="mt-auto flex items-center gap-2 text-[#188B48] font-bold text-[14px] group-hover:gap-3 transition-all">
+                  Lihat Program <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </div>
+              </div>
+            </Link>
+
           </div>
 
-          {/* Ekstrakurikuler & Program Khusus Banner Card */}
+          {/* Ekstrakurikuler Banner Card */}
           <div className="bg-white rounded-[28px] overflow-hidden shadow-[0_8px_30px_rgba(0,64,40,0.06)] border border-[#188B48]/10 p-6 md:p-8 flex flex-col lg:flex-row items-center gap-8 group hover:border-[#188B48]/30 transition-all">
             <div className="w-full lg:w-1/3 aspect-[16/10] rounded-[20px] overflow-hidden bg-gray-100 relative shrink-0">
               <img src="/kegiatan/kegiatan-panggung-prestasi.webp" alt="Ekstrakurikuler PAUD Hidayah" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -151,18 +185,16 @@ export default function ProgramLandingPage() {
               </div>
             </div>
             <div className="w-full lg:w-2/3 flex flex-col">
-              <span className="text-[12px] font-bold text-[#188B48] uppercase tracking-widest mb-1">Pengembangan Karakter &amp; Potensi</span>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#188B48] mb-3">Ekstrakurikuler, Tahfidz &amp; TPQ</h3>
+              <span className="text-[12px] font-bold text-[#188B48] uppercase tracking-widest mb-1">Pengembangan Bakat &amp; Karakter</span>
+              <h3 className="text-2xl md:text-3xl font-bold text-[#188B48] mb-3">Ekstrakurikuler</h3>
               <p className="text-gray-600 text-[15px] leading-relaxed mb-6">
-                Wadah menyalurkan minat dan energi positif anak melalui Seni Tari, Drumband Cilik, Melukis &amp; Mewarnai, Permainan Tradisional, serta pembiasaan Al-Qur'an melalui Tahfidz Cilik dan TPQ Metode Qiro'ati.
+                Wadah menyalurkan minat, kreativitas, dan energi positif anak melalui Seni Tari, Drumband Cilik, Melukis &amp; Mewarnai, serta Permainan Tradisional yang melestarikan kearifan lokal.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
                 <span className="px-3 py-1 rounded-full bg-[#EAF3EF] text-[#188B48] text-xs font-semibold">✦ Seni Tari</span>
                 <span className="px-3 py-1 rounded-full bg-[#EAF3EF] text-[#188B48] text-xs font-semibold">✦ Drumband</span>
                 <span className="px-3 py-1 rounded-full bg-[#EAF3EF] text-[#188B48] text-xs font-semibold">✦ Melukis</span>
                 <span className="px-3 py-1 rounded-full bg-[#EAF3EF] text-[#188B48] text-xs font-semibold">✦ Permainan Tradisional</span>
-                <span className="px-3 py-1 rounded-full bg-[#FCD116]/30 text-[#188B48] text-xs font-bold">✦ Tahfidz</span>
-                <span className="px-3 py-1 rounded-full bg-[#FCD116]/30 text-[#188B48] text-xs font-bold">✦ TPQ</span>
               </div>
               <div>
                 <Link href="/program/ekstrakurikuler" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#188B48] text-white font-bold text-[14px] hover:bg-[#14753c] transition-colors shadow-md">

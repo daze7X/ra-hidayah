@@ -79,6 +79,8 @@ export default async function Header() {
                 <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/kb">KB (Usia 3–4 Thn)</Link>
                 <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/ra-a">RA-A (Usia 4–5 Thn)</Link>
                 <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/ra-b">RA-B (Usia 5–6 Thn)</Link>
+                <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/tahfidz">Tahfidz</Link>
+                <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/tpq">TPQ</Link>
                 
                 <div className="w-full h-px bg-gray-100 my-1"></div>
                 <Link className="px-3 py-2 text-[14px] text-gray-700 hover:bg-[#EAF3EF] hover:text-[#188B48] font-medium rounded-lg transition-colors" href="/program/ekstrakurikuler">Ekstrakurikuler</Link>
