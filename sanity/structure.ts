@@ -87,7 +87,7 @@ export const structure: StructureResolver = (S) =>
         ),
 
       // 5. Profil Sekolah
-      S.documentTypeListItem('schoolProfile').title('Profil Sekolah (Visi Misi)'),
+      S.documentTypeListItem('schoolProfile').title('Profil Sekolah & Sambutan'),
 
       S.divider(),
 
