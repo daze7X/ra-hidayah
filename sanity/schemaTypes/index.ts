@@ -11,6 +11,7 @@ import {siteSettingsType} from './siteSettingsType'
 import {fasilitasType} from './fasilitasType'
 import {featuredProgramType} from './featuredProgramType'
 import {programType} from './programType'
+import {testimonialType} from './testimonialType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -24,6 +25,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     siteSettingsType,
     fasilitasType,
     featuredProgramType,
-    programType
+    programType,
+    testimonialType
   ],
 }

@@ -71,12 +71,20 @@ export const schoolProfileType = defineType({
       initialValue: 'Yayasan Hidayah • Berdiri sejak 1968'
     }),
     defineField({
+      name: 'welcomeTitle',
+      title: 'Judul Bagian Tentang PAUD Hidayah',
+      type: 'string',
+      fieldset: 'principal',
+      description: 'Contoh: Mendidik dengan Cinta, Melayani dengan Sepenuh Hati',
+      initialValue: 'Mendidik dengan Cinta, Melayani dengan Sepenuh Hati',
+    }),
+    defineField({
       name: 'welcomeSubtitle',
       title: 'Teks Pengantar Sambutan',
       type: 'text',
       rows: 3,
       fieldset: 'principal',
-      description: 'Teks di bawah judul "Tumbuh Harmonis dalam Iman, Ilmu & Cinta"',
+      description: 'Teks pengantar di bawah judul bagian Tentang PAUD Hidayah',
     }),
     defineField({
       name: 'motto',

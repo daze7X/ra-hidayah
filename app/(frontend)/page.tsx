@@ -33,12 +33,15 @@ export default async function Home() {
       principalImage,
       principalGreeting,
       schoolEstablished,
-      welcomeSubtitle
+      welcomeTitle,
+      welcomeSubtitle,
+      motto
     }`,
     {},
     { next: { revalidate: 0 } }
   );
 
+  const welcomeTitle = profile?.welcomeTitle?.trim() || "Mendidik dengan Cinta, Melayani dengan Sepenuh Hati";
   const principalName = profile?.principalName?.trim() || "Ustadzah Hj. Nur Laeli, S.Pd";
   const principalRole = profile?.principalRole?.trim() || "Kepala Sekolah PAUD Hidayah";
   const principalDedication = profile?.principalDedication?.trim() || "Pengabdian Pendidikan Anak Usia Dini 30+ Tahun";
@@ -158,6 +161,117 @@ export default async function Home() {
   ];
 
   const displayFeaturedPrograms = featuredPrograms.length > 0 ? featuredPrograms : defaultFeaturedPrograms;
+
+  // Fetch latest 4 gallery photos from Sanity for Section 6 Bento Grid
+  const galleryQuery = `*[_type == "gallery"] | order(publishedAt desc)[0...4] {
+    _id,
+    title,
+    description,
+    image
+  }`;
+  let sanityGallery: any[] = [];
+  try {
+    sanityGallery = await client.fetch(galleryQuery, {}, { next: { revalidate: 0 } });
+  } catch (err) {
+    console.error("Error fetching gallery for homepage:", err);
+  }
+
+  const defaultGallery = [
+    {
+      _id: "def-1",
+      title: "Sholat Dhuha & Muroja'ah Berjamaah",
+      description: "Menyapa pagi dengan dzikir dan doa keberkahan.",
+      badge: "Ibadah Harian",
+      imageUrl: "/kegiatan/kegiatan-bersama-sekolah.webp",
+    },
+    {
+      _id: "def-2",
+      title: "Bercocok Tanam Mini",
+      description: "Eksplorasi sensorik di Sentra Bahan Alam.",
+      badge: "Kebun Edukasi",
+      imageUrl: "/kegiatan/kegiatan-sentra-bahan-alam.webp",
+    },
+    {
+      _id: "def-3",
+      title: "Senam Anak Sholeh",
+      description: "Kebugaran jasmani dan motorik ceria di pendopo terbuka.",
+      badge: "Kebugaran Jasmani",
+      imageUrl: "/kegiatan/kegiatan-belajar-paviliun.webp",
+    },
+    {
+      _id: "def-4",
+      title: "Pentas Kreativitas & Qasidah Rebana Cilik",
+      description: "Unjuk bakat seni, percaya diri, dan apresiasi karya ananda.",
+      badge: "Unjuk Bakat",
+      imageUrl: "/kegiatan/kegiatan-panggung-prestasi.webp",
+    },
+  ];
+
+  const galleryPhotos = defaultGallery.map((def, idx) => {
+    const item = sanityGallery[idx];
+    if (!item) return def;
+    return {
+      _id: item._id,
+      title: item.title || def.title,
+      description: item.description || def.description,
+      badge: idx === 0 ? "Dokumentasi Utama" : "Kegiatan Ceria",
+      imageUrl: item.image ? urlFor(item.image).width(800).height(600).format('webp').url() : def.imageUrl,
+    };
+  });
+
+  // Fetch testimonials from Sanity for Section 7
+  const testimonialsQuery = `*[_type == "testimonial" && isActive != false] | order(order asc)[0...6] {
+    _id,
+    name,
+    role,
+    quote,
+    rating,
+    image
+  }`;
+  let sanityTestimonials: any[] = [];
+  try {
+    sanityTestimonials = await client.fetch(testimonialsQuery, {}, { next: { revalidate: 0 } });
+  } catch (err) {
+    console.error("Error fetching testimonials for homepage:", err);
+  }
+
+  const defaultTestimonials = [
+    {
+      _id: "def-t1",
+      name: "Zahrotun Istiqomah, S.Kom",
+      role: "Ibunda dari Alka (Murid RA B)",
+      quote: "Terima kasih kepada PAUD Hidayah yang telah memberikan pelayanan yang terbaik, kami sangat mengapresiasi atas pelayanan yang sangat luar biasa, dan kami berpesan mohon tetap dipertahankan apa yang sudah diberikan kepada putra-putri yang terbaik karena mereka adalah masa depan bangsa.",
+      rating: 5,
+      imageUrl: "/kegiatan/kegiatan-candid-ibu-anak.webp",
+    },
+    {
+      _id: "def-t2",
+      name: "drg. Karina Wyne",
+      role: "Ibunda dari Haisha (Murid RA B)",
+      quote: "Terima kasih kepada seluruh Bunda-bunda PAUD Hidayah yang telah membersamai anak kami, mendidik anak kami, mengajarkan suri tauladan yang baik dan nilai-nilai Islami. Kesan dan pesan kami alhamdulillah hampir 4 tahun lebih anak kami di PAUD Hidayah perkembangannya sangat luar biasa, menjadi lebih mandiri, berani, percaya diri, dan tumbuh luar biasa. Semoga kelak PAUD Hidayah menjadi kebanggaan orang tua di sekitar Tayu dan selalu menjadi unggulan dari sekolah lainnya.",
+      rating: 5,
+      imageUrl: "/kegiatan/kegiatan-market-day.webp",
+    },
+    {
+      _id: "def-t3",
+      name: "Ulfatin Nu’fah",
+      role: "Ibunda dari Airin (Murid KB)",
+      quote: "Saya ucapkan banyak terima kasih kepada lembaga PAUD Hidayah yang telah membersamai anak kami dengan perasaan nyaman dan gembira. Di sini metode pembelajarannya sangat menyenangkan sehingga pembelajaran bisa maksimal dan anak merasa sekolah ini merupakan rumah kedua. Kesan saya menyekolahkan anak di sini para bunda mempunyai kesabaran yang luar biasa. Semangat untuk PAUD Hidayah semoga sukses selalu dan semakin maju.",
+      rating: 5,
+      imageUrl: "/kegiatan/kegiatan-sentra-bahan-alam.webp",
+    },
+  ];
+
+  const testimonials = (sanityTestimonials && sanityTestimonials.length > 0)
+    ? sanityTestimonials.map((t: any, idx: number) => ({
+        _id: t._id,
+        name: t.name || "",
+        role: t.role || "Wali Murid",
+        quote: t.quote || "",
+        rating: t.rating || 5,
+        imageUrl: t.image ? urlFor(t.image).width(120).height(120).format('webp').url() : (defaultTestimonials[idx]?.imageUrl || null),
+      }))
+    : defaultTestimonials;
 
   const formatDate = (dateString: string) => {
     if (!dateString) return '';
@@ -292,7 +406,7 @@ export default async function Home() {
 {/* Section Tagline */}
 <div className="text-center max-w-2xl mx-auto mb-12">
 <span className="font-label-sm text-label-sm font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-3">Tentang PAUD Hidayah</span>
-<h2 className="font-headline-lg text-headline-lg text-white">Mendidik dengan Cinta, Melayani dengan Sepenuh Hati</h2>
+<h2 className="font-headline-lg text-headline-lg text-white">{welcomeTitle}</h2>
 <p className="font-body-md text-body-md text-white/80 mt-3">
           {welcomeSubtitle}
         </p>
@@ -794,36 +908,36 @@ export default async function Home() {
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[220px]">
 {/* Photo 1: Big Highlight (Left) */}
 <div className="lg:col-span-2 lg:row-span-2 relative overflow-hidden rounded-3xl group shadow-sm">
-          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kebersamaan santri dan guru membentangkan kain jumputan" src="/kegiatan/kegiatan-bersama-sekolah.webp"/>
-<div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-90 flex flex-col justify-end p-6 text-on-primary">
-<span className="font-label-sm text-label-sm text-secondary-fixed font-bold uppercase tracking-wider">Ibadah Harian</span>
-<h4 className="font-headline-sm text-headline-sm">Sholat Dhuha &amp; Muroja'ah Berjamaah</h4>
-<p className="font-body-sm text-body-sm text-surface-variant">Menyapa pagi dengan dzikir dan doa keberkahan.</p>
+  <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={galleryPhotos[0].title} src={galleryPhotos[0].imageUrl}/>
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 flex flex-col justify-end p-6 text-white">
+    <span className="font-label-sm text-xs text-[#FCD116] font-bold uppercase tracking-wider">{galleryPhotos[0].badge}</span>
+    <h4 className="font-headline-sm text-xl md:text-2xl font-bold">{galleryPhotos[0].title}</h4>
+    {galleryPhotos[0].description && <p className="text-white/80 text-sm line-clamp-2 mt-1">{galleryPhotos[0].description}</p>}
+  </div>
 </div>
-</div>
-{/* Photo 2: Mini Gardening */}
+{/* Photo 2 */}
 <div className="relative overflow-hidden rounded-3xl group shadow-sm">
-          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Eksplorasi sensorik di Sentra Bahan Alam" src="/kegiatan/kegiatan-sentra-bahan-alam.webp"/>
-<div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-on-primary">
-<span className="font-label-sm text-label-sm text-secondary-fixed font-semibold">Kebun Edukasi</span>
-<h5 className="font-label-lg text-label-lg font-bold">Bercocok Tanam Mini</h5>
+  <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={galleryPhotos[1].title} src={galleryPhotos[1].imageUrl}/>
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-white">
+    <span className="font-label-sm text-xs text-[#FCD116] font-semibold">{galleryPhotos[1].badge}</span>
+    <h5 className="font-label-lg text-sm font-bold line-clamp-1">{galleryPhotos[1].title}</h5>
+  </div>
 </div>
-</div>
-{/* Photo 3: Outdoor Fun / Senam Ceria */}
+{/* Photo 3 */}
 <div className="relative overflow-hidden rounded-3xl group shadow-sm">
-          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Belajar ceria di pendopo terbuka RA Hidayah" src="/kegiatan/kegiatan-belajar-paviliun.webp"/>
-<div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-on-primary">
-<span className="font-label-sm text-label-sm text-secondary-fixed font-semibold">Kebugaran Jasmani</span>
-<h5 className="font-label-lg text-label-lg font-bold">Senam Anak Sholeh</h5>
+  <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={galleryPhotos[2].title} src={galleryPhotos[2].imageUrl}/>
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-white">
+    <span className="font-label-sm text-xs text-[#FCD116] font-semibold">{galleryPhotos[2].badge}</span>
+    <h5 className="font-label-lg text-sm font-bold line-clamp-1">{galleryPhotos[2].title}</h5>
+  </div>
 </div>
-</div>
-{/* Photo 4: Pentas Seni Islami (Wide Span Bottom Right) */}
+{/* Photo 4 (Wide Span Bottom Right) */}
 <div className="lg:col-span-2 relative overflow-hidden rounded-3xl group shadow-sm">
-          <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Pentas kreativitas dan apresiasi seni ananda" src="/kegiatan/kegiatan-panggung-prestasi.webp"/>
-<div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-on-primary">
-<span className="font-label-sm text-label-sm text-secondary-fixed font-semibold">Unjuk Bakat</span>
-<h5 className="font-label-lg text-label-lg font-bold">Pentas Kreativitas &amp; Qasidah Rebana Cilik</h5>
-</div>
+  <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={galleryPhotos[3].title} src={galleryPhotos[3].imageUrl}/>
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-white">
+    <span className="font-label-sm text-xs text-[#FCD116] font-semibold">{galleryPhotos[3].badge}</span>
+    <h5 className="font-label-lg text-base font-bold line-clamp-1">{galleryPhotos[3].title}</h5>
+  </div>
 </div>
 </div>
 </div>
@@ -843,78 +957,33 @@ export default async function Home() {
 <p className="font-body-md text-body-md text-white/80 mt-2">Setiap perkembangan kecil ananda adalah kebahagiaan besar bagi orang tua. Bersama PAUD Hidayah, menumbuhkan akhlak mulia, kecerdasan, dan kemandirian menjadi perjalanan yang bermakna.</p>
 </div>
 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-{/* Testi 1 */}
-<div className="bg-[#188B48] border border-white/20 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform">
-<div>
-<div className="flex items-center gap-1 text-[#FCD116] mb-4">
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-</div>
-<p className="font-body-md text-[14px] text-white/95 italic mb-6 leading-relaxed">
-  "Terima kasih kepada PAUD Hidayah yang telah memberikan pelayanan yang terbaik, kami sangat mengapresiasi atas pelayanan yang sangat luar biasa, dan kami berpesan mohon tetap dipertahankan apa yang sudah diberikan kepada putra-putri yang terbaik karena mereka adalah masa depan bangsa."
-</p>
-</div>
-<div className="flex items-center gap-3 pt-4 border-t border-white/20">
-<div className="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed shrink-0">
-  <img className="w-full h-full object-cover" alt="Zahrotun Istiqomah, S.Kom, wali murid RA Hidayah" src="/kegiatan/kegiatan-candid-ibu-anak.webp"/>
-</div>
-<div>
-<h5 className="font-bold text-[15px] text-white">Zahrotun Istiqomah, S.Kom</h5>
-<p className="text-[12px] text-[#FCD116] font-medium">Ibunda dari Alka (Murid RA B)</p>
-</div>
-</div>
-</div>
-{/* Testi 2 */}
-<div className="bg-[#188B48] border border-white/20 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform">
-<div>
-<div className="flex items-center gap-1 text-[#FCD116] mb-4">
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-</div>
-<p className="font-body-md text-[14px] text-white/95 italic mb-6 leading-relaxed">
-  "Terima kasih kepada seluruh Bunda-bunda PAUD Hidayah yang telah membersamai anak kami, mendidik anak kami, mengajarkan suri tauladan yang baik dan nilai-nilai Islami. Kesan dan pesan kami alhamdulillah hampir 4 tahun lebih anak kami di PAUD Hidayah perkembangannya sangat luar biasa, menjadi lebih mandiri, berani, percaya diri, dan tumbuh luar biasa. Semoga kelak PAUD Hidayah menjadi kebanggaan orang tua di sekitar Tayu dan selalu menjadi unggulan dari sekolah lainnya."
-</p>
-</div>
-<div className="flex items-center gap-3 pt-4 border-t border-white/20">
-<div className="w-12 h-12 rounded-full overflow-hidden bg-secondary-fixed shrink-0">
-  <img className="w-full h-full object-cover" alt="drg. Karina Wyne, wali murid siswa RA-B di PAUD Hidayah" src="/kegiatan/kegiatan-market-day.webp"/>
-</div>
-<div>
-<h5 className="font-bold text-[15px] text-white">drg. Karina Wyne</h5>
-<p className="text-[12px] text-[#FCD116] font-medium">Ibunda dari Haisha (Murid RA B)</p>
-</div>
-</div>
-</div>
-{/* Testi 3 */}
-<div className="bg-[#188B48] border border-white/20 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform">
-<div>
-<div className="flex items-center gap-1 text-[#FCD116] mb-4">
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-<span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-</div>
-<p className="font-body-md text-[14px] text-white/95 italic mb-6 leading-relaxed">
-  "Saya ucapkan banyak terima kasih kepada lembaga PAUD Hidayah yang telah membersamai anak kami dengan perasaan nyaman dan gembira. Di sini metode pembelajarannya sangat menyenangkan sehingga pembelajaran bisa maksimal dan anak merasa sekolah ini merupakan rumah kedua. Kesan saya menyekolahkan anak di sini para bunda mempunyai kesabaran yang luar biasa. Semangat untuk PAUD Hidayah semoga sukses selalu dan semakin maju."
-</p>
-</div>
-<div className="flex items-center gap-3 pt-4 border-t border-white/20">
-<div className="w-12 h-12 rounded-full overflow-hidden bg-primary-fixed shrink-0">
-  <img className="w-full h-full object-cover" alt="Ulfatin Nu'fah, wali murid Kelompok Bermain PAUD Hidayah" src="/kegiatan/kegiatan-sentra-bahan-alam.webp"/>
-</div>
-<div>
-<h5 className="font-bold text-[15px] text-white">Ulfatin Nu’fah</h5>
-<p className="text-[12px] text-[#FCD116] font-medium">Ibunda dari Airin (Murid KB)</p>
-</div>
-</div>
-</div>
+  {testimonials.map((testi: any) => (
+    <div key={testi._id} className="bg-[#188B48] border border-white/20 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:-translate-y-1 transition-transform">
+      <div>
+        <div className="flex items-center gap-1 text-[#FCD116] mb-4">
+          {Array.from({ length: testi.rating || 5 }).map((_, rIdx) => (
+            <span key={rIdx} className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+          ))}
+        </div>
+        <p className="font-body-md text-[14px] text-white/95 italic mb-6 leading-relaxed">
+          &ldquo;{testi.quote}&rdquo;
+        </p>
+      </div>
+      <div className="flex items-center gap-3 pt-4 border-t border-white/20">
+        <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 shrink-0 flex items-center justify-center border border-white/30">
+          {testi.imageUrl ? (
+            <img className="w-full h-full object-cover" alt={`${testi.name}, ${testi.role}`} src={testi.imageUrl}/>
+          ) : (
+            <span className="material-symbols-outlined text-white text-[24px]">person</span>
+          )}
+        </div>
+        <div>
+          <h5 className="font-bold text-[15px] text-white">{testi.name}</h5>
+          <p className="text-[12px] text-[#FCD116] font-medium">{testi.role}</p>
+        </div>
+      </div>
+    </div>
+  ))}
 </div>
 </div>
 </section>
