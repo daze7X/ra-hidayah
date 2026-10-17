@@ -120,31 +120,31 @@ export default async function Home() {
   const defaultEkstraFeatures = [
     { 
       title: "Seni Tari", 
-      badge: "Kinestetik & Percaya Diri", 
+      badge: "Olah Gerak & Seni", 
       icon: "theater_comedy", 
-      bgClass: "bg-rose-50/60 border border-rose-100/80 hover:border-rose-300", 
-      iconBg: "bg-rose-100 text-rose-600" 
+      desc: "Melatih kelenturan tubuh, ritme gerak, dan rasa percaya diri tampil di panggung kreasi.",
+      tags: ["Tari Kreasi", "Percaya Diri", "Pentas Seni"]
     },
     { 
       title: "Drumband Cilik", 
       badge: "Musikalitas & Tim", 
       icon: "volume_up", 
-      bgClass: "bg-amber-50/60 border border-amber-100/80 hover:border-amber-300", 
-      iconBg: "bg-amber-100 text-amber-700" 
+      desc: "Mengenal ketukan tempo, kepekaan ritme musikal, serta melatih kekompakan regu sejak dini.",
+      tags: ["Instrumen Perkusi", "Kepekaan Tempo", "Kekompakan"]
     },
     { 
       title: "Melukis & Mewarnai", 
       badge: "Kreativitas & Estetika", 
       icon: "palette", 
-      bgClass: "bg-sky-50/60 border border-sky-100/80 hover:border-sky-300", 
-      iconBg: "bg-sky-100 text-sky-600" 
+      desc: "Menyalurkan imajinasi visual melalui aneka media warna untuk menguatkan motorik halus jemari.",
+      tags: ["Eksplorasi Warna", "Motorik Halus", "Karya Seni"]
     },
     { 
       title: "Permainan Tradisional", 
-      badge: "Motorik & Budaya Lokal", 
+      badge: "Fisik Aktif & Budaya", 
       icon: "sports_esports", 
-      bgClass: "bg-emerald-50/60 border border-emerald-100/80 hover:border-emerald-300", 
-      iconBg: "bg-emerald-100 text-[#188B48]" 
+      desc: "Melestarikan permainan anak nusantara seperti engklek dan bakiak untuk ketangkasan fisik dan sportivitas.",
+      tags: ["Engklek & Bakiak", "Fisik Ceria", "Sportivitas"]
     }
   ];
 
@@ -154,15 +154,15 @@ export default async function Home() {
           title: "Ekstrakurikuler",
           badge: "Minat & Bakat",
           icon: "star",
-          bgClass: "bg-emerald-50/60 border border-emerald-100/80 hover:border-emerald-300",
-          iconBg: "bg-emerald-100 text-[#188B48]"
+          desc: "Pengembangan bakat dan minat santri secara aktif dan menyenangkan.",
+          tags: ["Kreatif", "Ceria"]
         };
         return {
           title: f.title || def.title,
           badge: f.badge || def.badge,
           icon: f.icon || def.icon,
-          bgClass: def.bgClass,
-          iconBg: def.iconBg
+          desc: f.desc || def.desc,
+          tags: (f.tags && f.tags.length > 0) ? f.tags : def.tags
         };
       })
     : defaultEkstraFeatures;
@@ -715,29 +715,72 @@ export default async function Home() {
 </div>
 
 {/* Ekstrakurikuler Pilihan */}
-<div className="mt-14 pt-10 bg-white rounded-3xl p-6 sm:p-8 shadow-sm">
+<div className="mt-14 pt-10 pb-10 bg-white rounded-3xl p-6 sm:p-8 shadow-[0_4px_24px_rgba(0,64,40,0.06)] border border-[#188B48]/10">
   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
     <div>
-      <h3 className="font-headline-md text-2xl font-bold text-primary">Ekstrakurikuler Minat &amp; Bakat Ceria</h3>
-      <p className="font-body-sm text-sm text-gray-600 mt-1">Mengasah kecerdasan kinestetik, seni dan teknologi islami sejak dini.</p>
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#188B48]/10 text-[#188B48] text-xs font-bold mb-2.5">
+        <span className="material-symbols-outlined text-[15px]">verified</span>
+        <span>Minat &amp; Bakat Santri</span>
+      </div>
+      <h3 className="font-headline-md text-2xl sm:text-3xl font-bold text-primary">Ekstrakurikuler Pilihan Ceria</h3>
+      <p className="font-body-sm text-sm text-gray-600 mt-1 max-w-2xl leading-relaxed">
+        Menyalurkan potensi kinestetik, musikalitas, dan kreativitas seni santri melalui kegiatan terarah yang aktif dan membahagiakan.
+      </p>
     </div>
-    <Link href="/program/ekstrakurikuler" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline shrink-0">
-      Lihat Semua <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+    <Link href="/program/ekstrakurikuler" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline shrink-0 group self-start sm:self-center">
+      <span>Lihat Semua Program</span>
+      <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
     </Link>
   </div>
   
-  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
     {ekstraCards.map((card: any, idx: number) => (
       <Link 
         key={idx}
         href="/program/ekstrakurikuler" 
-        className={`group flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl ${card.bgClass} hover:bg-white hover:shadow-md transition-all duration-300 hover:-translate-y-1`}
+        className="group flex flex-col justify-between p-5 sm:p-6 rounded-2xl bg-[#FDFCF8] border border-[#188B48]/15 hover:border-[#188B48]/40 hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
       >
-        <div className={`w-14 h-14 rounded-2xl ${card.iconBg} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-          <span className="material-symbols-outlined text-[28px]">{card.icon}</span>
+        <div>
+          {/* Top Row: Icon & Category Badge */}
+          <div className="flex items-center justify-between gap-2 mb-4">
+            <div className="w-12 h-12 rounded-2xl bg-[#188B48]/10 text-[#188B48] flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#188B48] group-hover:text-white transition-all duration-300 shadow-sm">
+              <span className="material-symbols-outlined text-[24px]">{card.icon}</span>
+            </div>
+            <span className="text-[11px] font-semibold text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">
+              {card.badge}
+            </span>
+          </div>
+
+          {/* Title & Description */}
+          <h4 className="font-bold text-base sm:text-lg text-primary mb-2 group-hover:text-[#126b36] transition-colors leading-snug">
+            {card.title}
+          </h4>
+          <p className="text-[13px] text-gray-600 leading-relaxed mb-4">
+            {card.desc}
+          </p>
+
+          {/* Educational Tags */}
+          {card.tags && card.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-5">
+              {card.tags.map((tag: string, tIdx: number) => (
+                <span 
+                  key={tIdx} 
+                  className="text-[10.5px] font-medium text-[#188B48] bg-[#188B48]/8 px-2 py-0.5 rounded-md"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
-        <p className="font-bold text-sm sm:text-base text-primary group-hover:text-primary transition-colors">{card.title}</p>
-        <p className="text-xs text-gray-500 mt-1 font-medium">{card.badge}</p>
+
+        {/* Footer Link */}
+        <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-primary">
+          <span>Detail Kegiatan</span>
+          <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1.5 transition-transform duration-300">
+            arrow_forward
+          </span>
+        </div>
       </Link>
     ))}
   </div>
