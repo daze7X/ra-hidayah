@@ -1054,45 +1054,36 @@ export default async function Home() {
 </a>
 </div>
 </div>
-<div className="lg:col-span-5 bg-gradient-to-br from-[#1fa555] to-[#14753c] shadow-inner border border-white/20 rounded-3xl p-6 flex flex-col space-y-4">
-<h4 className="font-headline-sm text-headline-sm text-on-primary flex items-center gap-2">
-<span className="material-symbols-outlined text-secondary-fixed">pin_drop</span>
-<span>Kunjungi Sekolah Kami</span>
-</h4>
-<p className="font-body-sm text-body-sm text-inverse-on-surface leading-relaxed">
-  Ayah &amp; Bunda dipersilakan berkunjung untuk mengenal lingkungan belajar, fasilitas, serta kegiatan anak secara langsung. Silakan menghubungi sekolah untuk mengatur jadwal kunjungan.
-</p>
-<div className="space-y-2 pt-1 text-on-primary font-body-sm text-[13px]">
-<div className="flex items-center gap-2">
-<span className="material-symbols-outlined text-secondary-fixed text-[18px]">alarm</span>
-<span>Senin - Sabtu : 07.00 - 10.00 WIB</span>
-</div>
-<div className="flex items-center gap-2">
-<span className="material-symbols-outlined text-secondary-fixed text-[18px]">location_on</span>
-<span>{siteSettings?.address || "Ds. Tayu Wetan, RT.06 RW.01 Kecamatan Tayu, Kabupaten Pati, Jawa Tengah"}</span>
-</div>
-</div>
-
-{/* Code Barcode / QR Code Link Pendaftaran (Slide 8) */}
-<div className="mt-3 pt-3 border-t border-white/20 flex items-center gap-3.5 bg-black/15 rounded-2xl p-3">
-  <div className="w-[76px] h-[76px] bg-white rounded-xl p-1 shrink-0 shadow-md flex items-center justify-center">
-    <img 
-      src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`https://wa.me/${phone}?text=${encodeURIComponent("Assalamu’alaikum Admin PAUD Hidayah, saya berminat mendaftarkan putra/putri saya di PAUD Hidayah. Boleh dibantu informasi syarat pendaftaran dan formulir PPDB saat ini? Terima kasih.")}`)}`}
-      alt="Barcode Pendaftaran PAUD Hidayah"
-      className="w-full h-full object-contain"
-      loading="lazy"
-    />
-  </div>
+<div className="lg:col-span-5 bg-gradient-to-br from-[#1fa555] to-[#14753c] shadow-inner border border-white/20 rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-4">
   <div>
-    <p className="font-bold text-[13px] text-[#FCD116] flex items-center gap-1">
-      <span className="material-symbols-outlined text-[16px]">qr_code_scanner</span>
-      Barcode Pendaftaran
-    </p>
-    <p className="text-[11px] text-white/90 leading-tight mt-1">
-      Scan barcode dengan kamera ponsel Ayah &amp; Bunda untuk langsung terhubung pendaftaran.
+    <h4 className="font-headline-sm text-headline-sm text-on-primary flex items-center gap-2 mb-2.5">
+      <span className="material-symbols-outlined text-secondary-fixed">pin_drop</span>
+      <span>Kunjungi Sekolah Kami</span>
+    </h4>
+    <p className="font-body-sm text-body-sm text-inverse-on-surface leading-relaxed">
+      Ayah &amp; Bunda dipersilakan berkunjung untuk mengenal lingkungan belajar, fasilitas, serta kegiatan anak secara langsung. Silakan menghubungi sekolah untuk mengatur jadwal kunjungan.
     </p>
   </div>
-</div>
+  <div className="space-y-3 pt-3.5 border-t border-white/20 text-on-primary font-body-sm text-[13px]">
+    <div className="flex items-center gap-2.5">
+      <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+        <span className="material-symbols-outlined text-secondary-fixed text-[18px]">alarm</span>
+      </div>
+      <div>
+        <p className="text-[11px] text-white/75 font-medium">Jam Kunjungan</p>
+        <p className="font-semibold text-white">Senin - Sabtu : 07.00 - 10.00 WIB</p>
+      </div>
+    </div>
+    <div className="flex items-start gap-2.5">
+      <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+        <span className="material-symbols-outlined text-secondary-fixed text-[18px]">location_on</span>
+      </div>
+      <div>
+        <p className="text-[11px] text-white/75 font-medium">Lokasi Sekolah</p>
+        <p className="font-semibold text-white leading-snug">{siteSettings?.address || "Ds. Tayu Wetan, RT.06 RW.01 Kecamatan Tayu, Kabupaten Pati, Jawa Tengah"}</p>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 </div>
