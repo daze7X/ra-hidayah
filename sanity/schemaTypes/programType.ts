@@ -80,13 +80,23 @@ export const programType = defineType({
           type: 'object',
           fields: [
             defineField({ name: 'icon', title: 'Nama Ikon (Material Symbols)', type: 'string', initialValue: 'check_circle' }),
-            defineField({ name: 'title', title: 'Judul Poin', type: 'string' }),
-            defineField({ name: 'desc', title: 'Keterangan Singkat', type: 'string' }),
+            defineField({ name: 'title', title: 'Judul Poin / Nama Cabang', type: 'string' }),
+            defineField({ name: 'badge', title: 'Label / Badge (Opsional, contoh: Kinestetik & Seni)', type: 'string' }),
+            defineField({ name: 'desc', title: 'Keterangan Singkat / Uraian Kegiatan', type: 'string' }),
+            defineField({ name: 'image', title: 'Foto Dokumentasi Nyata (Opsional)', type: 'image', options: { hotspot: true } }),
+            defineField({ 
+              name: 'tags', 
+              title: 'Kata Kunci / Tag Manfaat (Opsional)', 
+              type: 'array', 
+              of: [{ type: 'string' }],
+              options: { layout: 'tags' }
+            }),
           ],
           preview: {
             select: {
               title: 'title',
               subtitle: 'desc',
+              media: 'image',
             },
           },
         },

@@ -170,10 +170,38 @@ const programsData: Record<string, any> = {
     ],
     featuresTitle: "Pilihan Cabang Ekstrakurikuler",
     features: [
-      { icon: "music_note", title: "Seni Tari", desc: "Melatih motorik gerak, kelenturan tubuh, dan percaya diri tampil" },
-      { icon: "volume_up", title: "Drumband Cilik", desc: "Melatih kekompakan tim, kepekaan ritme irama, dan kepemimpinan" },
-      { icon: "brush", title: "Melukis & Mewarnai", desc: "Menyalurkan imajinasi warna, estetika, dan kreativitas visual" },
-      { icon: "sports_esports", title: "Permainan Tradisional", desc: "Melatih motorik kasar, kerjasama, dan melestarikan kearifan lokal" }
+      { 
+        icon: "music_note", 
+        title: "Seni Tari Ceria", 
+        badge: "Olah Gerak & Seni",
+        image: "/kegiatan/kegiatan-panggung-prestasi.webp",
+        desc: "Mengenalkan ragam gerak tari kreasi anak nusantara. Melatih kelenturan tubuh, irama gerak, dan membangun keberanian tampil di panggung pentas seni sekolah.",
+        tags: ["Tari Kreasi Nusantara", "Percaya Diri Tampil", "Kelenturan Tubuh"]
+      },
+      { 
+        icon: "volume_up", 
+        title: "Drumband Cilik", 
+        badge: "Musikalitas & Tim",
+        image: "/kegiatan/kegiatan-belajar-paviliun.webp",
+        desc: "Mengenalkan instrumen perkusi ramah anak seperti snare drum, bass drum, dan bellyra. Melatih kepekaan tempo, ketukan ritme irama, serta kekompakan baris-berbaris.",
+        tags: ["Instrumen Perkusi", "Kepekaan Tempo", "Kekompakan Regu"]
+      },
+      { 
+        icon: "brush", 
+        title: "Melukis & Mewarnai", 
+        badge: "Kreativitas & Estetika",
+        image: "/kegiatan/kegiatan-mewarnai-kupu.webp",
+        desc: "Menyalurkan imajinasi visual melalui aneka media: krayon, kuas cat air, hingga kreasi kain batik jumputan. Menguatkan motorik halus dan koordinasi jemari tangan.",
+        tags: ["Eksplorasi Warna", "Kekuatan Jemari", "Pameran Karya"]
+      },
+      { 
+        icon: "sports_esports", 
+        title: "Permainan Tradisional", 
+        badge: "Budaya & Fisik Aktif",
+        image: "/kegiatan/kegiatan-sentra-bahan-alam.webp",
+        desc: "Melestarikan permainan anak nusantara seperti engklek, bakiak ceria, egrang batok, dan gobak sodor. Melatih ketangkasan fisik aktif, sportivitas, dan kebersamaan.",
+        tags: ["Engklek & Bakiak", "Aktivitas Fisik Ceria", "Kearifan Budaya"]
+      }
     ],
     gallery: [
       { img: "/kegiatan/kegiatan-panggung-prestasi.webp", caption: "Pentas Seni & Kreasi Panggung" },
@@ -232,7 +260,16 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
     goals: (sanityDoc?.goals && sanityDoc.goals.length > 0) ? sanityDoc.goals : (fallback?.goals || []),
     featuresTitle: sanityDoc?.featuresTitle || fallback?.featuresTitle || "Fokus Stimulasi & Keunggulan",
     features: (sanityDoc?.features && sanityDoc.features.length > 0)
-      ? sanityDoc.features
+      ? sanityDoc.features.map((f: any, fIdx: number) => {
+          const fb = fallback?.features?.[fIdx];
+          return {
+            ...fb,
+            ...f,
+            image: f.image ? urlFor(f.image).width(600).height(400).format('webp').url() : (fb?.image || null),
+            badge: f.badge || fb?.badge || null,
+            tags: (f.tags && f.tags.length > 0) ? f.tags : (fb?.tags || [])
+          };
+        })
       : (fallback?.features || []),
     gallery: (sanityDoc?.gallery && sanityDoc.gallery.length > 0)
       ? sanityDoc.gallery.map((g: any) => ({
@@ -324,17 +361,85 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
             <h2 className="text-2xl font-bold text-[#188B48]">{data.featuresTitle}</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
-            {data.features.map((feature: any, idx: number) => (
-              <div key={idx} className="bg-white p-6 rounded-[24px] shadow-[0_8px_30px_rgba(0,64,40,0.04)] border border-[#188B48]/5 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
-                <div className="w-14 h-14 rounded-full bg-[#EAF3EF] text-[#188B48] flex items-center justify-center mb-4">
-                  <span className="material-symbols-outlined text-[28px]">{feature.icon}</span>
+          {targetSlug === "ekstrakurikuler" ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {data.features.map((feature: any, idx: number) => {
+                const img = feature.image;
+                const badge = feature.badge;
+                const tags = feature.tags || [];
+
+                return (
+                  <div 
+                    key={idx} 
+                    className="bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,64,40,0.06)] border border-[#188B48]/10 hover:border-[#188B48]/30 flex flex-col group hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(0,64,40,0.12)] transition-all duration-300"
+                  >
+                    {/* Real Activity Photo */}
+                    <div className="relative aspect-[16/10] overflow-hidden bg-[#EAF3EF]">
+                      {img ? (
+                        <img 
+                          src={img} 
+                          alt={feature.title} 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-[#188B48]">
+                          <span className="material-symbols-outlined text-4xl">{feature.icon}</span>
+                        </div>
+                      )}
+                      {badge && (
+                        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-[#188B48] text-[11px] font-bold px-3 py-1 rounded-full shadow-sm border border-[#188B48]/10">
+                          {badge}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="p-6 flex flex-col flex-1 justify-between">
+                      <div>
+                        <div className="flex items-center gap-2.5 mb-2.5">
+                          <div className="w-8 h-8 rounded-full bg-[#188B48]/10 text-[#188B48] flex items-center justify-center shrink-0">
+                            <span className="material-symbols-outlined text-[18px]">{feature.icon || "star"}</span>
+                          </div>
+                          <h3 className="font-bold text-lg text-[#188B48] leading-tight group-hover:text-[#126b36] transition-colors">
+                            {feature.title}
+                          </h3>
+                        </div>
+                        <p className="text-[13px] text-gray-600 leading-relaxed mb-4">
+                          {feature.desc}
+                        </p>
+                      </div>
+
+                      {/* Educational Tags */}
+                      {tags.length > 0 && (
+                        <div className="pt-4 border-t border-gray-100 flex flex-wrap gap-1.5">
+                          {tags.map((tag: string, tIdx: number) => (
+                            <span 
+                              key={tIdx} 
+                              className="text-[11px] font-medium bg-[#188B48]/8 text-[#188B48] px-2.5 py-0.5 rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className={`grid grid-cols-2 md:grid-cols-3 ${data.features.length <= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-5'} gap-4 md:gap-6`}>
+              {data.features.map((feature: any, idx: number) => (
+                <div key={idx} className="bg-white p-6 rounded-[24px] shadow-[0_8px_30px_rgba(0,64,40,0.04)] border border-[#188B48]/5 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
+                  <div className="w-14 h-14 rounded-full bg-[#EAF3EF] text-[#188B48] flex items-center justify-center mb-4">
+                    <span className="material-symbols-outlined text-[28px]">{feature.icon}</span>
+                  </div>
+                  <h4 className="font-bold text-[#188B48] mb-1">{feature.title}</h4>
+                  <p className="text-[12px] text-gray-500 leading-relaxed">{feature.desc}</p>
                 </div>
-                <h4 className="font-bold text-[#188B48] mb-1">{feature.title}</h4>
-                <p className="text-[12px] text-gray-500 leading-relaxed">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
