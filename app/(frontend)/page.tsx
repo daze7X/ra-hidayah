@@ -118,19 +118,51 @@ export default async function Home() {
   const pEkstra = findProgram("ekstrakurikuler");
 
   const defaultEkstraFeatures = [
-    { title: "Seni Tari", badge: "Kinestetik & Percaya Diri", image: "/kegiatan/kegiatan-panggung-prestasi.webp" },
-    { title: "Drumband Cilik", badge: "Musikalitas & Tim", image: "/kegiatan/kegiatan-belajar-paviliun.webp" },
-    { title: "Melukis & Mewarnai", badge: "Kreativitas & Estetika", image: "/kegiatan/kegiatan-mewarnai-kupu.webp" },
-    { title: "Permainan Tradisional", badge: "Motorik & Budaya Lokal", image: "/kegiatan/kegiatan-sentra-bahan-alam.webp" }
+    { 
+      title: "Seni Tari", 
+      badge: "Kinestetik & Percaya Diri", 
+      icon: "theater_comedy", 
+      bgClass: "bg-rose-50/60 border border-rose-100/80 hover:border-rose-300", 
+      iconBg: "bg-rose-100 text-rose-600" 
+    },
+    { 
+      title: "Drumband Cilik", 
+      badge: "Musikalitas & Tim", 
+      icon: "volume_up", 
+      bgClass: "bg-amber-50/60 border border-amber-100/80 hover:border-amber-300", 
+      iconBg: "bg-amber-100 text-amber-700" 
+    },
+    { 
+      title: "Melukis & Mewarnai", 
+      badge: "Kreativitas & Estetika", 
+      icon: "palette", 
+      bgClass: "bg-sky-50/60 border border-sky-100/80 hover:border-sky-300", 
+      iconBg: "bg-sky-100 text-sky-600" 
+    },
+    { 
+      title: "Permainan Tradisional", 
+      badge: "Motorik & Budaya Lokal", 
+      icon: "sports_esports", 
+      bgClass: "bg-emerald-50/60 border border-emerald-100/80 hover:border-emerald-300", 
+      iconBg: "bg-emerald-100 text-[#188B48]" 
+    }
   ];
 
   const ekstraCards = (pEkstra?.features && pEkstra.features.length > 0)
     ? pEkstra.features.map((f: any, idx: number) => {
-        const def = defaultEkstraFeatures[idx];
+        const def = defaultEkstraFeatures[idx] || {
+          title: "Ekstrakurikuler",
+          badge: "Minat & Bakat",
+          icon: "star",
+          bgClass: "bg-emerald-50/60 border border-emerald-100/80 hover:border-emerald-300",
+          iconBg: "bg-emerald-100 text-[#188B48]"
+        };
         return {
-          title: f.title || def?.title || "Ekstrakurikuler",
-          badge: f.badge || def?.badge || "Minat & Bakat",
-          image: f.image ? urlFor(f.image).width(400).height(400).format('webp').url() : (def?.image || "/kegiatan/kegiatan-panggung-prestasi.webp")
+          title: f.title || def.title,
+          badge: f.badge || def.badge,
+          icon: f.icon || def.icon,
+          bgClass: def.bgClass,
+          iconBg: def.iconBg
         };
       })
     : defaultEkstraFeatures;
@@ -699,17 +731,13 @@ export default async function Home() {
       <Link 
         key={idx}
         href="/program/ekstrakurikuler" 
-        className="group flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-[#EAF3EF]/60 border border-[#188B48]/10 hover:border-[#188B48]/30 hover:bg-white hover:shadow-md transition-all hover:-translate-y-1"
+        className={`group flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl ${card.bgClass} hover:bg-white hover:shadow-md transition-all duration-300 hover:-translate-y-1`}
       >
-        <div className="w-14 h-14 rounded-2xl overflow-hidden mb-3 shadow-sm bg-gray-100">
-          <img 
-            src={card.image} 
-            alt={card.title} 
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-          />
+        <div className={`w-14 h-14 rounded-2xl ${card.iconBg} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+          <span className="material-symbols-outlined text-[28px]">{card.icon}</span>
         </div>
         <p className="font-bold text-sm sm:text-base text-primary group-hover:text-primary transition-colors">{card.title}</p>
-        <p className="text-xs text-gray-500 mt-0.5">{card.badge}</p>
+        <p className="text-xs text-gray-500 mt-1 font-medium">{card.badge}</p>
       </Link>
     ))}
   </div>
