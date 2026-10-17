@@ -95,7 +95,8 @@ export default async function Home() {
     headline,
     shortDesc,
     image,
-    goals
+    goals,
+    features
   }`;
   let corePrograms: any[] = [];
   try {
@@ -114,6 +115,25 @@ export default async function Home() {
   const pRaB = findProgram("ra-b");
   const pTahfidz = findProgram("tahfidz");
   const pTpq = findProgram("tpq");
+  const pEkstra = findProgram("ekstrakurikuler");
+
+  const defaultEkstraFeatures = [
+    { title: "Seni Tari", badge: "Kinestetik & Percaya Diri", image: "/kegiatan/kegiatan-panggung-prestasi.webp" },
+    { title: "Drumband Cilik", badge: "Musikalitas & Tim", image: "/kegiatan/kegiatan-belajar-paviliun.webp" },
+    { title: "Melukis & Mewarnai", badge: "Kreativitas & Estetika", image: "/kegiatan/kegiatan-mewarnai-kupu.webp" },
+    { title: "Permainan Tradisional", badge: "Motorik & Budaya Lokal", image: "/kegiatan/kegiatan-sentra-bahan-alam.webp" }
+  ];
+
+  const ekstraCards = (pEkstra?.features && pEkstra.features.length > 0)
+    ? pEkstra.features.map((f: any, idx: number) => {
+        const def = defaultEkstraFeatures[idx];
+        return {
+          title: f.title || def?.title || "Ekstrakurikuler",
+          badge: f.badge || def?.badge || "Minat & Bakat",
+          image: f.image ? urlFor(f.image).width(400).height(400).format('webp').url() : (def?.image || "/kegiatan/kegiatan-panggung-prestasi.webp")
+        };
+      })
+    : defaultEkstraFeatures;
 
   const defaultFeaturedPrograms = [
     {
@@ -675,41 +695,23 @@ export default async function Home() {
   </div>
   
   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-    {/* Seni Tari */}
-    <Link href="/program/ekstrakurikuler" className="group flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-[#EAF3EF]/60 border border-[#188B48]/10 hover:border-[#188B48]/30 hover:bg-white hover:shadow-md transition-all hover:-translate-y-1">
-      <div className="w-14 h-14 rounded-2xl overflow-hidden mb-3 shadow-sm bg-gray-100">
-        <img src="/kegiatan/kegiatan-panggung-prestasi.webp" alt="Seni Tari Ceria" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-      </div>
-      <p className="font-bold text-sm sm:text-base text-primary group-hover:text-primary transition-colors">Seni Tari</p>
-      <p className="text-xs text-gray-500 mt-0.5">Kinestetik &amp; Percaya Diri</p>
-    </Link>
-
-    {/* Drumband */}
-    <Link href="/program/ekstrakurikuler" className="group flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-[#EAF3EF]/60 border border-[#188B48]/10 hover:border-[#188B48]/30 hover:bg-white hover:shadow-md transition-all hover:-translate-y-1">
-      <div className="w-14 h-14 rounded-2xl overflow-hidden mb-3 shadow-sm bg-gray-100">
-        <img src="/kegiatan/kegiatan-belajar-paviliun.webp" alt="Drumband Cilik" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-      </div>
-      <p className="font-bold text-sm sm:text-base text-primary group-hover:text-primary transition-colors">Drumband Cilik</p>
-      <p className="text-xs text-gray-500 mt-0.5">Musikalitas &amp; Tim</p>
-    </Link>
-
-    {/* Melukis / Kaligrafi */}
-    <Link href="/program/ekstrakurikuler" className="group flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-[#EAF3EF]/60 border border-[#188B48]/10 hover:border-[#188B48]/30 hover:bg-white hover:shadow-md transition-all hover:-translate-y-1">
-      <div className="w-14 h-14 rounded-2xl overflow-hidden mb-3 shadow-sm bg-gray-100">
-        <img src="/kegiatan/kegiatan-mewarnai-kupu.webp" alt="Melukis & Mewarnai" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-      </div>
-      <p className="font-bold text-sm sm:text-base text-primary group-hover:text-primary transition-colors">Melukis &amp; Mewarnai</p>
-      <p className="text-xs text-gray-500 mt-0.5">Kreativitas &amp; Estetika</p>
-    </Link>
-
-    {/* Permainan Tradisional */}
-    <Link href="/program/ekstrakurikuler" className="group flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-[#EAF3EF]/60 border border-[#188B48]/10 hover:border-[#188B48]/30 hover:bg-white hover:shadow-md transition-all hover:-translate-y-1">
-      <div className="w-14 h-14 rounded-2xl overflow-hidden mb-3 shadow-sm bg-gray-100">
-        <img src="/kegiatan/kegiatan-sentra-bahan-alam.webp" alt="Permainan Tradisional" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-      </div>
-      <p className="font-bold text-sm sm:text-base text-primary group-hover:text-primary transition-colors">Permainan Tradisional</p>
-      <p className="text-xs text-gray-500 mt-0.5">Motorik &amp; Budaya Lokal</p>
-    </Link>
+    {ekstraCards.map((card: any, idx: number) => (
+      <Link 
+        key={idx}
+        href="/program/ekstrakurikuler" 
+        className="group flex flex-col items-center text-center p-4 sm:p-5 rounded-2xl bg-[#EAF3EF]/60 border border-[#188B48]/10 hover:border-[#188B48]/30 hover:bg-white hover:shadow-md transition-all hover:-translate-y-1"
+      >
+        <div className="w-14 h-14 rounded-2xl overflow-hidden mb-3 shadow-sm bg-gray-100">
+          <img 
+            src={card.image} 
+            alt={card.title} 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+          />
+        </div>
+        <p className="font-bold text-sm sm:text-base text-primary group-hover:text-primary transition-colors">{card.title}</p>
+        <p className="text-xs text-gray-500 mt-0.5">{card.badge}</p>
+      </Link>
+    ))}
   </div>
 </div>
 </div>
