@@ -17,7 +17,7 @@ export default function TestimonialSection() {
 <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Kebersamaan seluruh ananda murid dan ustadzah RA Hidayah" src="/kegiatan/kegiatan-bersama-sekolah.webp"/>
 <div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-90 flex flex-col justify-end p-6 text-on-primary">
 <span className="font-label-sm text-label-sm text-secondary-fixed font-bold uppercase tracking-wider">Momen Kebersamaan</span>
-<h4 className="font-headline-sm text-headline-sm">Keceriaan Seluruh Santri &amp; Guru</h4>
+<h4 className="font-headline-sm text-headline-sm">Keceriaan Seluruh Ananda &amp; Guru</h4>
 <p className="font-body-sm text-body-sm text-surface-variant">Karya kreatif celup rintang menyatukan ananda dan pendidik.</p>
 </div>
 </div>
@@ -42,7 +42,7 @@ export default function TestimonialSection() {
 <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Pentas kreativitas dan apresiasi seni ananda di panggung" src="/kegiatan/kegiatan-panggung-prestasi.webp"/>
 <div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-80 flex flex-col justify-end p-4 text-on-primary">
 <span className="font-label-sm text-label-sm text-secondary-fixed font-semibold">Unjuk Bakat</span>
-<h5 className="font-label-lg text-label-lg font-bold">Panggung Apresiasi &amp; Kreativitas Santri</h5>
+<h5 className="font-label-lg text-label-lg font-bold">Panggung Apresiasi &amp; Kreativitas Ananda</h5>
 </div>
 </div>
 </div>

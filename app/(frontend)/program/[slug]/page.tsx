@@ -104,7 +104,7 @@ const programsData: Record<string, any> = {
       { img: "/kegiatan/kegiatan-sentra-pasartayu.webp", caption: "Penataan Ruang Sentra Belajar" },
       { img: "/kegiatan/kegiatan-display-sentra.webp", caption: "Eksplorasi Ruang Belajar Terpadu" },
       { img: "/kegiatan/kegiatan-jemuran-karya.webp", caption: "Karya Seni & Eksperimen Mandiri" },
-      { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Prestasi Santri" }
+      { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Prestasi Ananda" }
     ]
   },
   "tahfidz": {
@@ -123,7 +123,7 @@ const programsData: Record<string, any> = {
       { icon: "record_voice_over", title: "Metode Talaqqi Ceria", desc: "Mendengar & Menirukan Bacaan Ustadzah Bersama" },
       { icon: "repeat", title: "Muroja'ah Berirama", desc: "Pengulangan Hafalan Menyenangkan Setiap Pagi" },
       { icon: "menu_book", title: "Makhroj & Tajwid Dasar", desc: "Pelafalan Huruf Hijaiyah Fasih Sejak Dini" },
-      { icon: "star", title: "Buku Prestasi Santri", desc: "Pencatatan & Apresiasi Perkembangan Hafalan" },
+      { icon: "star", title: "Buku Prestasi Ananda", desc: "Pencatatan & Apresiasi Perkembangan Hafalan" },
       { icon: "mosque", title: "Adab Qur'ani", desc: "Pembiasaan Menghormati Al-Qur'an & Berdoa" }
     ],
     gallery: [
@@ -137,11 +137,11 @@ const programsData: Record<string, any> = {
     title: "Bimbingan Tartil Membaca Al-Qur'an Sejak Dini",
     desc: "Pondasi membaca huruf Hijaiyah dan Al-Qur'an secara tartil, fasih, dan menyenangkan dengan metode terstruktur.",
     image: "/kegiatan/kegiatan-sentra-belajar.webp",
-    about: "Program TPQ (Taman Pendidikan Al-Qur'an) PAUD Hidayah membimbing santri cilik mengenal bentuk huruf, tanda baca (harakat), menyambung huruf, hingga mahir membaca Al-Qur'an secara tartil. Dilengkapi pembiasaan ibadah praktis seperti sholat fardhu berjamaah dan wudhu mandiri.",
+    about: "Program TPQ (Taman Pendidikan Al-Qur'an) PAUD Hidayah membimbing ananda mengenal bentuk huruf, tanda baca (harakat), menyambung huruf, hingga mahir membaca Al-Qur'an secara tartil. Dilengkapi pembiasaan ibadah praktis seperti sholat fardhu berjamaah dan wudhu mandiri.",
     goals: [
       "Mengenal huruf Hijaiyah, tanda baca, dan kaidah membaca Al-Qur'an secara bertahap.",
-      "Membimbing santri mampu membaca Al-Qur'an dengan tartil, fasih, dan percaya diri.",
-      "Membekali santri dengan hafalan doa harian, bacaan sholat fardhu, dan praktek ibadah praktis."
+      "Membimbing ananda mampu membaca Al-Qur'an dengan tartil, fasih, dan percaya diri.",
+      "Membekali ananda dengan hafalan doa harian, bacaan sholat fardhu, dan praktek ibadah praktis."
     ],
     featuresTitle: "Fokus Pembelajaran TPQ",
     features: [

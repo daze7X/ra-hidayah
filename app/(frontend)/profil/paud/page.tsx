@@ -148,7 +148,7 @@ export default async function ProfilTK() {
                       <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
                     </div>
                     <h4 className="font-bold text-primary font-label-lg text-xl mb-1">Sekarang</h4>
-                    <p className="text-[14px] text-gray-600 leading-relaxed">Menyelenggarakan pembelajaran berbasis Sentra, APE, dan nilai Islami untuk 180+ santri.</p>
+                    <p className="text-[14px] text-gray-600 leading-relaxed">Menyelenggarakan pembelajaran berbasis Sentra, APE, dan nilai Islami untuk 180+ anak didik.</p>
                   </div>
 
                 </div>
@@ -202,7 +202,7 @@ export default async function ProfilTK() {
           <div className="relative w-full rounded-[36px] overflow-hidden shadow-xl border-4 border-white aspect-[16/9] md:aspect-[21/9] group bg-gray-100">
             <Image
               src="/kegiatan/kegiatan-bersama-sekolah.webp"
-              alt="Kebersamaan Seluruh Santri dan Dewan Guru PAUD Hidayah"
+              alt="Kebersamaan Seluruh Murid dan Dewan Guru PAUD Hidayah"
               fill
               className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
               sizes="(max-width: 1200px) 100vw, 1200px"
@@ -215,7 +215,7 @@ export default async function ProfilTK() {
                   Kebersamaan Sekolah
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
-                  Keluarga Besar Santri &amp; Dewan Guru PAUD Hidayah
+                  Keluarga Besar Murid &amp; Dewan Guru PAUD Hidayah
                 </h3>
               </div>
               <p className="text-white/80 text-sm max-w-md hidden md:block">

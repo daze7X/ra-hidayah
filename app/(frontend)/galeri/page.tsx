@@ -12,7 +12,7 @@ export const metadata = {
 const defaultActivities = [
   {
     _id: "act-1",
-    title: "Kebersamaan Seluruh Santri & Dewan Guru",
+    title: "Kebersamaan Seluruh Ananda & Dewan Guru",
     description: "Seluruh ananda murid dan pendidik PAUD Hidayah berfoto bersama membentangkan karya batik celup rintang penuh warna.",
     imageUrl: "/kegiatan/kegiatan-bersama-sekolah.webp",
   },
@@ -66,7 +66,7 @@ const defaultActivities = [
   },
   {
     _id: "act-10",
-    title: "Pentas Kreasi & Unjuk Bakat Santri",
+    title: "Pentas Kreasi & Unjuk Bakat Ananda",
     description: "Apresiasi panggung kebanggaan ananda menampilkan karya seni celup rintang di hadapan orang tua.",
     imageUrl: "/kegiatan/kegiatan-panggung-prestasi.webp",
   },

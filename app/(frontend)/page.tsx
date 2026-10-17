@@ -154,7 +154,7 @@ export default async function Home() {
           title: "Ekstrakurikuler",
           badge: "Minat & Bakat",
           icon: "star",
-          desc: "Pengembangan bakat dan minat santri secara aktif dan menyenangkan.",
+          desc: "Pengembangan bakat dan minat ananda secara aktif dan menyenangkan.",
           tags: ["Kreatif", "Ceria"]
         };
         return {
@@ -720,11 +720,11 @@ export default async function Home() {
     <div>
       <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#188B48]/10 text-[#188B48] text-xs font-bold mb-2.5">
         <span className="material-symbols-outlined text-[15px]">verified</span>
-        <span>Minat &amp; Bakat Santri</span>
+        <span>Minat &amp; Bakat Ananda</span>
       </div>
       <h3 className="font-headline-md text-2xl sm:text-3xl font-bold text-primary">Ekstrakurikuler Pilihan Ceria</h3>
       <p className="font-body-sm text-sm text-gray-600 mt-1 max-w-2xl leading-relaxed">
-        Menyalurkan potensi kinestetik, musikalitas, dan kreativitas seni santri melalui kegiatan terarah yang aktif dan membahagiakan.
+        Menyalurkan potensi kinestetik, musikalitas, dan kreativitas seni ananda melalui kegiatan terarah yang aktif dan membahagiakan.
       </p>
     </div>
     <Link href="/program/ekstrakurikuler" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline shrink-0 group self-start sm:self-center">
