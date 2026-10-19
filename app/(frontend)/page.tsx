@@ -566,7 +566,7 @@ export default async function Home() {
       <img 
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
         alt="Kelompok Toddler PAUD Hidayah bermain ceria" 
-        src={pToddler?.image ? urlFor(pToddler.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-playgroup-lingkaran.webp"}
+        src={pToddler?.image ? urlFor(pToddler.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-jenjang-toddler.webp"}
       />
       <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
         {pToddler?.badge || "Usia 1,5–3 Tahun"}
@@ -605,7 +605,7 @@ export default async function Home() {
       <img 
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
         alt="Kelompok Bermain KB PAUD Hidayah" 
-        src={pKb?.image ? urlFor(pKb.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-sentra-belajar.webp"}
+        src={pKb?.image ? urlFor(pKb.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-jenjang-kb.webp"}
       />
       <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
         {pKb?.badge || "Usia 3–4 Tahun"}
@@ -644,7 +644,7 @@ export default async function Home() {
       <img 
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
         alt="Kelompok RA-A PAUD Hidayah" 
-        src={pRaA?.image ? urlFor(pRaA.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-mewarnai-kupu.webp"}
+        src={pRaA?.image ? urlFor(pRaA.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-jenjang-ra-a.webp"}
       />
       <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
         {pRaA?.badge || "Usia 4–5 Tahun"}
@@ -683,7 +683,7 @@ export default async function Home() {
       <img 
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
         alt="Kelompok RA-B PAUD Hidayah wisuda" 
-        src={pRaB?.image ? urlFor(pRaB.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-wisuda-prestasi.webp"}
+        src={pRaB?.image ? urlFor(pRaB.image).width(600).height(400).format('webp').url() : "/kegiatan/kegiatan-jenjang-ra-b.webp"}
       />
       <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-xs px-3 py-1.5 rounded-full font-bold shadow">
         {pRaB?.badge || "Usia 5–6 Tahun"}

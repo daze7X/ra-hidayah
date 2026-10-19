@@ -11,28 +11,28 @@ const fallbackPrograms = [
     badge: "Usia 1,5 - 3 Tahun",
     title: "Toddler",
     shortDesc: "Mendukung perkembangan sensorik, motorik, komunikasi awal, dan ikatan emosional melalui stimulasi yang sesuai usia, permainan sederhana, sekaligus melatih kemandirian dalam kegiatan sehari-hari.",
-    image: "/kegiatan/kegiatan-playgroup-lingkaran.webp",
+    image: "/kegiatan/kegiatan-jenjang-toddler.webp",
   },
   {
     slug: "kb",
     badge: "Usia 3 - 4 Tahun",
     title: "Kelompok Bermain (KB)",
     shortDesc: "Mengembangkan kemampuan berbahasa, motorik, kreativitas, sosial-emosional, dan berpikir sederhana melalui bermain, berkarya, serta pembiasaan adab dan kemandirian.",
-    image: "/kegiatan/kegiatan-sentra-belajar.webp",
+    image: "/kegiatan/kegiatan-jenjang-kb.webp",
   },
   {
     slug: "ra-a",
     badge: "Usia 4 - 5 Tahun",
     title: "RA A",
     shortDesc: "Mengembangkan kemampuan bahasa, literasi awal, numerasi dasar, kreativitas, pemecahan masalah sederhana, dan kerja sama melalui pembelajaran berbasis sentra serta pembiasaan nilai-nilai Islami.",
-    image: "/kegiatan/kegiatan-mewarnai-kupu.webp",
+    image: "/kegiatan/kegiatan-jenjang-ra-a.webp",
   },
   {
     slug: "ra-b",
     badge: "Usia 5 - 6 Tahun",
     title: "RA B",
     shortDesc: "Mempersiapkan ananda melangkah ke jenjang sekolah dasar dengan menguatkan karakter Islami, kemandirian, kemampuan berpikir, literasi numerasi, bahasa, dan keterampilan sosial.",
-    image: "/kegiatan/kegiatan-wisuda-prestasi.webp",
+    image: "/kegiatan/kegiatan-jenjang-ra-b.webp",
   },
   {
     slug: "tahfidz",
@@ -46,7 +46,7 @@ const fallbackPrograms = [
     badge: "Metode Qiro'ati",
     title: "TPQ PAUD",
     shortDesc: "Pondasi membaca Al-Qur'an metode Qiro'ati tartil, makhroj fasih, pengenalan hijaiyah, dan praktek ibadah praktis sejak dini.",
-    image: "/kegiatan/kegiatan-display-sentra.webp",
+    image: "/kegiatan/kegiatan-jenjang-tpq.webp",
   },
 ];
 

@@ -10,7 +10,7 @@ const programsData: Record<string, any> = {
     badge: "Toddler (Usia 1,5–3 Tahun)",
     title: "Ruang Tumbuh & Eksplorasi Sensori Balita",
     desc: "Menstimulasi panca indra, motorik halus, dan kemandirian awal balita dalam lingkungan yang aman, hangat, dan penuh kasih sayang.",
-    image: "/kegiatan/kegiatan-playgroup-lingkaran.webp",
+    image: "/kegiatan/kegiatan-jenjang-toddler.webp",
     about: "Program Toddler di PAUD Hidayah dirancang khusus untuk memfasilitasi masa keemasan (golden age) usia 1,5 hingga 3 tahun. Melalui pendekatan bermain aktif dan stimulasi multisensorik, anak belajar mengenal dunia sekitarnya dengan bahagia dan percaya diri.",
     goals: [
       "Mengembangkan kemampuan sensorik dan motorik halus melalui ragam permainan edukatif (APE).",
@@ -26,7 +26,7 @@ const programsData: Record<string, any> = {
       { icon: "sentiment_satisfied", title: "Bahasa & Ritme", desc: "Kosakata Awal & Senandung Lagu" }
     ],
     gallery: [
-      { img: "/kegiatan/kegiatan-playgroup-lingkaran.webp", caption: "Bernyanyi & Melingkar Ceria" },
+      { img: "/kegiatan/kegiatan-jenjang-toddler.webp", caption: "Bermain Sensorik & Eksplorasi Bersama" },
       { img: "/kegiatan/kegiatan-sentra-bahan-alam.webp", caption: "Bermain Sensorik Bahan Alam" },
       { img: "/kegiatan/kegiatan-candid-ibu-anak.webp", caption: "Mewarnai & Berkreasi Bersama" }
     ]
@@ -35,7 +35,7 @@ const programsData: Record<string, any> = {
     badge: "Kelompok Bermain / KB (Usia 3–4 Tahun)",
     title: "Dunia Pertama untuk Belajar dan Bermain",
     desc: "Ruang aman dan menyenangkan bagi anak usia 3–4 tahun untuk mengenal lingkungan, bermain peran, dan membangun kemandirian.",
-    image: "/kegiatan/kegiatan-sentra-belajar.webp",
+    image: "/kegiatan/kegiatan-jenjang-kb.webp",
     about: "Program Kelompok Bermain (KB) di PAUD Hidayah dirancang khusus untuk membantu anak beradaptasi dengan lingkungan sekolah. Kami mengutamakan stimulasi bermain yang mengasah sensorik, motorik, dan kemampuan bergaul secara natural.",
     goals: [
       "Membantu anak merasa aman dan nyaman di lingkungan baru.",
@@ -51,8 +51,8 @@ const programsData: Record<string, any> = {
       { icon: "mosque", title: "Adab Cilik", desc: "Doa Harian & Praktik 5S" }
     ],
     gallery: [
+      { img: "/kegiatan/kegiatan-jenjang-kb.webp", caption: "Aktivitas Belajar & Bermain Ceria" },
       { img: "/kegiatan/kegiatan-sentra-bahan-alam.webp", caption: "Bermain Sensorik & Bahan Alam" },
-      { img: "/kegiatan/kegiatan-playgroup-lingkaran.webp", caption: "Bernyanyi & Bercerita Melingkar" },
       { img: "/kegiatan/kegiatan-candid-ibu-anak.webp", caption: "Mewarnai & Berkarya Bersama Bunda" }
     ]
   },
@@ -60,7 +60,7 @@ const programsData: Record<string, any> = {
     badge: "RA-A (Usia 4–5 Tahun)",
     title: "Mengenal, Bereksplorasi, dan Membangun Karakter",
     desc: "Program pembelajaran untuk anak usia 4–5 tahun melalui kegiatan sentra bermain, eksplorasi, dan pembiasaan adab Islami yang menyenangkan.",
-    image: "/kegiatan/kegiatan-sentra-belajar.webp",
+    image: "/kegiatan/kegiatan-jenjang-ra-a.webp",
     about: "Di usia 4-5 tahun, anak mulai mengenal lingkungan dengan lebih luas. Program RA-A dirancang untuk mengembangkan potensi dasar anak, membangun kemandirian, serta menumbuhkan rasa percaya diri dalam suasana yang hangat dan menyenangkan.",
     goals: [
       "Mengembangkan kemampuan dasar kognitif, bahasa, sosial, dan motorik.",
@@ -76,8 +76,8 @@ const programsData: Record<string, any> = {
       { icon: "mosque", title: "Karakter & Qur'an", desc: "Tahfidz Juz 'Amma & Adab Sunnah" }
     ],
     gallery: [
+      { img: "/kegiatan/kegiatan-jenjang-ra-a.webp", caption: "Kegiatan Belajar & Kreativitas RA A" },
       { img: "/kegiatan/kegiatan-sentra-pasartayu.webp", caption: "Belajar Melalui Bermain di Sentra" },
-      { img: "/kegiatan/kegiatan-mewarnai-kupu.webp", caption: "Kegiatan Seni & Kreativitas" },
       { img: "/kegiatan/kegiatan-belajar-paviliun.webp", caption: "Belajar Mandiri di Pendopo" }
     ]
   },
@@ -85,7 +85,7 @@ const programsData: Record<string, any> = {
     badge: "RA-B (Usia 5–6 Tahun)",
     title: "Kesiapan Menuju Jenjang Sekolah Dasar Unggul",
     desc: "Mendampingi anak usia 5–6 tahun mengembangkan literasi-numerasi kontekstual, pemantapan tahfidz, dan kemandirian sebagai bekal menuju jenjang SD.",
-    image: "/kegiatan/kegiatan-mewarnai-kupu.webp",
+    image: "/kegiatan/kegiatan-jenjang-ra-b.webp",
     about: "Di tahap ini, anak semakin aktif, ingin tahu, dan siap mengembangkan berbagai keterampilan. Program RA-B difokuskan pada penguatan literasi fungsional, numerasi kontekstual, kemandirian, serta pembentukan karakter Islami yang kokoh.",
     goals: [
       "Meningkatkan kemampuan literasi baca tulis dan numerasi dasar secara menyenangkan.",
@@ -101,9 +101,9 @@ const programsData: Record<string, any> = {
       { icon: "mood", title: "Sosial & Emosional", desc: "Empati, Berbagi & Kepemimpinan" }
     ],
     gallery: [
+      { img: "/kegiatan/kegiatan-jenjang-ra-b.webp", caption: "Suasana Belajar Mandiri RA B" },
       { img: "/kegiatan/kegiatan-sentra-pasartayu.webp", caption: "Penataan Ruang Sentra Belajar" },
       { img: "/kegiatan/kegiatan-display-sentra.webp", caption: "Eksplorasi Ruang Belajar Terpadu" },
-      { img: "/kegiatan/kegiatan-jemuran-karya.webp", caption: "Karya Seni & Eksperimen Mandiri" },
       { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Prestasi Ananda" }
     ]
   },
@@ -136,7 +136,7 @@ const programsData: Record<string, any> = {
     badge: "Taman Pendidikan Al-Qur'an (TPQ)",
     title: "Bimbingan Tartil Membaca Al-Qur'an Sejak Dini",
     desc: "Pondasi membaca huruf Hijaiyah dan Al-Qur'an secara tartil, fasih, dan menyenangkan dengan metode terstruktur.",
-    image: "/kegiatan/kegiatan-sentra-belajar.webp",
+    image: "/kegiatan/kegiatan-jenjang-tpq.webp",
     about: "Program TPQ (Taman Pendidikan Al-Qur'an) PAUD Hidayah membimbing ananda mengenal bentuk huruf, tanda baca (harakat), menyambung huruf, hingga mahir membaca Al-Qur'an secara tartil. Dilengkapi pembiasaan ibadah praktis seperti sholat fardhu berjamaah dan wudhu mandiri.",
     goals: [
       "Mengenal huruf Hijaiyah, tanda baca, dan kaidah membaca Al-Qur'an secara bertahap.",
@@ -152,9 +152,9 @@ const programsData: Record<string, any> = {
       { icon: "emoji_events", title: "Ujian Kenaikan Jilid", desc: "Evaluasi Berkala Menuju Khatam Al-Qur'an" }
     ],
     gallery: [
-      { img: "/kegiatan/kegiatan-sentra-belajar.webp", caption: "Bimbingan Membaca Al-Qur'an Mandiri" },
+      { img: "/kegiatan/kegiatan-jenjang-tpq.webp", caption: "Bimbingan Membaca Al-Qur'an Mandiri" },
       { img: "/kegiatan/kegiatan-display-sentra.webp", caption: "Media Belajar Huruf Hijaiyah Interaktif" },
-      { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Santri Berprestasi Khataman" }
+      { img: "/kegiatan/kegiatan-wisuda-prestasi.webp", caption: "Apresiasi Ananda Berprestasi Khataman" }
     ]
   },
   "ekstrakurikuler": {
@@ -174,7 +174,7 @@ const programsData: Record<string, any> = {
         icon: "music_note", 
         title: "Seni Tari Ceria", 
         badge: "Olah Gerak & Seni",
-        image: "/kegiatan/kegiatan-panggung-prestasi.webp",
+        image: "/kegiatan/kegiatan-ekstra-menari.webp",
         desc: "Mengenalkan ragam gerak tari kreasi anak nusantara. Melatih kelenturan tubuh, irama gerak, dan membangun keberanian tampil di panggung pentas seni sekolah.",
         tags: ["Tari Kreasi Nusantara", "Percaya Diri Tampil", "Kelenturan Tubuh"]
       },
@@ -190,7 +190,7 @@ const programsData: Record<string, any> = {
         icon: "brush", 
         title: "Melukis & Mewarnai", 
         badge: "Kreativitas & Estetika",
-        image: "/kegiatan/kegiatan-mewarnai-kupu.webp",
+        image: "/kegiatan/kegiatan-ekstra-mewarnai.webp",
         desc: "Menyalurkan imajinasi visual melalui aneka media: krayon, kuas cat air, hingga kreasi kain batik jumputan. Menguatkan motorik halus dan koordinasi jemari tangan.",
         tags: ["Eksplorasi Warna", "Kekuatan Jemari", "Pameran Karya"]
       },
@@ -204,9 +204,9 @@ const programsData: Record<string, any> = {
       }
     ],
     gallery: [
-      { img: "/kegiatan/kegiatan-panggung-prestasi.webp", caption: "Pentas Seni & Kreasi Panggung" },
-      { img: "/kegiatan/kegiatan-market-day.webp", caption: "Market Day & Kewirausahaan Cilik" },
-      { img: "/kegiatan/kegiatan-parenting-batik.webp", caption: "Workshop Membatik Bersama" }
+      { img: "/kegiatan/kegiatan-ekstra-menari.webp", caption: "Latihan Pentas Tari Seni Kreasi" },
+      { img: "/kegiatan/kegiatan-ekstra-mewarnai.webp", caption: "Eksplorasi Minat Mewarnai & Melukis" },
+      { img: "/kegiatan/kegiatan-ekstra-mewarnai-2.webp", caption: "Kreativitas Warna Ananda" }
     ]
   }
 };

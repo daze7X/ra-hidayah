@@ -19,7 +19,7 @@ export default function ProgramsSection() {
 {/* Program 1: Playgroup */}
 <div className="bg-surface-container-lowest rounded-[32px] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
 <div className="relative h-48 overflow-hidden bg-secondary-fixed/30">
-<img className="w-full h-full object-cover" alt="Anak-anak Kelompok Bermain RA Hidayah belajar dan bernyanyi melingkar bersama guru" src="/kegiatan/kegiatan-playgroup-lingkaran.webp"/>
+<img className="w-full h-full object-cover" alt="Anak-anak Kelompok Bermain RA Hidayah belajar dan bernyanyi melingkar bersama guru" src="/kegiatan/kegiatan-jenjang-kb.webp"/>
 <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
               Usia 3 - 4 Tahun
             </div>
@@ -60,7 +60,7 @@ export default function ProgramsSection() {
             Paling Diminati
           </div>
 <div className="relative h-48 overflow-hidden bg-primary-fixed/30">
-<img className="w-full h-full object-cover" alt="Suasana belajar aktif ananda TK A di kelas sentra RA Hidayah" src="/kegiatan/kegiatan-sentra-belajar.webp"/>
+<img className="w-full h-full object-cover" alt="Suasana belajar aktif ananda TK A di kelas sentra RA Hidayah" src="/kegiatan/kegiatan-jenjang-ra-a.webp"/>
 <div className="absolute top-4 right-4 bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
               Usia 4 - 5 Tahun
             </div>
@@ -98,7 +98,7 @@ export default function ProgramsSection() {
 {/* Program 3: TK B */}
 <div className="bg-surface-container-lowest rounded-[32px] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
 <div className="relative h-48 overflow-hidden bg-secondary-fixed/30">
-<img className="w-full h-full object-cover" alt="Murid-murid RA Hidayah asyik berkreasi dan mewarnai bersama ustadzah" src="/kegiatan/kegiatan-mewarnai-kupu.webp"/>
+<img className="w-full h-full object-cover" alt="Murid-murid RA Hidayah asyik berkreasi dan mewarnai bersama ustadzah" src="/kegiatan/kegiatan-jenjang-ra-b.webp"/>
 <div className="absolute top-4 right-4 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1.5 rounded-full font-bold shadow">
               Usia 5 - 6 Tahun
             </div>
