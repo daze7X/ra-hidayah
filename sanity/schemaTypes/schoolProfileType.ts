@@ -87,6 +87,15 @@ export const schoolProfileType = defineType({
       description: 'Teks pengantar di bawah judul bagian Tentang PAUD Hidayah',
     }),
     defineField({
+      name: 'heroImage',
+      title: 'Foto Hero Profil PAUD (Kubah Mihrab)',
+      type: 'image',
+      description: 'Foto kegiatan ananda pada bingkai kubah lengkung di bagian atas Halaman Profil PAUD (/profil/paud).',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'motto',
       title: 'Motto Sekolah',
       type: 'string',

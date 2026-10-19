@@ -13,11 +13,15 @@ export default async function Home() {
       openHours,
       accreditation,
       showAdmissionBanner,
-      admissionStatus
+      admissionStatus,
+      heroImage
     }`,
     {},
     { next: { revalidate: 0 } }
   );
+  const heroBackground = siteSettings?.heroImage
+    ? urlFor(siteSettings.heroImage).width(1920).height(1080).format('webp').url()
+    : "/gedung-tk.jpg";
   const settingsPhone = siteSettings?.phone || "0851 8740 9266";
   const showBanner = siteSettings?.showAdmissionBanner !== false;
   const bannerText = siteSettings?.admissionStatus?.trim() || "Penerimaan Murid Baru TA 2026/2027";
@@ -378,7 +382,7 @@ export default async function Home() {
 <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
   {/* Background Building Image with Dark/Green Overlay */}
   <div className="absolute inset-0 z-0">
-    <img src="/gedung-tk.jpg" className="w-full h-full object-cover object-center md:object-[center_30%]" alt="Gedung PAUD Hidayah Tayu" />
+    <img src={heroBackground} className="w-full h-full object-cover object-center md:object-[center_30%]" alt="Gedung PAUD Hidayah Tayu" />
     <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/95 via-[var(--color-primary)]/75 to-[var(--color-primary)]/20"></div>
   </div>
 

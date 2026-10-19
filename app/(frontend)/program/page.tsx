@@ -61,7 +61,13 @@ async function getSanityPrograms() {
 }
 
 export default async function ProgramLandingPage() {
-  const sanityPrograms = await getSanityPrograms();
+  const [sanityPrograms, siteSettings] = await Promise.all([
+    getSanityPrograms(),
+    client.fetch(`*[_type == "siteSettings"][0]{ programHeroImage }`, {}, { next: { revalidate: 0 } })
+  ]);
+  const heroImage = siteSettings?.programHeroImage
+    ? urlFor(siteSettings.programHeroImage).width(800).height(600).format('webp').url()
+    : "/kegiatan/kegiatan-bersama-sekolah.webp";
   const sanityRegular = sanityPrograms.filter((p: any) => p.slug?.current !== "ekstrakurikuler" && p._id !== "program-ekstrakurikuler");
   const sanityEkstra = sanityPrograms.find((p: any) => p.slug?.current === "ekstrakurikuler" || p._id === "program-ekstrakurikuler");
 
@@ -134,7 +140,7 @@ export default async function ProgramLandingPage() {
              <div className="absolute top-4 -right-4 w-[90%] aspect-[4/3] bg-[#FCD116] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] -z-10 blur-sm opacity-80"></div>
              
              <div className="relative w-full max-w-[500px] aspect-[4/3] rounded-[30%_70%_50%_50%/50%_40%_60%_50%] overflow-hidden shadow-2xl border-[6px] border-white">
-               <img src="/kegiatan/kegiatan-bersama-sekolah.webp" alt="Anak-anak dan guru PAUD Hidayah" 
+               <img src={heroImage} alt="Anak-anak dan guru PAUD Hidayah" 
                  className="w-full h-full object-cover"
                />
              </div>

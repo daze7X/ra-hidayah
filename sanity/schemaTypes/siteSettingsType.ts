@@ -69,6 +69,24 @@ export const siteSettingsType = defineType({
       title: 'Status Penerimaan Siswa Baru / Teks Pengumuman',
       type: 'string',
       description: 'Teks pengumuman PPDB (contoh: Penerimaan Peserta Didik Baru (PPDB) 2025/2026). Tampil di badge hero atas dan banner bawah saat sakelar di atas dalam posisi ON.',
-    })
+    }),
+    defineField({
+      name: 'heroImage',
+      title: 'Foto Latar Hero Beranda Utama',
+      type: 'image',
+      description: 'Foto latar belakang gedung atau suasana sekolah pada bagian Hero Beranda utama (format landscape disarankan).',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'programHeroImage',
+      title: 'Foto Hero Halaman Program (/program)',
+      type: 'image',
+      description: 'Foto kegiatan ananda pada bingkai kurva di samping teks Hero Halaman Program Utama (/program).',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
 })

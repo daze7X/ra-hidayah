@@ -1,11 +1,14 @@
 import { client } from "../../../../sanity/lib/client";
+import { urlFor } from "../../../../sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+
+export const revalidate = 0;
 
 // Fetch data from Sanity
 async function getProfileData() {
   const profileQuery = `*[_type == "schoolProfile"][0]`;
-  const profile = await client.fetch(profileQuery);
+  const profile = await client.fetch(profileQuery, {}, { next: { revalidate: 0 } });
   return profile;
 }
 
@@ -20,6 +23,10 @@ export default async function ProfilTK() {
       </main>
     );
   }
+
+  const heroImage = profile?.heroImage 
+    ? urlFor(profile.heroImage).width(800).height(1000).format('webp').url() 
+    : "/kegiatan/kegiatan-sentra-belajar.webp";
 
   return (
     <main className="w-full bg-surface min-h-screen">
@@ -68,7 +75,7 @@ export default async function ProfilTK() {
               <div className="relative w-full aspect-[4/5] rounded-t-[160px] rounded-b-[40px] overflow-hidden shadow-2xl border-4 border-surface-container-lowest bg-surface">
                 {/* Fallback image placeholder (You can change this src to any real image) */}
                 <Image 
-                  src="/kegiatan/kegiatan-sentra-belajar.webp" 
+                  src={heroImage} 
                   alt="Anak-anak PAUD Hidayah" 
                   fill 
                   className="object-cover hover:scale-105 transition-transform duration-700" 
