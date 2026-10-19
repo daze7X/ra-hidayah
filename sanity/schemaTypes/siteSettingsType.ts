@@ -62,22 +62,6 @@ export const siteSettingsType = defineType({
       description: 'Jadwal belajar sekolah (bisa gunakan tombol Enter untuk baris baru)',
     }),
     defineField({
-      name: 'showAdmissionBanner',
-      title: 'Tampilkan Banner Pengumuman PPDB',
-      type: 'boolean',
-      description: 'Aktifkan (ON) untuk menampilkan badge pengumuman PPDB di hero atas dan banner bawah, matikan (OFF) untuk menyembunyikannya.',
-      initialValue: false,
-      options: {
-        layout: 'switch',
-      },
-    }),
-    defineField({
-      name: 'admissionStatus',
-      title: 'Status Penerimaan Siswa Baru / Teks Pengumuman',
-      type: 'string',
-      description: 'Teks pengumuman PPDB (contoh: Penerimaan Peserta Didik Baru (PPDB) 2025/2026). Tampil di badge hero atas dan banner bawah saat sakelar di atas dalam posisi ON.',
-    }),
-    defineField({
       name: 'heroImage',
       title: 'Foto Latar Hero Beranda Utama',
       type: 'image',

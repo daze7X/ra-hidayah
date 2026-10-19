@@ -12,8 +12,6 @@ export default async function Home() {
       address,
       openHours,
       accreditation,
-      showAdmissionBanner,
-      admissionStatus,
       heroImage,
       learningApproachBadge,
       learningApproachTitle,
@@ -26,8 +24,6 @@ export default async function Home() {
     ? urlFor(siteSettings.heroImage).width(1920).height(1080).format('webp').url()
     : "/gedung-tk.jpg";
   const settingsPhone = siteSettings?.phone || "0851 8740 9266";
-  const showBanner = siteSettings?.showAdmissionBanner !== false;
-  const bannerText = siteSettings?.admissionStatus?.trim() || "Penerimaan Murid Baru TA 2026/2027";
   const learningBadge = siteSettings?.learningApproachBadge?.trim() || "Pendekatan Belajar";
   const learningTitle = siteSettings?.learningApproachTitle?.trim() || "Membangun Karakter, Mengembangkan Potensi";
   const learningSubtitle = siteSettings?.learningApproachSubtitle?.trim() || "PAUD Hidayah menghadirkan pembelajaran Islami yang aktif, kreatif, dan menyenangkan untuk membentuk anak yang cerdas, ceria, mandiri, dan berakhlakul karimah.";
@@ -407,14 +403,6 @@ export default async function Home() {
 
   <div className="max-w-[1200px] w-full mx-auto px-6 relative z-10 pt-28 pb-12 md:pt-32 md:pb-16">
     <div className="max-w-2xl text-white">
-      {showBanner && (
-        <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--color-secondary)] shadow-sm mb-6">
-        <span className="flex h-2.5 w-2.5 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
-        <span className="font-bold text-[12px] uppercase tracking-wider text-[var(--color-primary)]">
-          {bannerText}
-        </span>
-        </div>
-      )}
       <h1 className="text-4xl md:text-5xl lg:text-6xl md:leading-tight font-bold leading-[1.15] mb-6">
         Membentuk Generasi yang <span className="text-[var(--color-secondary)] drop-shadow-md">Berkarakter Islami</span>, Cerdas, Ceria &amp; Mandiri
       </h1>
@@ -1097,12 +1085,6 @@ export default async function Home() {
 <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"></div>
 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 <div className="lg:col-span-7 flex flex-col items-start space-y-4">
-{showBanner && (
-<div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold shadow">
-<span className="material-symbols-outlined text-[16px]">celebration</span>
-<span>{bannerText}</span>
-</div>
-)}
 <h2 className="font-headline-lg text-headline-lg lg:text-[40px] lg:leading-[48px] font-bold text-on-primary">
   Awal Ceria, Langkah Bermakna Bersama PAUD Hidayah
 </h2>
