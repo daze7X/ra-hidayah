@@ -25,7 +25,7 @@ async function getFasilitasData() {
     title: item.title,
     description: item.description,
     icon: item.icon,
-    imageUrl: item.image ? urlFor(item.image).url() : '/gedung-tk.jpg',
+    imageUrl: item.image ? urlFor(item.image).url() : '/fasilitas/gedung-paud_foto-gedung.webp',
   }));
 }
 
@@ -33,24 +33,38 @@ async function getFasilitasData() {
 const fallbackData = [
   {
     _id: "fb1",
-    title: "Ruang Kelas Nyaman",
-    description: "Belajar nyaman, anak lebih bersemangat. Ruang kelas yang bersih, aman, dan nyaman, dirancang khusus untuk mendukung kegiatan belajar sambil bermain. Dilengkapi dengan AC dan TV sebagai media pembelajaran interaktif yang menyenangkan.",
-    icon: "meeting_room",
-    imageUrl: "/gedung-tk.jpg"
+    title: "Gedung Sekolah & Halaman Asri",
+    description: "Gedung sekolah PAUD Hidayah yang representatif, bersih, asri, dan berpagar aman keliling. Dilengkapi area halaman terbuka yang lapang untuk kegiatan upacara ceria, senam pagi, dan aktivitas fisik ananda.",
+    icon: "apartment",
+    imageUrl: "/fasilitas/gedung-paud_foto-gedung.webp"
   },
   {
     _id: "fb2",
-    title: "Area Bermain Indoor & Outdoor",
-    description: "Aktif bergerak, bebas bereksplorasi. Area bermain di dalam dan luar ruangan yang menyenangkan untuk melatih motorik kasar dan halus, mengembangkan kemampuan bersosialisasi, serta mendorong anak bereksplorasi dan belajar melalui pengalaman langsung.",
-    icon: "sports_handball",
-    imageUrl: "/gedung-tk.jpg"
+    title: "Ruang Kelas & Sentra Belajar",
+    description: "Ruang kelas berkarpet bersih, sejuk, dan tertata rapi dengan rak-rak stimulasi tematik serta pencahayaan alami yang melimpah. Dirancang khusus untuk mendukung model pembelajaran sentra yang aktif dan membahagiakan ananda.",
+    icon: "meeting_room",
+    imageUrl: "/fasilitas/ruang-kelas_img_9650.webp"
   },
   {
     _id: "fb3",
-    title: "Alat Permainan Edukatif (APE)",
-    description: "Bermain seru, potensi anak berkembang. Beragam alat permainan edukatif yang menarik untuk menstimulasi kecerdasan majemuk, kreativitas, kemampuan berpikir, serta keterampilan motorik anak melalui kegiatan bermain yang bermakna.",
-    icon: "extension",
-    imageUrl: "/gedung-tk.jpg"
+    title: "Area Permainan Outdoor Ceria",
+    description: "Wahana bermain luar ruangan yang luas, aman, dan menyenangkan dengan ayunan, perosotan, jungkat-jungkit, dan area eksplorasi fisik. Mendukung perkembangan motorik kasar, kelincahan, dan sosialisasi ananda.",
+    icon: "park",
+    imageUrl: "/fasilitas/permainan-outdoor_img_7963.webp"
+  },
+  {
+    _id: "fb4",
+    title: "Alat Permainan Edukatif (APE) Lengkap",
+    description: "Koleksi ragam alat permainan edukatif berstandar ramah anak seperti balok susun, puzzle logika, maze geometri, dan media sensorik motorik untuk menstimulasi kecerdasan kognitif, daya cipta, serta kreativitas ananda.",
+    icon: "toys",
+    imageUrl: "/fasilitas/ape_0d736e33-995e-44ab-97d7-3c889d01a2b9.webp"
+  },
+  {
+    _id: "fb5",
+    title: "Toilet Ramah Anak & Higienis",
+    description: "Fasilitas sanitasi yang bersih, terawat, dan berukuran ramah balita untuk melatih kemandirian toilet training (kebiasaan bersih) serta adab bersuci secara Islami sejak dini.",
+    icon: "wc",
+    imageUrl: "/fasilitas/toilet_img_7978.webp"
   }
 ];
 
