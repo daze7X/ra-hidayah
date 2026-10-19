@@ -146,31 +146,65 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
 
-      // 5. Profil & Sambutan (Folder 2 Sub-Menu)
+      // 5. Tentang & Sambutan (Folder dengan 2 Sub-Menu: Tentang & Sambutan)
       S.listItem()
-        .title('Profil & Sambutan')
+        .title('Tentang & Sambutan')
         .child(
           S.list()
-            .title('Kelola Profil & Sambutan')
+            .title('Kelola Tentang & Sambutan')
             .items([
-              // Sub-menu 1: Sambutan Beranda
+              // Sub-folder 1: Tentang (Profil Lembaga)
               S.listItem()
-                .title('🌟 Sambutan Kepala Sekolah (Beranda)')
+                .title('Profil & Tentang Lembaga')
                 .child(
-                  S.document()
-                    .schemaType('principalWelcome')
-                    .documentId('principalWelcome')
-                    .title('Sambutan Kepala Sekolah (Tampil di Beranda)')
+                  S.list()
+                    .title('Pilih Lembaga / Unit')
+                    .items([
+                      S.listItem()
+                        .title('🏛️ Yayasan Hidayah (/profil/yayasan)')
+                        .child(
+                          S.document()
+                            .schemaType('institutionProfile')
+                            .documentId('profile-yayasan')
+                            .title('Profil & Sejarah Yayasan Hidayah')
+                        ),
+                      S.listItem()
+                        .title('🌱 PAUD Hidayah (/profil/paud)')
+                        .child(
+                          S.document()
+                            .schemaType('institutionProfile')
+                            .documentId('profile-paud')
+                            .title('Profil, Visi, Misi & Sejarah PAUD Hidayah')
+                        ),
+                      S.listItem()
+                        .title('🎒 SD Hidayah (/profil/sd)')
+                        .child(
+                          S.document()
+                            .schemaType('institutionProfile')
+                            .documentId('profile-sd')
+                            .title('Profil, Visi, Misi & Sejarah SD Islam Hidayah')
+                        ),
+                    ])
                 ),
+
               S.divider(),
-              // Sub-menu 2: Profil & Visi Misi
+
+              // Sub-folder 2: Sambutan
               S.listItem()
-                .title('🏛️ Profil, Visi & Misi (Halaman Tentang)')
+                .title('Sambutan')
                 .child(
-                  S.document()
-                    .schemaType('schoolProfile')
-                    .documentId('schoolProfile-main')
-                    .title('Profil, Visi, Misi & Sejarah PAUD (/profil/paud)')
+                  S.list()
+                    .title('Kelola Sambutan')
+                    .items([
+                      S.listItem()
+                        .title('🌟 Sambutan Kepala Sekolah (Beranda)')
+                        .child(
+                          S.document()
+                            .schemaType('principalWelcome')
+                            .documentId('principalWelcome')
+                            .title('Sambutan Kepala Sekolah (Tampil di Beranda)')
+                        ),
+                    ])
                 ),
             ])
         ),

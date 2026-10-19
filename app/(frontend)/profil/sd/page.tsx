@@ -1,5 +1,10 @@
 import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "@portabletext/react";
+import Image from "next/image";
 import Link from "next/link";
+
+export const revalidate = 0;
 
 export const metadata = {
   title: "Profil & Sejarah SD Islam Hidayah Tayu - Yayasan Hidayah",
@@ -14,11 +19,106 @@ async function getSettings() {
   }
 }
 
+async function getSDData() {
+  try {
+    return await client.fetch(`*[_type == "institutionProfile" && institution == "sd"][0]`, {}, { next: { revalidate: 0 } });
+  } catch (error) {
+    return null;
+  }
+}
+
 export default async function ProfilSDPage() {
-  const settings = await getSettings();
+  const [settings, profile] = await Promise.all([
+    getSettings(),
+    getSDData(),
+  ]);
+
   const rawPhone = settings?.phone || "0851 8740 9266";
   let waPhone = rawPhone.replace(/\D/g, "");
   if (waPhone.startsWith("0")) waPhone = "62" + waPhone.slice(1);
+
+  const heroBadge = profile?.heroBadge || "Lembaga Pendidikan Dasar Swasta";
+  const heroTitle = profile?.heroTitle || "SD Islam Hidayah";
+  const heroTitleHighlight = profile?.heroTitleHighlight || "Tayu";
+  const heroSubtitle = profile?.heroSubtitle || "Lembaga pendidikan dasar yang mengintegrasikan nilai-nilai keislaman, pengembangan ilmu pengetahuan, keterampilan abad 21, dan budaya peduli lingkungan hidup di bawah naungan Yayasan Hidayah.";
+  
+  const heroPills = profile?.heroPills && profile.heroPills.length > 0
+    ? profile.heroPills
+    : ["✦ Adiwiyata Nasional 2025", "✦ TPQ Qiroati & Tahfiz", "✦ Sekolah Ramah Anak"];
+
+  const snapshot = {
+    npsn: profile?.identitySnapshot?.npsn || "69880234",
+    schoolStatus: profile?.identitySnapshot?.schoolStatus || "Swasta (Yayasan Hidayah)",
+    establishedDate: profile?.identitySnapshot?.establishedDate || "14 Juni 2014",
+    principalName: profile?.identitySnapshot?.principalName || "Sri Surami Widyastuti, S.Pd.",
+    location: profile?.identitySnapshot?.location || "Tayu Kulon RT 03/RW 04, Pati",
+    websiteUrl: profile?.identitySnapshot?.websiteUrl || "https://sdipkhidayah.com",
+  };
+
+  const vision = profile?.vision || "Mewujudkan Generasi Islami yang Berakhlakul Karimah, Cerdas, Kreatif, dan Peduli Lingkungan.";
+  const visionSubtitle = profile?.visionSubtitle || "Visi tersebut menjadi fondasi pokok dalam setiap kegiatan pembelajaran, pengembangan program intrakurikuler dan kokurikuler, pembiasaan karakter luhur, hingga pelestarian alam sekitar.";
+
+  const historyTitle = profile?.historyTitle || "Sejarah Berdirinya SD Islam Hidayah";
+  const historyContent = profile?.historyContent;
+
+  const defaultMilestones = [
+    {
+      year: "14 Juni 2014",
+      title: "Pendirian & Awal Berdirinya Sekolah",
+      desc: "Didirikan sebagai wujud komitmen Yayasan Hidayah dalam menyediakan pendidikan dasar Islam bermutu. Di awal pendirian, kegiatan belajar mengajar menempati Gedung Darun Nashri melalui kerja sama dengan pihak pondok.",
+      badge: "Awal Mula",
+    },
+    {
+      year: "2016",
+      title: "Pembangunan Kampus Mandiri",
+      desc: "SD Islam Hidayah mulai membangun gedung sekolah baru di Desa Tayu Kulon sebagai langkah strategis menuju kemandirian sarana dan prasarana pendidikan yang representatif.",
+      badge: "Pembangunan",
+    },
+    {
+      year: "2017",
+      title: "Perpindahan ke Eks SD Tayu Wetan 01",
+      desc: "Seiring bertambahnya kepercayaan masyarakat dan kebutuhan ruang belajar, aktivitas pembelajaran berpindah sementara ke eks gedung SD Tayu Wetan 01 di kawasan Alun-Alun Tayu.",
+      badge: "Perkembangan",
+    },
+    {
+      year: "Kini & Masa Depan",
+      title: "Kampus Mandiri Desa Tayu Kulon",
+      desc: "Resmi menempati kampus mandiri di Desa Tayu Kulon RT 03/RW 04 hingga sekarang. Terus bertumbuh sebagai sekolah Islam unggul, ramah anak, dan berbudaya lingkungan hidup.",
+      badge: "Kampus Utama",
+    },
+  ];
+
+  const milestones = profile?.milestones && profile.milestones.length > 0
+    ? profile.milestones
+    : defaultMilestones;
+
+  const defaultAdiwiyata = [
+    {
+      year: "2023",
+      level: "Tingkat Kabupaten",
+      title: "Sekolah Adiwiyata Kabupaten",
+      desc: "Penghargaan perdana atas konsistensi pembiasaan ramah lingkungan dan pengelolaan sampah terpadu di tingkat Kabupaten Pati.",
+      icon: "verified",
+    },
+    {
+      year: "2024",
+      level: "Tingkat Provinsi",
+      title: "Sekolah Adiwiyata Provinsi",
+      desc: "Apresiasi bergengsi Pemerintah Provinsi Jawa Tengah atas inovasi kurikulum berbasis kepedulian lingkungan hidup.",
+      icon: "workspace_premium",
+    },
+    {
+      year: "2025",
+      level: "Tingkat Nasional",
+      title: "Sekolah Adiwiyata Nasional",
+      desc: "Pencapaian puncak pengakuan Kementerian LHK dan Kemendikbudristek sebagai teladan sekolah berbudaya lingkungan se-Indonesia.",
+      icon: "military_tech",
+    },
+  ];
+
+  const adiwiyataAchievements = profile?.adiwiyataAchievements && profile.adiwiyataAchievements.length > 0
+    ? profile.adiwiyataAchievements
+    : defaultAdiwiyata;
 
   const programs = [
     {
@@ -104,56 +204,12 @@ export default async function ProfilSDPage() {
     },
   ];
 
-  const milestones = [
-    {
-      year: "14 Juni 2014",
-      title: "Pendirian & Awal Berdirinya Sekolah",
-      desc: "Didirikan sebagai wujud komitmen Yayasan Hidayah dalam menyediakan pendidikan dasar Islam bermutu. Di awal pendirian, kegiatan belajar mengajar menempati Gedung Darun Nashri melalui kerja sama dengan pihak pondok.",
-      badge: "Awal Mula",
-    },
-    {
-      year: "2016",
-      title: "Pembangunan Kampus Mandiri",
-      desc: "SD Islam Hidayah mulai membangun gedung sekolah baru di Desa Tayu Kulon sebagai langkah strategis menuju kemandirian sarana dan prasarana pendidikan yang representatif.",
-      badge: "Pembangunan",
-    },
-    {
-      year: "2017",
-      title: "Perpindahan ke Eks SD Tayu Wetan 01",
-      desc: "Seiring bertambahnya kepercayaan masyarakat dan kebutuhan ruang belajar, aktivitas pembelajaran berpindah sementara ke eks gedung SD Tayu Wetan 01 di kawasan Alun-Alun Tayu.",
-      badge: "Perkembangan",
-    },
-    {
-      year: "Kini & Masa Depan",
-      title: "Kampus Mandiri Desa Tayu Kulon",
-      desc: "Resmi menempati kampus mandiri di Desa Tayu Kulon RT 03/RW 04 hingga sekarang. Terus bertumbuh sebagai sekolah Islam unggul, ramah anak, dan berbudaya lingkungan hidup.",
-      badge: "Kampus Utama",
-    },
-  ];
-
-  const adiwiyataAchievements = [
-    {
-      year: "2023",
-      level: "Tingkat Kabupaten",
-      title: "Sekolah Adiwiyata Kabupaten",
-      desc: "Penghargaan perdana atas konsistensi pembiasaan ramah lingkungan dan pengelolaan sampah terpadu di tingkat Kabupaten Pati.",
-      icon: "verified",
-    },
-    {
-      year: "2024",
-      level: "Tingkat Provinsi",
-      title: "Sekolah Adiwiyata Provinsi",
-      desc: "Apresiasi bergengsi Pemerintah Provinsi Jawa Tengah atas inovasi kurikulum berbasis kepedulian lingkungan hidup.",
-      icon: "workspace_premium",
-    },
-    {
-      year: "2025",
-      level: "Tingkat Nasional",
-      title: "Sekolah Adiwiyata Nasional",
-      desc: "Pencapaian puncak pengakuan Kementerian LHK dan Kemendikbudristek sebagai teladan sekolah berbudaya lingkungan se-Indonesia.",
-      icon: "military_tech",
-    },
-  ];
+  const bannerImage = profile?.bannerImage
+    ? urlFor(profile.bannerImage).width(1600).height(800).format('webp').url()
+    : null;
+  const bannerBadge = profile?.bannerBadge || "Kebersamaan Sekolah";
+  const bannerTitle = profile?.bannerTitle || "Keluarga Besar Murid & Pendidik SD Islam Hidayah";
+  const bannerSubtitle = profile?.bannerSubtitle || "Bersinergi menumbuhkan tunas harapan bangsa yang berakhlak Qur'ani dan berwawasan lingkungan.";
 
   return (
     <main className="w-full bg-[#FDFCF8] min-h-screen font-sans selection:bg-[#FCD116] selection:text-[#188B48]">
@@ -171,31 +227,25 @@ export default async function ProfilSDPage() {
             <div className="lg:col-span-7 flex flex-col items-start gap-5">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#FCD116] text-[13px] font-bold uppercase tracking-wider">
                 <span className="material-symbols-outlined text-[18px]">school</span>
-                Lembaga Pendidikan Dasar Swasta
+                {heroBadge}
               </div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] text-white tracking-tight">
-                SD Islam Hidayah <span className="text-[#FCD116] drop-shadow-sm">Tayu</span>
+                {heroTitle} <span className="text-[#FCD116] drop-shadow-sm">{heroTitleHighlight}</span>
               </h1>
               
               <p className="text-white/90 text-base md:text-lg leading-relaxed max-w-xl">
-                Lembaga pendidikan dasar yang mengintegrasikan nilai-nilai keislaman, pengembangan ilmu pengetahuan, keterampilan abad 21, dan budaya peduli lingkungan hidup di bawah naungan Yayasan Hidayah.
+                {heroSubtitle}
               </p>
 
               {/* Highlight Badges */}
               <div className="flex flex-wrap gap-2.5 pt-2">
-                <span className="px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 text-white text-[13px] font-semibold flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[#FCD116] text-[16px]">military_tech</span>
-                  Adiwiyata Nasional 2025
-                </span>
-                <span className="px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 text-white text-[13px] font-semibold flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[#FCD116] text-[16px]">menu_book</span>
-                  TPQ Qiroati &amp; Tahfiz
-                </span>
-                <span className="px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 text-white text-[13px] font-semibold flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[#FCD116] text-[16px]">favorite</span>
-                  Sekolah Ramah Anak
-                </span>
+                {heroPills.map((pill: string, idx: number) => (
+                  <span key={idx} className="px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 text-white text-[13px] font-semibold flex items-center gap-1.5">
+                    <span className="text-[#FCD116]">✦</span>
+                    {pill.replace(/^✦\s*/, '')}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -215,23 +265,23 @@ export default async function ProfilSDPage() {
                 <div className="space-y-3.5 text-sm">
                   <div className="flex items-start justify-between gap-4">
                     <span className="text-white/70 shrink-0">NPSN</span>
-                    <span className="font-bold text-right font-mono bg-white/10 px-2 py-0.5 rounded text-white">69880234</span>
+                    <span className="font-bold text-right font-mono bg-white/10 px-2 py-0.5 rounded text-white">{snapshot.npsn}</span>
                   </div>
                   <div className="flex items-start justify-between gap-4">
                     <span className="text-white/70 shrink-0">Status Sekolah</span>
-                    <span className="font-semibold text-right text-white">Swasta (Yayasan Hidayah)</span>
+                    <span className="font-semibold text-right text-white">{snapshot.schoolStatus}</span>
                   </div>
                   <div className="flex items-start justify-between gap-4">
                     <span className="text-white/70 shrink-0">Tanggal Berdiri</span>
-                    <span className="font-semibold text-right text-white">14 Juni 2014</span>
+                    <span className="font-semibold text-right text-white">{snapshot.establishedDate}</span>
                   </div>
                   <div className="flex items-start justify-between gap-4">
                     <span className="text-white/70 shrink-0">Kepala Sekolah</span>
-                    <span className="font-bold text-right text-[#FCD116]">Sri Surami Widyastuti, S.Pd.</span>
+                    <span className="font-bold text-right text-[#FCD116]">{snapshot.principalName}</span>
                   </div>
                   <div className="flex items-start justify-between gap-4">
                     <span className="text-white/70 shrink-0">Lokasi</span>
-                    <span className="font-medium text-right text-white/90">Tayu Kulon RT 03/RW 04, Pati</span>
+                    <span className="font-medium text-right text-white/90">{snapshot.location}</span>
                   </div>
                 </div>
 
@@ -241,7 +291,7 @@ export default async function ProfilSDPage() {
                     Aktif Beroperasi
                   </span>
                   <a 
-                    href="https://sdipkhidayah.com" 
+                    href={snapshot.websiteUrl} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-[#FCD116] hover:underline flex items-center gap-1 font-semibold"
@@ -281,11 +331,11 @@ export default async function ProfilSDPage() {
                 </div>
                 
                 <h3 className="text-2xl md:text-3xl font-bold leading-snug mb-6 text-white">
-                  &ldquo;Mewujudkan Generasi Islami yang Berakhlakul Karimah, Cerdas, Kreatif, dan Peduli Lingkungan.&rdquo;
+                  &ldquo;{vision}&rdquo;
                 </h3>
                 
                 <p className="text-white/85 text-sm md:text-base leading-relaxed">
-                  Visi tersebut menjadi fondasi pokok dalam setiap kegiatan pembelajaran, pengembangan program intrakurikuler dan kokurikuler, pembiasaan karakter luhur, hingga pelestarian alam sekitar.
+                  {visionSubtitle}
                 </p>
               </div>
 
@@ -365,7 +415,7 @@ export default async function ProfilSDPage() {
               Perjalanan Panjang
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Sejarah Berdirinya SD Islam Hidayah
+              {historyTitle}
             </h2>
             <p className="text-gray-600 text-base mt-3 leading-relaxed">
               Tumbuh melalui semangat pengabdian, kerja sama kelembagaan, dan pengembangan berkesinambungan demi mewujudkan sarana pendidikan terbaik.
@@ -378,7 +428,7 @@ export default async function ProfilSDPage() {
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#188B48] via-[#FCD116] to-[#188B48] -translate-y-1/2 z-0"></div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-              {milestones.map((item, idx) => (
+              {milestones.map((item: any, idx: number) => (
                 <div 
                   key={idx}
                   className="bg-[#FDFCF8] rounded-3xl p-6 sm:p-7 border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between relative group"
@@ -386,7 +436,7 @@ export default async function ProfilSDPage() {
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#188B48]/10 text-[#188B48] uppercase tracking-wider">
-                        {item.badge}
+                        {item.badge || `Fase ${idx + 1}`}
                       </span>
                       <span className="w-8 h-8 rounded-full bg-white border-2 border-[#188B48] text-[#188B48] font-bold text-xs flex items-center justify-center shadow-sm group-hover:bg-[#188B48] group-hover:text-white transition-colors">
                         {idx + 1}
@@ -400,7 +450,7 @@ export default async function ProfilSDPage() {
                       {item.title}
                     </h4>
                     <p className="text-gray-600 text-[13.5px] leading-relaxed">
-                      {item.desc}
+                      {item.description || item.desc}
                     </p>
                   </div>
 
@@ -421,9 +471,15 @@ export default async function ProfilSDPage() {
               </div>
               <div className="flex-1">
                 <h4 className="text-xl font-bold text-[#188B48] mb-2">Semangat Ketulusan &amp; Pengabdian Berkelanjutan</h4>
-                <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-                  Perjalanan dari Gedung Darun Nashri, ke eks SD Tayu Wetan 01 di Alun-Alun Tayu, hingga kini menempati lokasi mandiri di Desa Tayu Kulon membuktikan dedikasi tanpa henti Yayasan Hidayah. Sekolah terus berupaya menghadirkan ruang belajar yang aman, representatif, serta adaptif terhadap kebutuhan tumbuh kembang anak di era modern.
-                </p>
+                {historyContent ? (
+                  <div className="prose prose-emerald max-w-none text-gray-700 leading-relaxed text-sm md:text-base space-y-2">
+                    <PortableText value={historyContent} />
+                  </div>
+                ) : (
+                  <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+                    Perjalanan dari Gedung Darun Nashri, ke eks SD Tayu Wetan 01 di Alun-Alun Tayu, hingga kini menempati lokasi mandiri di Desa Tayu Kulon membuktikan dedikasi tanpa henti Yayasan Hidayah. Sekolah terus berupaya menghadirkan ruang belajar yang aman, representatif, serta adaptif terhadap kebutuhan tumbuh kembang anak di era modern.
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -449,7 +505,7 @@ export default async function ProfilSDPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {adiwiyataAchievements.map((item, idx) => (
+            {adiwiyataAchievements.map((item: any, idx: number) => (
               <div 
                 key={idx}
                 className="bg-white rounded-3xl p-8 shadow-sm border border-emerald-100 hover:shadow-xl hover:border-emerald-300 transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between relative overflow-hidden"
@@ -462,7 +518,7 @@ export default async function ProfilSDPage() {
                       {item.year}
                     </span>
                     <span className="w-12 h-12 rounded-2xl bg-emerald-100 text-[#188B48] flex items-center justify-center">
-                      <span className="material-symbols-outlined text-[28px]">{item.icon}</span>
+                      <span className="material-symbols-outlined text-[28px]">{item.icon || "verified"}</span>
                     </span>
                   </div>
 
@@ -475,7 +531,7 @@ export default async function ProfilSDPage() {
                   </h3>
                   
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    {item.desc}
+                    {item.desc || item.description}
                   </p>
                 </div>
 
@@ -593,6 +649,36 @@ export default async function ProfilSDPage() {
 
         </div>
       </section>
+
+      {/* ================= DOKUMENTASI KEGIATAN & KEBERSAMAAN (JIKA ADA FOTO) ================= */}
+      {bannerImage && (
+        <section className="w-full bg-white py-16 md:py-20 border-t border-gray-100">
+          <div className="max-w-[1200px] mx-auto px-6">
+            <div className="relative w-full rounded-[36px] overflow-hidden shadow-xl border-4 border-white aspect-[16/9] md:aspect-[21/9] group bg-gray-100">
+              <Image
+                src={bannerImage}
+                alt={bannerTitle}
+                fill
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 md:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FCD116] text-[#1b1c1a] font-bold text-xs uppercase tracking-wider mb-2">
+                    {bannerBadge}
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
+                    {bannerTitle}
+                  </h3>
+                </div>
+                <p className="text-white/80 text-sm max-w-md hidden md:block">
+                  {bannerSubtitle}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ================= INFORMASI KONTAK & PENDAFTARAN (CTA) ================= */}
       <section className="w-full py-20 bg-gradient-to-br from-[#188B48] to-[#126b37] text-white relative overflow-hidden">
