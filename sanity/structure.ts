@@ -146,8 +146,34 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
 
-      // 5. Profil Sekolah
-      S.documentTypeListItem('schoolProfile').title('Profil Sekolah & Sambutan'),
+      // 5. Profil & Sambutan (Folder 2 Sub-Menu)
+      S.listItem()
+        .title('Profil & Sambutan')
+        .child(
+          S.list()
+            .title('Kelola Profil & Sambutan')
+            .items([
+              // Sub-menu 1: Sambutan Beranda
+              S.listItem()
+                .title('🌟 Sambutan Kepala Sekolah (Beranda)')
+                .child(
+                  S.document()
+                    .schemaType('principalWelcome')
+                    .documentId('principalWelcome')
+                    .title('Sambutan Kepala Sekolah (Tampil di Beranda)')
+                ),
+              S.divider(),
+              // Sub-menu 2: Profil & Visi Misi
+              S.listItem()
+                .title('🏛️ Profil, Visi & Misi (Halaman Tentang)')
+                .child(
+                  S.document()
+                    .schemaType('schoolProfile')
+                    .documentId('schoolProfile-main')
+                    .title('Profil, Visi, Misi & Sejarah PAUD (/profil/paud)')
+                ),
+            ])
+        ),
 
       S.divider(),
 

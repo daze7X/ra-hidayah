@@ -7,6 +7,7 @@ import {authorType} from './authorType'
 import {galleryType} from './galleryType'
 import {orgStructureType} from './orgStructureType'
 import {schoolProfileType} from './schoolProfileType'
+import {principalWelcomeType} from './principalWelcomeType'
 import {siteSettingsType} from './siteSettingsType'
 import {fasilitasType} from './fasilitasType'
 import {featuredProgramType} from './featuredProgramType'
@@ -23,6 +24,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     galleryType, 
     orgStructureType, 
     schoolProfileType,
+    principalWelcomeType,
     siteSettingsType,
     fasilitasType,
     featuredProgramType,

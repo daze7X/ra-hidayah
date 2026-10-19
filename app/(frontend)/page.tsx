@@ -38,31 +38,48 @@ export default async function Home() {
   const learningTitle = featuredSettings?.title?.trim() || "Membangun Karakter, Mengembangkan Potensi";
   const learningSubtitle = featuredSettings?.subtitle?.trim() || "PAUD Hidayah menghadirkan pembelajaran Islami yang aktif, kreatif, dan menyenangkan untuk membentuk anak yang cerdas, ceria, mandiri, dan berakhlakul karimah.";
 
-  // Fetch schoolProfile for dynamic Sambutan Kepala Sekolah
-  const profile = await client.fetch(
-    `*[_type == "schoolProfile"][0]{
-      principalName,
-      principalRole,
-      principalDedication,
-      principalImage,
-      principalGreeting,
-      schoolEstablished,
-      welcomeTitle,
-      welcomeSubtitle,
-      motto
-    }`,
-    {},
-    { next: { revalidate: 0 } }
-  );
+  // Fetch principalWelcome for dynamic Sambutan Kepala Sekolah (with fallback to schoolProfile)
+  const [welcomeDoc, profile] = await Promise.all([
+    client.fetch(
+      `*[_type == "principalWelcome"][0]{
+        principalName,
+        principalRole,
+        principalDedication,
+        principalImage,
+        principalGreeting,
+        schoolEstablished,
+        welcomeTitle,
+        welcomeSubtitle
+      }`,
+      {},
+      { next: { revalidate: 0 } }
+    ),
+    client.fetch(
+      `*[_type == "schoolProfile"][0]{
+        principalName,
+        principalRole,
+        principalDedication,
+        principalImage,
+        principalGreeting,
+        schoolEstablished,
+        welcomeTitle,
+        welcomeSubtitle
+      }`,
+      {},
+      { next: { revalidate: 0 } }
+    )
+  ]);
 
-  const welcomeTitle = profile?.welcomeTitle?.trim() || "Mendidik dengan Cinta, Melayani dengan Sepenuh Hati";
-  const principalName = profile?.principalName?.trim() || "Ustadzah Hj. Nur Laeli, S.Pd";
-  const principalRole = profile?.principalRole?.trim() || "Kepala Sekolah PAUD Hidayah";
-  const principalDedication = profile?.principalDedication?.trim() || "Pengabdian Pendidikan Anak Usia Dini 30+ Tahun";
-  const principalGreeting = profile?.principalGreeting?.trim() || "Anak-anak belajar bukan hanya dari apa yang mereka dengar, tetapi juga dari apa yang mereka lihat, rasakan, dan alami setiap hari. Karena itu, lingkungan yang positif, pendidik yang menjadi teladan, dan pengalaman belajar yang menyenangkan menjadi bagian penting dalam perjalanan pendidikan anak usia dini. Sebab, setiap anak memiliki potensi untuk bersinar, dan tugas kita adalah memberikan ruang untuk bertumbuh, teladan untuk ditiru, serta kasih sayang untuk menguatkan setiap langkahnya.";
-  const schoolEstablished = profile?.schoolEstablished?.trim() || "PAUD Hidayah • Berdiri sejak 1968";
-  const welcomeSubtitle = profile?.welcomeSubtitle?.trim() || "Setiap anak adalah amanah dan anugrah yang istimewa. Dengan cinta sebagai landasan pendidikan, PAUD Hidayah berkomitmen mendukung tumbuh kembang ananda melalui pembiasaan akhlak mulia, pengalaman belajar yang bermakna, serta pengembangan potensi sesuai fitrah dan tahap perkembangannya.";
-  const principalPhoto = profile?.principalImage
+  const welcomeTitle = welcomeDoc?.welcomeTitle?.trim() || profile?.welcomeTitle?.trim() || "Mendidik dengan Cinta, Melayani dengan Sepenuh Hati";
+  const principalName = welcomeDoc?.principalName?.trim() || profile?.principalName?.trim() || "Ustadzah Hj. Nur Laeli, S.Pd";
+  const principalRole = welcomeDoc?.principalRole?.trim() || profile?.principalRole?.trim() || "Kepala Sekolah PAUD Hidayah";
+  const principalDedication = welcomeDoc?.principalDedication?.trim() || profile?.principalDedication?.trim() || "Pengabdian Pendidikan Anak Usia Dini 30+ Tahun";
+  const principalGreeting = welcomeDoc?.principalGreeting?.trim() || profile?.principalGreeting?.trim() || "Anak-anak belajar bukan hanya dari apa yang mereka dengar, tetapi juga dari apa yang mereka lihat, rasakan, dan alami setiap hari. Karena itu, lingkungan yang positif, pendidik yang menjadi teladan, dan pengalaman belajar yang menyenangkan menjadi bagian penting dalam perjalanan pendidikan anak usia dini. Sebab, setiap anak memiliki potensi untuk bersinar, dan tugas kita adalah memberikan ruang untuk bertumbuh, teladan untuk ditiru, serta kasih sayang untuk menguatkan setiap langkahnya.";
+  const schoolEstablished = welcomeDoc?.schoolEstablished?.trim() || profile?.schoolEstablished?.trim() || "PAUD Hidayah • Berdiri sejak 1968";
+  const welcomeSubtitle = welcomeDoc?.welcomeSubtitle?.trim() || profile?.welcomeSubtitle?.trim() || "Setiap anak adalah amanah dan anugrah yang istimewa. Dengan cinta sebagai landasan pendidikan, PAUD Hidayah berkomitmen mendukung tumbuh kembang ananda melalui pembiasaan akhlak mulia, pengalaman belajar yang bermakna, serta pengembangan potensi sesuai fitrah dan tahap perkembangannya.";
+  const principalPhoto = welcomeDoc?.principalImage
+    ? urlFor(welcomeDoc.principalImage).width(400).height(400).format('webp').url()
+    : profile?.principalImage
     ? urlFor(profile.principalImage).width(400).height(400).format('webp').url()
     : "/kegiatan/kepala-sekolah-paud.webp";
 
