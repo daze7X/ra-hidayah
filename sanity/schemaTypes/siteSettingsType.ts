@@ -71,15 +71,6 @@ export const siteSettingsType = defineType({
       },
     }),
     defineField({
-      name: 'programHeroImage',
-      title: 'Foto Hero Halaman Program (/program)',
-      type: 'image',
-      description: 'Foto kegiatan ananda pada bingkai kurva di samping teks Hero Halaman Program Utama (/program).',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
       name: 'learningApproachBadge',
       title: 'Label Badge Seksi Pendekatan Belajar',
       type: 'string',

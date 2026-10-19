@@ -61,13 +61,8 @@ async function getSanityPrograms() {
 }
 
 export default async function ProgramLandingPage() {
-  const [sanityPrograms, siteSettings] = await Promise.all([
-    getSanityPrograms(),
-    client.fetch(`*[_type == "siteSettings"][0]{ programHeroImage }`, {}, { next: { revalidate: 0 } })
-  ]);
-  const heroImage = siteSettings?.programHeroImage
-    ? urlFor(siteSettings.programHeroImage).width(800).height(600).format('webp').url()
-    : "/kegiatan/kegiatan-bersama-sekolah.webp";
+  const sanityPrograms = await getSanityPrograms();
+  const heroImage = "/kegiatan/kegiatan-bersama-sekolah.webp";
   const sanityRegular = sanityPrograms.filter((p: any) => p.slug?.current !== "ekstrakurikuler" && p._id !== "program-ekstrakurikuler");
   const sanityEkstra = sanityPrograms.find((p: any) => p.slug?.current === "ekstrakurikuler" || p._id === "program-ekstrakurikuler");
 
