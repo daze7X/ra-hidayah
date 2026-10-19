@@ -99,7 +99,30 @@ export default async function BeritaDetail({ params }: { params: Promise<{ slug:
         {/* Content (PortableText) */}
         <div className="prose prose-lg md:prose-xl prose-p:text-gray-700 prose-headings:text-[#188B48] prose-a:text-[#188B48] max-w-none bg-white p-8 md:p-14 rounded-[32px] shadow-sm border border-gray-100 leading-relaxed">
           {post.body && post.body.length > 0 ? (
-            <PortableText value={post.body} />
+            <PortableText 
+              value={post.body} 
+              components={{
+                types: {
+                  image: ({ value }: any) => {
+                    if (!value?.asset) return null;
+                    return (
+                      <figure className="my-8 overflow-hidden rounded-2xl shadow-md border border-gray-100 not-prose">
+                        <img
+                          src={urlFor(value).width(1200).quality(85).format('webp').url()}
+                          alt={value.alt || post.title || 'Dokumentasi kegiatan PAUD Hidayah'}
+                          className="w-full h-auto object-cover max-h-[500px]"
+                        />
+                        {value.alt && (
+                          <figcaption className="text-center text-xs text-gray-500 py-2.5 px-4 bg-gray-50 border-t border-gray-100">
+                            {value.alt}
+                          </figcaption>
+                        )}
+                      </figure>
+                    );
+                  }
+                }
+              }}
+            />
           ) : (
             <p className="text-center text-gray-500 italic">Konten berita kosong.</p>
           )}
