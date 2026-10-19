@@ -14,7 +14,10 @@ export default async function Home() {
       accreditation,
       showAdmissionBanner,
       admissionStatus,
-      heroImage
+      heroImage,
+      learningApproachBadge,
+      learningApproachTitle,
+      learningApproachSubtitle
     }`,
     {},
     { next: { revalidate: 0 } }
@@ -25,6 +28,9 @@ export default async function Home() {
   const settingsPhone = siteSettings?.phone || "0851 8740 9266";
   const showBanner = siteSettings?.showAdmissionBanner !== false;
   const bannerText = siteSettings?.admissionStatus?.trim() || "Penerimaan Murid Baru TA 2026/2027";
+  const learningBadge = siteSettings?.learningApproachBadge?.trim() || "Pendekatan Belajar";
+  const learningTitle = siteSettings?.learningApproachTitle?.trim() || "Membangun Karakter, Mengembangkan Potensi";
+  const learningSubtitle = siteSettings?.learningApproachSubtitle?.trim() || "PAUD Hidayah menghadirkan pembelajaran Islami yang aktif, kreatif, dan menyenangkan untuk membentuk anak yang cerdas, ceria, mandiri, dan berakhlakul karimah.";
   let phone = settingsPhone.replace(/\D/g, "");
   if (phone.startsWith("0")) phone = "62" + phone.slice(1);
 
@@ -801,10 +807,10 @@ export default async function Home() {
 <section className="w-full py-20 bg-[#188B48] text-white">
   <div className="max-w-[1200px] mx-auto px-6">
     <div className="text-center max-w-3xl mx-auto mb-16">
-      <span className="font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-[#FCD116]/20 inline-block mb-3 text-[12px]">Pendekatan Belajar</span>
-      <h2 className="text-3xl md:text-4xl font-bold text-white">Membangun Karakter, Mengembangkan Potensi</h2>
+      <span className="font-bold text-[#FCD116] uppercase tracking-widest px-3 py-1 rounded-full bg-[#FCD116]/20 inline-block mb-3 text-[12px]">{learningBadge}</span>
+      <h2 className="text-3xl md:text-4xl font-bold text-white">{learningTitle}</h2>
       <p className="text-white/90 mt-4 text-[16px] leading-relaxed">
-        PAUD Hidayah menghadirkan pembelajaran Islami yang aktif, kreatif, dan menyenangkan untuk membentuk anak yang cerdas, ceria, mandiri, dan berakhlakul karimah.
+        {learningSubtitle}
       </p>
     </div>
 
