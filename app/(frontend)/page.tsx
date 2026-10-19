@@ -12,10 +12,7 @@ export default async function Home() {
       address,
       openHours,
       accreditation,
-      heroImage,
-      learningApproachBadge,
-      learningApproachTitle,
-      learningApproachSubtitle
+      heroImage
     }`,
     {},
     { next: { revalidate: 0 } }
@@ -24,11 +21,22 @@ export default async function Home() {
     ? urlFor(siteSettings.heroImage).width(1920).height(1080).format('webp').url()
     : "/gedung-tk.jpg";
   const settingsPhone = siteSettings?.phone || "0851 8740 9266";
-  const learningBadge = siteSettings?.learningApproachBadge?.trim() || "Pendekatan Belajar";
-  const learningTitle = siteSettings?.learningApproachTitle?.trim() || "Membangun Karakter, Mengembangkan Potensi";
-  const learningSubtitle = siteSettings?.learningApproachSubtitle?.trim() || "PAUD Hidayah menghadirkan pembelajaran Islami yang aktif, kreatif, dan menyenangkan untuk membentuk anak yang cerdas, ceria, mandiri, dan berakhlakul karimah.";
   let phone = settingsPhone.replace(/\D/g, "");
   if (phone.startsWith("0")) phone = "62" + phone.slice(1);
+
+  // Fetch featuredProgramSettings for Seksi Pendekatan Belajar header
+  const featuredSettings = await client.fetch(
+    `*[_type == "featuredProgramSettings"][0]{
+      badge,
+      title,
+      subtitle
+    }`,
+    {},
+    { next: { revalidate: 0 } }
+  );
+  const learningBadge = featuredSettings?.badge?.trim() || "Pendekatan Belajar";
+  const learningTitle = featuredSettings?.title?.trim() || "Membangun Karakter, Mengembangkan Potensi";
+  const learningSubtitle = featuredSettings?.subtitle?.trim() || "PAUD Hidayah menghadirkan pembelajaran Islami yang aktif, kreatif, dan menyenangkan untuk membentuk anak yang cerdas, ceria, mandiri, dan berakhlakul karimah.";
 
   // Fetch schoolProfile for dynamic Sambutan Kepala Sekolah
   const profile = await client.fetch(

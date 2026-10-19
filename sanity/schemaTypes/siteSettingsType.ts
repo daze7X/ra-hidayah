@@ -4,13 +4,6 @@ export const siteSettingsType = defineType({
   name: 'siteSettings',
   title: 'Pengaturan Situs',
   type: 'document',
-  fieldsets: [
-    {
-      name: 'pendekatanBelajar',
-      title: '🌟 Judul & Pengantar Seksi Pendekatan Belajar (Beranda)',
-      options: { collapsible: true, collapsed: false }
-    }
-  ],
   fields: [
     defineField({
       name: 'schoolName',
@@ -69,31 +62,6 @@ export const siteSettingsType = defineType({
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
-      name: 'learningApproachBadge',
-      title: 'Label Badge Seksi Pendekatan Belajar',
-      type: 'string',
-      fieldset: 'pendekatanBelajar',
-      description: 'Teks badge kecil di atas judul seksi. Contoh: Pendekatan Belajar',
-      initialValue: 'Pendekatan Belajar',
-    }),
-    defineField({
-      name: 'learningApproachTitle',
-      title: 'Judul Utama Seksi Pendekatan Belajar',
-      type: 'string',
-      fieldset: 'pendekatanBelajar',
-      description: 'Judul besar seksi. Contoh: Membangun Karakter, Mengembangkan Potensi',
-      initialValue: 'Membangun Karakter, Mengembangkan Potensi',
-    }),
-    defineField({
-      name: 'learningApproachSubtitle',
-      title: 'Deskripsi / Pengantar Seksi Pendekatan Belajar',
-      type: 'text',
-      rows: 3,
-      fieldset: 'pendekatanBelajar',
-      description: 'Uraian pengantar di bawah judul seksi.',
-      initialValue: 'PAUD Hidayah menghadirkan pembelajaran Islami yang aktif, kreatif, dan menyenangkan untuk membentuk anak yang cerdas, ceria, mandiri, dan berakhlakul karimah.',
     }),
   ],
 })

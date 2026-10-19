@@ -55,7 +55,31 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('programItem').title('📚 Program Pembelajaran'),
 
       // 5. Program Unggulan (Beranda)
-      S.documentTypeListItem('featuredProgram').title('⭐ Program Unggulan (Beranda)'),
+      S.listItem()
+        .title('⭐ Program Unggulan (Beranda)')
+        .child(
+          S.list()
+            .title('Kelola Program Unggulan (Beranda)')
+            .items([
+              S.listItem()
+                .title('📝 Judul & Pengantar Seksi')
+                .child(
+                  S.document()
+                    .schemaType('featuredProgramSettings')
+                    .documentId('featuredProgramSettings')
+                    .title('Ubah Judul & Pengantar Seksi')
+                ),
+              S.divider(),
+              S.listItem()
+                .title('🗂️ Daftar Kartu Program (6 Pilar)')
+                .child(
+                  S.documentList()
+                    .title('Kartu Program Unggulan')
+                    .filter('_type == "featuredProgram"')
+                    .defaultOrdering([{ field: 'order', direction: 'asc' }])
+                ),
+            ])
+        ),
 
       // 6. Testimoni Wali Murid (Beranda)
       S.documentTypeListItem('testimonial').title('💬 Testimoni Wali Murid'),
