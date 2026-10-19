@@ -45,6 +45,16 @@ export default defineConfig({
           institution: 'sd',
         },
       },
+      {
+        id: 'gallery-featured-home',
+        title: 'Foto Sorotan Beranda',
+        schemaType: 'gallery',
+        value: {
+          isFeaturedHome: true,
+          homeOrder: 1,
+          homeBadge: 'Kegiatan Ceria',
+        },
+      },
     ],
   },
   plugins: [

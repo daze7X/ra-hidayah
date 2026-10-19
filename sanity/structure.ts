@@ -18,8 +18,35 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
 
-      // 2. Galeri Foto
-      S.documentTypeListItem('gallery').title('Galeri Foto'),
+      // 2. Galeri Foto (Folder Beranda & Semua Galeri)
+      S.listItem()
+        .title('Galeri Foto')
+        .child(
+          S.list()
+            .title('Kelola Galeri Foto')
+            .items([
+              S.listItem()
+                .title('🌟 Sorotan Beranda (Bento Grid 4 Foto)')
+                .child(
+                  S.documentList()
+                    .title('4 Foto Sorotan di Beranda')
+                    .filter('_type == "gallery" && isFeaturedHome == true')
+                    .defaultOrdering([{ field: 'homeOrder', direction: 'asc' }])
+                    .initialValueTemplates([
+                      S.initialValueTemplateItem('gallery-featured-home')
+                    ])
+                ),
+              S.divider(),
+              S.listItem()
+                .title('📸 Semua Galeri Foto (Halaman Galeri)')
+                .child(
+                  S.documentList()
+                    .title('Semua Dokumentasi Kegiatan Sekolah')
+                    .filter('_type == "gallery"')
+                    .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
+                ),
+            ])
+        ),
 
       // 3. Fasilitas
       S.documentTypeListItem('fasilitas').title('Fasilitas Sekolah'),

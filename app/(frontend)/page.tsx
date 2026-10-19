@@ -224,16 +224,29 @@ export default async function Home() {
 
   const displayFeaturedPrograms = featuredPrograms.length > 0 ? featuredPrograms : defaultFeaturedPrograms;
 
-  // Fetch latest 4 gallery photos from Sanity for Section 6 Bento Grid
-  const galleryQuery = `*[_type == "gallery"] | order(publishedAt desc)[0...4] {
+  // Fetch featured gallery photos for Section 6 Bento Grid (prioritize isFeaturedHome)
+  const homeGalleryQuery = `*[_type == "gallery" && isFeaturedHome == true] | order(homeOrder asc, publishedAt desc)[0...4] {
     _id,
     title,
     description,
+    homeBadge,
+    homeOrder,
     image
   }`;
   let sanityGallery: any[] = [];
   try {
-    sanityGallery = await client.fetch(galleryQuery, {}, { next: { revalidate: 0 } });
+    const featuredItems = await client.fetch(homeGalleryQuery, {}, { next: { revalidate: 0 } });
+    if (featuredItems && featuredItems.length > 0) {
+      sanityGallery = featuredItems;
+    } else {
+      const fallbackQuery = `*[_type == "gallery"] | order(publishedAt desc)[0...4] {
+        _id,
+        title,
+        description,
+        image
+      }`;
+      sanityGallery = await client.fetch(fallbackQuery, {}, { next: { revalidate: 0 } });
+    }
   } catch (err) {
     console.error("Error fetching gallery for homepage:", err);
   }
@@ -276,7 +289,7 @@ export default async function Home() {
       _id: item._id,
       title: item.title || def.title,
       description: item.description || def.description,
-      badge: idx === 0 ? "Dokumentasi Utama" : "Kegiatan Ceria",
+      badge: item.homeBadge || (idx === 0 ? "Dokumentasi Utama" : "Kegiatan Ceria"),
       imageUrl: item.image ? urlFor(item.image).width(800).height(600).format('webp').url() : def.imageUrl,
     };
   });
