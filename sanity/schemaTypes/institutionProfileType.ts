@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { MATERIAL_ICON_OPTIONS } from './iconOptions'
 
 export const institutionProfileType = defineType({
   name: 'institutionProfile',
@@ -223,7 +224,15 @@ export const institutionProfileType = defineType({
             { name: 'level', title: 'Tingkatan (Kabupaten / Provinsi / Nasional)', type: 'string' },
             { name: 'title', title: 'Nama Penghargaan', type: 'string' },
             { name: 'desc', title: 'Keterangan Singkat', type: 'text', rows: 2 },
-            { name: 'icon', title: 'Icon Material Symbol', type: 'string' },
+            { 
+              name: 'icon', 
+              title: 'Pilihan Ikon', 
+              type: 'string',
+              options: {
+                list: MATERIAL_ICON_OPTIONS,
+              },
+              initialValue: 'verified',
+            },
           ],
           preview: {
             select: {

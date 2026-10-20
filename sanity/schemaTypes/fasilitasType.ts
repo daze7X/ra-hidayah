@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { MATERIAL_ICON_OPTIONS } from './iconOptions'
 
 export const fasilitasType = defineType({
   name: 'fasilitas',
@@ -19,10 +20,13 @@ export const fasilitasType = defineType({
     }),
     defineField({
       name: 'icon',
-      title: 'Nama Ikon (Material Symbol)',
+      title: 'Pilihan Ikon Fasilitas',
       type: 'string',
-      description: 'Masukkan nama ikon dari Google Material Symbols (contoh: meeting_room, sports_handball, mosque). Biarkan kosong jika tidak tahu.',
-      initialValue: 'verified',
+      options: {
+        list: MATERIAL_ICON_OPTIONS,
+      },
+      description: 'Pilih ikon visual yang paling menggambarkan fasilitas ini.',
+      initialValue: 'apartment',
     }),
     defineField({
       name: 'image',

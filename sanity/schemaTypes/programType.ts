@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { MATERIAL_ICON_OPTIONS } from './iconOptions'
 
 export const programType = defineType({
   name: 'programItem',
@@ -79,7 +80,15 @@ export const programType = defineType({
         {
           type: 'object',
           fields: [
-            defineField({ name: 'icon', title: 'Nama Ikon (Material Symbols)', type: 'string', initialValue: 'check_circle' }),
+            defineField({
+              name: 'icon',
+              title: 'Pilihan Ikon',
+              type: 'string',
+              options: {
+                list: MATERIAL_ICON_OPTIONS,
+              },
+              initialValue: 'check_circle',
+            }),
             defineField({ name: 'title', title: 'Judul Poin / Nama Cabang', type: 'string' }),
             defineField({ name: 'badge', title: 'Label / Badge (Opsional, contoh: Kinestetik & Seni)', type: 'string' }),
             defineField({ name: 'desc', title: 'Keterangan Singkat / Uraian Kegiatan', type: 'string' }),
