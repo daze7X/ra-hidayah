@@ -338,7 +338,7 @@ export default async function Home() {
       role: "Ibunda dari Alka (Murid RA B)",
       quote: "Terima kasih kepada PAUD Hidayah yang telah memberikan pelayanan yang terbaik, kami sangat mengapresiasi atas pelayanan yang sangat luar biasa, dan kami berpesan mohon tetap dipertahankan apa yang sudah diberikan kepada putra-putri yang terbaik karena mereka adalah masa depan bangsa.",
       rating: 5,
-      imageUrl: "/kegiatan/kegiatan-candid-ibu-anak.webp",
+      imageUrl: null,
     },
     {
       _id: "def-t2",
@@ -346,7 +346,7 @@ export default async function Home() {
       role: "Ibunda dari Haisha (Murid RA B)",
       quote: "Terima kasih kepada seluruh Bunda-bunda PAUD Hidayah yang telah membersamai anak kami, mendidik anak kami, mengajarkan suri tauladan yang baik dan nilai-nilai Islami. Kesan dan pesan kami alhamdulillah hampir 4 tahun lebih anak kami di PAUD Hidayah perkembangannya sangat luar biasa, menjadi lebih mandiri, berani, percaya diri, dan tumbuh luar biasa. Semoga kelak PAUD Hidayah menjadi kebanggaan orang tua di sekitar Tayu dan selalu menjadi unggulan dari sekolah lainnya.",
       rating: 5,
-      imageUrl: "/kegiatan/kegiatan-market-day.webp",
+      imageUrl: null,
     },
     {
       _id: "def-t3",
@@ -354,7 +354,7 @@ export default async function Home() {
       role: "Ibunda dari Airin (Murid KB)",
       quote: "Saya ucapkan banyak terima kasih kepada lembaga PAUD Hidayah yang telah membersamai anak kami dengan perasaan nyaman dan gembira. Di sini metode pembelajarannya sangat menyenangkan sehingga pembelajaran bisa maksimal dan anak merasa sekolah ini merupakan rumah kedua. Kesan saya menyekolahkan anak di sini para bunda mempunyai kesabaran yang luar biasa. Semangat untuk PAUD Hidayah semoga sukses selalu dan semakin maju.",
       rating: 5,
-      imageUrl: "/kegiatan/kegiatan-sentra-bahan-alam.webp",
+      imageUrl: null,
     },
   ];
 
@@ -365,7 +365,7 @@ export default async function Home() {
         role: t.role || "Wali Murid",
         quote: t.quote || "",
         rating: t.rating || 5,
-        imageUrl: t.image ? urlFor(t.image).width(120).height(120).format('webp').url() : (defaultTestimonials[idx]?.imageUrl || null),
+        imageUrl: t.image ? urlFor(t.image).width(120).height(120).format('webp').url() : null,
       }))
     : defaultTestimonials;
 
@@ -1079,11 +1079,11 @@ export default async function Home() {
         </p>
       </div>
       <div className="flex items-center gap-3 pt-4 border-t border-white/20">
-        <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 shrink-0 flex items-center justify-center border border-white/30">
+        <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 shrink-0 flex items-center justify-center border border-[#FCD116]/40 text-[#FCD116] shadow-sm">
           {testi.imageUrl ? (
             <img className="w-full h-full object-cover" alt={`${testi.name}, ${testi.role}`} src={testi.imageUrl}/>
           ) : (
-            <span className="material-symbols-outlined text-white text-[24px]">person</span>
+            <span className="material-symbols-outlined text-[#FCD116] text-[26px]">person</span>
           )}
         </div>
         <div>
