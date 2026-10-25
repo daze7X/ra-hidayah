@@ -80,29 +80,49 @@ export default async function ProfilPAUD() {
   const bannerSubtitle = profile?.bannerSubtitle || "Membina tunas bangsa dengan kasih sayang, keceriaan bermain, dan keteladanan akhlak Qur'ani.";
 
   return (
-    <main className="w-full bg-surface min-h-screen">
+    <main className="w-full bg-[#FDFCF8] min-h-screen relative overflow-hidden font-sans selection:bg-[#FCD116] selection:text-[#188B48]">
       
+      {/* ================= BACKGROUND DECORATIVE ELEMENTS ================= */}
+      {/* Subtle Dot Grid Texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(#188B48_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.035] pointer-events-none"></div>
+
+      {/* Ambient Blurred Glow Blobs */}
+      <div className="absolute top-[450px] right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[120px] pointer-events-none translate-x-1/3"></div>
+      <div className="absolute top-[1150px] left-0 w-[450px] h-[450px] bg-[#188B48]/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3"></div>
+      <div className="absolute top-[1850px] right-10 w-[420px] h-[420px] bg-[#34D399]/15 rounded-full blur-[90px] pointer-events-none"></div>
+      <div className="absolute bottom-20 left-10 w-[350px] h-[350px] bg-[#FCD116]/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+      {/* Playful Floating Organic Accent Shapes */}
+      <div className="absolute top-[520px] left-8 w-24 h-24 bg-[#FCD116]/20 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] pointer-events-none rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[850px] right-8 w-20 h-20 bg-[#188B48]/15 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] pointer-events-none -rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[1400px] left-12 w-16 h-16 bg-[#34D399]/20 rounded-full pointer-events-none"></div>
+      <div className="absolute top-[2000px] left-1/4 w-20 h-20 bg-[#FCD116]/15 rounded-[50%_50%_40%_60%/40%_60%_50%_50%] pointer-events-none rotate-45"></div>
+
       {/* ================= HERO SECTION (Islamic Playful Editorial) ================= */}
       <section className="w-full bg-[#188B48] pt-28 pb-14 md:pt-32 md:pb-18 relative overflow-hidden">
+        {/* Soft Hero Background Blobs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
           
           {/* LEFT: TEXT COLUMN */}
           <div className="lg:col-span-6 flex flex-col items-start gap-6">
-            <span className="inline-block px-4 py-2 bg-secondary-container text-on-secondary-container font-label-md font-bold rounded-full tracking-widest uppercase text-sm shadow-sm border border-secondary/20">
+            <span className="inline-block px-4 py-2 bg-white/20 text-[#FCD116] border border-white/30 font-bold rounded-full tracking-widest uppercase text-xs sm:text-sm shadow-sm backdrop-blur-sm">
               {heroBadge}
             </span>
-            <h1 className="font-display-hero text-4xl md:text-5xl lg:text-6xl text-white leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold leading-tight tracking-tight">
               {heroTitle}<br/>
               <span className="text-[#FCD116] drop-shadow-sm">{heroTitleHighlight}</span>
             </h1>
-            <p className="font-body-lg text-lg text-white max-w-lg leading-relaxed mt-2">
+            <p className="text-base sm:text-lg text-white/95 max-w-lg leading-relaxed">
               {heroSubtitle}
             </p>
             
             {/* Editorial Badges */}
-            <div className="flex flex-wrap gap-x-6 gap-y-3 mt-4">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2">
               {heroPills.map((pill: string, idx: number) => (
-                <div key={idx} className="flex items-center gap-2 text-white font-label-md text-[15px]">
+                <div key={idx} className="flex items-center gap-2 text-white font-semibold text-[15px]">
                   <span className="text-[#FCD116] text-lg">✦</span> {pill.replace(/^✦\s*/, '')}
                 </div>
               ))}
@@ -113,9 +133,9 @@ export default async function ProfilPAUD() {
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end w-full mt-8 lg:mt-0">
             <div className="relative w-full max-w-[400px]">
               {/* Decorative background arch (yellow accent) */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-secondary/80 to-secondary-container rounded-t-[160px] rounded-b-[40px] rotate-3 scale-105 opacity-60 shadow-lg"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#FCD116]/80 to-[#FCD116]/40 rounded-t-[160px] rounded-b-[40px] rotate-3 scale-105 opacity-60 shadow-lg"></div>
               {/* Main image container */}
-              <div className="relative w-full aspect-[4/5] rounded-t-[160px] rounded-b-[40px] overflow-hidden shadow-2xl border-4 border-surface-container-lowest bg-surface">
+              <div className="relative w-full aspect-[4/5] rounded-t-[160px] rounded-b-[40px] overflow-hidden shadow-2xl border-4 border-white bg-white">
                 <Image 
                   src={heroImage} 
                   alt={heroTitle || "Anak-anak PAUD Hidayah"} 
@@ -138,16 +158,19 @@ export default async function ProfilPAUD() {
       </div>
 
       {/* ================= SEJARAH & TIMELINE ================= */}
-      <section className="w-full bg-surface py-20 relative border-t border-outline-variant/30">
+      <section className="w-full py-20 relative z-10">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="font-headline-lg text-3xl md:text-4xl text-primary">{historyTitle}</h2>
-            <div className="w-16 h-1.5 bg-secondary rounded-full mt-4"></div>
+            <span className="inline-block px-3.5 py-1 rounded-full bg-[#188B48]/10 text-[#188B48] text-xs font-bold uppercase tracking-wider mb-2">
+              Sejarah &amp; Perjalanan
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{historyTitle}</h2>
+            <div className="w-16 h-1.5 bg-[#FCD116] rounded-full mt-4"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Sejarah Text */}
-            <div className="lg:col-span-7 space-y-5 text-gray-700 font-body-md text-base leading-relaxed">
+            <div className="lg:col-span-7 space-y-5 text-gray-700 font-body-md text-base leading-relaxed bg-white/70 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-sm">
               {historyContent ? (
                 <div className="prose prose-emerald max-w-none text-gray-700 leading-relaxed space-y-4">
                   <PortableText value={historyContent} />
@@ -169,24 +192,24 @@ export default async function ProfilPAUD() {
 
             {/* Timeline (Aesthetic Accent) */}
             <div className="lg:col-span-5">
-              <div className="bg-surface-container-lowest rounded-[32px] p-8 md:p-10 shadow-sm border border-outline-variant/40 relative overflow-hidden">
-                <h3 className="font-headline-sm text-2xl text-primary mb-8 flex items-center gap-3">
-                  <span className="material-symbols-outlined text-secondary text-[28px]">schedule</span>
+              <div className="bg-white rounded-[32px] p-8 md:p-10 shadow-sm border border-gray-200/80 relative overflow-hidden">
+                <h3 className="text-2xl font-bold text-[#188B48] mb-8 flex items-center gap-3">
+                  <span className="material-symbols-outlined text-[#FCD116] text-[28px]">schedule</span>
                   Tonggak Sejarah
                 </h3>
                 
-                <div className="flex flex-col gap-8 relative before:absolute before:inset-y-2 before:left-[11px] before:w-0.5 before:bg-outline-variant/40">
+                <div className="flex flex-col gap-8 relative before:absolute before:inset-y-2 before:left-[11px] before:w-0.5 before:bg-gray-200">
                   {milestones.map((item: any, idx: number) => {
                     const isCurrent = item.isCurrent || item.year?.toLowerCase() === 'sekarang';
                     return (
                       <div key={idx} className="relative pl-10">
-                        <div className={`absolute left-0 top-1 w-6 h-6 rounded-full border-4 border-surface-container-lowest flex items-center justify-center z-10 ${isCurrent ? 'bg-primary shadow-md' : 'bg-secondary-container shadow-sm'}`}>
+                        <div className={`absolute left-0 top-1 w-6 h-6 rounded-full border-4 border-white flex items-center justify-center z-10 ${isCurrent ? 'bg-[#188B48] shadow-md' : 'bg-[#FCD116] shadow-sm'}`}>
                           {isCurrent && <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>}
                         </div>
                         <div className="flex items-center gap-2 mb-1">
-                          <h4 className="font-bold text-primary font-label-lg text-xl">{item.year}</h4>
+                          <h4 className="font-bold text-[#188B48] text-xl">{item.year}</h4>
                           {item.badge && (
-                            <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">
+                            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#188B48] border border-emerald-100">
                               {item.badge}
                             </span>
                           )}
@@ -204,33 +227,33 @@ export default async function ProfilPAUD() {
       </section>
 
       {/* ================= VISI & MISI ================= */}
-      <section className="w-full bg-surface-container-low py-24 border-t border-outline-variant/30 relative">
+      <section className="w-full bg-[#EAF3EF]/60 py-24 border-y border-[#188B48]/10 relative z-10 backdrop-blur-[2px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             
             {/* Visi */}
-            <div className="bg-primary text-on-primary rounded-[40px] p-10 md:p-14 relative overflow-hidden shadow-xl flex flex-col justify-center">
+            <div className="bg-[#188B48] text-white rounded-[40px] p-10 md:p-14 relative overflow-hidden shadow-xl flex flex-col justify-center">
               <div className="absolute -top-16 -right-16 text-white/5 rotate-12 pointer-events-none">
                 <span className="material-symbols-outlined" style={{ fontSize: '240px', fontVariationSettings: "'FILL' 1" }}>star</span>
               </div>
-              <h3 className="font-headline-lg text-3xl md:text-4xl mb-6 relative z-10 flex items-center gap-3">
-                <span className="text-secondary">✦</span> Visi
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 relative z-10 flex items-center gap-3 text-white">
+                <span className="text-[#FCD116]">✦</span> Visi
               </h3>
-              <p className="font-body-lg text-2xl md:text-[28px] leading-snug italic relative z-10 font-light opacity-90">
+              <p className="text-xl md:text-2xl leading-relaxed italic relative z-10 font-light opacity-95">
                 &ldquo;{vision}&rdquo;
               </p>
             </div>
 
             {/* Misi */}
-            <div className="bg-surface-container-lowest rounded-[40px] p-10 md:p-14 shadow-md border border-outline-variant/20 relative">
-              <h3 className="font-headline-lg text-3xl md:text-4xl text-primary mb-8 flex items-center gap-3">
-                <span className="text-secondary">✦</span> Misi
+            <div className="bg-white rounded-[40px] p-10 md:p-14 shadow-md border border-gray-100 relative flex flex-col justify-center">
+              <h3 className="text-3xl md:text-4xl font-bold text-[#188B48] mb-8 flex items-center gap-3">
+                <span className="text-[#FCD116]">✦</span> Misi
               </h3>
-              <ul className="space-y-5">
+              <ul className="space-y-4">
                 {mission?.map((m: string, i: number) => (
-                  <li key={i} className="flex items-start gap-4 text-on-surface-variant font-body-md">
-                    <span className="material-symbols-outlined text-secondary text-[28px] shrink-0">arrow_right_alt</span>
-                    <span className="pt-0.5 text-lg leading-relaxed">{m}</span>
+                  <li key={i} className="flex items-start gap-4 text-gray-700">
+                    <span className="material-symbols-outlined text-[#188B48] text-[24px] shrink-0 mt-0.5">check_circle</span>
+                    <span className="text-base sm:text-lg leading-relaxed">{m}</span>
                   </li>
                 ))}
               </ul>
@@ -241,7 +264,7 @@ export default async function ProfilPAUD() {
       </section>
 
       {/* ================= DOKUMENTASI KEGIATAN & KEBERSAMAAN ================= */}
-      <section className="w-full bg-surface py-16 md:py-24 border-t border-outline-variant/30">
+      <section className="w-full py-16 md:py-24 relative z-10">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="relative w-full rounded-[36px] overflow-hidden shadow-xl border-4 border-white aspect-[16/9] md:aspect-[21/9] group bg-gray-100">
             <Image

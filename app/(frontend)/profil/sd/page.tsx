@@ -212,7 +212,19 @@ export default async function ProfilSDPage() {
   const bannerSubtitle = profile?.bannerSubtitle || "Bersinergi menumbuhkan tunas harapan bangsa yang berakhlak Qur'ani dan berwawasan lingkungan.";
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen font-sans selection:bg-[#FCD116] selection:text-[#188B48]">
+    <main className="w-full bg-[#FDFCF8] min-h-screen relative overflow-hidden font-sans selection:bg-[#FCD116] selection:text-[#188B48]">
+      
+      {/* ================= BACKGROUND DECORATIVE ELEMENTS ================= */}
+      <div className="absolute inset-0 bg-[radial-gradient(#188B48_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.035] pointer-events-none"></div>
+      <div className="absolute top-[450px] right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[120px] pointer-events-none translate-x-1/3"></div>
+      <div className="absolute top-[1200px] left-0 w-[450px] h-[450px] bg-[#188B48]/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3"></div>
+      <div className="absolute top-[2000px] right-10 w-[420px] h-[420px] bg-[#34D399]/15 rounded-full blur-[90px] pointer-events-none"></div>
+      <div className="absolute top-[2800px] left-10 w-[400px] h-[400px] bg-[#FCD116]/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+      <div className="absolute top-[520px] left-8 w-24 h-24 bg-[#FCD116]/20 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] pointer-events-none rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[950px] right-8 w-20 h-20 bg-[#188B48]/15 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] pointer-events-none -rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[1600px] left-12 w-16 h-16 bg-[#34D399]/20 rounded-full pointer-events-none"></div>
+      <div className="absolute top-[2400px] right-12 w-20 h-20 bg-[#FCD116]/15 rounded-[50%_50%_40%_60%/40%_60%_50%_50%] pointer-events-none rotate-45"></div>
       
       {/* ================= HERO SECTION ================= */}
       <section className="relative w-full bg-[#188B48] text-white pt-28 pb-14 md:pt-32 md:pb-18 overflow-hidden">

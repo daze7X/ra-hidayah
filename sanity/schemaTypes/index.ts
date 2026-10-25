@@ -15,6 +15,7 @@ import {featuredProgramSettingsType} from './featuredProgramSettingsType'
 import {programType} from './programType'
 import {testimonialType} from './testimonialType'
 import {institutionProfileType} from './institutionProfileType'
+import {orgPageSettingsType} from './orgPageSettingsType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -24,6 +25,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     authorType, 
     galleryType, 
     orgStructureType, 
+    orgPageSettingsType,
     schoolProfileType,
     institutionProfileType,
     principalWelcomeType,

@@ -92,7 +92,19 @@ export default async function ProfilYayasanPage() {
   const bannerSubtitle = profile?.bannerSubtitle || "Mengabdi dengan ketulusan hati untuk melahirkan generasi robbani penerus perjuangan bangsa dan agama.";
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen font-sans selection:bg-[#FCD116] selection:text-[#188B48]">
+    <main className="w-full bg-[#FDFCF8] min-h-screen relative overflow-hidden font-sans selection:bg-[#FCD116] selection:text-[#188B48]">
+      
+      {/* ================= BACKGROUND DECORATIVE ELEMENTS ================= */}
+      <div className="absolute inset-0 bg-[radial-gradient(#188B48_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.035] pointer-events-none"></div>
+      <div className="absolute top-[450px] right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[120px] pointer-events-none translate-x-1/3"></div>
+      <div className="absolute top-[1150px] left-0 w-[450px] h-[450px] bg-[#188B48]/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3"></div>
+      <div className="absolute top-[1850px] right-10 w-[420px] h-[420px] bg-[#34D399]/15 rounded-full blur-[90px] pointer-events-none"></div>
+      <div className="absolute bottom-20 left-10 w-[350px] h-[350px] bg-[#FCD116]/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+      <div className="absolute top-[520px] left-8 w-24 h-24 bg-[#FCD116]/20 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] pointer-events-none rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[850px] right-8 w-20 h-20 bg-[#188B48]/15 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] pointer-events-none -rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[1400px] left-12 w-16 h-16 bg-[#34D399]/20 rounded-full pointer-events-none"></div>
+      <div className="absolute top-[2000px] left-1/4 w-20 h-20 bg-[#FCD116]/15 rounded-[50%_50%_40%_60%/40%_60%_50%_50%] pointer-events-none rotate-45"></div>
       
       {/* ================= HERO SECTION (Islamic Playful Editorial) ================= */}
       <section className="w-full bg-[#188B48] pt-28 pb-14 md:pt-32 md:pb-18 relative overflow-hidden text-white">
@@ -164,7 +176,7 @@ export default async function ProfilYayasanPage() {
       </div>
 
       {/* ================= SEJARAH & TIMELINE ================= */}
-      <section className="w-full py-20 relative bg-[#FDFCF8]">
+      <section className="w-full py-20 relative z-10">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="flex flex-col items-center text-center mb-16">
             <span className="inline-block px-3.5 py-1 rounded-full bg-[#188B48]/10 text-[#188B48] text-xs font-bold uppercase tracking-wider mb-2">
@@ -233,7 +245,7 @@ export default async function ProfilYayasanPage() {
       </section>
 
       {/* ================= VISI & MISI ================= */}
-      <section className="w-full bg-[#EAF3EF]/50 py-24 border-t border-gray-200/60 relative">
+      <section className="w-full bg-[#EAF3EF]/60 py-24 border-y border-[#188B48]/10 relative z-10 backdrop-blur-[2px]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             
@@ -275,7 +287,7 @@ export default async function ProfilYayasanPage() {
       </section>
 
       {/* ================= DOKUMENTASI KEGIATAN & KEBERSAMAAN ================= */}
-      <section className="w-full bg-[#FDFCF8] py-16 md:py-24 border-t border-gray-100">
+      <section className="w-full py-16 md:py-24 relative z-10">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="relative w-full rounded-[36px] overflow-hidden shadow-xl border-4 border-white aspect-[16/9] md:aspect-[21/9] group bg-gray-100">
             <Image

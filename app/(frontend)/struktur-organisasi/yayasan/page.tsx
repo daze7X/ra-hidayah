@@ -50,6 +50,15 @@ const defaultYayasanMembers = [
   { name: "Uswatun Hasanah", position: "SEKBID Bidang Sosial", section: "Bidang Sosial", order: 22 },
 ];
 
+async function getYayasanOrgSettings() {
+  try {
+    const query = `*[_type == "orgPageSettings" && institution == "yayasan"][0]`;
+    return await client.fetch(query, {}, { next: { revalidate: 0 } });
+  } catch (error) {
+    return null;
+  }
+}
+
 async function getYayasanOrgData() {
   try {
     const query = `*[_type == "orgStructure" && institution == "yayasan"] | order(order asc)`;
@@ -64,7 +73,17 @@ async function getYayasanOrgData() {
 }
 
 export default async function StrukturYayasanPage() {
-  const members = await getYayasanOrgData();
+  const [members, settings] = await Promise.all([
+    getYayasanOrgData(),
+    getYayasanOrgSettings(),
+  ]);
+
+  const heroBadge = settings?.heroBadge || "STRUKTUR KEPENGURUSAN";
+  const heroTitle = settings?.heroTitle || "Pengurus Yayasan Hidayah";
+  const heroSubtitle = settings?.heroSubtitle || "Mengenal jajaran pembina, pengawas, dan pengurus harian yang mengemban amanah memajukan dakwah dan pendidikan di lingkungan Yayasan Hidayah.";
+  const quoteIcon = settings?.quoteIcon || "mosque";
+  const quoteText = settings?.quoteText || "Mengabdi dengan Ketulusan Hati demi Kemaslahatan Ummah.";
+  const quoteSubtext = settings?.quoteSubtext || "Keluarga Besar Pengurus Yayasan Pendidikan Islam Hidayah Tayu";
 
   // Pengelompokan Tingkat Struktur
   const pembina = members.filter((m: any) => m.section === "Dewan Pembina" || m.order <= 2);
@@ -90,15 +109,15 @@ export default async function StrukturYayasanPage() {
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white border-white/30 font-bold text-sm mb-6 border">
             <span className="material-symbols-outlined text-[18px]">account_balance</span>
-            <span>STRUKTUR KEPENGURUSAN</span>
+            <span>{heroBadge}</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-sm">
-            Pengurus Yayasan Hidayah
+            {heroTitle}
           </h1>
 
           <p className="text-white max-w-2xl mx-auto text-base md:text-lg leading-relaxed opacity-95">
-            Mengenal jajaran pembina, pengawas, dan pengurus harian yang mengemban amanah memajukan dakwah dan pendidikan di lingkungan Yayasan Hidayah.
+            {heroSubtitle}
           </p>
         </div>
       </section>
@@ -327,6 +346,19 @@ export default async function StrukturYayasanPage() {
               </div>
             </div>
 
+          </div>
+        </div>
+
+        {/* ================= BINGKAI HIJAU (Slogan Dinamis) ================= */}
+        <div className="w-full mb-12 p-8 md:p-10 bg-gradient-to-r from-[#188B48] to-[#126B36] rounded-3xl text-center text-white shadow-xl relative overflow-hidden">
+          <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+            <span className="material-symbols-outlined text-4xl text-[#FCD116] mb-3">{quoteIcon}</span>
+            <p className="text-xl md:text-2xl font-bold italic tracking-wide">
+              &ldquo;{quoteText}&rdquo;
+            </p>
+            {quoteSubtext && (
+              <p className="text-sm text-green-100 mt-2 font-medium">{quoteSubtext}</p>
+            )}
           </div>
         </div>
 

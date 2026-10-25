@@ -326,6 +326,15 @@ export const defaultSDMembers = [
   },
 ];
 
+async function getSDOrgSettings() {
+  try {
+    const query = `*[_type == "orgPageSettings" && institution == "sd"][0]`;
+    return await client.fetch(query, {}, { next: { revalidate: 0 } });
+  } catch (error) {
+    return null;
+  }
+}
+
 async function getSDOrgData() {
   try {
     const query = `*[_type == "orgStructure" && institution == "sd"] | order(order asc)`;
@@ -340,7 +349,17 @@ async function getSDOrgData() {
 }
 
 export default async function StrukturSDPage() {
-  const members = await getSDOrgData();
+  const [members, settings] = await Promise.all([
+    getSDOrgData(),
+    getSDOrgSettings(),
+  ]);
+
+  const heroBadge = settings?.heroBadge || "STRUKTUR ORGANISASI";
+  const heroTitle = settings?.heroTitle || "Pendidik & Tenaga Kependidikan SD Islam Hidayah Tayu";
+  const heroSubtitle = settings?.heroSubtitle || "Mengenal dewan pembina, kepala sekolah, para pendidik, dan tenaga kependidikan yang berdedikasi membimbing generasi cerdas, berkarakter Islami, dan berbudaya lingkungan.";
+  const quoteIcon = settings?.quoteIcon || "eco";
+  const quoteText = settings?.quoteText || "Membimbing Tunas Bangsa Berakhlak Mulia dan Peduli Lingkungan.";
+  const quoteSubtext = settings?.quoteSubtext || "Keluarga Besar Pendidik & Tenaga Kependidikan SD Islam Hidayah Tayu";
 
   // Pengelompokan Data
   const yayasanDanKomite = members.filter((m: any) => m.section === "Yayasan & Komite" || m.order <= 4);
@@ -372,16 +391,15 @@ export default async function StrukturSDPage() {
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-[#FCD116] border border-white/30 font-bold text-sm mb-6 backdrop-blur-sm">
             <span className="material-symbols-outlined text-[18px]">groups</span>
-            <span>STRUKTUR ORGANISASI</span>
+            <span>{heroBadge}</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-sm tracking-tight">
-            Pendidik &amp; Tenaga Kependidikan<br/>
-            <span className="text-[#FCD116]">SD Islam Hidayah Tayu</span>
+            {heroTitle}
           </h1>
 
           <p className="text-white/95 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Mengenal dewan pembina, kepala sekolah, para pendidik, dan tenaga kependidikan yang berdedikasi membimbing generasi cerdas, berkarakter Islami, dan berbudaya lingkungan.
+            {heroSubtitle}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
@@ -621,6 +639,19 @@ export default async function StrukturSDPage() {
             </div>
           </section>
         )}
+
+        {/* ================= BINGKAI HIJAU (Slogan Dinamis) ================= */}
+        <div className="w-full mt-12 md:mt-16 p-8 md:p-10 bg-gradient-to-r from-[#188B48] to-[#126B36] rounded-3xl text-center text-white shadow-xl relative overflow-hidden">
+          <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
+            <span className="material-symbols-outlined text-4xl text-[#FCD116] mb-3">{quoteIcon}</span>
+            <p className="text-xl md:text-2xl font-bold italic tracking-wide">
+              &ldquo;{quoteText}&rdquo;
+            </p>
+            {quoteSubtext && (
+              <p className="text-sm text-green-100 mt-2 font-medium">{quoteSubtext}</p>
+            )}
+          </div>
+        </div>
 
       </div>
     </main>

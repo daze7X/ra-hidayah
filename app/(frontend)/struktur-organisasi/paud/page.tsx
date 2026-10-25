@@ -1,4 +1,5 @@
 import { client } from "../../../../sanity/lib/client";
+import { urlFor } from "../../../../sanity/lib/image";
 import OrgCardWithModal from "../../../../components/OrgCardWithModal";
 
 export const revalidate = 0;
@@ -10,8 +11,32 @@ async function getOrgData() {
   return orgs;
 }
 
+async function getOrgSettings() {
+  const query = `*[_type == "orgPageSettings" && institution == "paud"][0]`;
+  try {
+    return await client.fetch(query, {}, { next: { revalidate: 0 } });
+  } catch (err) {
+    return null;
+  }
+}
+
 export default async function StrukturOrganisasi() {
-  const orgs = await getOrgData();
+  const [orgs, settings] = await Promise.all([
+    getOrgData(),
+    getOrgSettings(),
+  ]);
+
+  const heroBadge = settings?.heroBadge || "Tentang Kami";
+  const heroMotto = settings?.heroMotto || "Mendidik dengan Cinta, Melayani dengan Sepenuh Hati";
+  const heroTitle = settings?.heroTitle || "Bersama Membentuk Generasi Berkarakter";
+  const heroSubtitle = settings?.heroSubtitle || "Mengenal para pengurus dan pendidik yang menjadi bagian dari perjalanan pendidikan di PAUD Hidayah.";
+  const heroImage = settings?.heroImage 
+    ? urlFor(settings.heroImage).width(900).height(675).format('webp').url()
+    : "/kegiatan/kegiatan-dewan-guru.webp";
+
+  const quoteIcon = settings?.quoteIcon || "favorite";
+  const quoteText = settings?.quoteText || "Mendidik dengan Cinta, Melayani dengan Sepenuh Hati.";
+  const quoteSubtext = settings?.quoteSubtext || "Keluarga Besar Pendidik & Tenaga Kependidikan PAUD Hidayah Tayu";
 
   if (!orgs || orgs.length === 0) {
     return (
@@ -35,7 +60,7 @@ export default async function StrukturOrganisasi() {
   return (
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
       
-      {/* ================= HERO SECTION (Sesuai Mockup) ================= */}
+      {/* ================= HERO SECTION (Dinamis dari Sanity Studio) ================= */}
       <section className="w-full pt-28 pb-12 md:pt-32 md:pb-14 relative">
         {/* Background Blobs */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-[#FCD116]/40 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
@@ -49,21 +74,22 @@ export default async function StrukturOrganisasi() {
           <div className="flex flex-col items-start gap-4">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-[12px] font-bold text-[#188B48] tracking-widest uppercase">
-                Tentang Kami
+                {heroBadge}
               </span>
               <span className="material-symbols-outlined text-[#188B48] text-[18px]">verified</span>
-              <span className="inline-block px-3 py-1 bg-[#188B48]/10 text-[#188B48] text-xs font-semibold rounded-full italic">
-                &ldquo;Mendidik dengan Cinta, Melayani dengan Sepenuh Hati&rdquo;
-              </span>
+              {heroMotto && (
+                <span className="inline-block px-3 py-1 bg-[#188B48]/10 text-[#188B48] text-xs font-semibold rounded-full italic">
+                  &ldquo;{heroMotto}&rdquo;
+                </span>
+              )}
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#188B48] leading-[1.15] tracking-tight">
-              Bersama Membentuk<br/>
-              Generasi Berkarakter
+              {heroTitle}
             </h1>
             
             <p className="text-[16px] text-gray-600 max-w-md leading-relaxed mt-2">
-              Mengenal para pengurus dan pendidik yang menjadi bagian dari perjalanan pendidikan di PAUD Hidayah.
+              {heroSubtitle}
             </p>
 
             {/* Decorative Dots */}
@@ -82,8 +108,8 @@ export default async function StrukturOrganisasi() {
              {/* Main Image Mask */}
              <div className="relative w-full max-w-[480px] aspect-[4/3] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden shadow-2xl border-[6px] border-white">
                <img 
-                 src="/kegiatan/kegiatan-dewan-guru.webp" 
-                 alt="Dewan Guru dan Tenaga Kependidikan PAUD Hidayah" 
+                 src={heroImage} 
+                 alt={heroTitle} 
                  className="w-full h-full object-cover"
                />
              </div>
@@ -223,14 +249,16 @@ export default async function StrukturOrganisasi() {
           </div>
         )}
 
-        {/* Slogan PAUD Hidayah */}
+        {/* ================= BINGKAI HIJAU (Slogan Dinamis) ================= */}
         <div className="w-full mt-12 md:mt-16 p-8 md:p-10 bg-gradient-to-r from-[#188B48] to-[#126B36] rounded-3xl text-center text-white shadow-xl relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
-            <span className="material-symbols-outlined text-4xl text-[#FCD116] mb-3">favorite</span>
+            <span className="material-symbols-outlined text-4xl text-[#FCD116] mb-3">{quoteIcon}</span>
             <p className="text-xl md:text-2xl font-bold italic tracking-wide">
-              &ldquo;Mendidik dengan Cinta, Melayani dengan Sepenuh Hati.&rdquo;
+              &ldquo;{quoteText}&rdquo;
             </p>
-            <p className="text-sm text-green-100 mt-2 font-medium">Keluarga Besar Pendidik &amp; Tenaga Kependidikan PAUD Hidayah Tayu</p>
+            {quoteSubtext && (
+              <p className="text-sm text-green-100 mt-2 font-medium">{quoteSubtext}</p>
+            )}
           </div>
         </div>
 

@@ -97,12 +97,29 @@ export const structure: StructureResolver = (S) =>
               S.listItem()
                 .title('🏛️ Pengurus Yayasan Hidayah')
                 .child(
-                  S.documentList()
-                    .title('Pengurus Yayasan Hidayah')
-                    .filter('_type == "orgStructure" && institution == "yayasan"')
-                    .defaultOrdering([{field: 'order', direction: 'asc'}])
-                    .initialValueTemplates([
-                      S.initialValueTemplateItem('orgStructure-yayasan')
+                  S.list()
+                    .title('Kelola Pengurus Yayasan')
+                    .items([
+                      S.listItem()
+                        .title('📝 Sampul & Slogan Halaman')
+                        .child(
+                          S.document()
+                            .schemaType('orgPageSettings')
+                            .documentId('orgSettings-yayasan')
+                            .title('Sampul & Slogan Struktur Yayasan')
+                        ),
+                      S.divider(),
+                      S.listItem()
+                        .title('👥 Daftar Pengurus Yayasan')
+                        .child(
+                          S.documentList()
+                            .title('Pengurus Yayasan Hidayah')
+                            .filter('_type == "orgStructure" && institution == "yayasan"')
+                            .defaultOrdering([{field: 'order', direction: 'asc'}])
+                            .initialValueTemplates([
+                              S.initialValueTemplateItem('orgStructure-yayasan')
+                            ])
+                        ),
                     ])
                 ),
 
@@ -110,12 +127,29 @@ export const structure: StructureResolver = (S) =>
               S.listItem()
                 .title('🌱 Pendidik & Staf PAUD Hidayah')
                 .child(
-                  S.documentList()
-                    .title('Pendidik & Staf PAUD Hidayah')
-                    .filter('_type == "orgStructure" && (institution == "paud" || !defined(institution))')
-                    .defaultOrdering([{field: 'order', direction: 'asc'}])
-                    .initialValueTemplates([
-                      S.initialValueTemplateItem('orgStructure-paud')
+                  S.list()
+                    .title('Kelola Pendidik & Staf PAUD')
+                    .items([
+                      S.listItem()
+                        .title('📝 Sampul & Slogan Halaman')
+                        .child(
+                          S.document()
+                            .schemaType('orgPageSettings')
+                            .documentId('orgSettings-paud')
+                            .title('Sampul & Slogan Struktur PAUD')
+                        ),
+                      S.divider(),
+                      S.listItem()
+                        .title('👥 Daftar Pendidik & Staf PAUD')
+                        .child(
+                          S.documentList()
+                            .title('Pendidik & Staf PAUD Hidayah')
+                            .filter('_type == "orgStructure" && (institution == "paud" || !defined(institution))')
+                            .defaultOrdering([{field: 'order', direction: 'asc'}])
+                            .initialValueTemplates([
+                              S.initialValueTemplateItem('orgStructure-paud')
+                            ])
+                        ),
                     ])
                 ),
 
@@ -123,12 +157,29 @@ export const structure: StructureResolver = (S) =>
               S.listItem()
                 .title('🎒 Struktur SD Hidayah')
                 .child(
-                  S.documentList()
-                    .title('Struktur SD Hidayah')
-                    .filter('_type == "orgStructure" && institution == "sd"')
-                    .defaultOrdering([{field: 'order', direction: 'asc'}])
-                    .initialValueTemplates([
-                      S.initialValueTemplateItem('orgStructure-sd')
+                  S.list()
+                    .title('Kelola Struktur SD')
+                    .items([
+                      S.listItem()
+                        .title('📝 Sampul & Slogan Halaman')
+                        .child(
+                          S.document()
+                            .schemaType('orgPageSettings')
+                            .documentId('orgSettings-sd')
+                            .title('Sampul & Slogan Struktur SD')
+                        ),
+                      S.divider(),
+                      S.listItem()
+                        .title('👥 Daftar Struktur SD')
+                        .child(
+                          S.documentList()
+                            .title('Struktur SD Hidayah')
+                            .filter('_type == "orgStructure" && institution == "sd"')
+                            .defaultOrdering([{field: 'order', direction: 'asc'}])
+                            .initialValueTemplates([
+                              S.initialValueTemplateItem('orgStructure-sd')
+                            ])
+                        ),
                     ])
                 ),
 
