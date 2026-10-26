@@ -7,7 +7,18 @@ export const revalidate = 0;
 
 // Fetch data from Sanity (institutionProfile with fallback to schoolProfile)
 async function getProfileData() {
-  const profileQuery = `*[_type == "institutionProfile" && institution == "paud"][0]`;
+  const profileQuery = `*[_type == "institutionProfile" && institution == "paud"][0]{
+    ...,
+    heroImage {
+      ...,
+      asset->{
+        _id,
+        url,
+        mimeType,
+        metadata
+      }
+    }
+  }`;
   const legacyQuery = `*[_type == "schoolProfile"][0]`;
   const profile = await client.fetch(profileQuery, {}, { next: { revalidate: 0 } });
   if (profile) return profile;
@@ -17,9 +28,15 @@ async function getProfileData() {
 export default async function ProfilPAUD() {
   const profile = await getProfileData();
 
-  const heroImage = profile?.heroImage 
-    ? urlFor(profile.heroImage).width(800).height(1000).format('webp').url() 
-    : "/kegiatan/kegiatan-sentra-belajar.webp";
+  const isMotionPhoto = 
+    profile?.heroImage?.asset?._id === "image-73a9c5509e066c86b14706d542c3120a1b93c565-640x360-gif" ||
+    !profile?.heroImage?.asset;
+
+  const isGif = profile?.heroImage?.asset?.mimeType === "image/gif" || profile?.heroImage?.asset?.url?.endsWith(".gif");
+
+  const heroImage = profile?.heroImage?.asset?.url
+    ? (isGif ? profile.heroImage.asset.url : urlFor(profile.heroImage).width(1000).height(600).format("webp").url()) 
+    : "/kegiatan/motion-paud-tentang.gif";
 
   const bannerImage = profile?.bannerImage
     ? urlFor(profile.bannerImage).width(1600).height(800).format('webp').url()
@@ -129,20 +146,43 @@ export default async function ProfilPAUD() {
             </div>
           </div>
 
-          {/* RIGHT: IMAGE COLUMN (Mihrab Arch Shape) */}
+          {/* RIGHT: IMAGE/VIDEO COLUMN (Landscape Organic Islamic Frame) */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-end w-full mt-8 lg:mt-0">
-            <div className="relative w-full max-w-[400px]">
-              {/* Decorative background arch (yellow accent) */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#FCD116]/80 to-[#FCD116]/40 rounded-t-[160px] rounded-b-[40px] rotate-3 scale-105 opacity-60 shadow-lg"></div>
-              {/* Main image container */}
-              <div className="relative w-full aspect-[4/5] rounded-t-[160px] rounded-b-[40px] overflow-hidden shadow-2xl border-4 border-white bg-white">
-                <Image 
-                  src={heroImage} 
-                  alt={heroTitle || "Anak-anak PAUD Hidayah"} 
-                  fill 
-                  className="object-cover hover:scale-105 transition-transform duration-700" 
-                  priority
-                />
+            <div className="relative w-full max-w-[540px]">
+              {/* Decorative background accent (yellow gold backdrop) */}
+              <div className="absolute -inset-2.5 sm:-inset-3 bg-gradient-to-tr from-[#FCD116] to-[#FCD116]/60 rounded-[38px] sm:rounded-[46px] rotate-2 scale-[1.02] opacity-85 shadow-2xl -z-10"></div>
+              
+              {/* Main media container with 16:9 aspect ratio */}
+              <div className="relative w-full aspect-[16/9] rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-2xl border-[5px] sm:border-[6px] border-white bg-slate-900 group">
+                {isMotionPhoto ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster={heroImage}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  >
+                    <source src="/kegiatan/motion-paud-tentang.mp4" type="video/mp4" />
+                    <img 
+                      src={heroImage} 
+                      alt={heroTitle || "Dewan Guru & Murid PAUD Hidayah"} 
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </video>
+                ) : (
+                  <img 
+                    src={heroImage} 
+                    alt={heroTitle || "Anak-anak & Guru PAUD Hidayah"} 
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                )}
+
+                {/* Subtle live motion badge */}
+                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-20 flex items-center gap-2 px-3 py-1 bg-black/45 backdrop-blur-md rounded-full text-white text-[11px] sm:text-xs font-medium border border-white/20 shadow-md pointer-events-none">
+                  <span className="w-2 h-2 rounded-full bg-[#FCD116] animate-pulse"></span>
+                  <span>Dokumentasi PAUD</span>
+                </div>
               </div>
             </div>
           </div>
