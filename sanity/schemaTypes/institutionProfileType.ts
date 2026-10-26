@@ -171,6 +171,7 @@ export const institutionProfileType = defineType({
       type: 'image',
       group: 'banner',
       options: { hotspot: true },
+      hidden: ({ document }) => document?.institution === 'yayasan',
       description: 'Foto panorama kebersamaan keluarga besar sekolah/lembaga di bagian bawah halaman.',
     }),
     defineField({
@@ -178,13 +179,15 @@ export const institutionProfileType = defineType({
       title: 'Badge Banner',
       type: 'string',
       group: 'banner',
-      description: 'Contoh: Kebersamaan Sekolah / Keluarga Besar Yayasan',
+      hidden: ({ document }) => document?.institution === 'yayasan',
+      description: 'Contoh: Kebersamaan Sekolah',
     }),
     defineField({
       name: 'bannerTitle',
       title: 'Judul Banner',
       type: 'string',
       group: 'banner',
+      hidden: ({ document }) => document?.institution === 'yayasan',
       description: 'Contoh: Keluarga Besar Murid & Dewan Guru PAUD Hidayah',
     }),
     defineField({
@@ -193,6 +196,7 @@ export const institutionProfileType = defineType({
       type: 'text',
       rows: 2,
       group: 'banner',
+      hidden: ({ document }) => document?.institution === 'yayasan',
       description: 'Kalimat penjelas atau doa yang menyertai foto kebersamaan.',
     }),
 

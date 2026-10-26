@@ -23,10 +23,6 @@ export default async function ProfilYayasanPage() {
     ? urlFor(profile.heroImage).width(800).height(1000).format('webp').url() 
     : "/kegiatan/kegiatan-dewan-guru.webp";
 
-  const bannerImage = profile?.bannerImage
-    ? urlFor(profile.bannerImage).width(1600).height(800).format('webp').url()
-    : "/kegiatan/kegiatan-bersama-sekolah.webp";
-
   const heroBadge = profile?.heroBadge || "Yayasan Pendidikan Islam";
   const heroTitle = profile?.heroTitle || "Menebar Manfaat,";
   const heroTitleHighlight = profile?.heroTitleHighlight || "Membina Ummah";
@@ -86,10 +82,6 @@ export default async function ProfilYayasanPage() {
         "Menjalin sinergi erat dengan masyarakat, wali murid, dan pemangku kepentingan demi kemaslahatan bersama.",
         "Membina keteladanan akhlak mulia dan kepedulian sosial di lingkungan keluarga besar yayasan."
       ];
-
-  const bannerBadge = profile?.bannerBadge || "Keluarga Besar Yayasan";
-  const bannerTitle = profile?.bannerTitle || "Keluarga Besar Yayasan Pendidikan Islam Hidayah";
-  const bannerSubtitle = profile?.bannerSubtitle || "Mengabdi dengan ketulusan hati untuk melahirkan generasi robbani penerus perjuangan bangsa dan agama.";
 
   return (
     <main className="w-full bg-[#FDFCF8] min-h-screen relative overflow-hidden font-sans selection:bg-[#FCD116] selection:text-[#188B48]">
@@ -282,36 +274,6 @@ export default async function ProfilYayasanPage() {
               </ul>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* ================= DOKUMENTASI KEGIATAN & KEBERSAMAAN ================= */}
-      <section className="w-full py-16 md:py-24 relative z-10">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="relative w-full rounded-[36px] overflow-hidden shadow-xl border-4 border-white aspect-[16/9] md:aspect-[21/9] group bg-gray-100">
-            <Image
-              src={bannerImage}
-              alt={bannerTitle}
-              fill
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              priority
-            />
-            {/* Soft gradient overlay with caption */}
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 md:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FCD116] text-[#1b1c1a] font-bold text-xs uppercase tracking-wider mb-2">
-                  {bannerBadge}
-                </span>
-                <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
-                  {bannerTitle}
-                </h3>
-              </div>
-              <p className="text-white/80 text-sm max-w-md hidden md:block">
-                {bannerSubtitle}
-              </p>
-            </div>
           </div>
         </div>
       </section>
