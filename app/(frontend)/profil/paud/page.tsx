@@ -177,12 +177,6 @@ export default async function ProfilPAUD() {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                 )}
-
-                {/* Subtle live motion badge */}
-                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-20 flex items-center gap-2 px-3 py-1 bg-black/45 backdrop-blur-md rounded-full text-white text-[11px] sm:text-xs font-medium border border-white/20 shadow-md pointer-events-none">
-                  <span className="w-2 h-2 rounded-full bg-[#FCD116] animate-pulse"></span>
-                  <span>Dokumentasi PAUD</span>
-                </div>
               </div>
             </div>
           </div>
