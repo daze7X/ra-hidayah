@@ -103,11 +103,32 @@ export default async function StrukturYayasanPage() {
   };
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans relative selection:bg-[#FCD116] selection:text-[#188B48]">
+      
+      {/* ================= BACKGROUND DECORATIVE ELEMENTS ================= */}
+      {/* Subtle Dot Grid Texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(#188B48_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.035] pointer-events-none"></div>
+
+      {/* Ambient Blurred Glow Blobs */}
+      <div className="absolute top-[450px] right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[120px] pointer-events-none translate-x-1/3"></div>
+      <div className="absolute top-[1150px] left-0 w-[450px] h-[450px] bg-[#188B48]/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3"></div>
+      <div className="absolute top-[1850px] right-10 w-[420px] h-[420px] bg-[#34D399]/15 rounded-full blur-[90px] pointer-events-none"></div>
+      <div className="absolute bottom-20 left-10 w-[350px] h-[350px] bg-[#FCD116]/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+      {/* Playful Floating Organic Accent Shapes */}
+      <div className="absolute top-[520px] left-8 w-24 h-24 bg-[#FCD116]/20 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] pointer-events-none rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[850px] right-8 w-20 h-20 bg-[#188B48]/15 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] pointer-events-none -rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[1400px] left-12 w-16 h-16 bg-[#34D399]/20 rounded-full pointer-events-none"></div>
+      <div className="absolute top-[2000px] left-1/4 w-20 h-20 bg-[#FCD116]/15 rounded-[50%_50%_40%_60%/40%_60%_50%_50%] pointer-events-none rotate-45"></div>
+
       {/* ================= FULL BLEED SOLID GREEN HERO ================= */}
       <section className="w-full bg-[#188B48] pt-28 pb-14 md:pt-32 md:pb-18 text-center relative overflow-hidden">
+        {/* Soft Ambient Blobs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[130px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-white border-white/30 font-bold text-sm mb-6 border">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 text-[#FCD116] border border-white/30 font-bold text-sm mb-6 backdrop-blur-sm">
             <span className="material-symbols-outlined text-[18px]">account_balance</span>
             <span>{heroBadge}</span>
           </div>
@@ -129,7 +150,7 @@ export default async function StrukturYayasanPage() {
         </svg>
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-6 pt-4">
+      <div className="max-w-[1200px] mx-auto px-6 pt-4 relative z-10">
         
         {/* ================= 01. DEWAN PEMBINA & PENGAWAS ================= */}
         <div className="w-full mb-20">

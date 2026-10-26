@@ -58,67 +58,87 @@ export default async function StrukturOrganisasi() {
   };
 
   return (
-    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans">
+    <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans relative selection:bg-[#FCD116] selection:text-[#188B48]">
       
-      {/* ================= HERO SECTION (Dinamis dari Sanity Studio) ================= */}
-      <section className="w-full pt-28 pb-12 md:pt-32 md:pb-14 relative">
-        {/* Background Blobs */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-[#FCD116]/40 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute top-20 right-0 w-96 h-96 bg-[#34D399]/20 rounded-full blur-[100px] translate-x-1/3"></div>
-        <div className="absolute -top-10 left-10 w-24 h-24 bg-[#FCD34D] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] opacity-60"></div>
-        <div className="absolute top-40 right-10 w-16 h-16 bg-[#188B48] rounded-[30%_70%_70%_30%/30%_30%_70%_70%] opacity-20"></div>
+      {/* ================= BACKGROUND DECORATIVE ELEMENTS ================= */}
+      {/* Subtle Dot Grid Texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(#188B48_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.035] pointer-events-none"></div>
+
+      {/* Ambient Blurred Glow Blobs */}
+      <div className="absolute top-[450px] right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[120px] pointer-events-none translate-x-1/3"></div>
+      <div className="absolute top-[1150px] left-0 w-[450px] h-[450px] bg-[#188B48]/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3"></div>
+      <div className="absolute top-[1850px] right-10 w-[420px] h-[420px] bg-[#34D399]/15 rounded-full blur-[90px] pointer-events-none"></div>
+      <div className="absolute bottom-20 left-10 w-[350px] h-[350px] bg-[#FCD116]/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+      {/* Playful Floating Organic Accent Shapes */}
+      <div className="absolute top-[520px] left-8 w-24 h-24 bg-[#FCD116]/20 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] pointer-events-none rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[850px] right-8 w-20 h-20 bg-[#188B48]/15 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] pointer-events-none -rotate-12 blur-[1px]"></div>
+      <div className="absolute top-[1400px] left-12 w-16 h-16 bg-[#34D399]/20 rounded-full pointer-events-none"></div>
+      <div className="absolute top-[2000px] left-1/4 w-20 h-20 bg-[#FCD116]/15 rounded-[50%_50%_40%_60%/40%_60%_50%_50%] pointer-events-none rotate-45"></div>
+
+      {/* ================= HERO SECTION (Solid Green Theme Dinamis dari Sanity) ================= */}
+      <section className="w-full bg-[#188B48] pt-28 pb-14 md:pt-32 md:pb-18 relative overflow-hidden text-white">
+        {/* Soft Hero Background Blobs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FCD116]/15 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
 
         <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           
           {/* Text Content */}
           <div className="flex flex-col items-start gap-4">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[12px] font-bold text-[#188B48] tracking-widest uppercase">
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white/20 text-[#FCD116] border border-white/30 font-bold tracking-widest uppercase text-xs sm:text-sm rounded-full shadow-sm backdrop-blur-sm">
+                <span className="material-symbols-outlined text-[16px]">verified</span>
                 {heroBadge}
               </span>
-              <span className="material-symbols-outlined text-[#188B48] text-[18px]">verified</span>
               {heroMotto && (
-                <span className="inline-block px-3 py-1 bg-[#188B48]/10 text-[#188B48] text-xs font-semibold rounded-full italic">
+                <span className="inline-block px-3 py-1 bg-white/15 text-white/95 text-xs font-semibold rounded-full italic border border-white/20 backdrop-blur-sm">
                   &ldquo;{heroMotto}&rdquo;
                 </span>
               )}
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#188B48] leading-[1.15] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight drop-shadow-sm">
               {heroTitle}
             </h1>
             
-            <p className="text-[16px] text-gray-600 max-w-md leading-relaxed mt-2">
+            <p className="text-[16px] text-white/90 max-w-lg leading-relaxed mt-2">
               {heroSubtitle}
             </p>
 
             {/* Decorative Dots */}
             <div className="flex gap-2 mt-4">
-              <div className="w-3 h-3 rounded-full bg-[#188B48]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#FCD34D]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#FCD34D]"></div>
+              <div className="w-3 h-3 rounded-full bg-[#FCD116]"></div>
+              <div className="w-3 h-3 rounded-full bg-white/80"></div>
+              <div className="w-3 h-3 rounded-full bg-white/40"></div>
             </div>
           </div>
           
           {/* Image Content (Blob Shape Mask) */}
           <div className="relative flex justify-center lg:justify-end">
              {/* Yellow accent blob behind */}
-             <div className="absolute top-4 sm:p-6 -left-6 w-full max-w-[450px] aspect-[4/3] bg-[#FCD116] rounded-[30%_70%_50%_50%/50%_40%_60%_50%] -z-10"></div>
+             <div className="absolute top-4 sm:p-6 -left-6 w-full max-w-[450px] aspect-[4/3] bg-[#FCD116] rounded-[30%_70%_50%_50%/50%_40%_60%_50%] -z-10 shadow-lg"></div>
              
              {/* Main Image Mask */}
-             <div className="relative w-full max-w-[480px] aspect-[4/3] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden shadow-2xl border-[6px] border-white">
+             <div className="relative w-full max-w-[480px] aspect-[4/3] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden shadow-2xl border-[6px] border-white bg-white">
                <img 
                  src={heroImage} 
                  alt={heroTitle} 
-                 className="w-full h-full object-cover"
+                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                />
              </div>
           </div>
         </div>
       </section>
 
+      {/* Wave Divider to #FDFCF8 below */}
+      <div className="w-full overflow-hidden -mt-1 bg-[#FDFCF8] relative z-20">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-8 sm:h-12 md:h-16 block">
+          <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48" />
+        </svg>
+      </div>
 
-      <div className="max-w-[1200px] mx-auto px-6 pt-16">
+      <div className="max-w-[1200px] mx-auto px-6 pt-12 relative z-10">
         
         {/* ================= 01. STRUKTUR KEPENGURUSAN ================= */}
         <div className="w-full mb-24">
