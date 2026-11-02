@@ -17,12 +17,12 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItem('author').title('Penulis / Author'),
               S.divider(),
               S.listItem()
-                .title('📝 Judul Seksi Berita di Beranda')
+                .title('🌟 Berita yang Tampil di Beranda')
                 .child(
                   S.document()
-                    .schemaType('siteSettings')
-                    .documentId('siteSettings')
-                    .title('Pengaturan Judul Seksi Berita di Beranda')
+                    .schemaType('homeNewsSettings')
+                    .documentId('4a75ead6-aa10-4bc0-be4c-17b4bc413f81')
+                    .title('Pilih Berita & Judul yang Tampil di Beranda')
                 ),
             ])
         ),

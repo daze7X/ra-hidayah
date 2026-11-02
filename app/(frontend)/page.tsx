@@ -19,8 +19,7 @@ export default async function Home() {
     {},
     { next: { revalidate: 0 } }
   );
-  const newsBadge = siteSettings?.newsSectionBadge?.trim() || "Informasi & Kegiatan";
-  const newsTitle = siteSettings?.newsSectionTitle?.trim() || "Kabar, Program & Agenda Ceria";
+  // (newsBadge and newsTitle will be determined below after homeNewsSettings fetch)
   const heroBackground = siteSettings?.heroImage
     ? urlFor(siteSettings.heroImage).width(1920).height(1080).format('webp').url()
     : "/gedung-tk.jpg";
@@ -87,21 +86,50 @@ export default async function Home() {
     ? urlFor(profile.principalImage).width(400).height(400).format('webp').url()
     : "/kegiatan/kepala-sekolah-paud.webp";
 
-  // Fetch latest 3 posts from Sanity for Warta Sekolah
-  const latestPostsQuery = `*[_type == "post"] | order(publishedAt desc)[0...3] {
-    _id,
-    title,
-    slug,
-    publishedAt,
-    mainImage,
-    "category": categories[0]->title,
-    "excerpt": select(defined(body) => array::join(string::split((pt::text(body)), "")[0..130], "") + "...", "")
-  }`;
+  // Fetch homeNewsSettings (allows admin to manually choose 3 specific news articles for Beranda)
+  const homeNewsSettings = await client.fetch(
+    `*[_type == "homeNewsSettings"][0]{
+      badge,
+      title,
+      selectedPosts[]->{
+        _id,
+        title,
+        slug,
+        publishedAt,
+        mainImage,
+        "category": categories[0]->title,
+        "excerpt": select(defined(body) => array::join(string::split((pt::text(body)), "")[0..130], "") + "...", "")
+      }
+    }`,
+    {},
+    { next: { revalidate: 0 } }
+  );
+
+  const newsBadge = homeNewsSettings?.badge?.trim() || siteSettings?.newsSectionBadge?.trim() || "Informasi & Kegiatan";
+  const newsTitle = homeNewsSettings?.title?.trim() || siteSettings?.newsSectionTitle?.trim() || "Kabar, Program & Agenda Ceria";
+
   let latestPosts: any[] = [];
-  try {
-    latestPosts = await client.fetch(latestPostsQuery, {}, { next: { revalidate: 0 } });
-  } catch (err) {
-    console.error("Error fetching latest posts:", err);
+  if (homeNewsSettings?.selectedPosts && homeNewsSettings.selectedPosts.length > 0) {
+    // Use manually selected posts from Sanity Studio (filter out any deleted refs)
+    latestPosts = homeNewsSettings.selectedPosts.filter((p: any) => p && p._id);
+  }
+
+  // If no posts were manually selected, automatically fall back to the 3 newest posts
+  if (latestPosts.length === 0) {
+    const latestPostsQuery = `*[_type == "post"] | order(publishedAt desc)[0...3] {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      mainImage,
+      "category": categories[0]->title,
+      "excerpt": select(defined(body) => array::join(string::split((pt::text(body)), "")[0..130], "") + "...", "")
+    }`;
+    try {
+      latestPosts = await client.fetch(latestPostsQuery, {}, { next: { revalidate: 0 } });
+    } catch (err) {
+      console.error("Error fetching latest posts:", err);
+    }
   }
 
   // Fetch Program Unggulan from Sanity
