@@ -45,7 +45,11 @@ export default function OrgCardWithModal({
     if (!img) return null;
     if (typeof img === 'string') return img;
     try {
-      return urlFor(img).width(size).height(size).fit('crop').format('webp').url();
+      let b = urlFor(img).width(size).height(size).fit('crop').format('webp');
+      if (!img.hotspot && !img.crop) {
+        b = b.crop('top');
+      }
+      return b.url();
     } catch {
       return null;
     }
@@ -87,7 +91,7 @@ export default function OrgCardWithModal({
             <img 
               src={cardImg} 
               alt={org.name} 
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
               loading="lazy"
             />
           ) : (
@@ -141,7 +145,7 @@ export default function OrgCardWithModal({
                 <img 
                   src={modalImg} 
                   alt={org.name} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               ) : (
                 <div className="flex flex-col items-center justify-center text-[#188B48]/40">
