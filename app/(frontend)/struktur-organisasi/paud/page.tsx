@@ -6,7 +6,7 @@ export const revalidate = 0;
 
 // Fetch data from Sanity
 async function getOrgData() {
-  const orgQuery = `*[_type == "orgStructure" && (institution == "paud" || !defined(institution))] | order(order asc)`;
+  const orgQuery = `*[_type == "orgStructure" && (institution == "paud" || !defined(institution))] | order(order asc, name asc)`;
   const orgs = await client.fetch(orgQuery, {}, { next: { revalidate: 0 } });
   return orgs;
 }
@@ -49,25 +49,28 @@ export default async function StrukturOrganisasi() {
   // Pengelompokan struktur berbasis Kategori Jabatan (Section)
   const kepala = orgs.filter((o: any) => 
     o.section === "Kepala Sekolah" || 
-    o.position?.toLowerCase().includes("kepala sekolah") || 
-    o.order === 1
+    (o.position && o.position.toLowerCase().includes("kepala sekolah"))
   );
 
   const yayasanLengkap = orgs.filter((o: any) => 
     !kepala.includes(o) && (
       o.section === "Perwakilan Yayasan" || 
-      o.order === 2
+      o.section === "Yayasan & Komite" ||
+      (o.position && o.position.toLowerCase().includes("yayasan"))
     )
   );
 
   const staf = orgs.filter((o: any) => 
     !kepala.includes(o) && !yayasanLengkap.includes(o) && (
       o.section === "Tenaga Administrasi & Staf" || 
-      o.position?.toLowerCase().includes("operator") || 
-      o.position?.toLowerCase().includes("satpam") || 
-      o.position?.toLowerCase().includes("driver") || 
-      o.position?.toLowerCase().includes("tendik") || 
-      (o.order > 2 && o.order < 6)
+      o.section === "Tenaga Pendukung" ||
+      (o.position && (
+        o.position.toLowerCase().includes("operator") || 
+        o.position.toLowerCase().includes("satpam") || 
+        o.position.toLowerCase().includes("driver") || 
+        o.position.toLowerCase().includes("tendik") ||
+        o.position.toLowerCase().includes("administrasi")
+      ))
     )
   );
 

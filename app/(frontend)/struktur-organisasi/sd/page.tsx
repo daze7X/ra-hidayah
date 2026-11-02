@@ -364,7 +364,6 @@ export default async function StrukturSDPage() {
   // Pengelompokan Data berbasis Kategori Jabatan (Section)
   const kepalaSekolah = members.filter((m: any) => 
     m.section === "Pimpinan Sekolah" || 
-    m.order === 5 || 
     m.position?.toLowerCase().includes("kepala sekolah")
   );
 
@@ -372,14 +371,14 @@ export default async function StrukturSDPage() {
     !kepalaSekolah.includes(m) && (
       m.section === "Yayasan & Komite" || 
       m.position?.toLowerCase().includes("komite") || 
-      m.order <= 4
+      m.position?.toLowerCase().includes("pembina") ||
+      m.position?.toLowerCase().includes("yayasan")
     )
   );
 
   const manajemenSekolah = members.filter((m: any) => 
     !kepalaSekolah.includes(m) && !yayasanDanKomite.includes(m) && (
-      m.section === "Manajemen Sekolah" || 
-      (m.order >= 6 && m.order <= 14)
+      m.section === "Manajemen Sekolah"
     )
   );
 
@@ -387,31 +386,26 @@ export default async function StrukturSDPage() {
   const guruKelas = members.filter((m: any) => 
     !kepalaSekolah.includes(m) && !yayasanDanKomite.includes(m) && !manajemenSekolah.includes(m) && (
       m.section === "Guru Kelas" || 
-      m.section === "Guru Pendamping" || 
-      (m.order >= 15 && m.order <= 31)
+      m.section === "Guru Pendamping"
     )
   );
   
   // Guru Mapel
   const guruMapel = members.filter((m: any) => 
-    m.section === "Guru Mata Pelajaran" || 
-    (m.order >= 32 && m.order <= 37)
+    m.section === "Guru Mata Pelajaran"
   );
 
   // TPQ & Tahfidz
   const guruTPQ = members.filter((m: any) => 
-    m.section === "Guru TPQ" || 
-    (m.order >= 38 && m.order <= 46)
+    m.section === "Guru TPQ"
   );
   const guruTahfidz = members.filter((m: any) => 
-    m.section === "Guru Tahfidz" || 
-    (m.order >= 47 && m.order <= 50)
+    m.section === "Guru Tahfidz"
   );
 
   // Tenaga Pendukung
   const tenagaPendukung = members.filter((m: any) => 
-    m.section === "Tenaga Pendukung" || 
-    (m.order >= 51 && !guruMapel.includes(m) && !guruTPQ.includes(m) && !guruTahfidz.includes(m))
+    m.section === "Tenaga Pendukung"
   );
 
   return (
