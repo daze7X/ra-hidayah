@@ -124,7 +124,11 @@ export const structure: StructureResolver = (S) =>
                           S.documentList()
                             .title('Pengurus Yayasan Hidayah')
                             .filter('_type == "orgStructure" && institution == "yayasan"')
-                            .defaultOrdering([{field: 'order', direction: 'asc'}])
+                            .defaultOrdering([
+                              {field: 'section', direction: 'asc'},
+                              {field: 'order', direction: 'asc'},
+                              {field: 'name', direction: 'asc'}
+                            ])
                             .initialValueTemplates([
                               S.initialValueTemplateItem('orgStructure-yayasan')
                             ])
@@ -154,7 +158,11 @@ export const structure: StructureResolver = (S) =>
                           S.documentList()
                             .title('Pendidik & Staf PAUD Hidayah')
                             .filter('_type == "orgStructure" && (institution == "paud" || !defined(institution))')
-                            .defaultOrdering([{field: 'order', direction: 'asc'}])
+                            .defaultOrdering([
+                              {field: 'section', direction: 'asc'},
+                              {field: 'order', direction: 'asc'},
+                              {field: 'name', direction: 'asc'}
+                            ])
                             .initialValueTemplates([
                               S.initialValueTemplateItem('orgStructure-paud')
                             ])
@@ -184,7 +192,11 @@ export const structure: StructureResolver = (S) =>
                           S.documentList()
                             .title('Struktur SD Hidayah')
                             .filter('_type == "orgStructure" && institution == "sd"')
-                            .defaultOrdering([{field: 'order', direction: 'asc'}])
+                            .defaultOrdering([
+                              {field: 'section', direction: 'asc'},
+                              {field: 'order', direction: 'asc'},
+                              {field: 'name', direction: 'asc'}
+                            ])
                             .initialValueTemplates([
                               S.initialValueTemplateItem('orgStructure-sd')
                             ])

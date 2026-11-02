@@ -46,11 +46,34 @@ export default async function StrukturOrganisasi() {
     );
   }
 
-  // Pengelompokan struktur
-  const yayasanLengkap = orgs.filter((o: any) => o.order === 2);
-  const kepala = orgs.filter((o: any) => o.order === 1);
-  const staf = orgs.filter((o: any) => o.order > 2 && o.order < 6);
-  const dewanAsatidz = orgs.filter((o: any) => o.order >= 6);
+  // Pengelompokan struktur berbasis Kategori Jabatan (Section)
+  const kepala = orgs.filter((o: any) => 
+    o.section === "Kepala Sekolah" || 
+    o.position?.toLowerCase().includes("kepala sekolah") || 
+    o.order === 1
+  );
+
+  const yayasanLengkap = orgs.filter((o: any) => 
+    !kepala.includes(o) && (
+      o.section === "Perwakilan Yayasan" || 
+      o.order === 2
+    )
+  );
+
+  const staf = orgs.filter((o: any) => 
+    !kepala.includes(o) && !yayasanLengkap.includes(o) && (
+      o.section === "Tenaga Administrasi & Staf" || 
+      o.position?.toLowerCase().includes("operator") || 
+      o.position?.toLowerCase().includes("satpam") || 
+      o.position?.toLowerCase().includes("driver") || 
+      o.position?.toLowerCase().includes("tendik") || 
+      (o.order > 2 && o.order < 6)
+    )
+  );
+
+  const dewanAsatidz = orgs.filter((o: any) => 
+    !kepala.includes(o) && !yayasanLengkap.includes(o) && !staf.includes(o)
+  );
 
   // Komponen Card dengan Popup Modal
   const OrgCard = ({ org, highlight = false }: { org: any; highlight?: boolean }) => {

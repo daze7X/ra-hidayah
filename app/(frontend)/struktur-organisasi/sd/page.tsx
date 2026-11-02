@@ -361,23 +361,58 @@ export default async function StrukturSDPage() {
   const quoteText = settings?.quoteText || "Membimbing Tunas Bangsa Berakhlak Mulia dan Peduli Lingkungan.";
   const quoteSubtext = settings?.quoteSubtext || "Keluarga Besar Pendidik & Tenaga Kependidikan SD Islam Hidayah Tayu";
 
-  // Pengelompokan Data
-  const yayasanDanKomite = members.filter((m: any) => m.section === "Yayasan & Komite" || m.order <= 4);
-  const kepalaSekolah = members.filter((m: any) => m.order === 5 || m.position.toLowerCase().includes("kepala sekolah"));
-  const manajemenSekolah = members.filter((m: any) => (m.section === "Manajemen Sekolah" || (m.order >= 6 && m.order <= 14)) && m.order !== 5);
+  // Pengelompokan Data berbasis Kategori Jabatan (Section)
+  const kepalaSekolah = members.filter((m: any) => 
+    m.section === "Pimpinan Sekolah" || 
+    m.order === 5 || 
+    m.position?.toLowerCase().includes("kepala sekolah")
+  );
+
+  const yayasanDanKomite = members.filter((m: any) => 
+    !kepalaSekolah.includes(m) && (
+      m.section === "Yayasan & Komite" || 
+      m.position?.toLowerCase().includes("komite") || 
+      m.order <= 4
+    )
+  );
+
+  const manajemenSekolah = members.filter((m: any) => 
+    !kepalaSekolah.includes(m) && !yayasanDanKomite.includes(m) && (
+      m.section === "Manajemen Sekolah" || 
+      (m.order >= 6 && m.order <= 14)
+    )
+  );
 
   // Guru Kelas & Pendamping
-  const guruKelas = members.filter((m: any) => m.section === "Guru Kelas" || m.section === "Guru Pendamping" || (m.order >= 15 && m.order <= 31));
+  const guruKelas = members.filter((m: any) => 
+    !kepalaSekolah.includes(m) && !yayasanDanKomite.includes(m) && !manajemenSekolah.includes(m) && (
+      m.section === "Guru Kelas" || 
+      m.section === "Guru Pendamping" || 
+      (m.order >= 15 && m.order <= 31)
+    )
+  );
   
   // Guru Mapel
-  const guruMapel = members.filter((m: any) => m.section === "Guru Mata Pelajaran" || (m.order >= 32 && m.order <= 37));
+  const guruMapel = members.filter((m: any) => 
+    m.section === "Guru Mata Pelajaran" || 
+    (m.order >= 32 && m.order <= 37)
+  );
 
   // TPQ & Tahfidz
-  const guruTPQ = members.filter((m: any) => m.section === "Guru TPQ" || (m.order >= 38 && m.order <= 46));
-  const guruTahfidz = members.filter((m: any) => m.section === "Guru Tahfidz" || (m.order >= 47 && m.order <= 50));
+  const guruTPQ = members.filter((m: any) => 
+    m.section === "Guru TPQ" || 
+    (m.order >= 38 && m.order <= 46)
+  );
+  const guruTahfidz = members.filter((m: any) => 
+    m.section === "Guru Tahfidz" || 
+    (m.order >= 47 && m.order <= 50)
+  );
 
   // Tenaga Pendukung
-  const tenagaPendukung = members.filter((m: any) => m.section === "Tenaga Pendukung" || m.order >= 51);
+  const tenagaPendukung = members.filter((m: any) => 
+    m.section === "Tenaga Pendukung" || 
+    (m.order >= 51 && !guruMapel.includes(m) && !guruTPQ.includes(m) && !guruTahfidz.includes(m))
+  );
 
   return (
     <main className="w-full bg-[#FDFCF8] min-h-screen pb-24 overflow-hidden font-sans relative selection:bg-[#FCD116] selection:text-[#188B48]">
