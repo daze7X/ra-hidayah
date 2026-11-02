@@ -192,68 +192,56 @@ export default async function StrukturOrganisasi() {
           {/* Tree Structure */}
           <div className="flex flex-col items-center w-full relative">
             
-            {/* ROW 1: Yayasan */}
+            {/* ROW 1: Yayasan (jika ada data perwakilan yayasan) */}
             {yayasanLengkap.length > 0 && (
-              <div className="flex flex-col items-center w-full">
-                {yayasanLengkap.length === 1 ? (
-                  <div className="flex flex-col items-center">
-                    <OrgCard org={yayasanLengkap[0]} />
-                    <div className="w-[2px] h-10 bg-[#188B48]/40"></div>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex flex-wrap justify-center gap-8 w-full">
-                      {yayasanLengkap.map((org: any) => (
-                        <div key={org._id} className="flex flex-col items-center">
-                          <OrgCard org={org} />
-                          <div className="w-[2px] h-8 bg-[#188B48]/40"></div>
-                        </div>
-                      ))}
-                    </div>
-                    {/* Horizontal line merging Row 1 to Row 2 */}
-                    <div className="w-full flex justify-center relative">
-                      <div 
-                        className="h-[2px] bg-[#188B48]/40" 
-                        style={{ width: `${(yayasanLengkap.length - 1) * 280}px`, maxWidth: '90%' }}
-                      ></div>
-                    </div>
-                    <div className="w-[2px] h-8 bg-[#188B48]/40"></div>
-                  </>
-                )}
+              <div className="flex flex-col items-center w-full mb-4">
+                <div className="text-center mb-6">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#188B48] bg-[#EAF3EF] px-4 py-1.5 rounded-full border border-[#188B48]/15">
+                    Tingkat Pembina &amp; Yayasan
+                  </span>
+                </div>
+                <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full">
+                  {yayasanLengkap.map((org: any) => (
+                    <OrgCard key={org._id} org={org} />
+                  ))}
+                </div>
+
+                {/* Connecting Line to Principal */}
+                <div className="w-[2px] h-10 bg-[#188B48]/30 my-3"></div>
               </div>
             )}
 
-            {/* ROW 2: Kepala Sekolah & Staf */}
+            {/* ROW 2: Kepala Sekolah */}
             {kepala.length > 0 && (
-              <div className="flex flex-col items-center w-full mt-2">
-                <OrgCard org={kepala[0]} highlight={true} />
-                
-                {staf.length === 1 ? (
-                  <div className="flex flex-col items-center w-full">
-                    {/* Satu garis vertikal mulus tanpa terputus */}
-                    <div className="w-[2px] h-12 bg-[#188B48]/40"></div>
-                    <OrgCard org={staf[0]} />
-                  </div>
-                ) : staf.length > 1 ? (
-                  <div className="flex flex-col items-center w-full">
-                    <div className="w-[2px] h-8 bg-[#188B48]/40"></div>
-                    {/* Horizontal line diverging to Row 3 */}
-                    <div className="w-full flex justify-center relative">
-                      <div 
-                        className="h-[2px] bg-[#188B48]/40" 
-                        style={{ width: `${(staf.length - 1) * 280}px`, maxWidth: '90%' }}
-                      ></div>
-                    </div>
-                    <div className="flex justify-center flex-wrap gap-8 w-full relative">
-                      {staf.map((org: any) => (
-                        <div key={org._id} className="flex flex-col items-center">
-                          <div className="w-[2px] h-8 bg-[#188B48]/40"></div>
-                          <OrgCard org={org} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
+              <div className="flex flex-col items-center w-full">
+                <div className="text-center mb-4">
+                  <span className="text-xs font-bold uppercase tracking-wider text-white bg-[#188B48] px-4 py-1.5 rounded-full shadow-sm">
+                    Pimpinan Sekolah
+                  </span>
+                </div>
+                <div className="flex justify-center">
+                  <OrgCard org={kepala[0]} highlight={true} />
+                </div>
+              </div>
+            )}
+
+            {/* ROW 3: Tenaga Administrasi & Staf Pendukung */}
+            {staf.length > 0 && (
+              <div className="flex flex-col items-center w-full mt-4">
+                {/* Connecting Line from Principal */}
+                <div className="w-[2px] h-10 bg-[#188B48]/30 my-2"></div>
+
+                <div className="text-center mb-6">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#188B48] bg-[#EAF3EF] px-4 py-1.5 rounded-full border border-[#188B48]/15">
+                    Tenaga Administrasi &amp; Staf Pendukung
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-5 w-full justify-items-center">
+                  {staf.map((org: any) => (
+                    <OrgCard key={org._id} org={org} />
+                  ))}
+                </div>
               </div>
             )}
             
