@@ -12,11 +12,15 @@ export default async function Home() {
       address,
       openHours,
       accreditation,
-      heroImage
+      heroImage,
+      newsSectionBadge,
+      newsSectionTitle
     }`,
     {},
     { next: { revalidate: 0 } }
   );
+  const newsBadge = siteSettings?.newsSectionBadge?.trim() || "Informasi & Kegiatan";
+  const newsTitle = siteSettings?.newsSectionTitle?.trim() || "Kabar, Program & Agenda Ceria";
   const heroBackground = siteSettings?.heroImage
     ? urlFor(siteSettings.heroImage).width(1920).height(1080).format('webp').url()
     : "/gedung-tk.jpg";
@@ -91,7 +95,7 @@ export default async function Home() {
     publishedAt,
     mainImage,
     "category": categories[0]->title,
-    "excerpt": array::join(string::split((pt::text(body)), "")[0..130], "") + "..."
+    "excerpt": select(defined(body) => array::join(string::split((pt::text(body)), "")[0..130], "") + "...", "")
   }`;
   let latestPosts: any[] = [];
   try {
@@ -873,13 +877,13 @@ export default async function Home() {
     <path d="M0,0 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 Z" fill="#188B48"/>
   </svg>
 </div>
-{/* SECTION 5: INFORMASI & AGENDA SEKOLAH (Slide 5) */}
+{/* SECTION 5: INFORMASI & AGENDA SEKOLAH (Slide 5 - Dynamic from Sanity) */}
 <section className="w-full py-12 md:py-20 bg-white">
 <div className="max-w-[1200px] mx-auto px-6">
 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-10 gap-4">
 <div>
-<span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-2">Informasi &amp; Kegiatan</span>
-<h2 className="font-headline-lg text-headline-lg text-primary">Kabar, Program &amp; Agenda Ceria</h2>
+<span className="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-widest px-3 py-1 rounded-full bg-secondary-fixed/30 inline-block mb-2">{newsBadge}</span>
+<h2 className="font-headline-lg text-headline-lg text-primary">{newsTitle}</h2>
 </div>
 <Link className="inline-flex items-center gap-2 font-label-md text-label-md text-primary font-bold hover:text-secondary transition-colors group" href="/berita">
 <span>Lihat Semua Berita</span>
@@ -887,115 +891,65 @@ export default async function Home() {
 </Link>
 </div>
 
-{/* 3 Highlight Cards (Slide 5) */}
+{/* 3 Highlight Cards (Dynamic from Sanity Studio) */}
 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-  {/* Kotak 1: AGENDA TAHUNAN */}
-  <Link
-    href="/berita"
-    className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100"
-  >
-    <div className="h-52 overflow-hidden relative bg-gray-100">
-      <img
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        alt="Kegiatan Seru dan Bermakna Sepanjang Tahun PAUD Hidayah"
-        src="/kegiatan/kegiatan-parenting-batik.webp"
-      />
-      <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm flex items-center gap-1.5">
-        <span className="material-symbols-outlined text-[16px]">calendar_month</span>
-        <span>Agenda Tahunan</span>
-      </div>
-    </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
-      <div>
-        <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors leading-snug">
-          Kegiatan Seru dan Bermakna Sepanjang Tahun
-        </h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
-          Beragam kegiatan edukatif dan menyenangkan untuk menumbuhkan keimanan, kreativitas, kemandirian, serta pengalaman berharga bagi anak.
-        </p>
-      </div>
-      <div className="pt-5 mt-6 flex items-center justify-between border-t border-gray-100">
-        <span className="font-bold text-sm text-primary group-hover:text-secondary transition-colors">
-          Baca Selengkapnya
-        </span>
-        <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
-          arrow_forward
-        </span>
-      </div>
-    </div>
-  </Link>
+  {latestPosts && latestPosts.length > 0 ? (
+    latestPosts.map((post: any) => {
+      const postImg = post.mainImage
+        ? urlFor(post.mainImage).width(800).height(500).format('webp').url()
+        : "/kegiatan/kegiatan-parenting-batik.webp";
+      const postSlug = post.slug?.current ? `/berita/${post.slug.current}` : "/berita";
+      const postCategory = post.category || "Berita & Kegiatan";
+      const postDate = formatDate(post.publishedAt);
 
-  {/* Kotak 2: PROGRAM PEMBELAJARAN MODEL SENTRA */}
-  <Link
-    href="/program"
-    className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100"
-  >
-    <div className="h-52 overflow-hidden relative bg-gray-100">
-      <img
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        alt="Belajar Sambil Bermain melalui Model Sentra"
-        src="/kegiatan/kegiatan-sentra-belajar.webp"
-      />
-      <div className="absolute top-4 left-4 bg-[#FCD116] text-[#188B48] font-label-sm text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm flex items-center gap-1.5">
-        <span className="material-symbols-outlined text-[16px]">dashboard_customize</span>
-        <span>Model Pembelajaran</span>
-      </div>
+      return (
+        <Link
+          key={post._id}
+          href={postSlug}
+          className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100"
+        >
+          <div className="h-52 overflow-hidden relative bg-gray-100">
+            <img
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt={post.title}
+              src={postImg}
+            />
+            <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-[16px]">newspaper</span>
+              <span>{postCategory}</span>
+            </div>
+            {postDate && (
+              <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[11px] px-2.5 py-1 rounded-full font-medium">
+                {postDate}
+              </div>
+            )}
+          </div>
+          <div className="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors leading-snug line-clamp-2">
+                {post.title}
+              </h3>
+              <p className="text-gray-600 text-[14px] leading-relaxed line-clamp-3">
+                {post.excerpt || "Klik baca selengkapnya untuk membaca informasi dan warta kegiatan ini selengkapnya."}
+              </p>
+            </div>
+            <div className="pt-5 mt-6 flex items-center justify-between border-t border-gray-100">
+              <span className="font-bold text-sm text-primary group-hover:text-secondary transition-colors">
+                Baca Selengkapnya
+              </span>
+              <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </div>
+          </div>
+        </Link>
+      );
+    })
+  ) : (
+    <div className="col-span-full text-center py-12 text-gray-500">
+      Belum ada berita yang dipublikasikan.
     </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
-      <div>
-        <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors leading-snug">
-          Belajar Sambil Bermain melalui Model Sentra
-        </h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
-          Mengenal pembelajaran di Sentra Balok, Bahan Alam, Persiapan, Kreativitas, Imtaq, Masak, Mikro dan Makro yang memberi ruang anak bereksplorasi.
-        </p>
-      </div>
-      <div className="pt-5 mt-6 flex items-center justify-between border-t border-gray-100">
-        <span className="font-bold text-sm text-primary group-hover:text-secondary transition-colors">
-          Baca Selengkapnya
-        </span>
-        <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
-          arrow_forward
-        </span>
-      </div>
-    </div>
-  </Link>
-
-  {/* Kotak 3: INFORMASI PENERIMAAN MURID BARU */}
-  <Link
-    href="/#daftar-ppdb"
-    className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col group border border-gray-100"
-  >
-    <div className="h-52 overflow-hidden relative bg-gray-100">
-      <img
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        alt="SPMB PAUD Hidayah Tahun Ajaran 2026/2027"
-        src="/kegiatan/kegiatan-bersama-sekolah.webp"
-      />
-      <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm flex items-center gap-1.5">
-        <span className="material-symbols-outlined text-[16px]">how_to_reg</span>
-        <span>Penerimaan Murid Baru</span>
-      </div>
-    </div>
-    <div className="p-6 flex flex-col flex-1 justify-between">
-      <div>
-        <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors leading-snug">
-          SPMB PAUD Hidayah TA 2026/2027
-        </h3>
-        <p className="text-gray-600 text-[14px] leading-relaxed">
-          Saatnya bergabung bersama PAUD Hidayah! Temukan informasi pendaftaran, pilihan layanan pendidikan, dan kesempatan belajar dalam lingkungan Islami.
-        </p>
-      </div>
-      <div className="pt-5 mt-6 flex items-center justify-between border-t border-gray-100">
-        <span className="font-bold text-sm text-primary group-hover:text-secondary transition-colors">
-          Informasi Pendaftaran
-        </span>
-        <span className="material-symbols-outlined text-primary text-[18px] group-hover:translate-x-1 transition-transform">
-          arrow_forward
-        </span>
-      </div>
-    </div>
-  </Link>
+  )}
 </div>
 </div>
 </section>

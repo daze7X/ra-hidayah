@@ -63,5 +63,19 @@ export const siteSettingsType = defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'newsSectionBadge',
+      title: 'Label Badge Seksi Berita (Beranda)',
+      type: 'string',
+      description: 'Teks badge kecil di atas judul seksi berita pada beranda (Default: Informasi & Kegiatan)',
+      initialValue: 'Informasi & Kegiatan',
+    }),
+    defineField({
+      name: 'newsSectionTitle',
+      title: 'Judul Utama Seksi Berita (Beranda)',
+      type: 'string',
+      description: 'Judul besar seksi berita pada beranda (Default: Kabar, Program & Agenda Ceria)',
+      initialValue: 'Kabar, Program & Agenda Ceria',
+    }),
   ],
 })

@@ -15,6 +15,15 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItem('post').title('Daftar Berita / Post'),
               S.documentTypeListItem('category').title('Kategori Berita'),
               S.documentTypeListItem('author').title('Penulis / Author'),
+              S.divider(),
+              S.listItem()
+                .title('📝 Judul Seksi Berita di Beranda')
+                .child(
+                  S.document()
+                    .schemaType('siteSettings')
+                    .documentId('siteSettings')
+                    .title('Pengaturan Judul Seksi Berita di Beranda')
+                ),
             ])
         ),
 
