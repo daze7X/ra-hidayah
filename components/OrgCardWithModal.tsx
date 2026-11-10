@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { urlFor } from '../sanity/lib/image';
 
 interface OrgMember {
@@ -21,6 +22,11 @@ export default function OrgCardWithModal({
   highlight?: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close modal on Escape key
   useEffect(() => {
@@ -117,14 +123,14 @@ export default function OrgCardWithModal({
         </span>
       </div>
 
-      {/* ================= POPUP MODAL ================= */}
-      {isOpen && (
+      {/* ================= POPUP MODAL (Rendered to body via Portal) ================= */}
+      {isOpen && mounted && createPortal(
         <div 
-          className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-[99999] flex items-center justify-center p-4 pt-24 pb-8 overflow-y-auto bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setIsOpen(false)}
         >
           <div 
-            className="bg-white rounded-[32px] p-6 sm:p-8 max-w-[420px] w-full shadow-2xl relative border border-gray-100 flex flex-col items-center text-center overflow-hidden animate-in zoom-in-95 duration-200"
+            className="bg-white rounded-[32px] p-6 sm:p-8 max-w-[420px] w-full shadow-2xl relative border border-gray-100 flex flex-col items-center text-center max-h-[calc(100vh-120px)] overflow-y-auto my-auto animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Gradient Bar */}
@@ -133,14 +139,14 @@ export default function OrgCardWithModal({
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors z-20"
+              className="sticky top-0 self-end -mr-2 -mt-2 sm:-mr-4 sm:-mt-4 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors z-30 shadow-sm"
               aria-label="Tutup"
             >
               <span className="material-symbols-outlined text-[20px]">close</span>
             </button>
 
             {/* Large Clear Photo */}
-            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-[28px] bg-[#EAF3EF] mb-5 overflow-hidden border-4 border-white shadow-xl flex items-center justify-center shrink-0 relative mt-2 ring-4 ring-[#188B48]/10">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-[28px] bg-[#EAF3EF] mb-5 overflow-hidden border-4 border-white shadow-xl flex items-center justify-center shrink-0 relative ring-4 ring-[#188B48]/10">
               {modalImg ? (
                 <img 
                   src={modalImg} 
@@ -193,7 +199,8 @@ export default function OrgCardWithModal({
               </div>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
