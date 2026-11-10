@@ -9,7 +9,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://ra-hidayah.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.paudhidayah.sch.id"
   ),
   title: {
     default: "PAUD Hidayah Tayu - Tumbuh Ceria, Mandiri & Berkarakter Islami",
@@ -27,9 +27,12 @@ export const metadata: Metadata = {
     "Sekolah Islam Ramah Anak",
     "PPDB PAUD Hidayah",
   ],
-  authors: [{ name: "PAUD Hidayah Tayu", url: "https://ra-hidayah.vercel.app" }],
+  authors: [{ name: "PAUD Hidayah Tayu", url: "https://www.paudhidayah.sch.id" }],
   creator: "PAUD Hidayah Tayu",
   publisher: "Yayasan Hidayah Tayu",
+  verification: {
+    google: "5d0e31f428d88fc6",
+  },
   formatDetection: {
     telephone: true,
     address: true,
@@ -49,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://ra-hidayah.vercel.app",
+    url: "https://www.paudhidayah.sch.id",
     siteName: "PAUD Hidayah Tayu",
     title: "PAUD Hidayah Tayu - Tumbuh Ceria, Mandiri & Berkarakter Islami",
     description:
