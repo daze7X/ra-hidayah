@@ -50,6 +50,18 @@ export const postType = defineType({
       name: 'body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'youtubeUrl',
+      title: 'Tautan Video YouTube / Shorts (Opsional)',
+      description: 'Masukkan link video YouTube atau YouTube Shorts jika ada dokumentasi video kegiatan ini.',
+      type: 'url',
+    }),
+    defineField({
+      name: 'tiktokUrl',
+      title: 'Tautan Video TikTok (Opsional)',
+      description: 'Masukkan link video TikTok jika ada dokumentasi di TikTok.',
+      type: 'url',
+    }),
   ],
   preview: {
     select: {
