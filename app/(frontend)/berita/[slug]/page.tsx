@@ -90,11 +90,11 @@ export default async function BeritaDetail({ params }: { params: Promise<{ slug:
 
         {/* Hero Image */}
         {post.mainImage && post.mainImage.asset && (
-          <div className="relative w-full h-[320px] md:h-[480px] rounded-[32px] overflow-hidden shadow-lg mb-12 border-4 border-white">
+          <div className="relative w-full rounded-[32px] overflow-hidden shadow-lg mb-12 border-4 border-white bg-gray-50 flex items-center justify-center">
             <img
-              src={urlFor(post.mainImage).width(1200).height(800).format('webp').url()}
+              src={urlFor(post.mainImage).width(1400).quality(95).format('webp').url()}
               alt={post.title}
-              className="w-full h-full object-cover"
+              className="w-full h-auto object-contain rounded-[28px]"
             />
           </div>
         )}
