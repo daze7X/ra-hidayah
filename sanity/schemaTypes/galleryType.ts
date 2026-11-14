@@ -15,11 +15,11 @@ export const galleryType = defineType({
       name: 'mediaType',
       title: 'Jenis Media',
       type: 'string',
-      description: 'Pilih apakah dokumentasi ini berupa Foto Kegiatan atau Video YouTube',
+      description: 'Pilih apakah dokumentasi ini berupa Foto Kegiatan atau Video',
       options: {
         list: [
           { title: '📷 Foto Kegiatan', value: 'photo' },
-          { title: '🎥 Video YouTube', value: 'video' },
+          { title: '🎥 Video', value: 'video' },
         ],
         layout: 'radio',
       },
@@ -27,14 +27,14 @@ export const galleryType = defineType({
     }),
     defineField({
       name: 'videoUrl',
-      title: 'Tautan Video YouTube',
-      description: 'Masukkan URL video YouTube (contoh: https://www.youtube.com/watch?v=... atau https://youtu.be/... atau YouTube Shorts)',
+      title: 'Tautan / Link Video',
+      description: 'Masukkan URL video (contoh: link YouTube seperti https://www.youtube.com/watch?v=... atau https://youtu.be/...)',
       type: 'url',
       hidden: ({ parent }: { parent?: any }) => parent?.mediaType !== 'video',
       validation: (rule) => rule.custom((value, context) => {
         const parent = context.parent as { mediaType?: string } | undefined;
         if (parent?.mediaType === 'video' && !value) {
-          return 'Tautan Video YouTube wajib diisi untuk jenis Video!';
+          return 'Tautan Video wajib diisi untuk jenis Video!';
         }
         return true;
       }),

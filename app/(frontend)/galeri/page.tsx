@@ -124,36 +124,6 @@ const defaultActivities: GalleryItem[] = [
   }
 ];
 
-const defaultVideos: GalleryItem[] = [
-  {
-    _id: "vid-1",
-    title: "Dokumentasi Pembelajaran & Festival Membatik",
-    description: "Keseruan ananda berkreasi membuat motif celup rintang bersama teman dan bunda guru.",
-    mediaType: "video",
-    videoUrl: "https://www.youtube.com/@paudhidayahtayupati9017",
-    videoDuration: "YouTube",
-    imageUrl: "/kegiatan/kegiatan-parenting-batik.webp",
-  },
-  {
-    _id: "vid-2",
-    title: "Keseruan Peringatan Hari Santri Nasional & Pawai Ceria",
-    description: "Semarak peringatan Hari Santri dengan busana muslim ananda penuh kebahagiaan.",
-    mediaType: "video",
-    videoUrl: "https://www.youtube.com/@paudhidayahtayupati9017",
-    videoDuration: "YouTube",
-    imageUrl: "/kegiatan/kegiatan-bersama-sekolah.webp",
-  },
-  {
-    _id: "vid-3",
-    title: "Eksplorasi Sentra Bahan Alam & Motorik Ceria",
-    description: "Belajar kontekstual di alam terbuka melatih kemandirian dan rasa ingin tahu anak.",
-    mediaType: "video",
-    videoUrl: "https://www.youtube.com/@paudhidayahtayupati9017",
-    videoDuration: "YouTube",
-    imageUrl: "/kegiatan/kegiatan-sentra-bahan-alam.webp",
-  },
-];
-
 async function getGalleryData(): Promise<GalleryItem[]> {
   try {
     const query = `*[_type == "gallery"] | order(publishedAt desc) {
@@ -179,18 +149,13 @@ async function getGalleryData(): Promise<GalleryItem[]> {
     }));
 
     if (sanityItems.length > 0) {
-      // If Sanity has items but no videos yet, append starter videos from their YouTube channel
-      const hasVideos = sanityItems.some((item) => item.mediaType === 'video');
-      if (!hasVideos) {
-        return [...sanityItems, ...defaultVideos];
-      }
       return sanityItems;
     }
 
-    return [...defaultActivities, ...defaultVideos];
+    return defaultActivities;
   } catch (err) {
     console.error("Error fetching gallery from Sanity:", err);
-    return [...defaultActivities, ...defaultVideos];
+    return defaultActivities;
   }
 }
 
@@ -212,10 +177,10 @@ export default async function GalleryPage() {
             <span>DOKUMENTASI KEGIATAN</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
-            Galeri Foto &amp; Video Ceria
+            Galeri Foto &amp; Video
           </h1>
           <p className="text-white/95 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Yuk, intip rekaman momen bahagia dan keseruan ananda dalam berbagai aktivitas belajar melalui bermain, berkarya, dan bereksplorasi setiap hari.
+            Yuk, intip dokumentasi kegiatan belajar melalui bermain, berkarya, dan bereksplorasi setiap hari.
           </p>
         </div>
       </div>
@@ -230,35 +195,6 @@ export default async function GalleryPage() {
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Gallery Grid Client Component with Photo & Video Tabs */}
         <GalleryGrid items={items} />
-
-        {/* YouTube Channel Banner Invitation */}
-        <div className="mt-16 bg-gradient-to-r from-red-500/10 via-[#188B48]/10 to-[#FCD116]/20 rounded-3xl p-6 sm:p-8 border border-red-500/20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
-          <div className="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
-            <div className="w-14 h-14 rounded-2xl bg-[#FF0000] text-white flex items-center justify-center shrink-0 shadow-lg shadow-red-500/30">
-              <svg className="w-8 h-8 fill-white" viewBox="0 0 24 24">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#1b1c1a]">
-                Kanal YouTube Resmi PAUD Hidayah Tayu Wetan
-              </h3>
-              <p className="text-gray-600 text-sm mt-0.5">
-                Jangan lewatkan tayangan lengkap kegiatan pembelajaran dan pentas seni di channel <strong>@paudhidayahtayupati9017</strong>.
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="https://www.youtube.com/@paudhidayahtayupati9017"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FF0000] text-white font-bold text-sm shadow-md hover:bg-[#CC0000] hover:scale-105 transition-all shrink-0"
-          >
-            <span>Kunjungi YouTube</span>
-            <span className="material-symbols-outlined text-[18px]">open_in_new</span>
-          </a>
-        </div>
       </div>
     </main>
   );

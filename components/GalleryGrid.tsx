@@ -116,8 +116,8 @@ export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
               : 'bg-white text-gray-600 hover:bg-[#EAF3EF] hover:text-[#188B48] border border-gray-200/80'
           }`}
         >
-          <span className="material-symbols-outlined text-[18px] text-[#FF0000]">play_circle</span>
-          <span>Video YouTube</span>
+          <span className="material-symbols-outlined text-[18px]">videocam</span>
+          <span>Video</span>
           <span
             className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
               activeTab === 'video' ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'
@@ -132,13 +132,15 @@ export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
       {filteredItems.length === 0 && (
         <div className="flex flex-col items-center justify-center py-20 text-center bg-white rounded-3xl border border-gray-100 p-8 shadow-sm">
           <span className="material-symbols-outlined text-[64px] text-gray-300 mb-3">
-            {activeTab === 'video' ? 'videocam_off' : 'photo_library'}
+            {activeTab === 'video' ? 'videocam' : 'photo_library'}
           </span>
           <h3 className="text-xl font-bold text-gray-700">
-            {activeTab === 'video' ? 'Belum Ada Video di Kategori Ini' : 'Belum Ada Dokumentasi'}
+            {activeTab === 'video' ? 'Belum Ada Video Kegiatan' : 'Belum Ada Dokumentasi'}
           </h3>
           <p className="text-gray-400 mt-2 max-w-md text-sm">
-            Nantikan dokumentasi keseruan dan rekaman video kegiatan belajar ceria ananda di sini!
+            {activeTab === 'video'
+              ? 'Dokumentasi video kegiatan belajar dan kreativitas ananda akan segera hadir di sini.'
+              : 'Nantikan dokumentasi keseruan dan foto kegiatan belajar ceria ananda di sini!'}
           </p>
         </div>
       )}
@@ -150,15 +152,15 @@ export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
           const thumbSrc = resolveItemThumb(item);
 
           if (isVideo) {
-            // Video Card: Directed to YouTube as requested
+            // Video Card: Opens video link in new tab
             return (
               <a
                 key={item._id}
-                href={item.videoUrl || 'https://www.youtube.com'}
+                href={item.videoUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/3] bg-gray-900 border border-gray-100 flex flex-col justify-end"
-                title={`Tonton "${item.title}" di YouTube`}
+                title={`Tonton "${item.title}"`}
               >
                 {/* Thumbnail Image */}
                 <Image
@@ -173,12 +175,10 @@ export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
                 {/* Dark Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/20 group-hover:via-black/25 transition-all duration-300"></div>
 
-                {/* YouTube Badge (Top-Left) */}
+                {/* Video Badge (Top-Left) */}
                 <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-white text-[11px] font-bold border border-white/20 shadow-md">
-                  <svg className="w-3.5 h-3.5 fill-[#FF0000]" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                  </svg>
-                  <span>YouTube</span>
+                  <span className="material-symbols-outlined text-[14px] text-[#FCD116]">videocam</span>
+                  <span>Video</span>
                 </div>
 
                 {/* Duration Badge (Top-Right) */}
@@ -188,9 +188,9 @@ export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
                   </div>
                 )}
 
-                {/* Big Iconic YouTube Play Button (Center) */}
+                {/* Big Iconic Play Button (Center) */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#FF0000] text-white flex items-center justify-center shadow-2xl group-hover:scale-115 group-hover:bg-[#E60000] transition-all duration-300 ring-4 ring-white/30">
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#188B48] text-white flex items-center justify-center shadow-2xl group-hover:scale-115 group-hover:bg-[#136f3a] transition-all duration-300 ring-4 ring-white/30">
                     <span className="material-symbols-outlined text-[28px] sm:text-[32px] translate-x-0.5">
                       play_arrow
                     </span>
@@ -208,7 +208,7 @@ export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
                     </p>
                   )}
                   <div className="inline-flex items-center gap-1.5 text-[11.5px] font-bold text-[#FCD116] mt-2 opacity-90 group-hover:opacity-100 transition-opacity">
-                    <span>Tonton di YouTube</span>
+                    <span>Tonton Video</span>
                     <span className="material-symbols-outlined text-[14px]">open_in_new</span>
                   </div>
                 </div>
