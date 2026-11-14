@@ -876,12 +876,12 @@ export default async function Home() {
       {displayFeaturedPrograms.map((prog: any, idx: number) => (
         <div key={prog._id || idx} className="bg-gradient-to-br from-[#1fa555] to-[#14753c] rounded-3xl p-6 shadow-md border border-white/20 hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group w-[85vw] sm:w-[300px] md:w-auto snap-center shrink-0 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between mb-5">
-              <div className="w-14 h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] group-hover:scale-110 transition-transform shadow-sm">
+            <div className="flex items-start justify-between gap-3 mb-5">
+              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FCD116] flex items-center justify-center text-[#188B48] shrink-0 aspect-square group-hover:scale-110 transition-transform shadow-sm">
                 <span className="material-symbols-outlined text-[28px]">{prog.icon || 'star'}</span>
               </div>
               {prog.category && (
-                <span className="text-[11px] font-bold text-[#FCD116] bg-black/25 px-3 py-1 rounded-full uppercase tracking-wider">
+                <span className="text-[10.5px] sm:text-[11px] font-bold text-[#FCD116] bg-black/25 px-3 py-1.5 rounded-xl uppercase tracking-wider text-right leading-tight max-w-[calc(100%-4rem)] self-start">
                   {prog.category}
                 </span>
               )}

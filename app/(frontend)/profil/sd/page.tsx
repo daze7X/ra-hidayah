@@ -642,7 +642,7 @@ export default async function ProfilSDPage() {
                     <span className="px-3 py-1 rounded-full bg-[#FCD116]/20 text-[#1b1c1a] text-xs font-bold uppercase tracking-wider">
                       {prog.badge}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-[#188B48]/10 text-[#188B48] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-[#188B48]/10 text-[#188B48] flex items-center justify-center shrink-0 aspect-square">
                       <span className="material-symbols-outlined text-[22px]">{prog.icon}</span>
                     </div>
                   </div>
