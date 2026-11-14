@@ -881,7 +881,7 @@ export default async function Home() {
                 <span className="material-symbols-outlined text-[28px]">{prog.icon || 'star'}</span>
               </div>
               {prog.category && (
-                <span className="text-[10.5px] sm:text-[11px] font-bold text-[#FCD116] bg-black/25 px-3 py-1.5 rounded-xl uppercase tracking-wider text-right leading-tight max-w-[calc(100%-4rem)] self-start">
+                <span className="text-[10.5px] sm:text-[11px] font-bold text-[#FCD116] bg-black/25 px-3 py-1.5 rounded-xl uppercase tracking-wider text-left leading-tight max-w-[calc(100%-4rem)] self-start">
                   {prog.category}
                 </span>
               )}
