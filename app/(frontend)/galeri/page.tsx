@@ -126,33 +126,48 @@ const defaultActivities: GalleryItem[] = [
 
 async function getGalleryData(): Promise<GalleryItem[]> {
   try {
-    const query = `*[_type == "gallery"] | order(publishedAt desc) {
-      _id,
-      title,
-      description,
-      mediaType,
-      image,
-      videoUrl,
-      videoDuration
+    const query = `{
+      "photos": *[_type == "gallery"] | order(publishedAt desc) {
+        _id,
+        title,
+        description,
+        image,
+        publishedAt
+      },
+      "videos": *[_type == "galleryVideo"] | order(publishedAt desc) {
+        _id,
+        title,
+        description,
+        videoUrl,
+        videoDuration,
+        thumbnail,
+        publishedAt
+      }
     }`;
     
-    const galleries = await client.fetch(query, {}, { next: { revalidate: 0 } });
+    const data = await client.fetch(query, {}, { next: { revalidate: 0 } });
     
-    const sanityItems: GalleryItem[] = (galleries || []).map((item: any) => ({
+    const photoItems: GalleryItem[] = (data?.photos || []).map((item: any) => ({
       _id: item._id,
       title: item.title,
       description: item.description,
-      mediaType: (item.mediaType as 'photo' | 'video') || 'photo',
+      mediaType: 'photo' as const,
       imageUrl: item.image ? urlFor(item.image).url() : null,
+    }));
+
+    const videoItems: GalleryItem[] = (data?.videos || []).map((item: any) => ({
+      _id: item._id,
+      title: item.title,
+      description: item.description,
+      mediaType: 'video' as const,
+      imageUrl: item.thumbnail ? urlFor(item.thumbnail).url() : null,
       videoUrl: item.videoUrl || null,
       videoDuration: item.videoDuration || null,
     }));
 
-    if (sanityItems.length > 0) {
-      return sanityItems;
-    }
+    const effectivePhotos = photoItems.length > 0 ? photoItems : defaultActivities;
 
-    return defaultActivities;
+    return [...effectivePhotos, ...videoItems];
   } catch (err) {
     console.error("Error fetching gallery from Sanity:", err);
     return defaultActivities;

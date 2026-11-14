@@ -27,12 +27,12 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
 
-      // 2. Galeri Foto (Folder Beranda & Semua Galeri)
+      // 2. Galeri Foto & Video (Folder Beranda & Semua Galeri)
       S.listItem()
-        .title('Galeri Foto')
+        .title('Galeri Foto & Video')
         .child(
           S.list()
-            .title('Kelola Galeri Foto')
+            .title('Kelola Galeri Foto & Video')
             .items([
               S.listItem()
                 .title('🌟 Sorotan Beranda (Bento Grid 4 Foto)')
@@ -50,8 +50,16 @@ export const structure: StructureResolver = (S) =>
                 .title('📸 Semua Galeri Foto (Halaman Galeri)')
                 .child(
                   S.documentList()
-                    .title('Semua Dokumentasi Kegiatan Sekolah')
+                    .title('Semua Dokumentasi Foto Kegiatan')
                     .filter('_type == "gallery"')
+                    .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
+                ),
+              S.listItem()
+                .title('🎥 Video Kegiatan (Halaman Galeri)')
+                .child(
+                  S.documentList()
+                    .title('Semua Video Kegiatan Sekolah')
+                    .filter('_type == "galleryVideo"')
                     .defaultOrdering([{ field: 'publishedAt', direction: 'desc' }])
                 ),
             ])

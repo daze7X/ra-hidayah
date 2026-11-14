@@ -5,6 +5,7 @@ import {categoryType} from './categoryType'
 import {postType} from './postType'
 import {authorType} from './authorType'
 import {galleryType} from './galleryType'
+import {galleryVideoType} from './galleryVideoType'
 import {orgStructureType} from './orgStructureType'
 import {schoolProfileType} from './schoolProfileType'
 import {principalWelcomeType} from './principalWelcomeType'
@@ -25,6 +26,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     postType, 
     authorType, 
     galleryType, 
+    galleryVideoType,
     orgStructureType, 
     orgPageSettingsType,
     schoolProfileType,
