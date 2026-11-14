@@ -62,6 +62,12 @@ export const postType = defineType({
       description: 'Masukkan link video TikTok jika ada dokumentasi di TikTok.',
       type: 'url',
     }),
+    defineField({
+      name: 'instagramUrl',
+      title: 'Tautan Postingan / Reels Instagram (Opsional)',
+      description: 'Masukkan link postingan atau video Reels Instagram jika ada dokumentasi di Instagram.',
+      type: 'url',
+    }),
   ],
   preview: {
     select: {
